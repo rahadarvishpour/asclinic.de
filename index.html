@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AsClinic – Haartransplantation mit natürlichem Ergebnis</title>
 <meta name="description" content="AsClinic ist Ihre Fachklinik für Haartransplantation (FUE & DHI), Bart- und Augenbrauentransplantation. Kostenlose Erstberatung, erfahrene Fachärzte, natürliche Ergebnisse.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f3d3e'/%3E%3Cpath d='M30 70 Q30 30 50 30 Q70 30 70 70' stroke='%234fd1c5' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231b1712'/%3E%3Cpath d='M28 72 Q28 28 50 28 Q72 28 72 72' stroke='%23c9974f' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -13,30 +13,57 @@
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <header class="site-header" id="site-header">
-  <div class="container header-inner">
-    <a href="#top" class="logo" aria-label="AsClinic Startseite">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M6 20 Q6 6 12 6 Q18 6 18 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-      </span>
-      <span class="logo-text">As<strong>Clinic</strong></span>
-    </a>
 
-    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#ergebnisse">Ergebnisse</a>
-      <a href="#erfahrungen">Erfahrungen</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="logo" aria-label="AsClinic Startseite">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M6 20 Q6 6 12 6 Q18 6 18 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="logo-type">
+          <span class="logo-text">As<strong>Clinic</strong></span>
+          <span class="logo-sub">Haartransplantation</span>
+        </span>
+      </a>
 
-    <div class="header-actions">
-      <a href="#kontakt" class="btn btn-primary btn-sm">Beratung sichern</a>
+      <div class="topbar-right">
+        <span class="topbar-info">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Mo–Fr 09:00–18:00 Uhr
+        </span>
+        <span class="topbar-divider" aria-hidden="true"></span>
+        <span class="topbar-info">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 21s-7-5.7-7-11a7 7 0 1 1 14 0c0 5.3-7 11-7 11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          Musterstraße 1, 12345 Musterstadt
+        </span>
+        <a href="#kontakt" class="btn btn-dark btn-sm topbar-cta">
+          Termin online
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
 
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="navbar">
+    <div class="container navbar-inner">
+      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+        <a href="#top" class="nav-active">Start</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#ergebnisse">Ergebnisse</a>
+        <a href="#erfahrungen">Erfahrungen</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#kontakt" class="btn btn-dark btn-sm nav-cta-mobile">
+          Termin online
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -44,87 +71,139 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Fachklinik für Haartransplantation</p>
         <h1>Volles Haar. <span>Neues Selbstbewusstsein.</span></h1>
         <p class="hero-lead">
-          Mit modernster FUE- und DHI-Technik schaffen wir dichte, natürlich wirkende Ergebnisse –
-          begleitet von erfahrenen Fachärzten von der ersten Beratung bis zur vollständigen Ausheilung.
+          Mit modernster <a href="#leistungen">FUE</a>- und <a href="#leistungen">DHI-Technik</a> schaffen wir dichte, natürlich
+          wirkende Ergebnisse – begleitet von erfahrenen Fachärzten von der ersten Beratung bis zur vollständigen Ausheilung.
         </p>
+
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary btn-lg">Kostenlose Beratung sichern</a>
-          <a href="#leistungen" class="btn btn-ghost btn-lg">Behandlungen ansehen</a>
+          <a href="#kontakt" class="btn btn-dark btn-lg">Kostenlose Beratung sichern</a>
+          <a href="#leistungen" class="link-cta">Behandlungen ansehen</a>
         </div>
-        <ul class="hero-trust">
-          <li><svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Zertifizierte Fachärzte</li>
-          <li><svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Schmerzarme Behandlung</li>
-          <li><svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Persönliche Nachsorge</li>
-        </ul>
+
+        <div class="doctor-note">
+          <span class="doctor-avatar" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="100%" height="100%">
+              <circle cx="30" cy="30" r="30" fill="#f1e0bb"/>
+              <circle cx="30" cy="26" r="10" fill="#1b1712"/>
+              <path d="M12 54c1-11 8-17 18-17s17 6 18 17" fill="#1b1712"/>
+              <path d="M20 20c2-6 6-9 10-9s8 3 10 9c-4-2-7-1-10 1-3-2-6-3-10-1z" fill="#c9974f"/>
+            </svg>
+          </span>
+          <p><strong>Dr. med. Sarah Klein</strong> setzt auf natürliche Ergebnisse, die niemand als Transplantation erkennt.</p>
+        </div>
       </div>
 
       <div class="hero-visual">
-        <div class="hero-card">
+        <div class="hero-frame">
           <div class="hero-slider" id="hero-slider" role="region" aria-roledescription="Bildergalerie" aria-label="Behandlungen im Überblick">
             <div class="hero-slider-track" id="hero-slider-track">
+
               <div class="hero-slide" aria-hidden="false">
-                <svg viewBox="0 0 220 220" width="100%" height="100%">
-                  <circle cx="110" cy="110" r="100" fill="url(#g1)"/>
-                  <path d="M60 150 Q60 60 110 60 Q160 60 160 150" fill="none" stroke="#e8faf6" stroke-width="10" stroke-linecap="round"/>
-                  <path d="M75 150 Q75 80 110 80 Q145 80 145 150" fill="none" stroke="#4fd1c5" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 10"/>
+                <svg viewBox="0 0 400 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                   <defs>
-                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#0f3d3e"/>
-                      <stop offset="1" stop-color="#146356"/>
+                    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f3e6c8"/>
+                      <stop offset="1" stop-color="#e3cd97"/>
                     </linearGradient>
                   </defs>
+                  <rect width="400" height="500" fill="url(#bg1)"/>
+                  <circle cx="200" cy="220" r="150" fill="#ecd9ab" opacity="0.6"/>
+                  <path d="M40 480C46 355 112 265 200 265C288 265 354 355 360 480Z" fill="#1b1712"/>
+                  <rect x="165" y="255" width="70" height="55" fill="#1b1712"/>
+                  <ellipse cx="200" cy="195" rx="78" ry="95" fill="#1b1712"/>
+                  <path d="M122 168C122 92 156 50 200 50C244 50 278 92 278 168C278 138 246 118 200 118C154 118 122 138 122 168Z" fill="#c9974f"/>
+                  <path d="M160 220q40 26 80 0" stroke="#e3cd97" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.55"/>
                 </svg>
+                <span class="slide-caption">FUE-Haartransplantation</span>
               </div>
+
               <div class="hero-slide" aria-hidden="true">
-                <svg viewBox="0 0 220 220" width="100%" height="100%">
-                  <circle cx="110" cy="110" r="100" fill="url(#g2)"/>
-                  <path d="M70 60v100M95 55v110M120 55v110M145 60v100" stroke="#4fd1c5" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M70 60l-10-10M145 60l10-10" stroke="#e8faf6" stroke-width="5" stroke-linecap="round"/>
+                <svg viewBox="0 0 400 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                   <defs>
-                    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#146356"/>
-                      <stop offset="1" stop-color="#1c7a68"/>
+                    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#efe0bb"/>
+                      <stop offset="1" stop-color="#dcc488"/>
                     </linearGradient>
                   </defs>
+                  <rect width="400" height="500" fill="url(#bg2)"/>
+                  <circle cx="200" cy="220" r="150" fill="#e6d29e" opacity="0.6"/>
+                  <path d="M40 480C46 355 112 265 200 265C288 265 354 355 360 480Z" fill="#1b1712"/>
+                  <rect x="165" y="255" width="70" height="55" fill="#1b1712"/>
+                  <ellipse cx="200" cy="195" rx="78" ry="95" fill="#1b1712"/>
+                  <g stroke="#c9974f" stroke-width="5" stroke-linecap="round">
+                    <path d="M150 100v80M172 92v88M194 88v92M216 88v92M238 92v88M260 100v80"/>
+                  </g>
+                  <path d="M150 100l-12-12M260 100l12-12" stroke="#f3e6c8" stroke-width="4.5" stroke-linecap="round"/>
                 </svg>
+                <span class="slide-caption">DHI Direkttransplantation</span>
               </div>
+
               <div class="hero-slide" aria-hidden="true">
-                <svg viewBox="0 0 220 220" width="100%" height="100%">
-                  <circle cx="110" cy="110" r="100" fill="url(#g3)"/>
-                  <path d="M65 120l25 25 65-65" fill="none" stroke="#e8faf6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg viewBox="0 0 400 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
                   <defs>
-                    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#0f3d3e"/>
-                      <stop offset="1" stop-color="#1c7a68"/>
+                    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f3e6c8"/>
+                      <stop offset="1" stop-color="#e3cd97"/>
                     </linearGradient>
                   </defs>
+                  <rect width="400" height="500" fill="url(#bg3)"/>
+                  <circle cx="200" cy="220" r="150" fill="#ecd9ab" opacity="0.6"/>
+                  <path d="M40 480C46 355 112 265 200 265C288 265 354 355 360 480Z" fill="#1b1712"/>
+                  <rect x="165" y="255" width="70" height="55" fill="#1b1712"/>
+                  <ellipse cx="200" cy="195" rx="78" ry="95" fill="#1b1712"/>
+                  <path d="M122 168C122 92 156 50 200 50C244 50 278 92 278 168C278 138 246 118 200 118C154 118 122 138 122 168Z" fill="#c9974f"/>
+                  <circle cx="288" cy="118" r="30" fill="#1b1712"/>
+                  <path d="M276 118l8 8 18-18" fill="none" stroke="#f3e6c8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+                <span class="slide-caption">Sichtbares Endergebnis</span>
               </div>
+
             </div>
           </div>
-          <div class="floating-badge badge-top" aria-hidden="true">98% Zufriedenheit</div>
-          <div class="floating-badge badge-bottom" aria-hidden="true">15.000+ Behandlungen</div>
-          <div class="slider-dots" role="tablist" aria-label="Folie wählen">
+          <div class="slider-dots" id="hero-dots" role="tablist" aria-label="Folie wählen">
             <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Folie 1: FUE-Haartransplantation"></button>
             <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Folie 2: DHI Direkttransplantation"></button>
-            <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Folie 3: Sichtbares Ergebnis"></button>
+            <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Folie 3: Sichtbares Endergebnis"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="stats-bar">
-      <div class="container stats-grid">
-        <div class="stat"><span class="stat-num">15.000+</span><span class="stat-label">Behandelte Patienten</span></div>
-        <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Jahre Erfahrung</span></div>
-        <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Zufriedenheitsrate</span></div>
-        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Individuelle Beratung</span></div>
+    <div class="trust-strip-wrap">
+      <div class="container">
+        <div class="trust-strip">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div><strong>12+ Jahre</strong><span>Erfahrung in der Haarchirurgie</span></div>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Faire Preise</strong><span>Transparent, ohne versteckte Kosten</span></div>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Zertifiziert</strong><span>Ausschließlich Fachärzte</span></div>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Rund um die Uhr</strong><span>Terminvereinbarung online</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quicklinks-wrap">
+      <div class="container quicklinks">
+        <a href="#leistungen" class="pill-link">FUE-Transplantation</a>
+        <a href="#leistungen" class="pill-link">DHI-Methode</a>
+        <a href="#leistungen" class="pill-link">Bartimplantation</a>
+        <a href="#leistungen" class="pill-link">Augenbrauen</a>
+        <a href="#kontakt" class="pill-link">Kostenlose Analyse</a>
       </div>
     </div>
   </section>
@@ -290,8 +369,8 @@
         <div class="result-card">
           <div class="density-visual">
             <svg viewBox="0 0 160 160" width="100%" height="100%">
-              <circle cx="80" cy="80" r="70" fill="#0f3d3e"/>
-              <g stroke="#4fd1c5" stroke-width="2" stroke-linecap="round" opacity="0.35">
+              <circle cx="80" cy="80" r="70" fill="#1b1712"/>
+              <g stroke="#c9974f" stroke-width="2" stroke-linecap="round" opacity="0.4">
                 <path d="M50 100 L54 70"/><path d="M65 100 L68 68"/><path d="M95 100 L92 68"/><path d="M110 100 L106 70"/>
               </g>
             </svg>
@@ -302,8 +381,8 @@
         <div class="result-card">
           <div class="density-visual">
             <svg viewBox="0 0 160 160" width="100%" height="100%">
-              <circle cx="80" cy="80" r="70" fill="#0f3d3e"/>
-              <g stroke="#4fd1c5" stroke-width="2" stroke-linecap="round" opacity="0.6">
+              <circle cx="80" cy="80" r="70" fill="#1b1712"/>
+              <g stroke="#c9974f" stroke-width="2" stroke-linecap="round" opacity="0.65">
                 <path d="M45 105 L50 65"/><path d="M58 108 L62 62"/><path d="M72 110 L74 60"/><path d="M88 110 L86 60"/><path d="M102 108 L98 62"/><path d="M115 105 L110 65"/>
               </g>
             </svg>
@@ -314,8 +393,8 @@
         <div class="result-card">
           <div class="density-visual">
             <svg viewBox="0 0 160 160" width="100%" height="100%">
-              <circle cx="80" cy="80" r="70" fill="#0f3d3e"/>
-              <g stroke="#4fd1c5" stroke-width="2" stroke-linecap="round" opacity="0.9">
+              <circle cx="80" cy="80" r="70" fill="#1b1712"/>
+              <g stroke="#c9974f" stroke-width="2" stroke-linecap="round" opacity="0.95">
                 <path d="M42 108 L48 60"/><path d="M54 112 L58 56"/><path d="M66 114 L68 54"/><path d="M78 115 L78 53"/><path d="M90 114 L90 54"/><path d="M102 112 L100 56"/><path d="M114 108 L110 60"/>
               </g>
             </svg>
@@ -330,27 +409,52 @@
   <!-- ERFAHRUNGEN -->
   <section class="section" id="erfahrungen">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head section-head-center">
         <p class="eyebrow">Erfahrungen</p>
         <h2>Das sagen unsere Patienten</h2>
       </div>
 
-      <div class="testimonial-grid">
-        <blockquote class="testimonial">
-          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-          <p>„Von der Beratung bis zur Nachsorge fühlte ich mich bestens betreut. Das Ergebnis wirkt komplett natürlich.“</p>
-          <footer>— Michael K.</footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-          <p>„Ich hatte großen Respekt vor dem Eingriff, aber das Team hat mir jede Sorge genommen. Absolute Empfehlung.“</p>
-          <footer>— Jonas B.</footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-          <p>„Transparente Beratung, faire Preise und ein Ergebnis, das meine Erwartungen übertroffen hat.“</p>
-          <footer>— David R.</footer>
-        </blockquote>
+      <div class="testimonial-slider" id="testimonial-slider">
+        <div class="testimonial-track" id="testimonial-track">
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p>„Von der Beratung bis zur Nachsorge fühlte ich mich bestens betreut. Das Ergebnis wirkt komplett natürlich.“</p>
+            <footer>
+              <span class="avatar-initial" aria-hidden="true">MK</span>
+              <span>Michael K.</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p>„Ich hatte großen Respekt vor dem Eingriff, aber das Team hat mir jede Sorge genommen. Absolute Empfehlung.“</p>
+            <footer>
+              <span class="avatar-initial" aria-hidden="true">JB</span>
+              <span>Jonas B.</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p>„Transparente Beratung, faire Preise und ein Ergebnis, das meine Erwartungen übertroffen hat.“</p>
+            <footer>
+              <span class="avatar-initial" aria-hidden="true">DR</span>
+              <span>David R.</span>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-arrow" id="testimonial-prev" aria-label="Vorherige Bewertung">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="slider-dots" id="testimonial-dots" role="tablist" aria-label="Bewertung wählen">
+            <button class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Bewertung 1"></button>
+            <button class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Bewertung 2"></button>
+            <button class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Bewertung 3"></button>
+          </div>
+          <button class="slider-arrow" id="testimonial-next" aria-label="Nächste Bewertung">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -462,7 +566,7 @@
           <input type="checkbox" id="privacy" name="privacy" required>
           <label for="privacy">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Anfrage senden</button>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">Anfrage senden</button>
         <p class="form-status" id="form-status" role="status"></p>
       </form>
     </div>
@@ -475,7 +579,7 @@
     <div class="footer-brand">
       <a href="#top" class="logo">
         <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M6 20 Q6 6 12 6 Q18 6 18 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M6 20 Q6 6 12 6 Q18 6 18 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         </span>
         <span class="logo-text">As<strong>Clinic</strong></span>
       </a>

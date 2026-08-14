@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   // Footer year
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -40,14 +42,18 @@
     });
   });
 
-  // Hero slider
-  var slider = document.getElementById("hero-slider");
-  var track = document.getElementById("hero-slider-track");
-  var dots = document.querySelectorAll(".slider-dots .dot");
-  var slides = document.querySelectorAll(".hero-slide");
-  if (slider && track && dots.length && slides.length) {
+  // Generic slider: scoped to a root element so multiple sliders can coexist
+  function createSlider(options) {
+    var root = options.root;
+    var track = options.track;
+    var slides = options.slides;
+    var dots = options.dots;
+    var prevBtn = options.prevBtn;
+    var nextBtn = options.nextBtn;
+    var autoplay = options.autoplay !== false;
+    if (!root || !track || !slides.length) return;
+
     var current = 0;
-    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var timer = null;
 
     function goTo(index) {
@@ -63,12 +69,12 @@
       });
     }
 
-    function startAutoplay() {
-      if (prefersReducedMotion) return;
-      stopAutoplay();
-      timer = setInterval(function () { goTo(current + 1); }, 5000);
+    function start() {
+      if (!autoplay || prefersReducedMotion) return;
+      stop();
+      timer = setInterval(function () { goTo(current + 1); }, 5500);
     }
-    function stopAutoplay() {
+    function stop() {
       if (timer) clearInterval(timer);
       timer = null;
     }
@@ -76,18 +82,36 @@
     dots.forEach(function (dot) {
       dot.addEventListener("click", function () {
         goTo(parseInt(dot.dataset.index, 10));
-        startAutoplay();
+        start();
       });
     });
+    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); start(); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); start(); });
 
-    slider.addEventListener("mouseenter", stopAutoplay);
-    slider.addEventListener("mouseleave", startAutoplay);
-    slider.addEventListener("focusin", stopAutoplay);
-    slider.addEventListener("focusout", startAutoplay);
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", start);
 
     goTo(0);
-    startAutoplay();
+    start();
   }
+
+  createSlider({
+    root: document.getElementById("hero-slider"),
+    track: document.getElementById("hero-slider-track"),
+    slides: document.querySelectorAll("#hero-slider-track .hero-slide"),
+    dots: document.querySelectorAll("#hero-dots .dot")
+  });
+
+  createSlider({
+    root: document.getElementById("testimonial-slider"),
+    track: document.getElementById("testimonial-track"),
+    slides: document.querySelectorAll("#testimonial-track .testimonial"),
+    dots: document.querySelectorAll("#testimonial-dots .dot"),
+    prevBtn: document.getElementById("testimonial-prev"),
+    nextBtn: document.getElementById("testimonial-next")
+  });
 
   // Contact form (client-side only, no backend configured yet)
   var form = document.getElementById("kontakt-form");
