@@ -40,6 +40,55 @@
     });
   });
 
+  // Hero slider
+  var slider = document.getElementById("hero-slider");
+  var track = document.getElementById("hero-slider-track");
+  var dots = document.querySelectorAll(".slider-dots .dot");
+  var slides = document.querySelectorAll(".hero-slide");
+  if (slider && track && dots.length && slides.length) {
+    var current = 0;
+    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var timer = null;
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + current * (100 / slides.length) + "%)";
+      dots.forEach(function (dot, i) {
+        var isActive = i === current;
+        dot.classList.toggle("active", isActive);
+        dot.setAttribute("aria-selected", String(isActive));
+      });
+      slides.forEach(function (slide, i) {
+        slide.setAttribute("aria-hidden", String(i !== current));
+      });
+    }
+
+    function startAutoplay() {
+      if (prefersReducedMotion) return;
+      stopAutoplay();
+      timer = setInterval(function () { goTo(current + 1); }, 5000);
+    }
+    function stopAutoplay() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        goTo(parseInt(dot.dataset.index, 10));
+        startAutoplay();
+      });
+    });
+
+    slider.addEventListener("mouseenter", stopAutoplay);
+    slider.addEventListener("mouseleave", startAutoplay);
+    slider.addEventListener("focusin", stopAutoplay);
+    slider.addEventListener("focusout", startAutoplay);
+
+    goTo(0);
+    startAutoplay();
+  }
+
   // Contact form (client-side only, no backend configured yet)
   var form = document.getElementById("kontakt-form");
   var status = document.getElementById("form-status");
