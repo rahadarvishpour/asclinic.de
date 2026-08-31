@@ -12,7 +12,7 @@ const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
   <div class="container">
     <div class="footer__cols" style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:var(--sp-7); width:100%; padding-block:20px">
       <div style="display:grid; gap:var(--sp-4); align-content:start">
-        <img src="/assets/logo.jpg" alt="AS Clinic — hair transplant & aesthetic medicine" width="132" height="132" style="width:132px; height:132px; border-radius:var(--r-pill); object-fit:cover; background:#000" />
+        <img src="/assets/logo.jpg" alt={t(locale, "ft.logoAlt")} width="132" height="132" style="width:132px; height:132px; border-radius:var(--r-pill); object-fit:cover; background:#000" />
         <p class="body" style="color:rgba(246,241,237,.62); max-width:34ch">{t(locale, "ft.tagline")}</p>
         <div style="display:flex; flex-wrap:wrap; gap:var(--sp-2)">
           <a class="social" href="https://www.instagram.com/asclinic" target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>

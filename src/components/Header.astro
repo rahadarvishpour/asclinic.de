@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname;
 <header class="header--sticky">
   <div class="container nav">
     <a href={anchor("top")} class="brand-link" style="display:inline-flex; align-items:center; gap:var(--sp-3); color:var(--text); text-decoration:none; min-width:0">
-      <img src="/assets/logo.jpg" width="48" height="48" alt="AS Clinic logo" style="width:48px; height:48px; border-radius:var(--r-pill); object-fit:cover; background:#000; flex:none" />
+      <img src="/assets/logo.jpg" width="48" height="48" alt={t(locale, "brand.logoAlt")} style="width:48px; height:48px; border-radius:var(--r-pill); object-fit:cover; background:#000; flex:none" />
       <span style="font-family:var(--font-display); font-size:1.35rem; line-height:1.05">{t(locale, "hero.title")}</span>
     </a>
     <nav data-desknav="1">

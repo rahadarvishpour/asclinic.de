@@ -1,4 +1,5 @@
-import type { TreatmentPage } from "./types";
+import type { TreatmentPage, TreatmentContent } from "./types";
+import type { Locale } from "../../i18n/ui";
 import { LIP_FILLER } from "./lip-filler";
 import { BOTOX } from "./botox";
 import { MESOBOTOX } from "./mesobotox";
@@ -35,4 +36,10 @@ export const TREATMENT_PAGES: Record<string, TreatmentPage> = {
   [PRP_MESO_HAIR.slug]: PRP_MESO_HAIR
 };
 
-export type { TreatmentPage } from "./types";
+/** Locale-resolved page copy. Every locale is fully translated; the English
+ *  fallback exists only so a newly added locale can never render undefined. */
+export function treatmentContent(page: TreatmentPage, locale: Locale): TreatmentContent {
+  return page.content[locale] ?? page.content.en;
+}
+
+export type { TreatmentPage, TreatmentContent } from "./types";

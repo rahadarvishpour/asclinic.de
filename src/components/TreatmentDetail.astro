@@ -6,37 +6,40 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
 import { t, ti, localePath, type Locale } from "../i18n/ui";
+import { treatmentContent } from "../data/treatmentPages";
 import type { TreatmentPage } from "../data/treatmentPages/types";
 
 interface Props {
   locale: Locale;
-  content: TreatmentPage;
+  /** The treatment's full multi-locale record; the copy for `locale` is picked below. */
+  page: TreatmentPage;
   /** A locally-sourced, optimizable image, or a remote URL (e.g. Unsplash) for treatments without a dedicated downloaded photo yet. */
   image: ImageMetadata | string;
 }
 
-const { locale, content, image } = Astro.props;
+const { locale, page, image } = Astro.props;
+const copy = treatmentContent(page, locale);
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
-const unprefixedPath = `/treatments/${content.slug}`;
+const unprefixedPath = `/treatments/${page.slug}`;
 const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
 const homeHref = localePath(locale);
 const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
-const categoryLabel = t(locale, content.category.categoryLabelKey);
+const categoryLabel = t(locale, page.category.categoryLabelKey);
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}${homeHref}` },
-    { "@type": "ListItem", "position": 2, "name": categoryLabel, "item": `${site}${anchor(content.category.categoryAnchorId)}` },
-    { "@type": "ListItem", "position": 3, "name": content.title, "item": pageUrl }
+    { "@type": "ListItem", "position": 2, "name": categoryLabel, "item": `${site}${anchor(page.category.categoryAnchorId)}` },
+    { "@type": "ListItem", "position": 3, "name": copy.title, "item": pageUrl }
   ]
 };
 
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": content.faqs.map((f) => ({
+  "mainEntity": copy.faqs.map((f) => ({
     "@type": "Question",
     "name": f.q,
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
@@ -46,8 +49,8 @@ const faqJsonLd = {
 const procedureJsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalProcedure",
-  "name": content.title,
-  "description": content.metaDescription,
+  "name": copy.title,
+  "description": copy.metaDescription,
   "url": pageUrl,
   "procedureType": "https://schema.org/NoninvasiveProcedure",
   "provider": {
@@ -68,8 +71,8 @@ const procedureJsonLd = {
 
 <BaseLayout
   locale={locale}
-  title={content.metaTitle}
-  description={content.metaDescription}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
   includeFaqSchema={false}
   unprefixedPath={unprefixedPath}
 >
@@ -81,36 +84,36 @@ const procedureJsonLd = {
   <div style="overflow-x:hidden">
     <Header locale={locale} />
     <main id="main">
-      <nav aria-label="Breadcrumb" class="container" style="padding-top:var(--sp-6)">
+      <nav aria-label={t(locale, "a11y.breadcrumb")} class="container" style="padding-top:var(--sp-6)">
         <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
           <li><a href={homeHref} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href={anchor(content.category.categoryAnchorId)} style="color:var(--text-faint)">{categoryLabel}</a></li>
+          <li><a href={anchor(page.category.categoryAnchorId)} style="color:var(--text-faint)">{categoryLabel}</a></li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" style="color:var(--text)">{content.title}</li>
+          <li aria-current="page" style="color:var(--text)">{copy.title}</li>
         </ol>
       </nav>
 
       <section class="section" style="padding-top:var(--sp-6)">
         <div class="container" data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:var(--sp-8); align-items:center">
           <div>
-            <p class="eyebrow reveal" data-reveal="up">{content.heroKicker}</p>
-            <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{content.title}</h1>
-            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{content.heroLead}</p>
+            <p class="eyebrow reveal" data-reveal="up">{copy.heroKicker}</p>
+            <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{copy.title}</h1>
+            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{copy.heroLead}</p>
             <div style="margin-top:var(--sp-5)">
-              <span class="chip chip--outline">{content.chip}</span>
+              <span class="chip chip--outline">{copy.chip}</span>
             </div>
             <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
               <a class="btn btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
-              <a class="btn btn--lg btn--outline" href={anchor(content.category.categoryAnchorId)}>{ti(locale, "treat.viewAll", { category: categoryLabel })}</a>
+              <a class="btn btn--lg btn--outline" href={anchor(page.category.categoryAnchorId)}>{ti(locale, "treat.viewAll", { category: categoryLabel })}</a>
             </div>
           </div>
           <div class="reveal" data-reveal="scale">
             <div class="media" style="aspect-ratio:4/5">
               {typeof image === "string" ? (
-                <img src={image} alt={content.imageAlt} loading="eager" width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
+                <img src={image} alt={copy.imageAlt} loading="eager" width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
               ) : (
-                <Image src={image} alt={content.imageAlt} width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
+                <Image src={image} alt={copy.imageAlt} width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
               )}
             </div>
           </div>
@@ -120,7 +123,7 @@ const procedureJsonLd = {
       <section class="section" style="background:var(--bg-quiet)">
         <div class="container">
           <div class="grid grid--2 stagger" style="gap:var(--sp-7)">
-            {content.sections.map((s) => (
+            {copy.sections.map((s) => (
               <div class="reveal" data-reveal="up">
                 <h2 class="h3" style="margin:0 0 var(--sp-3)">{s.heading}</h2>
                 <p class="body" style="color:var(--text-muted)">{s.body}</p>
@@ -134,11 +137,11 @@ const procedureJsonLd = {
         <div class="container">
           <div class="section-head section-head--center" style="display:grid; gap:var(--sp-3); justify-items:center; text-align:center">
             <p class="eyebrow reveal" data-reveal="up">{t(locale, "faq.eyebrow")}</p>
-            <h2 class="h1 reveal" data-reveal="up">{ti(locale, "treat.faqHeading", { title: content.title })}</h2>
+            <h2 class="h1 reveal" data-reveal="up">{ti(locale, "treat.faqHeading", { title: copy.title })}</h2>
             <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{t(locale, "treat.faqLead")}</p>
           </div>
           <div class="grid grid--2" style="margin-top:var(--sp-7); align-items:start">
-            {content.faqs.map((f) => (
+            {copy.faqs.map((f) => (
               <details class="acc">
                 <summary class="acc__q"><span>{f.q}</span><span class="acc__sign" aria-hidden="true">+</span></summary>
                 <div class="acc__a">{f.a}</div>
@@ -152,7 +155,7 @@ const procedureJsonLd = {
         <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-6)">
           <div style="display:grid; gap:var(--sp-2); max-width:44ch">
             <p class="eyebrow" style="color:var(--accent)">{t(locale, "cta.eyebrow")}</p>
-            <h2 class="h2">{ti(locale, "treat.ready", { title: content.title })}</h2>
+            <h2 class="h2">{ti(locale, "treat.ready", { title: copy.title })}</h2>
             <p class="body" style="color:rgba(246,241,237,.72)">{t(locale, "cta.lead")}</p>
           </div>
           <a class="btn btn--light btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>

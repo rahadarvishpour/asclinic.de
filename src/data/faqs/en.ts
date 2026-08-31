@@ -1,14 +1,6 @@
-export interface FaqItem {
-  q: string;
-  a: string;
-}
+import type { FaqSet } from "./types";
 
-export type FaqCategory = "inject" | "hair" | "surgery";
-
-// 20 questions per service category, written by the clinic's physicians.
-// English-only across all locales for now — no verified medical translation
-// source exists yet for this content.
-export const FAQ: Record<FaqCategory, FaqItem[]> = {
+export const FAQ_EN: FaqSet = {
   inject: [
     { q: "Am I a candidate for injectables?", a: "If you are over 18, not pregnant or breastfeeding, and have no active skin infection or autoimmune flare, you are usually a candidate. The consultation confirms it in ten minutes." },
     { q: "Who performs the injection?", a: "Only physicians and specialist nurses trained in facial anatomy. Nobody injects in this clinic without a medical licence on file." },

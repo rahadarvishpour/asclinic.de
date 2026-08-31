@@ -16,14 +16,14 @@ const { locale } = Astro.props;
       {SURGERY_PROCEDURES.map((proc) => (
         <div class="card card--cream reveal" data-reveal="up" style="display:grid; gap:var(--sp-4)">
           <div class="media" style="height:340px; position:relative">
-            <img src={unsplash(proc.photoId, 1200, 75)} alt={proc.alt} loading="lazy" width="1200" height="340" style="width:100%; height:100%; object-fit:cover; border-radius:var(--r-image)" />
+            <img src={unsplash(proc.photoId, 1200, 75)} alt={t(locale, proc.altKey)} loading="lazy" width="1200" height="340" style="width:100%; height:100%; object-fit:cover; border-radius:var(--r-image)" />
             <span class="photo-credit">
-              <a href={proc.creditHref} target="_blank" rel="noopener noreferrer">{proc.credit}</a>
+              {t(locale, "credit.photoBy")} <a href={proc.creditHref} target="_blank" rel="noopener noreferrer">{proc.photographer}</a> {t(locale, "credit.on")} Unsplash
             </span>
           </div>
-          <span class="chip chip--outline">{proc.chip}</span>
-          <h3 class="h2">{proc.title}</h3>
-          <p class="body" style="color:var(--text-muted)">{proc.description}</p>
+          <span class="chip chip--outline">{t(locale, proc.chipKey)}</span>
+          <h3 class="h2">{t(locale, proc.titleKey)}</h3>
+          <p class="body" style="color:var(--text-muted)">{t(locale, proc.descKey)}</p>
           <a class="btn btn--dark" href="#book">{t(locale, "s3.cta")}</a>
         </div>
       ))}

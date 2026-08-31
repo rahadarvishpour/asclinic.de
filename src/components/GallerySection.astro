@@ -22,14 +22,14 @@ const { locale } = Astro.props;
   <div class="gallery-track" data-gallery-track style="margin-top:var(--sp-7)">
     {GALLERY_SLIDES.map((s) => (
       <figure class="gallery-slide">
-        <img src={unsplash(s.photoId, 1200, 75)} alt={s.title} loading="lazy" width="900" height="620" />
+        <img src={unsplash(s.photoId, 1200, 75)} alt={t(locale, s.titleKey)} loading="lazy" width="900" height="620" />
         <figcaption>
-          <span class="chip chip--coral">{s.tag}</span>
-          <h3 class="h3" style="margin-top:var(--sp-3); color:#F6F1ED">{s.title}</h3>
-          <p class="meta" style="color:rgba(246,241,237,.65)">{s.sub}</p>
+          <span class="chip chip--coral">{t(locale, s.tagKey)}</span>
+          <h3 class="h3" style="margin-top:var(--sp-3); color:#F6F1ED">{t(locale, s.titleKey)}</h3>
+          <p class="meta" style="color:rgba(246,241,237,.65)">{t(locale, s.subKey)}</p>
         </figcaption>
         <span class="photo-credit">
-          <a href={s.creditHref} target="_blank" rel="noopener noreferrer">{s.credit}</a>
+          {t(locale, "credit.photoBy")} <a href={s.creditHref} target="_blank" rel="noopener noreferrer">{s.photographer}</a> {t(locale, "credit.on")} Unsplash
         </span>
       </figure>
     ))}

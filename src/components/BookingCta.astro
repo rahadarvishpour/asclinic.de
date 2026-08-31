@@ -8,9 +8,9 @@ const bookImg = "https://images.unsplash.com/photo-1758448500688-3ababa93fd67?fm
 <section id="book" class="section" style="padding:0">
   <div data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-height:640px">
     <div style="position:relative; background:var(--g-blush)">
-      <img src={bookImg} alt="AS Clinic reception, Berlin" loading="lazy" width="1200" height="900" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
+      <img src={bookImg} alt={t(locale, "cta.imgAlt")} loading="lazy" width="1200" height="900" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
       <span class="photo-credit">
-        Photo by <a href="https://unsplash.com/@aalolens?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Aalo Lens</a> on <a href="https://unsplash.com/?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a>
+        {t(locale, "credit.photoBy")} <a href="https://unsplash.com/@aalolens?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Aalo Lens</a> {t(locale, "credit.on")} <a href="https://unsplash.com/?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a>
       </span>
     </div>
     <div style="background:var(--bg-invert); color:var(--text-invert); display:grid; align-content:center; gap:var(--sp-5); padding:var(--sp-9) var(--gutter)">

@@ -1,8 +1,9 @@
 ---
 import { t, type Locale } from "../i18n/ui";
-import { FAQ, type FaqCategory } from "../data/faq";
+import { faqFor, type FaqCategory } from "../data/faqs";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
+const faq = faqFor(locale);
 
 const TABS: { id: FaqCategory; key: "faq.tab1" | "faq.tab2" | "faq.tab3" }[] = [
   { id: "inject", key: "faq.tab1" },
@@ -30,8 +31,8 @@ const TABS: { id: FaqCategory; key: "faq.tab1" | "faq.tab2" | "faq.tab3" }[] = [
         ))}
       </div>
       {TABS.map((tab) => (
-        <div class="faq-tabs__panel grid grid--2" data-panel={tab.id} dir="ltr" style="align-items:start; text-align:start">
-          {FAQ[tab.id].map((item) => (
+        <div class="faq-tabs__panel grid grid--2" data-panel={tab.id} style="align-items:start; text-align:start">
+          {faq[tab.id].map((item) => (
             <details class="acc">
               <summary class="acc__q"><span>{item.q}</span><span class="acc__sign" aria-hidden="true">+</span></summary>
               <div class="acc__a">{item.a}</div>
