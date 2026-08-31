@@ -1,0 +1,46 @@
+<!--meta {"title":"Typography","group":"Foundations","subtitle":"Playfair Display headings · DM Sans interface · micro-caps navigation","width":1280,"height":1040} -->
+<style>
+  .type-row { display: grid; grid-template-columns: 190px 1fr; gap: var(--sp-5); align-items: baseline;
+              padding-block: var(--sp-4); border-bottom: 1px solid var(--border); }
+  .type-row__spec { font-size: var(--fs-xs); color: var(--text-faint); line-height: 1.7; }
+  @media (max-width: 720px){ .type-row { grid-template-columns: 1fr; } }
+</style>
+
+<section class="row">
+  <p class="row__label">The two families</p>
+  <div class="grid grid--2">
+    <div class="card card--cream card--flat reveal" data-reveal="up">
+      <p class="meta">Display</p>
+      <p class="display" style="margin:var(--sp-3) 0">Playfair Display</p>
+      <p class="body">Weight 500, occasionally 600 for the hero. Every heading, price, quote and stat. Italic 500 is the accent cut — one word per heading, never a full line. Never uppercase.</p>
+    </div>
+    <div class="card card--cream card--flat reveal" data-reveal="up">
+      <p class="meta">Interface</p>
+      <p class="display" style="font-family:var(--font-body);font-weight:500;margin:var(--sp-3) 0">DM Sans</p>
+      <p class="body">400 for body, 500 for labels, buttons and nav. Everything structural: paragraphs, forms, chips, footer links, the micro-caps navigation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Scale</p>
+  <div class="type-row"><div class="type-row__spec">Display<br>--fs-display · 40→68px<br>line-height 1.1</div><p class="display">Refine your radiant beauty today!</p></div>
+  <div class="type-row"><div class="type-row__spec">H1 · section title<br>--fs-h1 · 34→52px</div><p class="h1">Your satisfaction is our priority</p></div>
+  <div class="type-row"><div class="type-row__spec">H2<br>--fs-h2 · 28→40px</div><p class="h2">Natural makeup for radiant skin</p></div>
+  <div class="type-row"><div class="type-row__spec">H3 · quotes<br>--fs-h3 · 21→26px</div><p class="h3">Incredible results after every visit</p></div>
+  <div class="type-row"><div class="type-row__spec">H4 · card &amp; FAQ<br>--fs-h4 · 18px · DM Sans 500</div><p class="h4">How can I book an appointment?</p></div>
+  <div class="type-row"><div class="type-row__spec">Lead<br>--fs-lead · 17px · 1.7</div><p class="lead">Experience tailored skincare in a calm studio that enhances your natural beauty and gives you a radiant glow.</p></div>
+  <div class="type-row"><div class="type-row__spec">Body<br>--fs-body · 16px · 1.7<br>max 60ch</div><p class="body">We believe skin beauty starts with healthy, resilient skin. Our journey began with a passion for everything skincare and beauty solutions that not only enhance your radiance but make you feel like yourself again.</p></div>
+  <div class="type-row"><div class="type-row__spec">Small · meta<br>--fs-sm · 14px</div><p class="meta">60 minutes · from €120 · suitable for sensitive skin</p></div>
+  <div class="type-row"><div class="type-row__spec">Eyebrow<br>--fs-2xs · 11px · 0.2em<br>coral, ✻ prefix</div><p class="eyebrow">About us</p></div>
+  <div class="type-row"><div class="type-row__spec">Navigation<br>--fs-2xs · 11px · 0.12em<br>uppercase, ink</div><p style="font-size:var(--fs-2xs);text-transform:uppercase;letter-spacing:var(--ls-nav)">Home &nbsp; About us &nbsp; Pages &nbsp; Services &nbsp; FAQs</p></div>
+</section>
+
+<section class="row">
+  <p class="row__label">Heading pattern</p>
+  <div style="max-width:640px">
+    <p class="eyebrow">Our story</p>
+    <h2 class="h1" style="margin:var(--sp-4) 0">Skincare that works <span class="italic-accent">with</span> your skin</h2>
+    <p class="lead">Eyebrow, heading, one short lead. The italic coral accent lands on the word the sentence turns on — and appears at most once per heading.</p>
+  </div>
+</section>

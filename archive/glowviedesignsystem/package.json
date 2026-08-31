@@ -1,0 +1,1 @@
+{"name":"glowvie-ds-sync","private":true,"type":"module","dependencies":{"esbuild":"^0.28.2","playwright":"^1.62.1","ts-morph":"^28.0.0"}}

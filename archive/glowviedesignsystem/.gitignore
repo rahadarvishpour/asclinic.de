@@ -1,0 +1,8 @@
+# Build output — regenerate with ./.design-sync/sync.sh
+ds-bundle/
+# Staged copies of the design-sync skill's own scripts
+.ds-sync/
+# Validation toolchain (playwright, ts-morph, esbuild)
+node_modules/
+package-lock.json
+__pycache__/

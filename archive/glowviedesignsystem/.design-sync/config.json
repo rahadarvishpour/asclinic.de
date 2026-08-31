@@ -1,0 +1,9 @@
+{
+  "projectId": "9cafb94e-5dbd-4270-9cee-2a2fb99bb1cd",
+  "shape": "package",
+  "offScript": true,
+  "generator": ".design-sync/build-ds-bundle.py",
+  "out": "ds-bundle",
+  "namespace": "Glowvie",
+  "readmeHeader": ".design-sync/conventions.md"
+}

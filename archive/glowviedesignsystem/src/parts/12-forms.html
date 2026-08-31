@@ -1,0 +1,42 @@
+<!--meta {"title":"Forms","group":"Components","subtitle":"Booking-first fields with a coral focus ring","width":1280,"height":940} -->
+<section class="row">
+  <p class="row__label">Fields</p>
+  <div class="grid grid--2" style="max-width:820px">
+    <div class="field"><label class="label" for="n">Full name</label><input class="input" id="n" placeholder="Anna Berger"></div>
+    <div class="field"><label class="label" for="e">Email</label><input class="input" id="e" type="email" placeholder="anna@email.com"><span class="hint">Only used to confirm your slot.</span></div>
+    <div class="field"><label class="label" for="s">Treatment</label>
+      <select class="select" id="s"><option>Custom facial · 60 min</option><option>Deep cleansing · 45 min</option><option>Consultation · 30 min</option></select></div>
+    <div class="field"><label class="label" for="d">Preferred date</label><input class="input" id="d" type="date"></div>
+    <div class="field" style="grid-column:1/-1"><label class="label" for="m">Anything we should know?</label><textarea class="textarea" id="m" placeholder="Sensitivities, previous treatments, goals…"></textarea></div>
+    <div class="field"><label class="label" for="x">Phone</label><input class="input input--error" id="x" value="0176"><span class="error">Please enter a full number including country code.</span></div>
+    <div class="field"><label class="label">Focused</label><input class="input" value="Coral ring, 4px" style="border-color:var(--accent);box-shadow:0 0 0 4px var(--g-coral-100)"></div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Booking card — the pattern the whole kit points at</p>
+  <div class="card" style="max-width:440px;box-shadow:var(--sh-3)">
+    <p class="eyebrow">Appointment</p>
+    <h3 class="h3" style="margin:var(--sp-4) 0 var(--sp-5)">Book your experience</h3>
+    <div class="grid" style="gap:var(--sp-4)">
+      <div class="field"><label class="label" for="b1">Name</label><input class="input" id="b1" placeholder="Your name"></div>
+      <div class="field"><label class="label" for="b2">Treatment</label><select class="select" id="b2"><option>Custom facial</option><option>Body treatment</option></select></div>
+      <label class="check"><input type="checkbox" checked> <span>Remind me 24 hours before.</span></label>
+      <a class="btn btn--block" href="#">Request appointment</a>
+      <p class="meta" style="text-align:center">No prepayment · free cancellation up to 24h</p>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Inline newsletter</p>
+  <form style="display:flex;gap:var(--sp-3);flex-wrap:wrap;max-width:520px">
+    <input class="input" style="flex:1;min-width:220px" placeholder="you@email.com" aria-label="Email">
+    <button class="btn" type="button">Subscribe</button>
+  </form>
+</section>
+
+<section class="row">
+  <p class="row__label">Rules</p>
+  <p class="body" style="max-width:70ch">Labels sit above fields and stay visible — placeholders are examples, never labels. Errors appear beneath in 12px alert red with the border switched; the field never fills red. Every form closes with one full-width primary and a single reassurance line.</p>
+</section>

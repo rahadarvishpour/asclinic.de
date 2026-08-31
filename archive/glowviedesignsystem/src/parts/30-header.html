@@ -1,0 +1,50 @@
+<!--meta {"title":"Header","group":"Patterns","subtitle":"Charcoal announcement marquee, white sticky nav, coral CTA","width":1280,"height":640} -->
+<section class="row">
+  <p class="row__label">Announcement bar + navigation</p>
+  <div class="frame">
+    <div class="topbar marquee">
+      <div class="marquee__track" style="padding-block:var(--sp-3)">
+        <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+        <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+      </div>
+    </div>
+    <div style="background:var(--surface)">
+      <div class="container">
+        <nav class="nav">
+          <span class="nav__logo">Glowvie</span>
+          <ul class="nav__links">
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Pages ▾</a></li>
+            <li><a href="#">Services ▾</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+          <a class="btn btn--sm" href="#">Contact us</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <p class="meta">Nav links are 11px micro-caps in ink, not grey. The coral underline wipes in from the left on hover and stays put on the current page. On scroll the header becomes <code>.header--sticky</code>: 92% white, 10px backdrop blur, hairline bottom border.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Sticky state</p>
+  <div class="frame">
+    <div class="header--sticky" style="position:static"><div class="container"><nav class="nav" style="padding-block:var(--sp-3)">
+      <span class="nav__logo" style="font-size:1.3rem">Glowvie</span>
+      <ul class="nav__links"><li><a href="#">Home</a></li><li><a href="#">About us</a></li><li><a href="#">Services ▾</a></li><li><a href="#">FAQs</a></li></ul>
+      <a class="btn btn--sm" href="#">Contact us</a>
+    </nav></div></div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Mobile</p>
+  <div style="max-width:390px;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);padding:var(--sp-2) var(--sp-4)">
+    <div class="nav" style="gap:var(--sp-4)">
+      <span class="nav__logo" style="font-size:1.2rem">Glowvie</span>
+      <div class="row__demo" style="gap:var(--sp-3)"><a class="btn btn--sm" href="#">Contact</a><span style="font-size:1.3rem">☰</span></div>
+    </div>
+  </div>
+  <p class="meta">The link list collapses below 900px; the contact button never does.</p>
+</section>

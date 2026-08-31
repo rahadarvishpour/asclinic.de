@@ -1,0 +1,32 @@
+<!--meta {"title":"Booking CTA","group":"Patterns","subtitle":"Half photograph, half charcoal panel — the page's closing move","width":1280,"height":700} -->
+<section class="row">
+  <p class="row__label">Split booking band</p>
+  <div class="frame" style="display:grid;grid-template-columns:1fr 1fr">
+    <div class="media hover-zoom" style="border-radius:0"><div class="media__ph" style="height:100%;aspect-ratio:4/3">Studio photograph</div></div>
+    <div class="section--invert" style="padding:var(--sp-8) var(--sp-7);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+      <svg class="leaf" style="position:absolute;right:-30px;top:-20px" width="180" height="180" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".9"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/></svg>
+      <p class="eyebrow">Appointment</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Book your experience</h2>
+      <p class="lead">Thirty minutes, no obligation, and an honest plan. Bring your current routine — we will tell you what to keep and what to drop.</p>
+      <div class="row__demo" style="margin-top:var(--sp-6)"><a class="btn" href="#">Contact us</a><a class="btn btn--light" href="#">Call the studio</a></div>
+    </div>
+  </div>
+  <p class="meta">Below 780px the two halves stack, photograph first. The panel keeps its padding — the copy never touches the edge.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Newsletter strip</p>
+  <div class="section--blush" style="border-radius:var(--r-lg);padding:var(--sp-8) var(--sp-7)">
+    <div class="grid grid--2" style="align-items:center;gap:var(--sp-8)">
+      <div>
+        <p class="eyebrow">Newsletter</p>
+        <h2 class="h2" style="margin:var(--sp-3) 0">Skin notes, once a month</h2>
+        <p class="body">Short, evidence-led, no product pushing. Unsubscribe in one click.</p>
+      </div>
+      <form style="display:flex;gap:var(--sp-3);flex-wrap:wrap">
+        <input class="input" style="flex:1;min-width:220px" placeholder="you@email.com" aria-label="Email">
+        <button class="btn btn--dark" type="button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>

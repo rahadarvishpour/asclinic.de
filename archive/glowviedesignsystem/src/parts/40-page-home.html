@@ -1,0 +1,261 @@
+<!--meta {"title":"Home Page","group":"Compositions","subtitle":"Every block in the intended order, with the full motion layer live","width":1440,"height":2600} -->
+<style>
+  .page { border:1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+  .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:var(--sp-8); align-items:center; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-8); align-items:center; }
+  .story-pair { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-3); position:relative; }
+  .story-pair__badge { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:58px; height:58px;
+    border-radius:var(--r-pill); background:var(--g-white); box-shadow:var(--sh-2); display:grid; place-items:center; color:var(--accent-action); z-index:2; }
+  .scatter { position:relative; min-height:430px; }
+  .scatter > figure { position:absolute; margin:0; }
+  .scatter .media__ph { aspect-ratio:1; height:100%; }
+  @media (max-width:900px){ .hero, .split { grid-template-columns:1fr; }
+    .scatter { min-height:0; display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-4); }
+    .scatter > figure { position:static !important; width:auto !important; } }
+</style>
+
+<div class="page">
+
+  <!-- 1 · announcement -->
+  <div class="topbar marquee"><div class="marquee__track" style="padding-block:var(--sp-3)">
+    <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+    <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+  </div></div>
+
+  <!-- 2 · header -->
+  <div style="background:var(--surface);border-bottom:1px solid var(--border)"><div class="container"><nav class="nav">
+    <span class="nav__logo">Glowvie</span>
+    <ul class="nav__links"><li><a href="#" aria-current="page">Home</a></li><li><a href="#">About us</a></li><li><a href="#">Pages ▾</a></li><li><a href="#">Services ▾</a></li><li><a href="#">FAQs</a></li></ul>
+    <a class="btn btn--sm" href="#">Contact us</a>
+  </nav></div></div>
+
+  <!-- 3 · hero -->
+  <section class="section section--soft">
+    <svg class="leaf parallax" data-parallax="0.2" style="position:absolute;left:-24px;top:14%" width="190" height="190" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".9"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/><path d="M50 92V26"/></svg>
+    <div class="container"><div class="hero">
+      <div>
+        <p class="eyebrow reveal" data-reveal="up">Skincare studio</p>
+        <h1 class="display reveal" data-reveal="up" style="margin:var(--sp-5) 0">Refine your radiant beauty <span class="italic-accent">today!</span></h1>
+        <p class="lead reveal" data-reveal="up">Experience tailored skincare in a calm studio that enhances your natural beauty and gives you a radiant glow.</p>
+        <div class="reveal" data-reveal="up" style="display:flex;gap:var(--sp-4);align-items:center;margin-top:var(--sp-6);flex-wrap:wrap">
+          <a class="btn btn--lg" href="#">Book now</a><a class="btn btn--ghost" href="#">Our services <span class="btn__arrow">→</span></a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,auto);gap:var(--sp-8);justify-content:start;margin-top:var(--sp-7);padding-top:var(--sp-5);border-top:1px solid var(--g-blush)">
+          <div><p class="stat__value" data-count="3000" data-suffix="+">0</p><p class="stat__label">Glow treatments</p></div>
+          <div><p class="stat__value" data-count="650" data-suffix="+">0</p><p class="stat__label">Facial variants</p></div>
+        </div>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center">
+        <div class="shape-circle float" style="width:280px;height:280px;right:4%;top:2%"></div>
+        <div class="media media--blob hover-zoom reveal" data-reveal="scale" style="width:80%"><div class="media__ph" style="aspect-ratio:4/5">Hero portrait</div></div>
+        <div class="media media--circle float float--sm" style="position:absolute;left:0;bottom:6%;width:104px;box-shadow:var(--sh-2)"><div class="media__ph">Product</div></div>
+        <span class="chip chip--light float float--rev" style="position:absolute;right:2%;bottom:16%">★ 4.9 · 312 reviews</span>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 4 · feature strip -->
+  <section class="section section--quiet" style="padding-block:var(--sp-7)"><div class="container">
+    <div class="grid grid--5 stagger">
+      <div class="feature reveal" data-reveal="up"><span class="feature__icon">✦</span><span class="feature__label">Facial treatments</span></div>
+      <div class="feature reveal" data-reveal="up"><span class="feature__icon">◈</span><span class="feature__label">State-of-the-art equipment</span></div>
+      <div class="feature reveal" data-reveal="up"><span class="feature__icon">❋</span><span class="feature__label">At-home skincare solutions</span></div>
+      <div class="feature reveal" data-reveal="up"><span class="feature__icon">✻</span><span class="feature__label">Top-quality skincare</span></div>
+      <div class="feature reveal" data-reveal="up"><span class="feature__icon">✿</span><span class="feature__label">Natural ingredients</span></div>
+    </div>
+  </div></section>
+
+  <!-- 5 · story -->
+  <section class="section"><div class="container"><div class="split">
+    <div class="story-pair reveal" data-reveal="clip">
+      <div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:3/4">Before</div></div>
+      <div class="media media--arch hover-zoom"><div class="media__ph" style="aspect-ratio:3/4;background:linear-gradient(155deg,var(--g-coral-100),var(--g-lemon))">After</div></div>
+      <span class="story-pair__badge float float--sm">✧</span>
+    </div>
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Our story</h2>
+      <p class="body">We believe skin beauty starts with healthy, resilient skin. Our journey began with a passion for skincare that not only enhances your radiance but makes you feel like yourself again.</p>
+      <a class="btn btn--dark" style="margin:var(--sp-6) 0" href="#">Get in touch</a>
+      <div style="display:flex;gap:var(--sp-8);padding-top:var(--sp-5);border-top:1px solid var(--border)">
+        <div><p class="stat__value" data-count="800" data-suffix="+">0</p><p class="stat__label">Happy customers</p></div>
+        <div><p class="stat__value" data-count="10" data-suffix="+">0</p><p class="stat__label">Years experience</p></div>
+      </div>
+    </div>
+  </div></div></section>
+
+  <!-- 6 · product feature -->
+  <section class="section section--soft"><div class="container">
+    <div class="card card--flat" style="background:var(--surface);padding:var(--sp-8);box-shadow:var(--sh-1)"><div class="split">
+      <div>
+        <p class="eyebrow">Clean beauty</p>
+        <h2 class="h2 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Natural makeup for radiant skin</h2>
+        <p class="body">An honest edit of the products we actually use in treatment — cruelty-free, ethically made, and formulated to support the barrier rather than strip it.</p>
+        <div class="grid grid--3" style="gap:var(--sp-4);margin-top:var(--sp-6)">
+          <div class="feature"><span class="feature__icon">✿</span><span class="feature__label">Cruelty-free</span></div>
+          <div class="feature"><span class="feature__icon">◈</span><span class="feature__label">Ethically made</span></div>
+          <div class="feature"><span class="feature__icon">✦</span><span class="feature__label">Nourishing formula</span></div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="media hover-zoom reveal" data-reveal="right"><div class="media__ph" style="aspect-ratio:4/3">Application</div></div>
+        <span class="chip chip--light float" style="position:absolute;top:var(--sp-4);right:var(--sp-4)">Look and glow</span>
+      </div>
+    </div></div>
+  </div></section>
+
+  <!-- 7 · services on charcoal -->
+  <section class="section section--invert">
+    <svg class="leaf parallax" data-parallax="0.3" style="position:absolute;left:1%;top:10%" width="180" height="180" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".9"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/></svg>
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Our services</p>
+        <h2 class="h1 reveal" data-reveal="up" style="margin-top:var(--sp-4)">Your satisfaction is our priority</h2>
+        <p class="lead" style="text-align:center">We are dedicated to delivering exceptional beauty and skincare services that leave you feeling confident and radiant.</p>
+      </div>
+      <div class="grid grid--3 stagger" style="gap:var(--sp-5)">
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Custom facials</div></div><div class="arch-card__bar"><span class="arch-card__title">Custom facials</span><span class="plus">+</span></div></a>
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Body treatments</div></div><div class="arch-card__bar"><span class="arch-card__title">Body treatments</span><span class="plus">+</span></div></a>
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Makeup application</div></div><div class="arch-card__bar"><span class="arch-card__title">Makeup application</span><span class="plus">+</span></div></a>
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Deep cleansing</div></div><div class="arch-card__bar"><span class="arch-card__title">Deep cleansing</span><span class="plus">+</span></div></a>
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Essential oils</div></div><div class="arch-card__bar"><span class="arch-card__title">Essential oils</span><span class="plus">+</span></div></a>
+        <a class="arch-card hover-zoom reveal" data-reveal="up" href="#"><div class="media"><div class="media__ph" style="aspect-ratio:1">Brightening masks</div></div><div class="arch-card__bar"><span class="arch-card__title">Brightening masks</span><span class="plus">+</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · checklist -->
+  <section class="section"><div class="container"><div class="split">
+    <div>
+      <p class="eyebrow">How it works</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Enhance your beauty</h2>
+      <p class="body" style="margin-bottom:var(--sp-5)">Book your consultation with expert beauty consultants designed to enhance your natural radiance.</p>
+      <div class="grid stagger" style="gap:var(--sp-3)">
+        <div class="check-row reveal" data-reveal="left"><span class="check-row__mark">✓</span><span>Book an appointment</span></div>
+        <div class="check-row reveal" data-reveal="left"><span class="check-row__mark">✓</span><span>Set your schedule</span></div>
+        <div class="check-row reveal" data-reveal="left"><span class="check-row__mark">✓</span><span>Meet with our expert</span></div>
+        <div class="check-row reveal" data-reveal="left"><span class="check-row__mark">✓</span><span>Your skin feels new</span></div>
+      </div>
+      <a class="btn btn--dark" style="margin-top:var(--sp-6)" href="#">Book now</a>
+    </div>
+    <div style="position:relative;display:flex;justify-content:center">
+      <div class="shape-circle float" style="width:240px;height:240px;right:2%;top:6%"></div>
+      <div class="media media--arch hover-zoom reveal" data-reveal="scale" style="width:78%"><div class="media__ph" style="aspect-ratio:3/4">Portrait</div></div>
+      <span class="vertical-text" style="position:absolute;right:-8px;bottom:8%">Unlock your unique beauty</span>
+    </div>
+  </div></div></section>
+
+  <!-- 9 · testimonials -->
+  <section class="section section--soft"><div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin-top:var(--sp-4)">Love hearing from you</h2>
+      <p class="lead" style="text-align:center">We value your opinion and look forward to hearing from you.</p>
+    </div>
+    <div class="grid grid--2 stagger">
+      <div class="card card--lemon reveal" data-reveal="up">
+        <p class="stars">★★★★★</p>
+        <h3 class="h3" style="margin:var(--sp-4) 0 var(--sp-3)">Incredible results after every visit</h3>
+        <p class="body">The first place that told me what not to book. Six weeks in, my barrier finally calmed down.</p>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-top:var(--sp-5)"><div class="avatar"></div><div><p class="h4">Sarah Anderson</p><p class="meta">Custom facial</p></div></div>
+      </div>
+      <div class="card card--blush reveal" data-reveal="up">
+        <p class="stars">★★★★★</p>
+        <h3 class="h3" style="margin:var(--sp-4) 0 var(--sp-3)">Personalised skincare that truly works</h3>
+        <p class="body">Booked expecting a sales pitch and got a written plan — including advice to spend less.</p>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-top:var(--sp-5)"><div class="avatar"></div><div><p class="h4">Emily Roberts</p><p class="meta">Glow course</p></div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:var(--sp-6)"><a class="btn btn--dark" href="#">Read testimonials</a></div>
+  </div></section>
+
+  <!-- 10 · package -->
+  <section class="section"><div class="container">
+    <div class="card card--flat" style="background:var(--surface);padding:var(--sp-8);box-shadow:var(--sh-1)"><div class="split">
+      <div>
+        <p class="eyebrow">Special package</p>
+        <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Choose the perfect package for you</h2>
+        <p class="body">Three sessions, six weeks apart, with progress photography and a home routine adjusted at every visit.</p>
+        <a class="btn" style="margin-top:var(--sp-6)" href="#">Get started</a>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center;gap:var(--sp-3)">
+        <div class="shape-circle float" style="width:190px;height:190px;right:8%;bottom:0"></div>
+        <div class="media media--arch hover-zoom reveal" data-reveal="left" style="width:45%"><div class="media__ph" style="aspect-ratio:3/4">Before</div></div>
+        <div class="media media--arch hover-zoom reveal" data-reveal="right" style="width:45%;margin-top:var(--sp-7)"><div class="media__ph" style="aspect-ratio:3/4">After</div></div>
+      </div>
+    </div></div>
+  </div></section>
+
+  <!-- 11 · gallery -->
+  <section class="section section--blush">
+    <svg class="leaf parallax" data-parallax="0.25" style="position:absolute;left:2%;top:12%" width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/></svg>
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Gallery</p>
+        <h2 class="h1 reveal" data-reveal="up" style="margin-top:var(--sp-4)">Our stunning photo gallery</h2>
+        <p class="lead" style="text-align:center">Explore our gallery showcasing stunning transformations, reflecting the beauty and confidence our clients love to share.</p>
+      </div>
+      <div class="scatter stagger">
+        <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:140px;left:3%;top:2%"><div class="media__ph">01</div></figure>
+        <figure class="media media--arch hover-zoom reveal" data-reveal="up" style="width:170px;left:19%;top:34%"><div class="media__ph" style="aspect-ratio:3/4">02</div></figure>
+        <figure class="media media--circle hover-zoom reveal float float--rev" data-reveal="scale" style="width:124px;left:40%;top:0"><div class="media__ph">03</div></figure>
+        <figure class="media media--arch hover-zoom reveal" data-reveal="up" style="width:165px;left:55%;top:30%"><div class="media__ph" style="aspect-ratio:3/4">04</div></figure>
+        <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:150px;right:2%;top:4%"><div class="media__ph">05</div></figure>
+        <figure class="media media--circle hover-zoom reveal float float--rev" data-reveal="scale" style="width:116px;left:7%;bottom:0"><div class="media__ph">06</div></figure>
+        <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:128px;right:11%;bottom:0"><div class="media__ph">07</div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · FAQ -->
+  <section class="section"><div class="container"><div class="split">
+    <div>
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-5)">Popular questions</h2>
+      <div class="stagger">
+        <details class="acc reveal" data-reveal="up" open><summary class="acc__q">What types of skincare treatments do you offer?<span class="acc__sign">+</span></summary><div class="acc__a">Custom facials, deep cleansing, brightening masks, body treatments and makeup application — each planned after a skin analysis.</div></details>
+        <details class="acc reveal" data-reveal="up"><summary class="acc__q">Are your products suitable for sensitive skin?<span class="acc__sign">+</span></summary><div class="acc__a">Yes. Every protocol has a fragrance-free, acid-free variant, and we patch test first.</div></details>
+        <details class="acc reveal" data-reveal="up"><summary class="acc__q">How can I book an appointment?<span class="acc__sign">+</span></summary><div class="acc__a">Online in about a minute, by phone, or on WhatsApp. First consultations are free.</div></details>
+        <details class="acc reveal" data-reveal="up"><summary class="acc__q">What should I expect during my first visit?<span class="acc__sign">+</span></summary><div class="acc__a">A consultation, camera analysis, and a written plan with costs and downtime.</div></details>
+      </div>
+    </div>
+    <div style="position:relative;display:flex;justify-content:center">
+      <div class="shape-circle float float--rev" style="width:240px;height:240px;left:2%;top:6%"></div>
+      <div class="media media--arch hover-zoom reveal" data-reveal="scale" style="width:80%"><div class="media__ph" style="aspect-ratio:3/4">Portrait</div></div>
+      <div class="float-card float" style="right:0;bottom:12%">
+        <p style="margin:0 0 var(--sp-1);font-size:var(--fs-2xs);letter-spacing:.14em;text-transform:uppercase;opacity:.85">Have a question?</p>
+        <p style="margin:0;font-size:var(--fs-h4);font-weight:500">+1 (207) 555-0182</p>
+      </div>
+    </div>
+  </div></div></section>
+
+  <!-- 13 · booking -->
+  <section style="display:grid;grid-template-columns:1fr 1fr">
+    <div class="media hover-zoom" style="border-radius:0"><div class="media__ph" style="height:100%;aspect-ratio:4/3">Studio photograph</div></div>
+    <div class="section--invert" style="padding:var(--sp-9) var(--sp-7);display:flex;flex-direction:column;justify-content:center">
+      <p class="eyebrow">Appointment</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Book your experience</h2>
+      <p class="lead">Thirty minutes, no obligation, and an honest plan. Bring your current routine — we will tell you what to keep and what to drop.</p>
+      <div style="display:flex;gap:var(--sp-4);margin-top:var(--sp-6);flex-wrap:wrap"><a class="btn" href="#">Contact us</a><a class="btn btn--light" href="#">Call the studio</a></div>
+    </div>
+  </section>
+
+  <!-- 14 · footer -->
+  <footer class="footer"><div class="container" style="padding-block:var(--sp-8)">
+    <div class="footer__cols">
+      <div>
+        <p class="nav__logo" style="font-size:1.6rem">Glowvie</p>
+        <p class="body" style="color:rgba(246,241,237,.68);margin-top:var(--sp-4);max-width:32ch">A skincare studio for people who want a plan, not a package.</p>
+        <p style="margin-top:var(--sp-5);font-size:var(--fs-sm);line-height:2;color:rgba(246,241,237,.68)">+1 (207) 555-0182<br>hello@glowvie.studio</p>
+      </div>
+      <div><p class="h4" style="margin-bottom:var(--sp-4)">Quick links</p><ul style="list-style:none;padding:0;margin:0;display:grid;gap:var(--sp-3);font-size:var(--fs-sm)"><li><a href="#">Home</a></li><li><a href="#">About us</a></li><li><a href="#">Services</a></li><li><a href="#">Gallery</a></li></ul></div>
+      <div><p class="h4" style="margin-bottom:var(--sp-4)">Helpful links</p><ul style="list-style:none;padding:0;margin:0;display:grid;gap:var(--sp-3);font-size:var(--fs-sm)"><li><a href="#">FAQs</a></li><li><a href="#">Packages</a></li><li><a href="#">Testimonials</a></li><li><a href="#">Booking</a></li></ul></div>
+      <div><p class="h4" style="margin-bottom:var(--sp-4)">Opening hours</p><p style="font-size:var(--fs-sm);line-height:2;color:rgba(246,241,237,.68);margin:0">Mon – Fri &nbsp; 09:00 – 18:00<br>Saturday &nbsp; 10:00 – 16:00<br>Sunday &nbsp; Closed</p></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Glowvie Skincare Studio. All rights reserved.</span>
+      <span style="display:flex;gap:var(--sp-3)"><a class="social" href="#">f</a><a class="social" href="#">in</a><a class="social" href="#">ig</a><a class="social" href="#">x</a></span>
+    </div>
+  </div></footer>
+
+</div>

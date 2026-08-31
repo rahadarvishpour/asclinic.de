@@ -1,0 +1,41 @@
+<!-- @dsCard group="__GROUP__" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__ · Glowvie Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+__TOKENS__
+__KIT__
+/* ---- specimen chrome (not part of the kit) ---- */
+.spec { padding: var(--sp-7) var(--sp-6) var(--sp-9); background: var(--bg); }
+.spec__head { max-width: var(--maxw); margin: 0 auto var(--sp-7); }
+.spec__head .h3 { margin: var(--sp-3) 0 var(--sp-2); }
+.spec__body { max-width: var(--maxw); margin: 0 auto; display: grid; gap: var(--sp-8); }
+.row { display: grid; gap: var(--sp-4); }
+.row__label { font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);
+  color: var(--text-faint); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border); }
+.row__demo { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+.row__demo--stack { display: grid; gap: var(--sp-5); }
+.frame { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+code, .code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--fs-xs); color: var(--accent-action); }
+</style>
+</head>
+<body class="spec">
+<header class="spec__head">
+  <p class="eyebrow">__GROUP__</p>
+  <h1 class="h3">__TITLE__</h1>
+  <p class="meta">__SUBTITLE__</p>
+</header>
+<main class="spec__body">
+__BODY__
+</main>
+<script>
+__MOTION__
+</script>
+</body>
+</html>
