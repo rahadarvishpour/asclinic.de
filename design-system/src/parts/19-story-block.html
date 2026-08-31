@@ -1,0 +1,37 @@
+<!--meta {"title":"Story & Results","group":"Components","subtitle":"Paired before/after with an overlay badge, stats and copy","width":1280,"height":860} -->
+<style>
+  .story-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); position: relative; }
+  .story-pair__badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 62px; height: 62px; border-radius: var(--r-pill); background: var(--g-white); box-shadow: var(--sh-2);
+    display: grid; place-items: center; color: var(--accent-action); font-size: 1.2rem; z-index: 2; }
+</style>
+<section class="row">
+  <p class="row__label">Our story</p>
+  <div class="grid grid--2" style="gap:var(--sp-8);align-items:center">
+    <div class="story-pair reveal" data-reveal="clip">
+      <div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:3/4">Before</div></div>
+      <div class="media media--arch hover-zoom"><div class="media__ph" style="aspect-ratio:3/4;background:linear-gradient(155deg,var(--g-coral-100),var(--g-lemon))">After</div></div>
+      <span class="story-pair__badge float float--sm">✧</span>
+    </div>
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Our story</h2>
+      <p class="body">We believe skin beauty starts with healthy, resilient skin. Our journey began with a passion for everything skincare and beauty solutions that not only enhance your radiance but make you feel like yourself again.</p>
+      <a class="btn btn--dark" style="margin:var(--sp-6) 0" href="#">Get in touch</a>
+      <div class="row__demo" style="gap:var(--sp-8);padding-top:var(--sp-5);border-top:1px solid var(--border)">
+        <div><p class="stat__value" data-count="800" data-suffix="+">0</p><p class="stat__label">Happy customers</p></div>
+        <div><p class="stat__value" data-count="10" data-suffix="+">0</p><p class="stat__label">Years experience</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Results row</p>
+  <div class="grid grid--3 stagger">
+    <div class="reveal" data-reveal="up"><div class="story-pair"><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1">Before</div></div><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1;background:linear-gradient(155deg,var(--g-coral-100),var(--g-lemon))">After</div></div></div><p class="meta" style="margin-top:var(--sp-3)">Acne · 16 weeks</p></div>
+    <div class="reveal" data-reveal="up"><div class="story-pair"><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1">Before</div></div><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1;background:linear-gradient(155deg,var(--g-coral-100),var(--g-lemon))">After</div></div></div><p class="meta" style="margin-top:var(--sp-3)">Melasma · 20 weeks</p></div>
+    <div class="reveal" data-reveal="up"><div class="story-pair"><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1">Before</div></div><div class="media hover-zoom"><div class="media__ph" style="aspect-ratio:1;background:linear-gradient(155deg,var(--g-coral-100),var(--g-lemon))">After</div></div></div><p class="meta" style="margin-top:var(--sp-3)">Rosacea · 10 weeks</p></div>
+  </div>
+  <p class="meta">Always caption with the protocol and elapsed time, and keep the two frames identically cropped and lit. The pair reveals with a clip wipe, not a fade.</p>
+</section>

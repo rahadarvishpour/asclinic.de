@@ -1,0 +1,31 @@
+<!--meta {"title":"Gallery","group":"Components","subtitle":"Scattered circles and arches on the blush band","width":1280,"height":820} -->
+<style>
+  .scatter { position: relative; min-height: 460px; }
+  .scatter > figure { position: absolute; margin: 0; }
+  .scatter .media__ph { aspect-ratio: 1; height: 100%; }
+  @media (max-width: 860px){
+    .scatter { min-height: 0; display: grid; grid-template-columns: repeat(2,1fr); gap: var(--sp-4); }
+    .scatter > figure { position: static !important; width: auto !important; }
+  }
+</style>
+<section class="row">
+  <p class="row__label">Blush band</p>
+  <div class="section--blush" style="border-radius:var(--r-lg);padding:var(--sp-8) var(--sp-6);position:relative;overflow:hidden">
+    <svg class="leaf parallax" data-parallax="0.25" style="position:absolute;left:2%;top:8%" width="140" height="140" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/></svg>
+    <div class="section-head section-head--center" style="position:relative">
+      <p class="eyebrow">Gallery</p>
+      <h2 class="h1 reveal" data-reveal="up" style="margin-top:var(--sp-4)">Our stunning photo gallery</h2>
+      <p class="lead" style="text-align:center">Explore our gallery showcasing stunning transformations, reflecting the beauty and confidence our clients love to share.</p>
+    </div>
+    <div class="scatter stagger">
+      <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:150px;left:4%;top:4%"><div class="media__ph">01</div></figure>
+      <figure class="media media--arch hover-zoom reveal" data-reveal="up" style="width:180px;left:20%;top:36%"><div class="media__ph" style="aspect-ratio:3/4">02</div></figure>
+      <figure class="media media--circle hover-zoom reveal float float--rev" data-reveal="scale" style="width:130px;left:41%;top:2%"><div class="media__ph">03</div></figure>
+      <figure class="media media--arch hover-zoom reveal" data-reveal="up" style="width:170px;left:56%;top:30%"><div class="media__ph" style="aspect-ratio:3/4">04</div></figure>
+      <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:160px;right:3%;top:6%"><div class="media__ph">05</div></figure>
+      <figure class="media media--circle hover-zoom reveal float float--rev" data-reveal="scale" style="width:120px;left:8%;bottom:2%"><div class="media__ph">06</div></figure>
+      <figure class="media media--circle hover-zoom reveal float" data-reveal="scale" style="width:135px;right:12%;bottom:0"><div class="media__ph">07</div></figure>
+    </div>
+  </div>
+  <p class="meta">Seven frames, alternating circle and arch, sizes between 120 and 180px, each drifting on its own float cycle so the cluster never freezes. Below 860px the scatter collapses to a plain two-column grid — the layout is decorative, not structural.</p>
+</section>

@@ -1,0 +1,56 @@
+<!--meta {"title":"Packages & Pricing","group":"Components","subtitle":"Dotted price rows and the featured package card","width":1280,"height":880} -->
+<section class="row">
+  <p class="row__label">Package promo — image collage beside the offer</p>
+  <div class="card card--flat" style="padding:var(--sp-8);background:var(--surface);box-shadow:var(--sh-1)">
+    <div class="grid grid--2" style="gap:var(--sp-8);align-items:center">
+      <div>
+        <p class="eyebrow">Special package</p>
+        <h2 class="h1 reveal" data-reveal="up" style="margin:var(--sp-4) 0 var(--sp-3)">Choose the perfect package for you</h2>
+        <p class="body">Three sessions, six weeks apart, with progress photography and a home routine adjusted at every visit.</p>
+        <a class="btn" style="margin-top:var(--sp-6)" href="#">Get started</a>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center;gap:var(--sp-3)">
+        <div class="shape-circle float" style="width:200px;height:200px;right:6%;bottom:0"></div>
+        <div class="media media--arch hover-zoom reveal" data-reveal="left" style="width:45%"><div class="media__ph" style="aspect-ratio:3/4">Before</div></div>
+        <div class="media media--arch hover-zoom reveal" data-reveal="right" style="width:45%;margin-top:var(--sp-7)"><div class="media__ph" style="aspect-ratio:3/4">After</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Menu rows</p>
+  <div style="max-width:680px">
+    <div class="price-row"><span class="price-row__name">Custom facial</span><span class="price-row__dots"></span><span class="price-row__value">€120</span></div>
+    <div class="price-row"><span class="price-row__name">Deep cleansing</span><span class="price-row__dots"></span><span class="price-row__value">€160</span></div>
+    <div class="price-row"><span class="price-row__name">Brightening mask</span><span class="price-row__dots"></span><span class="price-row__value">€180</span></div>
+    <div class="price-row" style="border-bottom:0"><span class="price-row__name">Skin consultation</span><span class="price-row__dots"></span><span class="price-row__value">Free</span></div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Three packages — the middle card is always the featured one</p>
+  <div class="grid grid--3 stagger">
+    <div class="card reveal" data-reveal="up">
+      <p class="eyebrow">Essential</p>
+      <p class="display" style="font-size:var(--fs-h1);margin:var(--sp-4) 0 var(--sp-2)">€120</p>
+      <p class="meta">per session</p>
+      <div class="grid" style="gap:var(--sp-3);margin:var(--sp-5) 0"><p class="body">✓ 60-minute facial</p><p class="body">✓ Skin diagnosis</p><p class="body">✓ Written aftercare</p></div>
+      <a class="btn btn--outline btn--block" href="#">Choose essential</a>
+    </div>
+    <div class="card card--dark reveal" data-reveal="up" style="box-shadow:var(--sh-3)">
+      <div style="display:flex;justify-content:space-between;align-items:center"><p class="eyebrow">Glow course</p><span class="chip chip--coral">Most booked</span></div>
+      <p class="display" style="font-size:var(--fs-h1);margin:var(--sp-4) 0 var(--sp-2)">€540</p>
+      <p class="meta" style="color:rgba(246,241,237,.55)">three sessions</p>
+      <div class="grid" style="gap:var(--sp-3);margin:var(--sp-5) 0;color:rgba(246,241,237,.8)"><p class="body" style="color:inherit">✓ Everything in Essential</p><p class="body" style="color:inherit">✓ Progress photography</p><p class="body" style="color:inherit">✓ Routine adjusted twice</p></div>
+      <a class="btn btn--block" href="#">Start the course</a>
+    </div>
+    <div class="card reveal" data-reveal="up">
+      <p class="eyebrow">Membership</p>
+      <p class="display" style="font-size:var(--fs-h1);margin:var(--sp-4) 0 var(--sp-2)">€95</p>
+      <p class="meta">monthly</p>
+      <div class="grid" style="gap:var(--sp-3);margin:var(--sp-5) 0"><p class="body">✓ One facial each month</p><p class="body">✓ 15% off all courses</p><p class="body">✓ Priority booking</p></div>
+      <a class="btn btn--outline btn--block" href="#">Join</a>
+    </div>
+  </div>
+</section>

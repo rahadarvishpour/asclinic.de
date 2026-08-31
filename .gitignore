@@ -1,5 +1,7 @@
 # build output
 dist/
+# …except the design-system bundle, which is a deliverable
+!design-system/dist/
 .astro/
 
 # dependencies

@@ -1,0 +1,152 @@
+<!--meta {"title":"Motion","group":"Foundations","subtitle":"Reveals, stagger, float, marquee, counters, parallax — replayable","width":1280,"height":1500} -->
+<style>
+  .demo-tile { height: 120px; border-radius: var(--r-lg); background: var(--g-coral-100); display: grid; place-items: center;
+               font-size: var(--fs-sm); color: var(--accent-action); text-align: center; padding: var(--sp-4); }
+  .curve__box { height: 74px; border-radius: var(--r-md); background: var(--g-charcoal); color: var(--text-invert);
+                display: grid; place-items: center; font-size: var(--fs-xs); text-align: center; }
+  .replay { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); }
+  .stage { border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-soft); padding: var(--sp-6); }
+  .px-stage { height: 240px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-soft); position: relative; }
+  .px-stage__inner { height: 620px; padding: var(--sp-6); }
+</style>
+
+<section class="row">
+  <p class="row__label">The rule</p>
+  <p class="body" style="max-width:72ch">Nothing on a Glowvie page appears — everything <em>arrives</em>. Content fades up as it enters the viewport, siblings arrive in sequence rather than together, decorative shapes never fully settle, and every interactive surface answers within 320ms. Motion is where the brand's warmth lives; it is also the first thing to switch off for anyone who asks, which <code>tokens.css</code> does globally through <code>prefers-reduced-motion</code>.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Easing &amp; duration</p>
+  <div class="grid grid--4">
+    <div><div class="curve__box">--ease-out<br>.22, 1, .36, 1</div><p class="meta" style="margin-top:var(--sp-3)">Reveals, lifts, translations. Fast start, long settle.</p></div>
+    <div><div class="curve__box">--ease-soft<br>.4, 0, .2, 1</div><p class="meta" style="margin-top:var(--sp-3)">Colour, opacity, background fills.</p></div>
+    <div><div class="curve__box">--ease-back<br>.34, 1.4, .64, 1</div><p class="meta" style="margin-top:var(--sp-3)">Plus tabs and chips — a small overshoot.</p></div>
+    <div><div class="curve__box">Durations</div><p class="meta" style="margin-top:var(--sp-3)">180 fast · 320 base · 620 slow · 800 reveal · 90ms stagger step.</p></div>
+  </div>
+</section>
+
+<section class="row">
+  <div class="replay">
+    <p class="row__label" style="flex:1;margin:0">1 · Scroll reveal — five entrances, one per element</p>
+    <button class="btn btn--sm" data-replay="#d1">Replay</button>
+  </div>
+  <div class="stage" id="d1">
+    <div class="grid grid--5" style="gap:var(--sp-4)">
+      <div class="demo-tile reveal" data-reveal="up">up<br><span class="meta">translateY 32</span></div>
+      <div class="demo-tile reveal" data-reveal="left">left<br><span class="meta">translateX −32</span></div>
+      <div class="demo-tile reveal" data-reveal="right">right<br><span class="meta">translateX 32</span></div>
+      <div class="demo-tile reveal" data-reveal="scale">scale<br><span class="meta">0.94 → 1</span></div>
+      <div class="demo-tile reveal" data-reveal="clip">clip<br><span class="meta">image wipe</span></div>
+    </div>
+  </div>
+  <p class="meta">Markup is one attribute: <code>&lt;div class="reveal" data-reveal="up"&gt;</code>. Each element fires once, when its top edge crosses 88% of the viewport. <code>clip</code> is reserved for photography — it wipes rather than fades.</p>
+</section>
+
+<section class="row">
+  <div class="replay">
+    <p class="row__label" style="flex:1;margin:0">2 · Stagger — the same reveal, offset 90ms per sibling</p>
+    <button class="btn btn--sm" data-replay="#d2">Replay</button>
+  </div>
+  <div class="stage" id="d2">
+    <div class="grid grid--4 stagger" style="gap:var(--sp-4)">
+      <div class="demo-tile reveal" data-reveal="up">01</div>
+      <div class="demo-tile reveal" data-reveal="up">02</div>
+      <div class="demo-tile reveal" data-reveal="up">03</div>
+      <div class="demo-tile reveal" data-reveal="up">04</div>
+    </div>
+  </div>
+  <p class="meta">Wrap the grid in <code>.stagger</code> — the runtime indexes the children and CSS multiplies <code>--i</code> by the step. Never stagger more than six items; past that the last one feels late.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">3 · Ambient float — nothing decorative sits still</p>
+  <div class="stage" style="position:relative;display:grid;place-items:center;height:230px">
+    <div class="media media--blob float" style="width:150px;height:170px"><div class="media__ph" style="height:100%;aspect-ratio:auto">.float</div></div>
+    <span class="chip chip--coral float float--sm" style="position:absolute;left:14%;top:20%">.float--sm · 5s</span>
+    <span class="chip chip--light float float--rev" style="position:absolute;right:12%;bottom:18%">.float--rev</span>
+  </div>
+  <p class="meta">±9px over 7s, ease-in-out, alternating. Hero shapes, product shots, floating badges and leaves — never text, and never anything clickable at rest.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">4 · Marquee — announcement bar and treatment strip</p>
+  <div class="topbar marquee" style="border-radius:var(--r-md)">
+    <div class="marquee__track" style="padding-block:var(--sp-3)">
+      <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+      <span class="marquee__item">Special offer · 20% off your first facial</span><span class="marquee__item">Free skin consultation</span><span class="marquee__item">Open Mon–Sat 09:00–18:00</span>
+    </div>
+  </div>
+  <p class="meta">Track duplicated once and translated −50% over 34s, linear, so the loop is seamless. It pauses on hover — an offer nobody can read is not an offer.</p>
+</section>
+
+<section class="row">
+  <div class="replay">
+    <p class="row__label" style="flex:1;margin:0">5 · Counters — numbers roll up once, on entry</p>
+    <button class="btn btn--sm" data-replay="#d3">Replay</button>
+  </div>
+  <div class="stage" id="d3">
+    <div class="grid grid--3" style="text-align:center">
+      <div><p class="stat__value" data-count="3000" data-suffix="+">0</p><p class="stat__label">Glow treatments</p></div>
+      <div><p class="stat__value" data-count="650" data-suffix="+">0</p><p class="stat__label">Facial variants</p></div>
+      <div><p class="stat__value" data-count="4.9">0</p><p class="stat__label">Average rating</p></div>
+    </div>
+  </div>
+  <p class="meta">1.4s, cubic ease-out, thousands separated, decimals preserved. With JavaScript off the final value is what ships in the markup — the number is never missing.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">6 · Hover vocabulary — four gestures, nothing else</p>
+  <div class="grid grid--4">
+    <div class="card" style="text-align:center"><p class="h4">Lift</p><p class="meta" style="margin-top:var(--sp-2)">Cards rise 4px into --sh-2. Hover this card.</p></div>
+    <div class="card" style="text-align:center"><p class="h4">Sweep</p><p class="meta" style="margin:var(--sp-2) 0 var(--sp-4)">Buttons fill from the left.</p><a class="btn btn--sm" href="#">Hover me</a></div>
+    <div class="card hover-zoom" style="text-align:center"><p class="h4">Zoom</p><div class="media" style="margin-top:var(--sp-3)"><div class="media__ph" style="aspect-ratio:16/9">scale 1.06 · 620ms</div></div></div>
+    <div class="card arch-card" style="text-align:center"><p class="h4">Rotate</p><p class="meta" style="margin:var(--sp-2) 0 var(--sp-4)">The plus tab turns 90°.</p><div style="display:grid;place-items:center"><span class="plus">+</span></div></div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">7 · Parallax — scroll inside the frame</p>
+  <div class="px-stage" id="px">
+    <div class="px-stage__inner">
+      <svg class="leaf" id="px-leaf" style="position:absolute;right:8%;top:26%" width="130" height="130" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/></svg>
+      <p class="h3">Scroll ↓</p>
+      <p class="body" style="margin-top:var(--sp-8)">The leaf lags behind the content at <code>data-parallax="0.35"</code>.</p>
+      <p class="body" style="margin-top:var(--sp-9)">Only 0.15 – 0.4. Anything stronger reads as a rendering glitch rather than depth.</p>
+      <p class="body" style="margin-top:var(--sp-9)">Parallax is for decoration only — never for text, cards or anything a reader has to catch.</p>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Budget</p>
+  <p class="body" style="max-width:72ch">One reveal per element, never nested. No more than three things animating in a viewport at once. Only <code>transform</code> and <code>opacity</code> animate — never width, height, top or margin. The whole runtime is a single 2&nbsp;KB file, <code>motion.js</code>, and it degrades to plain, visible content when JavaScript or motion is switched off.</p>
+</section>
+
+<script>
+  /* specimen-only helpers: replay buttons and the boxed parallax demo */
+  document.querySelectorAll('[data-replay]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var stage = document.querySelector(btn.dataset.replay);
+      stage.querySelectorAll('.reveal').forEach(function (el) { el.classList.remove('is-in'); });
+      stage.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = '0'; });
+      void stage.offsetWidth;
+      setTimeout(function () {
+        stage.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+        stage.querySelectorAll('[data-count]').forEach(function (el) {
+          var to = parseFloat(el.dataset.count), dec = (el.dataset.count.split('.')[1] || '').length,
+              sfx = el.dataset.suffix || '', t0 = null;
+          requestAnimationFrame(function tick(t) {
+            if (!t0) t0 = t;
+            var p = Math.min((t - t0) / 1400, 1), e = 1 - Math.pow(1 - p, 3);
+            el.textContent = (to * e).toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + sfx;
+            if (p < 1) requestAnimationFrame(tick);
+          });
+        });
+      }, 60);
+    });
+  });
+  var px = document.getElementById('px'), leaf = document.getElementById('px-leaf');
+  if (px && leaf) px.addEventListener('scroll', function () {
+    leaf.style.transform = 'translate3d(0,' + (px.scrollTop * 0.35).toFixed(1) + 'px,0)';
+  }, { passive: true });
+</script>

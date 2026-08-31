@@ -1,0 +1,214 @@
+{
+  "cards": [
+    {
+      "name": "Colour",
+      "path": "components/00-colors.html",
+      "subtitle": "Coral on blush and cream, charcoal for depth",
+      "group": "Foundations",
+      "viewport": {
+        "width": 1280,
+        "height": 980
+      }
+    },
+    {
+      "name": "Typography",
+      "path": "components/01-typography.html",
+      "subtitle": "Playfair Display headings \u00b7 DM Sans interface \u00b7 micro-caps navigation",
+      "group": "Foundations",
+      "viewport": {
+        "width": 1280,
+        "height": 1040
+      }
+    },
+    {
+      "name": "Space, Shape & Elevation",
+      "path": "components/02-space-shape.html",
+      "subtitle": "4pt spacing, the arch and blob motifs, three shadows",
+      "group": "Foundations",
+      "viewport": {
+        "width": 1280,
+        "height": 1080
+      }
+    },
+    {
+      "name": "Motion",
+      "path": "components/04-motion.html",
+      "subtitle": "Reveals, stagger, float, marquee, counters, parallax \u2014 replayable",
+      "group": "Foundations",
+      "viewport": {
+        "width": 1280,
+        "height": 1500
+      }
+    },
+    {
+      "name": "Buttons & Plus Tabs",
+      "path": "components/10-buttons.html",
+      "subtitle": "Pill buttons with a charcoal sweep \u00b7 the coral plus tab",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 860
+      }
+    },
+    {
+      "name": "Chips & Tags",
+      "path": "components/11-chips.html",
+      "subtitle": "Category, duration, rating and overlay labels",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 560
+      }
+    },
+    {
+      "name": "Forms",
+      "path": "components/12-forms.html",
+      "subtitle": "Booking-first fields with a coral focus ring",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 940
+      }
+    },
+    {
+      "name": "Service Cards",
+      "path": "components/13-arch-cards.html",
+      "subtitle": "The signature arch photo, white label bar and coral plus tab",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 1080
+      }
+    },
+    {
+      "name": "Feature Strip",
+      "path": "components/14-feature-strip.html",
+      "subtitle": "Five reassurances on the stone band, directly under the hero",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 460
+      }
+    },
+    {
+      "name": "Checklist Block",
+      "path": "components/15-checklist.html",
+      "subtitle": "\u201cEnhance your beauty\u201d \u2014 four steps beside a portrait",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 700
+      }
+    },
+    {
+      "name": "Testimonials",
+      "path": "components/16-testimonials.html",
+      "subtitle": "Alternating lemon and blush cards, quiet attribution",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 760
+      }
+    },
+    {
+      "name": "Stats",
+      "path": "components/17-stats.html",
+      "subtitle": "Counters that roll up once, on entry",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 560
+      }
+    },
+    {
+      "name": "FAQ",
+      "path": "components/18-faq.html",
+      "subtitle": "Charcoal active row beside a portrait with a floating contact card",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 840
+      }
+    },
+    {
+      "name": "Story & Results",
+      "path": "components/19-story-block.html",
+      "subtitle": "Paired before/after with an overlay badge, stats and copy",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 860
+      }
+    },
+    {
+      "name": "Gallery",
+      "path": "components/20-gallery.html",
+      "subtitle": "Scattered circles and arches on the blush band",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 820
+      }
+    },
+    {
+      "name": "Packages & Pricing",
+      "path": "components/21-packages.html",
+      "subtitle": "Dotted price rows and the featured package card",
+      "group": "Components",
+      "viewport": {
+        "width": 1280,
+        "height": 880
+      }
+    },
+    {
+      "name": "Header",
+      "path": "components/30-header.html",
+      "subtitle": "Charcoal announcement marquee, white sticky nav, coral CTA",
+      "group": "Patterns",
+      "viewport": {
+        "width": 1280,
+        "height": 640
+      }
+    },
+    {
+      "name": "Hero",
+      "path": "components/31-hero.html",
+      "subtitle": "Blush stage, blob portrait, floating product and counters",
+      "group": "Patterns",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      }
+    },
+    {
+      "name": "Booking CTA",
+      "path": "components/33-cta-booking.html",
+      "subtitle": "Half photograph, half charcoal panel \u2014 the page's closing move",
+      "group": "Patterns",
+      "viewport": {
+        "width": 1280,
+        "height": 700
+      }
+    },
+    {
+      "name": "Footer",
+      "path": "components/34-footer.html",
+      "subtitle": "Charcoal, four columns, opening hours, social pills",
+      "group": "Patterns",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "name": "Home Page",
+      "path": "components/40-page-home.html",
+      "subtitle": "Every block in the intended order, with the full motion layer live",
+      "group": "Compositions",
+      "viewport": {
+        "width": 1440,
+        "height": 2600
+      }
+    }
+  ]
+}

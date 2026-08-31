@@ -1,0 +1,46 @@
+<!--meta {"title":"Hero","group":"Patterns","subtitle":"Blush stage, blob portrait, floating product and counters","width":1280,"height":900} -->
+<style>
+  .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: var(--sp-8); align-items: center; position: relative; }
+  @media (max-width: 900px){ .hero { grid-template-columns: 1fr; } }
+  .hero__stats { display: grid; grid-template-columns: repeat(2, auto); gap: var(--sp-8); justify-content: start;
+                 margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid var(--g-blush); }
+</style>
+<section class="row">
+  <p class="row__label">Primary hero</p>
+  <div class="section--soft" style="border-radius:var(--r-lg);padding:var(--sp-9) var(--sp-7);position:relative;overflow:hidden">
+    <svg class="leaf parallax" data-parallax="0.2" style="position:absolute;left:-20px;top:12%" width="180" height="180" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".9"><path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/><path d="M50 92V26"/></svg>
+    <div class="hero">
+      <div>
+        <p class="eyebrow reveal" data-reveal="up">Skincare studio</p>
+        <h1 class="display reveal" data-reveal="up" style="margin:var(--sp-5) 0">Refine your radiant beauty <span class="italic-accent">today!</span></h1>
+        <p class="lead reveal" data-reveal="up">Experience tailored skincare in a calm studio that enhances your natural beauty and gives you a radiant glow.</p>
+        <div class="row__demo reveal" data-reveal="up" style="margin-top:var(--sp-6)">
+          <a class="btn btn--lg" href="#">Book now</a>
+          <a class="btn btn--ghost" href="#">Our services <span class="btn__arrow">→</span></a>
+        </div>
+        <div class="hero__stats">
+          <div><p class="stat__value" data-count="3000" data-suffix="+">0</p><p class="stat__label">Glow treatments</p></div>
+          <div><p class="stat__value" data-count="650" data-suffix="+">0</p><p class="stat__label">Facial variants</p></div>
+        </div>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center">
+        <div class="shape-circle float" style="width:290px;height:290px;right:4%;top:2%;background:var(--g-blush)"></div>
+        <div class="media media--blob hover-zoom reveal" data-reveal="scale" style="width:80%"><div class="media__ph" style="aspect-ratio:4/5">Hero portrait</div></div>
+        <div class="media media--circle float float--sm" style="position:absolute;left:0;bottom:6%;width:110px;box-shadow:var(--sh-2)"><div class="media__ph">Product</div></div>
+        <span class="chip chip--light float float--rev" style="position:absolute;right:2%;bottom:16%">★ 4.9 · 312 reviews</span>
+      </div>
+    </div>
+  </div>
+  <p class="meta">Copy reveals in sequence — eyebrow, heading, lead, buttons — while the portrait scales up from 0.94 and the blush circle, product shot and rating chip each float on their own cycle. Counters start when the hero settles.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Centred campaign variant</p>
+  <div class="section--invert" style="border-radius:var(--r-lg);padding:var(--sp-9) var(--sp-6);text-align:center;position:relative;overflow:hidden">
+    <svg class="leaf" style="position:absolute;right:-10px;bottom:-20px" width="200" height="200" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".9"><path d="M12 88C40 84 72 62 88 20 52 22 22 44 12 88Z"/></svg>
+    <p class="eyebrow" style="justify-content:center">Spring glow course</p>
+    <h1 class="display reveal" data-reveal="up" style="margin:var(--sp-5) auto;max-width:16ch">Three sessions to <span class="italic-accent">even</span> skin</h1>
+    <p class="lead" style="margin-inline:auto;text-align:center">Booked 340 times last season, photographed and reviewed at every visit.</p>
+    <div class="row__demo" style="justify-content:center;margin-top:var(--sp-6)"><a class="btn btn--lg" href="#">Reserve a place</a><a class="btn btn--light btn--lg" href="#">How it works</a></div>
+  </div>
+</section>

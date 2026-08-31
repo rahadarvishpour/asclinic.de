@@ -1,0 +1,63 @@
+<!--meta {"title":"Space, Shape & Elevation","group":"Foundations","subtitle":"4pt spacing, the arch and blob motifs, three shadows","width":1280,"height":1080} -->
+<style>
+  .bar { display: flex; align-items: center; gap: var(--sp-4); }
+  .bar__swatch { height: 26px; background: var(--g-coral-100); border-left: 2px solid var(--accent); }
+  .bar__meta { font-size: var(--fs-xs); color: var(--text-faint); }
+  .rad { display: grid; gap: var(--sp-3); justify-items: center; }
+  .rad__box { width: 130px; height: 110px; background: var(--g-blush); }
+  .el { height: 120px; border-radius: var(--r-lg); background: var(--surface); display: grid; place-items: center;
+        font-size: var(--fs-sm); color: var(--text-muted); border: 1px solid var(--border); }
+</style>
+
+<section class="row">
+  <p class="row__label">Spacing — 4pt base, no in-between values</p>
+  <div class="row__demo--stack">
+    <div class="bar"><div class="bar__swatch" style="width:4px"></div><span class="bar__meta">--sp-1 · 4px · icon nudges</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:8px"></div><span class="bar__meta">--sp-2 · 8px · label to field</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:12px"></div><span class="bar__meta">--sp-3 · 12px · inside chips and plus tabs</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:16px"></div><span class="bar__meta">--sp-4 · 16px · button gaps</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:24px"></div><span class="bar__meta">--sp-5 · 24px · grid gap, stacked text</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:32px"></div><span class="bar__meta">--sp-6 · 32px · card padding</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:48px"></div><span class="bar__meta">--sp-7 · 48px · heading to content</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:64px"></div><span class="bar__meta">--sp-8 · 64px · sub-section break</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:96px"></div><span class="bar__meta">--sp-9 · 96px · major break</span></div>
+    <div class="bar"><div class="bar__swatch" style="width:128px"></div><span class="bar__meta">--sp-10 · 128px · hero breathing room</span></div>
+  </div>
+  <p class="meta">--section-y (56→112px) sets every section's vertical padding · --gutter (20→48px) the horizontal · --maxw 1240px · prose caps at 60 characters.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Shape — the arch and the blob carry the brand</p>
+  <div class="row__demo">
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-sm)"></div><span class="bar__meta">--r-sm 6px · plus tab</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-md)"></div><span class="bar__meta">--r-md 12px · fields, label bars</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-lg)"></div><span class="bar__meta">--r-lg 20px · cards</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-image)"></div><span class="bar__meta">--r-image 16px · plain photography</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-arch);height:150px"></div><span class="bar__meta">--r-arch · service &amp; portrait photos</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-blob);height:130px"></div><span class="bar__meta">--r-blob · hero subject</span></div>
+    <div class="rad"><div class="rad__box" style="border-radius:var(--r-pill);width:110px;height:110px"></div><span class="bar__meta">--r-pill · buttons, chips, gallery</span></div>
+  </div>
+  <p class="meta">Arch above, soft corners below — that silhouette is the kit. Straight corners appear only on hairlines and the plus tab.</p>
+</section>
+
+<section class="row">
+  <p class="row__label">Elevation — warm-tinted, never neutral grey</p>
+  <div class="grid grid--3">
+    <div class="el" style="box-shadow:var(--sh-1)">--sh-1 · resting cards, label bars</div>
+    <div class="el" style="box-shadow:var(--sh-2)">--sh-2 · hover, floating badges</div>
+    <div class="el" style="box-shadow:var(--sh-3)">--sh-3 · booking panel, modals</div>
+  </div>
+</section>
+
+<section class="row">
+  <p class="row__label">Decoration — botanical line art</p>
+  <div class="frame" style="position:relative;height:200px;background:var(--bg-soft);display:grid;place-items:center">
+    <svg class="leaf float" style="left:6%;top:14%;position:absolute" width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.1">
+      <path d="M50 92C50 60 62 30 92 12 92 48 78 78 50 92Z"/><path d="M50 92C50 60 38 30 8 12 8 48 22 78 50 92Z"/><path d="M50 92V30"/>
+    </svg>
+    <svg class="leaf float float--rev" style="right:8%;bottom:10%;position:absolute" width="90" height="90" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.1">
+      <path d="M12 88C40 84 72 62 88 20 52 22 22 44 12 88Z"/><path d="M12 88 88 20"/>
+    </svg>
+    <p class="meta">Outlined leaves at 40–60% opacity, always behind content, always drifting</p>
+  </div>
+</section>
