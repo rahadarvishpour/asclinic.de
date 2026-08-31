@@ -1,12 +1,18 @@
 ---
-import { t, type Locale } from "../i18n/ui";
+import { t, LOCALES, type Locale } from "../i18n/ui";
+import { HAIR_SERVICES, SURGERY_PROCEDURES } from "../data/treatments";
+import { CLINIC } from "../data/clinic";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
+// Each figure is derived from data the site actually publishes, so it can be
+// checked against the page and cannot drift out of date. Unsourced marketing
+// statistics (guests treated, satisfaction %) were removed deliberately.
+const openingDays = CLINIC.openingHours.reduce((n, h) => n + h.days.length, 0);
 const STATS = [
-  { value: "16", key: "stats.1" as const },
-  { value: "38,000+", key: "stats.2" as const },
-  { value: "98%", key: "stats.3" as const },
-  { value: "6", key: "stats.4" as const }
+  { value: String(HAIR_SERVICES.length), key: "stats.1" as const },
+  { value: String(SURGERY_PROCEDURES.length), key: "stats.2" as const },
+  { value: String(LOCALES.length), key: "stats.3" as const },
+  { value: String(openingDays), key: "stats.4" as const }
 ];
 ---
 

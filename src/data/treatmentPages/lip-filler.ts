@@ -5,6 +5,139 @@ export const LIP_FILLER: TreatmentPage = {
   category: { categoryLabelKey: "nav.inject", categoryAnchorId: "injectables" },
   content: {
     en: {
+      article: {
+        h1: "Lip Filler in Berlin",
+        heroIntro: "Hyaluronic acid lip filler at AS Clinic on Kurfürstendamm, dosed to your own lip proportions and reviewed two weeks later before anything more is added.",
+        updated: "2026-08-31",
+        directAnswer: {
+          heading: "What is lip filler?",
+          body: "Lip filler is an injectable treatment that uses cross-linked hyaluronic acid — a gel based on a substance the body produces naturally — to add volume, definition or symmetry to the lips. At AS Clinic in Berlin the gel is placed into the lip border, the lip body, or both, by a physician or specialist nurse. The effect is visible immediately, settles over about two weeks, and is temporary: the body breaks the gel down gradually. Because it is hyaluronic acid, the result can also be dissolved if you are unhappy with it."
+        },
+        glanceHeading: "Lip filler at a glance",
+        glance: [
+          { label: "Treatment", value: "Lip filler with cross-linked hyaluronic acid" },
+          { label: "Clinic", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Treatment time", value: "30–45 minutes, including numbing time" },
+          { label: "Anaesthesia", value: "Topical numbing cream; most fillers also contain lidocaine" },
+          { label: "First consultation", value: "Free, approximately 30 minutes, no obligation" },
+          { label: "Downtime", value: "Most people return to normal activities the same day" },
+          { label: "Results visible", value: "Immediately; final shape at about two weeks" },
+          { label: "Review appointment", value: "Two weeks after treatment" },
+          { label: "Reversible", value: "Yes — hyaluronic acid can be dissolved with hyaluronidase" }
+        ],
+        sections: [
+          {
+            heading: "What can lip filler be used for?",
+            body: "Lip filler is used to change the volume, outline or balance of the lips, and to soften fine vertical lines around the mouth. It is a shaping treatment rather than a skin treatment — it will not change skin texture or pigmentation. The most common reasons people ask for it at AS Clinic are:",
+            points: [
+              "Adding volume to lips that are naturally thin, or that have lost fullness over time",
+              "Defining the vermilion border so lipstick no longer bleeds into fine lines",
+              "Correcting an asymmetry between the left and right side, or between upper and lower lip",
+              "Improving the shape of the Cupid’s bow or the central height of the upper lip",
+              "Softening the vertical lines above the upper lip"
+            ]
+          },
+          {
+            heading: "Will my lips look natural?",
+            body: "That depends far more on dose and technique than on the product itself. Our protocol is to keep the first session small, follow the outline your lips already have rather than impose a template, and review the result at two weeks before adding anything further. An overfilled look is almost always the result of too much product placed too quickly, not of hyaluronic acid itself. If you want a visibly fuller result, we build towards it across sessions instead of in one appointment."
+          },
+          {
+            heading: "Who may be suitable for lip filler?",
+            body: "Most healthy adults over 18 are suitable candidates. Suitability is confirmed in person at your consultation, not by an online form, because it depends on your lip anatomy and medical history as much as on what you would like changed.",
+            points: [
+              "You are over 18",
+              "You are in good general health",
+              "You have realistic expectations about what a temporary gel can change",
+              "You have no active infection or cold sore on or near the lips",
+              "You are not pregnant or breastfeeding"
+            ]
+          },
+          {
+            heading: "When may lip filler not be appropriate?",
+            body: "We will decline or postpone treatment where the risk is not justified. This is a normal part of a medical consultation and does not mean you can never be treated — in several of these cases treatment can simply happen later.",
+            points: [
+              "Active cold sores, or an infection or inflamed skin at the injection site",
+              "Pregnancy and breastfeeding",
+              "Known allergy to hyaluronic acid products or to lidocaine",
+              "Certain autoimmune conditions, or an active flare of one",
+              "Blood-clotting disorders, or anticoagulant medication that cannot be paused safely",
+              "Expectations that cannot be met safely with a temporary filler"
+            ]
+          },
+          {
+            heading: "Risks and possible side effects",
+            body: "Every injectable treatment carries risk, and lip filler is no exception. Swelling, tenderness and small bruises are expected rather than unusual, and settle within a few days. Less common are lumps or unevenness, which can often be massaged or dissolved, and infection. The most serious risk is vascular occlusion, where filler is inadvertently placed into or compresses a blood vessel — this is rare, and it is the specific reason treatment should only be carried out by someone trained in facial anatomy who has hyaluronidase available on site. All risks are explained in the consent form you read and sign at your consultation, before anything is injected."
+          },
+          {
+            heading: "Lip filler aftercare",
+            body: "There is no complicated aftercare, but the first 24 hours matter. Ice can be used for short periods to limit swelling.",
+            points: [
+              "Leave the injection sites alone for about 12 hours before applying lip products",
+              "Avoid strenuous exercise, saunas and sunbeds for 24 hours",
+              "Avoid alcohol for 24 hours, as it increases swelling and bruising",
+              "Sleep with your head slightly elevated on the first night",
+              "Contact the clinic immediately if you notice severe or increasing pain, blanching or unusual discolouration"
+            ]
+          },
+          {
+            heading: "When will I see results?",
+            body: "You will see added volume immediately, but that is not your result. Swelling peaks in the first 24 to 72 hours and can make the lips look considerably larger and less even than they will be. The true shape is visible at around two weeks, which is why the review appointment is scheduled then rather than earlier. Judging the outcome — or deciding you want more — before that point is judging the swelling."
+          },
+          {
+            heading: "How long does lip filler last?",
+            body: "Hyaluronic acid lip filler typically lasts around 8 to 12 months, though this varies considerably between individuals. The lips are one of the most mobile areas of the face, so filler placed there tends to metabolise faster than filler placed against bone in the cheek or jaw. A fast metabolism, smoking and frequent intense exercise all shorten it. Most guests return every 9 to 12 months, and we assess the lips at each visit rather than working to a fixed schedule."
+          }
+        ],
+        process: {
+          heading: "How does lip filler work at AS Clinic?",
+          steps: [
+            { heading: "Consultation", body: "A free, no-obligation appointment of about 30 minutes. We discuss what you would like changed, look at what your lip anatomy will realistically support, and go through the risks and the consent form. Nothing is injected at this appointment unless you want to proceed and are happy to." },
+            { heading: "Assessment and planning", body: "We assess your lips at rest and while you speak and smile, note any existing asymmetry, and photograph the starting point. The plan covers where the product goes and how much — usually 0.5 to 1 ml for a first session." },
+            { heading: "Preparation", body: "Topical anaesthetic cream is applied and left to work for around 20 minutes. The lips are then cleaned and disinfected." },
+            { heading: "Treatment", body: "The filler is injected with a fine needle or a cannula, in small increments, over roughly 10 to 20 minutes. Most fillers contain lidocaine, so the area becomes progressively more numb as the treatment proceeds. Ice is applied afterwards." },
+            { heading: "Review at two weeks", body: "You return once the swelling has fully resolved. We compare against the starting photographs and, if the agreed plan calls for it, add a small top-up at no additional charge." }
+          ]
+        },
+        local: {
+          heading: "Lip filler in Berlin at AS Clinic",
+          body: "AS Clinic is on Kurfürstendamm in Berlin-Charlottenburg, and lip filler is carried out at the clinic by a physician or a specialist nurse trained in facial anatomy. Consultations are available in English, German, Spanish, Russian, Persian and Arabic. The first consultation is free and carries no obligation to book treatment."
+        },
+        why: {
+          heading: "Why choose AS Clinic for lip filler in Berlin?",
+          points: [
+            { heading: "Conservative first dose", body: "First sessions are capped at a small volume and reviewed before more is added. It is far easier to add filler than to correct an overfilled lip." },
+            { heading: "A review built into the treatment", body: "A two-week review is part of the treatment, not an upsell. Any top-up agreed in your original plan is included." },
+            { heading: "CE-marked product, shown to you", body: "We use cross-linked hyaluronic acid from CE-marked European manufacturers, and you see the sealed box and batch label before it is opened." },
+            { heading: "Medically staffed", body: "Only physicians and specialist nurses trained in facial anatomy inject at this clinic, with hyaluronidase available on site." },
+            { heading: "Treated in your own language", body: "Consultation and aftercare in six languages, so nothing about risk or consent is lost in translation." },
+            { heading: "Reversible by design", body: "Because the treatment uses hyaluronic acid, an unsatisfactory result can be dissolved rather than waited out." }
+          ]
+        },
+        faqHeading: "Lip filler in Berlin — frequently asked questions",
+        faqs: [
+          { q: "How much does lip filler cost at AS Clinic?", a: "Pricing is discussed at your free consultation, once we know how much product your plan actually needs. Cost depends primarily on the volume used — a first session typically uses 0.5 to 1 ml — and we confirm the figure with you before any treatment goes ahead. There is no charge for the consultation itself and no obligation to book." },
+          { q: "Does lip filler hurt?", a: "Most people describe it as uncomfortable rather than painful. Topical anaesthetic cream is applied for about 20 minutes beforehand, and most fillers contain lidocaine, so the lips become progressively number during treatment. Guests typically rate the discomfort at 2 to 4 out of 10. Ice afterwards helps with both sensation and swelling." },
+          { q: "How long does lip filler last?", a: "Typically 8 to 12 months, though this varies. The lips move constantly, so filler there breaks down faster than filler placed against bone elsewhere in the face. Metabolism, smoking and heavy exercise shorten it; conservative dosing and good aftercare extend it." },
+          { q: "How much filler will I need?", a: "Most first sessions use 0.5 to 1 ml. We deliberately start at the lower end and review at two weeks, because adding a little more is straightforward while correcting an overfilled lip is not. If you want a fuller result, we build towards it across sessions." },
+          { q: "How long does the swelling last?", a: "Swelling peaks within the first 24 to 72 hours and mostly settles within three to five days. Some minor unevenness can persist for up to two weeks. Plan any photographs, events or filming for at least a week after your appointment." },
+          { q: "Can lip filler be dissolved?", a: "Yes. Hyaluronic acid filler can be broken down with an enzyme called hyaluronidase, usually within a day of the dissolving appointment. This is one of the main safety advantages of hyaluronic acid over permanent fillers, and it is also the emergency treatment for a vascular complication." },
+          { q: "When can I exercise after lip filler?", a: "Avoid strenuous exercise for 24 hours. Raised blood pressure and body temperature increase both swelling and the chance of bruising. Walking and normal daily activity are fine straight away." },
+          { q: "Can I have lip filler if I get cold sores?", a: "Yes, but not during an active outbreak, and tell us at consultation. Injecting the lips can trigger a recurrence in people prone to them, so your doctor may recommend antiviral medication before treatment as a precaution." },
+          { q: "Is lip filler safe?", a: "Hyaluronic acid lip filler is a well-established treatment with a good safety record when performed by appropriately trained medical staff, but it is not risk-free. Swelling and bruising are common; lumps and infection are uncommon; vascular occlusion is rare but serious. Risk is minimised by correct technique, correct depth, and having hyaluronidase available on site." },
+          { q: "Who will perform my treatment?", a: "A physician or a specialist nurse trained in facial anatomy. Nobody injects at AS Clinic without a medical licence on file. You will meet the person carrying out your treatment at the consultation, before you commit to anything." },
+          { q: "Can lip filler be combined with other treatments?", a: "Often, yes. Lip filler is frequently planned alongside treatment of the lower face. Some combinations are deliberately staged across separate appointments so that swelling from one does not make it harder to assess the other." },
+          { q: "What if I do not like the result?", a: "Tell us at the two-week review. If the shape is not what you agreed, options include a small adjustment, or dissolving the filler with hyaluronidase and starting again. Because the treatment is temporary and reversible, an unwanted result does not have to be permanent." }
+        ],
+        relatedHeading: "Related treatments",
+        related: [
+          { slug: "cheek-filler", blurb: "Restores midface volume, which supports the lower face and softens the nasolabial fold." },
+          { slug: "jawline-filler", blurb: "Defines the jaw border and angle for a sharper lower-face profile." },
+          { slug: "fillart", blurb: "A layered micro-bolus technique that softens the whole face rather than one feature." },
+          { slug: "skin-booster", blurb: "Hydration placed in the dermis — changes skin quality rather than shape." }
+        ],
+        ctaHeading: "Book a lip filler consultation in Berlin",
+        ctaBody: "A free, no-obligation 30-minute consultation at AS Clinic on Kurfürstendamm. We will assess your lips, explain what is realistic, and answer your questions — with no pressure to book treatment."
+      },
       title: "Lip Filler",
       metaTitle: "Lip Filler in Berlin — Natural Results | AS Clinic",
       metaDescription: "Physician-led lip filler at AS Clinic, Berlin: CE-marked hyaluronic acid, dosed to your natural lip shape. Free consultation, results last 8–12 months.",
@@ -42,6 +175,139 @@ export const LIP_FILLER: TreatmentPage = {
       ]
     },
     de: {
+      article: {
+        h1: "Lippen aufspritzen in Berlin",
+        heroIntro: "Lippenunterspritzung mit Hyaluronsäure in der AS Clinic am Kurfürstendamm — dosiert nach Ihren eigenen Lippenproportionen und nach zwei Wochen kontrolliert, bevor mehr gesetzt wird.",
+        updated: "2026-08-31",
+        directAnswer: {
+          heading: "Was ist eine Lippenunterspritzung?",
+          body: "Bei der Lippenunterspritzung wird quervernetzte Hyaluronsäure in die Lippen injiziert — ein Gel auf Basis eines körpereigenen Stoffes. Es gibt Volumen, zeichnet die Lippenkontur nach oder gleicht Asymmetrien aus. In der AS Clinic in Berlin setzt eine Ärztin oder eine Fachpflegekraft das Gel in Lippenrand, Lippenkörper oder beides. Das Ergebnis ist sofort sichtbar, setzt sich über etwa zwei Wochen und ist vorübergehend, da der Körper das Gel nach und nach abbaut. Da es sich um Hyaluronsäure handelt, lässt sich das Ergebnis bei Bedarf auch wieder auflösen."
+        },
+        glanceHeading: "Lippenunterspritzung auf einen Blick",
+        glance: [
+          { label: "Behandlung", value: "Lippenunterspritzung mit quervernetzter Hyaluronsäure" },
+          { label: "Klinik", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Behandlungsdauer", value: "30–45 Minuten inklusive Einwirkzeit" },
+          { label: "Betäubung", value: "Betäubungscreme; die meisten Filler enthalten zusätzlich Lidocain" },
+          { label: "Erstgespräch", value: "Kostenlos, etwa 30 Minuten, unverbindlich" },
+          { label: "Ausfallzeit", value: "Die meisten gehen noch am selben Tag ihrem Alltag nach" },
+          { label: "Ergebnis sichtbar", value: "Sofort; endgültige Form nach etwa zwei Wochen" },
+          { label: "Kontrolltermin", value: "Zwei Wochen nach der Behandlung" },
+          { label: "Umkehrbar", value: "Ja — Hyaluronsäure lässt sich mit Hyaluronidase auflösen" }
+        ],
+        sections: [
+          {
+            heading: "Wofür eignet sich eine Lippenunterspritzung?",
+            body: "Die Lippenunterspritzung verändert Volumen, Kontur und Balance der Lippen und mildert feine Fältchen oberhalb der Oberlippe. Sie formt, sie behandelt aber nicht die Hautqualität: An Pigmentierung oder Hautstruktur ändert sie nichts. Am häufigsten wird sie in der AS Clinic aus diesen Gründen gewünscht:",
+            points: [
+              "Mehr Volumen bei von Natur aus schmalen Lippen oder nach altersbedingtem Volumenverlust",
+              "Eine klarere Lippenkontur, damit Lippenstift nicht mehr in feine Fältchen ausläuft",
+              "Ausgleich einer Asymmetrie zwischen links und rechts oder zwischen Ober- und Unterlippe",
+              "Betonung des Amorbogens oder mehr Höhe in der Mitte der Oberlippe",
+              "Glättung der senkrechten Fältchen über der Oberlippe"
+            ]
+          },
+          {
+            heading: "Sehen die Lippen danach natürlich aus?",
+            body: "Das hängt weit mehr von Dosis und Technik ab als vom Präparat. Unser Vorgehen: in der ersten Sitzung wenig Material, entlang der Kontur, die Ihre Lippen ohnehin haben, statt nach Schema — und Kontrolle nach zwei Wochen, bevor etwas ergänzt wird. Ein überfüllter Eindruck entsteht praktisch immer durch zu viel Material in zu kurzer Zeit, nicht durch die Hyaluronsäure selbst. Wenn Sie ein deutlich volleres Ergebnis möchten, bauen wir es über mehrere Sitzungen auf."
+          },
+          {
+            heading: "Für wen ist eine Lippenunterspritzung geeignet?",
+            body: "Geeignet sind in der Regel gesunde Erwachsene ab 18 Jahren. Die Eignung klären wir persönlich im Beratungsgespräch und nicht über ein Online-Formular, denn sie hängt ebenso von Ihrer Lippenanatomie und Krankengeschichte ab wie von Ihrem Wunsch.",
+            points: [
+              "Sie sind über 18 Jahre alt",
+              "Sie sind allgemein gesund",
+              "Sie haben realistische Erwartungen an ein vorübergehendes Gel",
+              "Sie haben keine akute Infektion und keinen Herpes an oder nahe den Lippen",
+              "Sie sind nicht schwanger und stillen nicht"
+            ]
+          },
+          {
+            heading: "Wann ist eine Lippenunterspritzung nicht sinnvoll?",
+            body: "Wir behandeln nicht oder verschieben, wenn das Risiko nicht vertretbar ist. Das gehört zu einem ärztlichen Gespräch dazu und heißt in vielen Fällen nur, dass die Behandlung später stattfindet.",
+            points: [
+              "Akuter Lippenherpes, Infektion oder entzündete Haut an der Einstichstelle",
+              "Schwangerschaft und Stillzeit",
+              "Bekannte Allergie gegen Hyaluronsäurepräparate oder gegen Lidocain",
+              "Bestimmte Autoimmunerkrankungen oder ein akuter Schub",
+              "Gerinnungsstörungen oder blutverdünnende Medikamente, die nicht sicher pausiert werden können",
+              "Erwartungen, die sich mit einem temporären Filler nicht sicher erfüllen lassen"
+            ]
+          },
+          {
+            heading: "Risiken und mögliche Nebenwirkungen",
+            body: "Jede Injektionsbehandlung hat Risiken, auch die Lippenunterspritzung. Schwellung, Druckempfindlichkeit und kleine Blutergüsse sind zu erwarten und klingen innerhalb weniger Tage ab. Seltener sind Knötchen oder Unebenheiten, die sich oft massieren oder auflösen lassen, sowie Infektionen. Das schwerwiegendste Risiko ist der Gefäßverschluss, bei dem Filler in ein Blutgefäß gelangt oder es komprimiert. Er ist selten — und genau deshalb sollte nur behandeln, wer in Gesichtsanatomie geschult ist und Hyaluronidase vor Ort vorhält. Alle Risiken stehen in der Aufklärung, die Sie vor der Behandlung lesen und unterschreiben."
+          },
+          {
+            heading: "Nachsorge nach der Lippenunterspritzung",
+            body: "Die Nachsorge ist unkompliziert, die ersten 24 Stunden sind aber entscheidend. Kurzes Kühlen begrenzt die Schwellung.",
+            points: [
+              "Die Einstichstellen etwa 12 Stunden in Ruhe lassen, bevor Lippenprodukte aufgetragen werden",
+              "24 Stunden auf anstrengenden Sport, Sauna und Solarium verzichten",
+              "24 Stunden keinen Alkohol, da er Schwellung und Blutergüsse verstärkt",
+              "In der ersten Nacht mit leicht erhöhtem Kopf schlafen",
+              "Bei starken oder zunehmenden Schmerzen, Abblassen der Haut oder ungewöhnlicher Verfärbung sofort die Klinik kontaktieren"
+            ]
+          },
+          {
+            heading: "Wann sehe ich das Ergebnis?",
+            body: "Volumen sehen Sie sofort — aber das ist noch nicht Ihr Ergebnis. Die Schwellung erreicht ihren Höhepunkt in den ersten 24 bis 72 Stunden und lässt die Lippen deutlich größer und ungleichmäßiger wirken, als sie werden. Die endgültige Form zeigt sich nach etwa zwei Wochen. Genau deshalb liegt der Kontrolltermin dort und nicht früher: Wer vorher beurteilt, beurteilt die Schwellung."
+          },
+          {
+            heading: "Wie lange hält eine Lippenunterspritzung?",
+            body: "In der Regel etwa 8 bis 12 Monate, mit deutlichen individuellen Unterschieden. Die Lippen gehören zu den beweglichsten Bereichen des Gesichts, daher wird Filler dort schneller abgebaut als am Knochen von Wange oder Kiefer. Ein schneller Stoffwechsel, Rauchen und häufiger intensiver Sport verkürzen die Haltbarkeit. Die meisten Gäste kommen alle 9 bis 12 Monate; wir beurteilen die Lippen bei jedem Termin neu, statt nach festem Zeitplan zu arbeiten."
+          }
+        ],
+        process: {
+          heading: "Wie läuft die Lippenunterspritzung in der AS Clinic ab?",
+          steps: [
+            { heading: "Beratungsgespräch", body: "Ein kostenloses, unverbindliches Gespräch von etwa 30 Minuten. Wir besprechen Ihren Wunsch, prüfen, was Ihre Lippenanatomie realistisch trägt, und gehen Risiken und Aufklärung durch. In diesem Termin wird nichts injiziert, außer Sie möchten es ausdrücklich." },
+            { heading: "Befund und Planung", body: "Wir beurteilen die Lippen in Ruhe sowie beim Sprechen und Lächeln, halten vorhandene Asymmetrien fest und fotografieren den Ausgangsbefund. Der Plan legt fest, wo wie viel Material gesetzt wird — meist 0,5 bis 1 ml in der ersten Sitzung." },
+            { heading: "Vorbereitung", body: "Die Betäubungscreme wirkt etwa 20 Minuten ein. Anschließend werden die Lippen gereinigt und desinfiziert." },
+            { heading: "Behandlung", body: "Der Filler wird mit feiner Nadel oder Kanüle in kleinen Schritten gesetzt, über etwa 10 bis 20 Minuten. Da die meisten Filler Lidocain enthalten, wird der Bereich während der Behandlung zunehmend taub. Danach wird gekühlt." },
+            { heading: "Kontrolle nach zwei Wochen", body: "Sie kommen wieder, sobald die Schwellung vollständig abgeklungen ist. Wir vergleichen mit den Ausgangsfotos und ergänzen kostenfrei eine kleine Menge, wenn der vereinbarte Plan es vorsieht." }
+          ]
+        },
+        local: {
+          heading: "Lippen aufspritzen in Berlin — AS Clinic am Kurfürstendamm",
+          body: "Die AS Clinic liegt am Kurfürstendamm in Berlin-Charlottenburg. Die Lippenunterspritzung führt eine Ärztin oder eine in Gesichtsanatomie geschulte Fachpflegekraft in der Klinik durch. Beratung ist auf Deutsch, Englisch, Spanisch, Russisch, Persisch und Arabisch möglich. Das Erstgespräch ist kostenlos und verpflichtet zu nichts."
+        },
+        why: {
+          heading: "Warum die AS Clinic für die Lippenunterspritzung in Berlin?",
+          points: [
+            { heading: "Zurückhaltende erste Dosis", body: "Die erste Sitzung ist auf eine kleine Menge begrenzt und wird kontrolliert, bevor mehr folgt. Nachlegen ist deutlich einfacher, als eine überfüllte Lippe zu korrigieren." },
+            { heading: "Kontrolltermin gehört dazu", body: "Die Kontrolle nach zwei Wochen ist Teil der Behandlung und kein Zusatzverkauf. Eine im Plan vereinbarte Nachbesserung ist enthalten." },
+            { heading: "CE-zertifiziertes Präparat, sichtbar für Sie", body: "Wir verwenden quervernetzte Hyaluronsäure CE-zertifizierter europäischer Hersteller. Sie sehen die versiegelte Packung und das Chargenetikett, bevor sie geöffnet wird." },
+            { heading: "Medizinisch besetzt", body: "In dieser Klinik injizieren ausschließlich Ärztinnen, Ärzte und Fachpflegekräfte mit Ausbildung in Gesichtsanatomie — Hyaluronidase ist vor Ort verfügbar." },
+            { heading: "Behandlung in Ihrer Sprache", body: "Beratung und Nachsorge in sechs Sprachen, damit bei Risiken und Aufklärung nichts an der Sprache scheitert." },
+            { heading: "Bewusst umkehrbar", body: "Weil mit Hyaluronsäure gearbeitet wird, lässt sich ein unbefriedigendes Ergebnis auflösen, statt es aussitzen zu müssen." }
+          ]
+        },
+        faqHeading: "Lippen aufspritzen in Berlin — häufige Fragen",
+        faqs: [
+          { q: "Was kostet eine Lippenunterspritzung in der AS Clinic?", a: "Die Kosten besprechen wir im kostenlosen Erstgespräch, sobald feststeht, wie viel Material Ihr Plan tatsächlich benötigt. Ausschlaggebend ist vor allem die verwendete Menge — in einer ersten Sitzung meist 0,5 bis 1 ml. Den Betrag bestätigen wir Ihnen, bevor behandelt wird. Das Beratungsgespräch selbst ist kostenfrei und unverbindlich." },
+          { q: "Tut die Lippenunterspritzung weh?", a: "Die meisten empfinden sie als unangenehm, nicht als schmerzhaft. Etwa 20 Minuten vorher wirkt eine Betäubungscreme, und die meisten Filler enthalten Lidocain, sodass die Lippen währenddessen zunehmend taub werden. Gäste bewerten das Empfinden typischerweise mit 2 bis 4 von 10. Kühlen im Anschluss hilft gegen Empfindlichkeit und Schwellung." },
+          { q: "Wie lange hält das Ergebnis?", a: "Typischerweise 8 bis 12 Monate, individuell verschieden. Die Lippen sind ständig in Bewegung, daher wird Filler dort schneller abgebaut als an anderen Stellen des Gesichts. Stoffwechsel, Rauchen und intensiver Sport verkürzen die Haltbarkeit, zurückhaltende Dosierung und gute Nachsorge verlängern sie." },
+          { q: "Wie viel Filler brauche ich?", a: "In der ersten Sitzung meist 0,5 bis 1 ml. Wir beginnen bewusst am unteren Ende und kontrollieren nach zwei Wochen, denn nachlegen ist unkompliziert, eine überfüllte Lippe zu korrigieren nicht. Für ein volleres Ergebnis bauen wir über mehrere Sitzungen auf." },
+          { q: "Wie lange bleiben die Lippen geschwollen?", a: "Die Schwellung erreicht ihren Höhepunkt in den ersten 24 bis 72 Stunden und klingt überwiegend innerhalb von drei bis fünf Tagen ab. Leichte Unebenheiten können bis zu zwei Wochen bestehen. Planen Sie Fotos, Anlässe oder Dreharbeiten frühestens eine Woche nach dem Termin." },
+          { q: "Kann man Lippenfiller wieder auflösen?", a: "Ja. Hyaluronsäure lässt sich mit dem Enzym Hyaluronidase abbauen, in der Regel innerhalb eines Tages nach dem Auflösungstermin. Das ist einer der wesentlichen Sicherheitsvorteile gegenüber permanenten Fillern und zugleich die Notfallbehandlung bei einer Gefäßkomplikation." },
+          { q: "Wann darf ich nach der Behandlung wieder Sport machen?", a: "Verzichten Sie 24 Stunden auf anstrengenden Sport. Erhöhter Blutdruck und Körpertemperatur verstärken Schwellung und Blutergüsse. Spazierengehen und normaler Alltag sind sofort möglich." },
+          { q: "Kann ich mich behandeln lassen, wenn ich zu Lippenherpes neige?", a: "Ja, aber nicht während eines akuten Ausbruchs — bitte sprechen Sie uns im Beratungsgespräch darauf an. Eine Injektion in die Lippen kann bei entsprechender Veranlagung einen Ausbruch auslösen, daher kann Ihre Ärztin vorbeugend ein antivirales Medikament empfehlen." },
+          { q: "Ist eine Lippenunterspritzung sicher?", a: "Die Lippenunterspritzung mit Hyaluronsäure ist ein etabliertes Verfahren mit guter Sicherheitsbilanz, wenn medizinisch geschultes Personal behandelt — risikofrei ist sie nicht. Schwellung und Blutergüsse sind häufig, Knötchen und Infektionen selten, ein Gefäßverschluss ist sehr selten, aber ernst. Korrekte Technik, korrekte Tiefe und verfügbare Hyaluronidase minimieren das Risiko." },
+          { q: "Wer führt die Behandlung durch?", a: "Eine Ärztin, ein Arzt oder eine Fachpflegekraft mit Ausbildung in Gesichtsanatomie. In der AS Clinic injiziert niemand ohne hinterlegte medizinische Zulassung. Die behandelnde Person lernen Sie bereits im Beratungsgespräch kennen, bevor Sie sich festlegen." },
+          { q: "Lässt sich die Behandlung mit anderen kombinieren?", a: "Häufig ja. Die Lippenunterspritzung wird oft zusammen mit einer Behandlung der unteren Gesichtshälfte geplant. Manche Kombinationen verteilen wir bewusst auf getrennte Termine, damit die Schwellung der einen die Beurteilung der anderen nicht erschwert." },
+          { q: "Was passiert, wenn mir das Ergebnis nicht gefällt?", a: "Sprechen Sie es beim Kontrolltermin nach zwei Wochen an. Entspricht die Form nicht dem Vereinbarten, kommen eine kleine Korrektur oder das Auflösen mit Hyaluronidase und ein Neubeginn infrage. Da die Behandlung vorübergehend und umkehrbar ist, muss ein unerwünschtes Ergebnis nicht bleiben." }
+        ],
+        relatedHeading: "Passende Behandlungen",
+        related: [
+          { slug: "cheek-filler", blurb: "Stellt Volumen im Mittelgesicht wieder her und stützt so die untere Gesichtshälfte." },
+          { slug: "jawline-filler", blurb: "Definiert Kieferkante und -winkel für ein klareres Profil." },
+          { slug: "fillart", blurb: "Geschichtete Mikro-Boli, die das ganze Gesicht weichzeichnen statt ein einzelnes Merkmal." },
+          { slug: "skin-booster", blurb: "Feuchtigkeit in der Dermis — verändert die Hautqualität, nicht die Form." }
+        ],
+        ctaHeading: "Beratungstermin für die Lippenunterspritzung in Berlin",
+        ctaBody: "Ein kostenloses, unverbindliches Gespräch von 30 Minuten in der AS Clinic am Kurfürstendamm. Wir beurteilen Ihre Lippen, sagen Ihnen, was realistisch ist, und beantworten Ihre Fragen — ohne Druck, einen Termin zu buchen."
+      },
       title: "Lippenfiller",
       metaTitle: "Lippenfiller in Berlin — natürliche Ergebnisse | AS Clinic",
       metaDescription: "Ärztlich geführte Lippenunterspritzung in der AS Clinic Berlin: CE-zertifizierte Hyaluronsäure, dosiert auf Ihre natürliche Lippenform. Kostenlose Beratung, Ergebnis hält 8–12 Monate.",

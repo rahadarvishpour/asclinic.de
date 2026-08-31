@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import { CLINIC } from "../data/clinic";
+import { t, localePath, type Locale } from "../i18n/ui";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? CLINIC.url;
+const unprefixedPath = "/location";
+const homeHref = localePath(locale);
+
+// Google Maps is linked rather than embedded: an iframe would set Google cookies
+// on load, which needs consent under GDPR. A link-out keeps the page compliant
+// and still gives visitors turn-by-turn directions.
+const contacts = [
+  { label: "Telefon", href: `tel:${CLINIC.telephone}`, value: CLINIC.telephoneDisplay },
+  { label: "WhatsApp", href: CLINIC.whatsapp, value: "WhatsApp" },
+  { label: "Telegram", href: CLINIC.social.telegram, value: "Telegram" },
+  { label: "Instagram", href: CLINIC.social.instagram, value: "Instagram" },
+  { label: "TikTok", href: CLINIC.social.tiktok, value: "TikTok" }
+];
+
+const placeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": CLINIC.name,
+  "url": `${site}${localePath(locale, unprefixedPath)}`,
+  "telephone": CLINIC.telephone,
+  "hasMap": CLINIC.googleMaps,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": CLINIC.streetAddress,
+    "addressLocality": CLINIC.addressLocality,
+    "postalCode": CLINIC.postalCode,
+    "addressRegion": CLINIC.addressRegion,
+    "addressCountry": CLINIC.addressCountry
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": CLINIC.latitude, "longitude": CLINIC.longitude },
+  "openingHoursSpecification": CLINIC.openingHours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": h.days,
+    "opens": h.opens,
+    "closes": h.closes
+  })),
+  "sameAs": CLINIC.sameAs
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, "loc.metaTitle")}
+  description={t(locale, "loc.metaDescription")}
+  includeFaqSchema={false}
+  unprefixedPath={unprefixedPath}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(placeJsonLd)} is:inline />
+  </Fragment>
+  <div style="overflow-x:hidden">
+    <Header locale={locale} />
+    <main id="main">
+      <nav aria-label={t(locale, "a11y.breadcrumb")} class="container" style="padding-top:var(--sp-6)">
+        <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
+          <li><a href={homeHref} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" style="color:var(--text)">{t(locale, "nav.location")}</li>
+        </ol>
+      </nav>
+
+      <section class="section" style="padding-top:var(--sp-6); padding-bottom:var(--sp-7)">
+        <div class="container prose">
+          <h1 class="h1">{t(locale, "loc.h1")}</h1>
+          <p class="lead" style="color:var(--text-muted); margin-top:var(--sp-4)">{t(locale, "loc.intro")}</p>
+          <div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
+            <a class="btn btn--lg" href={CLINIC.googleMaps} target="_blank" rel="noopener noreferrer">{t(locale, "loc.mapCta")}</a>
+            <a class="btn btn--lg btn--outline" href={`${homeHref === "/" ? "" : homeHref}#book`}>{t(locale, "hero.cta")}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+        <div class="container prose">
+          <h2 class="h2">{t(locale, "loc.addressHeading")}</h2>
+          <address class="nap">
+            <strong>{CLINIC.name}</strong><br />
+            {CLINIC.streetAddress}<br />
+            {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}
+          </address>
+
+          <h2 class="h2" style="margin-top:var(--sp-7)">{t(locale, "loc.hoursHeading")}</h2>
+          <ul class="ticklist">
+            <li>{t(locale, "ft.hours1")}</li>
+            <li>{t(locale, "ft.hours2")}</li>
+            <li>{t(locale, "ft.hours3")}</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" style="padding-block:var(--sp-7)">
+        <div class="container prose">
+          <h2 class="h2">{t(locale, "loc.gettingHereHeading")}</h2>
+          <p class="body" style="color:var(--text-muted)">{t(locale, "loc.gettingHereBody")}</p>
+          <p style="margin-top:var(--sp-5)">
+            <a class="btn" href={CLINIC.googleMaps} target="_blank" rel="noopener noreferrer">{t(locale, "loc.mapCta")}</a>
+          </p>
+
+          <h2 class="h2" style="margin-top:var(--sp-8)">{t(locale, "loc.contactHeading")}</h2>
+          <p class="body" style="color:var(--text-muted)">{t(locale, "loc.contactBody")}</p>
+          <ul class="ticklist">
+            {contacts.map((c) => (
+              <li><a href={c.href} target={c.href.startsWith("tel:") ? undefined : "_blank"} rel="noopener noreferrer">{c.value}</a></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+        <div class="container prose">
+          <h2 class="h2">{t(locale, "loc.reviewsHeading")}</h2>
+          <p class="body" style="color:var(--text-muted)">{t(locale, "loc.reviewsBody")}</p>
+          <p style="margin-top:var(--sp-5)">
+            <a class="btn btn--outline" href={CLINIC.googleReviews} target="_blank" rel="noopener noreferrer">{t(locale, "loc.reviewsCta")}</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <Footer locale={locale} />
+  </div>
+
+  <style>
+    .prose { max-width: 78ch; }
+    .nap {
+      margin-top: var(--sp-5); padding: var(--sp-5); border: 1px solid var(--border);
+      border-radius: var(--r-md); font-style: normal; line-height: 1.9; background: var(--surface);
+    }
+    .ticklist { margin: var(--sp-4) 0 0; padding-inline-start: 1.15rem; display: grid; gap: var(--sp-2); }
+    .ticklist li { color: var(--text-muted); }
+  </style>
+</BaseLayout>

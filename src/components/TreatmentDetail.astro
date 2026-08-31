@@ -6,7 +6,7 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
 import { t, ti, localePath, type Locale } from "../i18n/ui";
-import { treatmentContent } from "../data/treatmentPages";
+import { TREATMENT_PAGES, treatmentContent } from "../data/treatmentPages";
 import type { TreatmentPage } from "../data/treatmentPages/types";
 
 interface Props {
@@ -19,6 +19,17 @@ interface Props {
 
 const { locale, page, image } = Astro.props;
 const copy = treatmentContent(page, locale);
+const article = copy.article;
+
+// Related treatments resolve their own translated title and URL, so the link
+// text always matches the page it points at (Rule 20: descriptive anchors).
+const related = (article?.related ?? [])
+  .filter((r) => TREATMENT_PAGES[r.slug])
+  .map((r) => ({
+    href: localePath(locale, `/treatments/${r.slug}`),
+    title: treatmentContent(TREATMENT_PAGES[r.slug], locale).title,
+    blurb: r.blurb
+  }));
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
 const unprefixedPath = `/treatments/${page.slug}`;
 const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
@@ -36,10 +47,30 @@ const breadcrumbJsonLd = {
   ]
 };
 
+const faqSource = article?.faqs ?? copy.faqs;
+
+// WebPage ties the visible copy to the clinic entity and carries the last-updated
+// date. Only fields backed by content actually on the page are emitted.
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": copy.metaTitle,
+  "description": copy.metaDescription,
+  "url": pageUrl,
+  "inLanguage": locale,
+  ...(article?.updated ? { "dateModified": article.updated } : {}),
+  "isPartOf": { "@type": "WebSite", "name": CLINIC.name, "url": CLINIC.url },
+  "about": { "@type": "MedicalProcedure", "name": copy.title },
+  "provider": { "@type": "MedicalClinic", "name": CLINIC.name, "url": CLINIC.url },
+  ...(page.review
+    ? { "reviewedBy": { "@type": "Physician", "name": page.review.reviewer, "medicalSpecialty": page.review.credentials } }
+    : {})
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": copy.faqs.map((f) => ({
+  "mainEntity": faqSource.map((f) => ({
     "@type": "Question",
     "name": f.q,
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
@@ -77,6 +108,7 @@ const procedureJsonLd = {
   unprefixedPath={unprefixedPath}
 >
   <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(procedureJsonLd)} is:inline />
@@ -98,8 +130,8 @@ const procedureJsonLd = {
         <div class="container" data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:var(--sp-8); align-items:center">
           <div>
             <p class="eyebrow reveal" data-reveal="up">{copy.heroKicker}</p>
-            <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{copy.title}</h1>
-            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{copy.heroLead}</p>
+            <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{article?.h1 ?? copy.title}</h1>
+            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{article?.heroIntro ?? copy.heroLead}</p>
             <div style="margin-top:var(--sp-5)">
               <span class="chip chip--outline">{copy.chip}</span>
             </div>
@@ -120,28 +152,115 @@ const procedureJsonLd = {
         </div>
       </section>
 
-      <section class="section" style="background:var(--bg-quiet)">
-        <div class="container">
-          <div class="grid grid--2 stagger" style="gap:var(--sp-7)">
-            {copy.sections.map((s) => (
-              <div class="reveal" data-reveal="up">
-                <h2 class="h3" style="margin:0 0 var(--sp-3)">{s.heading}</h2>
-                <p class="body" style="color:var(--text-muted)">{s.body}</p>
+      {article ? (
+        <Fragment>
+          {/* Direct answer — self-contained, so it still reads correctly if an
+              answer engine lifts it out of the page. */}
+          <section class="section" style="padding-block:var(--sp-7)">
+            <div class="container prose">
+              <h2 class="h2">{article.directAnswer.heading}</h2>
+              <p class="lead" style="color:var(--text-muted)">{article.directAnswer.body}</p>
+            </div>
+          </section>
+
+          <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+            <div class="container prose">
+              <h2 class="h2">{article.glanceHeading}</h2>
+              <dl class="glance">
+                {article.glance.map((row) => (
+                  <div class="glance__row">
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+
+          <section class="section" style="padding-block:var(--sp-7)">
+            <div class="container prose">
+              {article.sections.map((sec) => (
+                <div class="prose__block reveal" data-reveal="up">
+                  <h2 class="h2">{sec.heading}</h2>
+                  <p class="body" style="color:var(--text-muted)">{sec.body}</p>
+                  {sec.points && (
+                    <ul class="ticklist">
+                      {sec.points.map((pt) => <li>{pt}</li>)}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+            <div class="container prose">
+              <h2 class="h2">{article.process.heading}</h2>
+              <ol class="steps">
+                {article.process.steps.map((step) => (
+                  <li>
+                    <h3 class="h3">{step.heading}</h3>
+                    <p class="body" style="color:var(--text-muted)">{step.body}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          {/* Local relevance built from the clinic's real record, not repetition
+              of the city name. */}
+          <section class="section" style="padding-block:var(--sp-7)">
+            <div class="container prose">
+              <h2 class="h2">{article.local.heading}</h2>
+              <p class="body" style="color:var(--text-muted)">{article.local.body}</p>
+              <address class="nap">
+                <strong>{CLINIC.name}</strong><br />
+                {CLINIC.streetAddress}<br />
+                {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}<br />
+                <a href={`tel:${CLINIC.telephone}`}>{CLINIC.telephoneDisplay}</a><br />
+                {t(locale, "ft.hours1")}<br />{t(locale, "ft.hours2")}<br />{t(locale, "ft.hours3")}
+              </address>
+            </div>
+          </section>
+
+          <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+            <div class="container prose">
+              <h2 class="h2">{article.why.heading}</h2>
+              <div class="grid grid--2" style="gap:var(--sp-6); margin-top:var(--sp-5)">
+                {article.why.points.map((pt) => (
+                  <div>
+                    <h3 class="h3" style="margin:0 0 var(--sp-2)">{pt.heading}</h3>
+                    <p class="body" style="color:var(--text-muted)">{pt.body}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </section>
+        </Fragment>
+      ) : (
+        <section class="section" style="background:var(--bg-quiet)">
+          <div class="container">
+            <div class="grid grid--2 stagger" style="gap:var(--sp-7)">
+              {copy.sections.map((s) => (
+                <div class="reveal" data-reveal="up">
+                  <h2 class="h3" style="margin:0 0 var(--sp-3)">{s.heading}</h2>
+                  <p class="body" style="color:var(--text-muted)">{s.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section class="section" id="faq">
         <div class="container">
           <div class="section-head section-head--center" style="display:grid; gap:var(--sp-3); justify-items:center; text-align:center">
             <p class="eyebrow reveal" data-reveal="up">{t(locale, "faq.eyebrow")}</p>
-            <h2 class="h1 reveal" data-reveal="up">{ti(locale, "treat.faqHeading", { title: copy.title })}</h2>
+            <h2 class="h1 reveal" data-reveal="up">{article?.faqHeading ?? ti(locale, "treat.faqHeading", { title: copy.title })}</h2>
             <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{t(locale, "treat.faqLead")}</p>
           </div>
           <div class="grid grid--2" style="margin-top:var(--sp-7); align-items:start">
-            {copy.faqs.map((f) => (
+            {faqSource.map((f) => (
               <details class="acc">
                 <summary class="acc__q"><span>{f.q}</span><span class="acc__sign" aria-hidden="true">+</span></summary>
                 <div class="acc__a">{f.a}</div>
@@ -151,19 +270,81 @@ const procedureJsonLd = {
         </div>
       </section>
 
+      {related.length > 0 && (
+        <section class="section" style="padding-block:var(--sp-7)">
+          <div class="container prose">
+            <h2 class="h2">{article!.relatedHeading}</h2>
+            <div class="grid grid--3" style="gap:var(--sp-5); margin-top:var(--sp-5)">
+              {related.map((r) => (
+                <a class="related-card" href={r.href}>
+                  <h3 class="h3">{r.title}</h3>
+                  <p class="body" style="color:var(--text-muted)">{r.blurb}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section class="section" style="background:var(--bg-invert); color:var(--text-invert)">
         <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-6)">
           <div style="display:grid; gap:var(--sp-2); max-width:44ch">
             <p class="eyebrow" style="color:var(--accent)">{t(locale, "cta.eyebrow")}</p>
-            <h2 class="h2">{ti(locale, "treat.ready", { title: copy.title })}</h2>
-            <p class="body" style="color:rgba(246,241,237,.72)">{t(locale, "cta.lead")}</p>
+            <h2 class="h2">{article?.ctaHeading ?? ti(locale, "treat.ready", { title: copy.title })}</h2>
+            <p class="body" style="color:rgba(246,241,237,.72)">{article?.ctaBody ?? t(locale, "cta.lead")}</p>
           </div>
           <a class="btn btn--light btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
         </div>
       </section>
+      {page.review && (
+        <section class="section" style="padding-block:var(--sp-6)">
+          <div class="container prose">
+            <p class="meta" style="color:var(--text-faint)">
+              {page.review.reviewer} — {page.review.credentials}<br />
+              {page.review.reviewedOn} · {page.review.updatedOn}
+            </p>
+          </div>
+        </section>
+      )}
     </main>
     <Footer locale={locale} />
   </div>
+
+  <style>
+    /* Long-form article blocks: a readable measure, clear heading rhythm. */
+    .prose { max-width: 78ch; }
+    .prose__block + .prose__block { margin-top: var(--sp-7); }
+    .prose h2 { margin: 0 0 var(--sp-4); }
+
+    .glance { display: grid; gap: 0; margin: var(--sp-5) 0 0; }
+    .glance__row {
+      display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+      gap: var(--sp-4); padding: var(--sp-3) 0; border-top: 1px solid var(--border);
+    }
+    .glance__row:last-child { border-bottom: 1px solid var(--border); }
+    .glance dt { color: var(--text-muted); font-size: var(--fs-sm); }
+    .glance dd { margin: 0; color: var(--text); }
+    @media (max-width: 620px) { .glance__row { grid-template-columns: 1fr; gap: var(--sp-1); } }
+
+    .ticklist { margin: var(--sp-4) 0 0; padding-inline-start: 1.15rem; display: grid; gap: var(--sp-2); }
+    .ticklist li { color: var(--text-muted); }
+
+    .steps { margin: var(--sp-5) 0 0; padding-inline-start: 1.3rem; display: grid; gap: var(--sp-5); }
+    .steps h3 { margin: 0 0 var(--sp-2); }
+
+    .nap {
+      margin-top: var(--sp-5); padding: var(--sp-5); border: 1px solid var(--border);
+      border-radius: var(--r-md); font-style: normal; line-height: 1.9; background: var(--surface);
+    }
+
+    .related-card {
+      display: block; padding: var(--sp-5); border: 1px solid var(--border);
+      border-radius: var(--r-md); color: var(--text); background: var(--surface);
+      transition: border-color var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-out);
+    }
+    .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .related-card h3 { margin: 0 0 var(--sp-2); }
+  </style>
 
   <script>
     const staggerGroups = document.querySelectorAll<HTMLElement>(".stagger");

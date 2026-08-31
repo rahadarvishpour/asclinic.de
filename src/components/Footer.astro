@@ -19,10 +19,10 @@ const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
         <img class="footer__logo" src="/assets/logo.jpg" alt={t(locale, "ft.logoAlt")} width="132" height="132" loading="lazy" decoding="async" />
         <p class="body footer__tagline">{t(locale, "ft.tagline")}</p>
         <div class="footer__social">
-          <a class="social" href="https://www.instagram.com/asclinic" target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>
-          <a class="social" href="https://www.tiktok.com/@asclinic" target="_blank" rel="noopener noreferrer me" aria-label="TikTok">TT</a>
-          <a class="social" href="https://www.youtube.com/@asclinic" target="_blank" rel="noopener noreferrer me" aria-label="YouTube">YT</a>
-          <a class="social" href={`https://wa.me/${CLINIC.telephone.replace("+", "")}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
+          <a class="social" href={CLINIC.social.instagram} target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>
+          <a class="social" href={CLINIC.social.tiktok} target="_blank" rel="noopener noreferrer me" aria-label="TikTok">TT</a>
+          <a class="social" href={CLINIC.social.telegram} target="_blank" rel="noopener noreferrer me" aria-label="Telegram">TG</a>
+          <a class="social" href={CLINIC.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
         </div>
       </div>
       <div class="footer__col">
@@ -31,6 +31,7 @@ const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
         <a href={anchor("hair")}>{t(locale, "nav.hair")}</a>
         <a href={anchor("surgery")}>{t(locale, "nav.surgery")}</a>
         <a href={anchor("faq")}>{t(locale, "nav.faq")}</a>
+        <a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
       </div>
       <div class="footer__col">
         <span class="eyebrow">{t(locale, "ft.hours")}</span>

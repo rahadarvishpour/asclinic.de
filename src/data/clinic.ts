@@ -13,10 +13,25 @@ export const CLINIC = {
   latitude: 52.5019,
   longitude: 13.3078,
   priceRange: "€€€",
+  /** Click-to-chat number, supplied by the clinic. Deliberately NOT derived from
+   *  `telephone` above — WhatsApp runs on a different line. */
+  whatsapp: "https://wa.me/491778025944",
+  /** Google Business Profile. `googleMaps` feeds schema.org hasMap; `googleReviews`
+   *  is a link only — no AggregateRating is emitted, because the rating value and
+   *  review count are not recorded here and must not be guessed. */
+  googleMaps: "https://maps.app.goo.gl/xhv7yLf7VaFuCFBS8",
+  googleReviews: "https://maps.app.goo.gl/QkRaCpXUWwJq5avVA",
+  social: {
+    instagram: "https://www.instagram.com/asclinic.de/",
+    tiktok: "https://www.tiktok.com/@as_clinic",
+    telegram: "https://t.me/AShairclinic"
+  },
+  /** Verified profiles only — these feed schema.org sameAs, so an unconfirmed
+   *  URL here would be an invented entity claim. */
   sameAs: [
-    "https://www.instagram.com/asclinic",
-    "https://www.tiktok.com/@asclinic",
-    "https://www.youtube.com/@asclinic"
+    "https://www.instagram.com/asclinic.de/",
+    "https://www.tiktok.com/@as_clinic",
+    "https://t.me/AShairclinic"
   ],
   openingHours: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "19:00" },
