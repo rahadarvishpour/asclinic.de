@@ -1,0 +1,21 @@
+---
+import type { ImageMetadata } from "astro";
+import TreatmentDetail from "../../../components/TreatmentDetail.astro";
+import { TREATMENT_PAGES } from "../../../data/treatmentPages";
+import { TREATMENTS, unsplash } from "../../../data/treatments";
+import lipFillerImage from "../../../assets/treatments/lip-filler.jpg";
+
+export function getStaticPaths() {
+  return Object.keys(TREATMENT_PAGES).map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params as { slug: string };
+const content = TREATMENT_PAGES[slug];
+
+const LOCAL_IMAGES: Record<string, ImageMetadata> = {
+  "lip-filler": lipFillerImage
+};
+const photoId = TREATMENTS.find((t) => t.slug === slug)?.photoId;
+const image = LOCAL_IMAGES[slug] ?? (photoId ? unsplash(photoId, 1200, 80) : "");
+---
+<TreatmentDetail locale="ar" content={content} image={image} />

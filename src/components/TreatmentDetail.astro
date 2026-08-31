@@ -1,0 +1,191 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import { CLINIC } from "../data/clinic";
+import { t, ti, localePath, type Locale } from "../i18n/ui";
+import type { TreatmentPage } from "../data/treatmentPages/types";
+
+interface Props {
+  locale: Locale;
+  content: TreatmentPage;
+  /** A locally-sourced, optimizable image, or a remote URL (e.g. Unsplash) for treatments without a dedicated downloaded photo yet. */
+  image: ImageMetadata | string;
+}
+
+const { locale, content, image } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
+const unprefixedPath = `/treatments/${content.slug}`;
+const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
+const homeHref = localePath(locale);
+const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
+const categoryLabel = t(locale, content.category.categoryLabelKey);
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}${homeHref}` },
+    { "@type": "ListItem", "position": 2, "name": categoryLabel, "item": `${site}${anchor(content.category.categoryAnchorId)}` },
+    { "@type": "ListItem", "position": 3, "name": content.title, "item": pageUrl }
+  ]
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": content.faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const procedureJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": content.title,
+  "description": content.metaDescription,
+  "url": pageUrl,
+  "procedureType": "https://schema.org/NoninvasiveProcedure",
+  "provider": {
+    "@type": "MedicalClinic",
+    "name": CLINIC.name,
+    "url": CLINIC.url,
+    "telephone": CLINIC.telephone,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": CLINIC.streetAddress,
+      "addressLocality": CLINIC.addressLocality,
+      "postalCode": CLINIC.postalCode,
+      "addressCountry": CLINIC.addressCountry
+    }
+  }
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.metaTitle}
+  description={content.metaDescription}
+  includeFaqSchema={false}
+  unprefixedPath={unprefixedPath}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(procedureJsonLd)} is:inline />
+  </Fragment>
+  <div style="overflow-x:hidden">
+    <Header locale={locale} />
+    <main id="main">
+      <nav aria-label="Breadcrumb" class="container" style="padding-top:var(--sp-6)">
+        <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
+          <li><a href={homeHref} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href={anchor(content.category.categoryAnchorId)} style="color:var(--text-faint)">{categoryLabel}</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" style="color:var(--text)">{content.title}</li>
+        </ol>
+      </nav>
+
+      <section class="section" style="padding-top:var(--sp-6)">
+        <div class="container" data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:var(--sp-8); align-items:center">
+          <div>
+            <p class="eyebrow reveal" data-reveal="up">{content.heroKicker}</p>
+            <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{content.title}</h1>
+            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{content.heroLead}</p>
+            <div style="margin-top:var(--sp-5)">
+              <span class="chip chip--outline">{content.chip}</span>
+            </div>
+            <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
+              <a class="btn btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
+              <a class="btn btn--lg btn--outline" href={anchor(content.category.categoryAnchorId)}>{ti(locale, "treat.viewAll", { category: categoryLabel })}</a>
+            </div>
+          </div>
+          <div class="reveal" data-reveal="scale">
+            <div class="media" style="aspect-ratio:4/5">
+              {typeof image === "string" ? (
+                <img src={image} alt={content.imageAlt} loading="eager" width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
+              ) : (
+                <Image src={image} alt={content.imageAlt} width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--bg-quiet)">
+        <div class="container">
+          <div class="grid grid--2 stagger" style="gap:var(--sp-7)">
+            {content.sections.map((s) => (
+              <div class="reveal" data-reveal="up">
+                <h2 class="h3" style="margin:0 0 var(--sp-3)">{s.heading}</h2>
+                <p class="body" style="color:var(--text-muted)">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head section-head--center" style="display:grid; gap:var(--sp-3); justify-items:center; text-align:center">
+            <p class="eyebrow reveal" data-reveal="up">{t(locale, "faq.eyebrow")}</p>
+            <h2 class="h1 reveal" data-reveal="up">{ti(locale, "treat.faqHeading", { title: content.title })}</h2>
+            <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{t(locale, "treat.faqLead")}</p>
+          </div>
+          <div class="grid grid--2" style="margin-top:var(--sp-7); align-items:start">
+            {content.faqs.map((f) => (
+              <details class="acc">
+                <summary class="acc__q"><span>{f.q}</span><span class="acc__sign" aria-hidden="true">+</span></summary>
+                <div class="acc__a">{f.a}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--bg-invert); color:var(--text-invert)">
+        <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-6)">
+          <div style="display:grid; gap:var(--sp-2); max-width:44ch">
+            <p class="eyebrow" style="color:var(--accent)">{t(locale, "cta.eyebrow")}</p>
+            <h2 class="h2">{ti(locale, "treat.ready", { title: content.title })}</h2>
+            <p class="body" style="color:rgba(246,241,237,.72)">{t(locale, "cta.lead")}</p>
+          </div>
+          <a class="btn btn--light btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
+        </div>
+      </section>
+    </main>
+    <Footer locale={locale} />
+  </div>
+
+  <script>
+    const staggerGroups = document.querySelectorAll<HTMLElement>(".stagger");
+    staggerGroups.forEach((group) => {
+      Array.from(group.children).forEach((child, i) => {
+        (child as HTMLElement).style.setProperty("--i", String(i));
+      });
+    });
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealEls.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    }
+  </script>
+</BaseLayout>

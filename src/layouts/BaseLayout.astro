@@ -1,0 +1,143 @@
+---
+import { LOCALES, DEFAULT_LOCALE, localePath, getLocaleMeta, type Locale } from "../i18n/ui";
+import { CLINIC } from "../data/clinic";
+import { FAQ } from "../data/faq";
+import "../styles/global.css";
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  ogImage?: string;
+  includeFaqSchema?: boolean;
+  /** The locale-independent part of the URL, e.g. "/treatments/lip-filler". Defaults to "" (homepage). Canonical and hreflang links are derived from this per locale, so they always point at the equivalent page rather than always the homepage. */
+  unprefixedPath?: string;
+  /** Set false to skip hreflang alternates — for pages that don't have translated equivalents at other locale paths yet. */
+  hreflangAlternates?: boolean;
+}
+
+const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true } = Astro.props;
+const meta = getLocaleMeta(locale);
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
+const canonicalPath = localePath(locale, unprefixedPath);
+const canonicalUrl = `${site}${canonicalPath}`;
+const defaultOgImage = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm=jpg&q=75&w=1200&h=630&fit=crop&auto=format";
+const shareImage = ogImage ?? defaultOgImage;
+
+const clinicJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": CLINIC.name,
+  "alternateName": CLINIC.legalName,
+  "url": CLINIC.url,
+  "logo": `${site}/assets/logo.jpg`,
+  "image": defaultOgImage,
+  "telephone": CLINIC.telephone,
+  "priceRange": CLINIC.priceRange,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": CLINIC.streetAddress,
+    "addressLocality": CLINIC.addressLocality,
+    "postalCode": CLINIC.postalCode,
+    "addressRegion": CLINIC.addressRegion,
+    "addressCountry": CLINIC.addressCountry
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": CLINIC.latitude,
+    "longitude": CLINIC.longitude
+  },
+  "openingHoursSpecification": CLINIC.openingHours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": h.days,
+    "opens": h.opens,
+    "closes": h.closes
+  })),
+  "medicalSpecialty": ["Dermatology", "Plastic Surgery", "Hair Restoration"],
+  "availableService": [
+    "Hair transplant (FUE)",
+    "Eyebrow transplant",
+    "Beard transplant",
+    "Dermal filler injections",
+    "Botulinum toxin injections",
+    "Blepharoplasty",
+    "Direct lift facial surgery"
+  ],
+  "sameAs": CLINIC.sameAs,
+  "inLanguage": LOCALES.map((l) => l.hreflang)
+};
+
+const faqJsonLd = includeFaqSchema
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [...FAQ.inject, ...FAQ.hair, ...FAQ.surgery].map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  : null;
+---
+
+<!DOCTYPE html>
+<html lang={meta.hreflang} dir={meta.dir}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  {hreflangAlternates && LOCALES.map((l) => (
+    <link rel="alternate" hreflang={l.hreflang} href={`${site}${localePath(l.code, unprefixedPath)}`} />
+  ))}
+  {hreflangAlternates && <link rel="alternate" hreflang="x-default" href={`${site}${localePath(DEFAULT_LOCALE, unprefixedPath)}`} />}
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content={CLINIC.name} />
+  <meta name="theme-color" content="#1F1D1C" />
+
+  <meta property="og:type" content="business.business" />
+  <meta property="og:site_name" content={CLINIC.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={shareImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={meta.hreflang.replace("-", "_")} />
+  {hreflangAlternates && LOCALES.filter((l) => l.code !== locale).map((l) => (
+    <meta property="og:locale:alternate" content={l.hreflang.replace("-", "_")} />
+  ))}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={shareImage} />
+
+  <link rel="icon" href="/assets/logo.jpg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="/assets/logo.jpg" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <meta name="geo.region" content="DE-BE" />
+  <meta name="geo.placename" content="Berlin" />
+  <meta name="geo.position" content={`${CLINIC.latitude};${CLINIC.longitude}`} />
+  <meta name="ICBM" content={`${CLINIC.latitude}, ${CLINIC.longitude}`} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(clinicJsonLd)} is:inline />
+  {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} is:inline />}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <slot name="head" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <slot />
+</body>
+</html>

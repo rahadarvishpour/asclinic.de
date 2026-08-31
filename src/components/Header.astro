@@ -1,0 +1,169 @@
+---
+import { LOCALES, localePath, localizedPathFor, type Locale } from "../i18n/ui";
+import { t } from "../i18n/ui";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const currentMeta = LOCALES.find((l) => l.code === locale)!;
+
+// Home is where the anchored sections (#injectables, #book, etc.) actually
+// live — from any other page (e.g. a treatment detail page) these need to
+// point back at the homepage first, not scroll nowhere on the current page.
+const homeHref = localePath(locale);
+const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
+
+const NAV = [
+  { href: anchor("injectables"), key: "nav.inject" as const },
+  { href: anchor("hair"), key: "nav.hair" as const },
+  { href: anchor("surgery"), key: "nav.surgery" as const },
+  { href: anchor("results"), key: "nav.results" as const },
+  { href: anchor("faq"), key: "nav.faq" as const }
+];
+const bookHref = anchor("book");
+
+// Same-page language switch: swap only the locale prefix, keep the rest of
+// the current path (and, via the client script below, the #hash) so
+// switching language never drops you back to the homepage.
+const currentPath = Astro.url.pathname;
+---
+
+<div class="topbar marquee">
+  <div class="marquee__track">
+    {Array.from({ length: 2 }).flatMap(() => [
+      <span class="marquee__item">{t(locale, "top.1")}</span>,
+      <span class="marquee__item">{t(locale, "top.2")}</span>,
+      <span class="marquee__item">{t(locale, "top.3")}</span>
+    ])}
+  </div>
+</div>
+
+<header class="header--sticky">
+  <div class="container nav">
+    <a href={anchor("top")} class="brand-link" style="display:inline-flex; align-items:center; gap:var(--sp-3); color:var(--text); text-decoration:none; min-width:0">
+      <img src="/assets/logo.jpg" width="48" height="48" alt="AS Clinic logo" style="width:48px; height:48px; border-radius:var(--r-pill); object-fit:cover; background:#000; flex:none" />
+      <span style="font-family:var(--font-display); font-size:1.35rem; line-height:1.05">{t(locale, "hero.title")}</span>
+    </a>
+    <nav data-desknav="1">
+      <ul class="nav__links">
+        {NAV.map((item) => (
+          <li><a href={item.href}>{t(locale, item.key)}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:var(--sp-3)">
+      <details class="lang-details">
+        <summary class="lang-summary" aria-label={t(locale, "lang.switch")}>
+          <span style="color:var(--accent)">◍</span>
+          <span>{currentMeta.hreflang.toUpperCase()}</span>
+        </summary>
+        <div class="lang-pop">
+          {LOCALES.map((l) => (
+            <a class="lang-pop__item" data-lang-link={l.code} href={localizedPathFor(currentPath, l.code)} aria-current={l.code === locale ? "true" : undefined}>
+              <span>{l.native}</span>
+              <span class="meta" style="letter-spacing:var(--ls-nav); text-transform:uppercase">{l.hreflang}</span>
+            </a>
+          ))}
+        </div>
+      </details>
+      <a class="btn nav-cta" href={bookHref}>{t(locale, "nav.cta")}</a>
+      <details class="burger-details" data-burger="1">
+        <summary class="burger-summary" aria-label={t(locale, "nav.menu")}>≡</summary>
+        <div class="drawer">
+          <div class="container" style="display:grid; gap:var(--sp-2); padding-block:var(--sp-5)">
+            {NAV.map((item) => (
+              <a href={item.href} style="font-family:var(--font-display); font-size:var(--fs-h3); color:var(--text)">{t(locale, item.key)}</a>
+            ))}
+            <a class="btn" href={bookHref} style="margin-top:var(--sp-3); justify-self:start">{t(locale, "nav.cta")}</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .lang-details { position: relative; }
+  .lang-summary {
+    display: inline-flex; align-items: center; gap: 8px; list-style: none; cursor: pointer;
+    background: none; border: 1px solid var(--border); border-radius: var(--r-pill);
+    padding: 8px 14px; font-size: var(--fs-2xs); letter-spacing: var(--ls-nav); text-transform: uppercase; color: var(--text);
+  }
+  .lang-summary::-webkit-details-marker { display: none; }
+  .lang-pop {
+    position: absolute; inset-inline-end: 0; top: calc(100% + 10px);
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md);
+    box-shadow: var(--sh-2); padding: var(--sp-2); min-width: 190px; z-index: 40;
+    display: grid; gap: 2px;
+  }
+  .lang-pop__item {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+    border-radius: var(--r-sm); padding: 10px 12px; font-size: var(--fs-sm); color: var(--text);
+  }
+  .lang-pop__item:hover { background: var(--g-blush-50); }
+  .lang-pop__item[aria-current="true"] { color: var(--accent-action); font-weight: 500; }
+
+  [data-burger] { display: none; }
+  .burger-summary {
+    display: none; align-items: center; justify-content: center; width: 42px; height: 42px;
+    background: var(--g-charcoal); color: #F6F1ED; border-radius: var(--r-pill); font-size: 1.1rem; cursor: pointer; list-style: none;
+  }
+  .burger-summary::-webkit-details-marker { display: none; }
+  .drawer {
+    position: absolute; inset-inline: 0; top: 100%; left: 0; right: 0; width: 100%;
+    border-top: 1px solid var(--border); background: var(--surface); z-index: 30;
+    box-shadow: var(--sh-2);
+  }
+  .drawer .container { display: flex; flex-direction: column; }
+
+  @media (max-width: 980px) {
+    [data-desknav] { display: none !important; }
+    [data-burger] { display: block; }
+    .burger-summary { display: flex; }
+  }
+
+  .nav { flex-wrap: nowrap; }
+  @media (max-width: 640px) {
+    .nav { gap: var(--sp-3); }
+    .nav-cta { display: none; }
+    .lang-summary {
+      gap: 0; padding: 0; width: 42px; height: 42px; justify-content: center;
+      border-color: var(--g-charcoal); font-size: var(--fs-xs); font-weight: 600; letter-spacing: normal;
+    }
+    .lang-summary span:first-child { display: none; }
+    .lang-pop { min-width: 168px; }
+  }
+</style>
+
+<script>
+  // The server only knows the path, never the #hash (browsers don't send it).
+  // Carry the current section hash over into each language link here so
+  // switching language while reading e.g. #faq lands on #faq in the new
+  // language too, instead of the top of the page.
+  if (window.location.hash) {
+    document.querySelectorAll<HTMLAnchorElement>("[data-lang-link]").forEach((a) => {
+      a.href = a.href.split("#")[0] + window.location.hash;
+    });
+  }
+
+  // Explicit toggle (rather than relying solely on native <summary> default
+  // action) so the drawer/lang popover open reliably for every input type,
+  // including synthetic/automated click dispatch.
+  document.querySelectorAll<HTMLElement>(".lang-summary, .burger-summary").forEach((summary) => {
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      const details = summary.closest("details");
+      if (!details) return;
+      const opening = !details.open;
+      document.querySelectorAll<HTMLDetailsElement>("details.lang-details, details.burger-details").forEach((d) => {
+        if (d !== details) d.removeAttribute("open");
+      });
+      details.open = opening;
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll<HTMLDetailsElement>(".lang-details[open], .burger-details[open]").forEach((el) => {
+      if (!el.contains(e.target as Node)) el.removeAttribute("open");
+    });
+  });
+</script>

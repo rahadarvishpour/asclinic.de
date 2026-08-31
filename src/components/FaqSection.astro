@@ -1,0 +1,58 @@
+---
+import { t, type Locale } from "../i18n/ui";
+import { FAQ, type FaqCategory } from "../data/faq";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const TABS: { id: FaqCategory; key: "faq.tab1" | "faq.tab2" | "faq.tab3" }[] = [
+  { id: "inject", key: "faq.tab1" },
+  { id: "hair", key: "faq.tab2" },
+  { id: "surgery", key: "faq.tab3" }
+];
+---
+
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-head section-head--center" style="display:grid; gap:var(--sp-3); justify-items:center; text-align:center">
+      <p class="eyebrow reveal" data-reveal="up">{t(locale, "faq.eyebrow")}</p>
+      <h2 class="h1 reveal" data-reveal="up">{t(locale, "faq.title")}</h2>
+      <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{t(locale, "faq.lead")}</p>
+      <p class="meta" style="color:var(--text-faint)">{t(locale, "faq.note")}</p>
+    </div>
+
+    <div class="faq-tabs" style="margin-top:var(--sp-4)">
+      {TABS.map((tab, i) => (
+        <input type="radio" name="faqtab" id={`faqtab-${tab.id}`} class="visually-hidden" checked={i === 0} />
+      ))}
+      <div class="faq-tabs__nav" style="display:flex; flex-wrap:wrap; gap:var(--sp-2); justify-content:center; margin-bottom:var(--sp-7)">
+        {TABS.map((tab) => (
+          <label class="chip chip--outline faq-tabs__label" for={`faqtab-${tab.id}`}>{t(locale, tab.key)}</label>
+        ))}
+      </div>
+      {TABS.map((tab) => (
+        <div class="faq-tabs__panel grid grid--2" data-panel={tab.id} dir="ltr" style="align-items:start; text-align:start">
+          {FAQ[tab.id].map((item) => (
+            <details class="acc">
+              <summary class="acc__q"><span>{item.q}</span><span class="acc__sign" aria-hidden="true">+</span></summary>
+              <div class="acc__a">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-tabs__panel { display: none; }
+  #faqtab-inject:checked ~ .faq-tabs__panel[data-panel="inject"],
+  #faqtab-hair:checked ~ .faq-tabs__panel[data-panel="hair"],
+  #faqtab-surgery:checked ~ .faq-tabs__panel[data-panel="surgery"] { display: grid; }
+
+  #faqtab-inject:checked ~ .faq-tabs__nav label[for="faqtab-inject"],
+  #faqtab-hair:checked ~ .faq-tabs__nav label[for="faqtab-hair"],
+  #faqtab-surgery:checked ~ .faq-tabs__nav label[for="faqtab-surgery"] {
+    background: var(--g-charcoal); color: #F6F1ED; border-color: var(--g-charcoal);
+  }
+  .faq-tabs__label { cursor: pointer; }
+</style>
