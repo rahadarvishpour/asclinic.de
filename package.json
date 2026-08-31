@@ -7,11 +7,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "start": "node ./dist/server/entry.mjs",
+    "deploy": "astro build && systemctl restart astro-asclinic"
   },
   "dependencies": {
-    "astro": "^5.5.0",
-    "@astrojs/sitemap": "^3.2.1"
+    "@astrojs/node": "^9.5.5",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.5.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

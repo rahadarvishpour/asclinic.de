@@ -18,7 +18,7 @@ export interface Props {
 
 const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true } = Astro.props;
 const meta = getLocaleMeta(locale);
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
 const canonicalPath = localePath(locale, unprefixedPath);
 const canonicalUrl = `${site}${canonicalPath}`;
 const defaultOgImage = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm=jpg&q=75&w=1200&h=630&fit=crop&auto=format";

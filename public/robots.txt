@@ -28,4 +28,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://asclinic.de/sitemap-index.xml
+Sitemap: https://asclinic-berlin.de/sitemap-index.xml

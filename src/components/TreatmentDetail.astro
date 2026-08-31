@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { locale, content, image } = Astro.props;
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
 const unprefixedPath = `/treatments/${content.slug}`;
 const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
 const homeHref = localePath(locale);

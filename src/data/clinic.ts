@@ -1,7 +1,7 @@
 export const CLINIC = {
   name: "AS Clinic",
   legalName: "AS Hair Clinic — Hair Transplant & Aesthetic Medicine",
-  url: "https://asclinic.de",
+  url: "https://asclinic-berlin.de",
   telephone: "+491793902489",
   telephoneDisplay: "+49 179 390 2489",
   streetAddress: "Kurfürstendamm 102",
