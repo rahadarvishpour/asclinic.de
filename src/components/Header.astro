@@ -1,6 +1,6 @@
 ---
-import { LOCALES, localePath, localizedPathFor, type Locale } from "../i18n/ui";
-import { t } from "../i18n/ui";
+import { LOCALES, localePath, localizedPathFor, stripLocalePrefix, type Locale } from "../i18n/ui";
+import { t, sectionHref } from "../i18n/ui";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -10,7 +10,7 @@ const currentMeta = LOCALES.find((l) => l.code === locale)!;
 // live — from any other page (e.g. a treatment detail page) these need to
 // point back at the homepage first, not scroll nowhere on the current page.
 const homeHref = localePath(locale);
-const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
+const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 
 const NAV = [
   { href: anchor("injectables"), key: "nav.inject" as const },
@@ -25,6 +25,11 @@ const bookHref = anchor("book");
 // the current path (and, via the client script below, the #hash) so
 // switching language never drops you back to the homepage.
 const currentPath = Astro.url.pathname;
+
+// The brand logo is the conventional "go home" control. On the homepage it
+// scrolls back to the top; from any other page it navigates to the homepage.
+const onHomepage = stripLocalePrefix(currentPath) === "/";
+const brandHref = onHomepage ? "#top" : homeHref;
 ---
 
 <div class="topbar marquee">
@@ -39,7 +44,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="header--sticky">
   <div class="container nav">
-    <a href={anchor("top")} class="brand-link" style="display:inline-flex; align-items:center; gap:var(--sp-3); color:var(--text); text-decoration:none; min-width:0">
+    <a href={brandHref} class="brand-link" style="display:inline-flex; align-items:center; gap:var(--sp-3); color:var(--text); text-decoration:none; min-width:0">
       <img src="/assets/logo.jpg" width="48" height="48" alt={t(locale, "brand.logoAlt")} style="width:48px; height:48px; border-radius:var(--r-pill); object-fit:cover; background:#000; flex:none" />
       <span style="font-family:var(--font-display); font-size:1.35rem; line-height:1.05">{t(locale, "hero.title")}</span>
     </a>

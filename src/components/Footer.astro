@@ -1,11 +1,10 @@
 ---
-import { t, localePath, type Locale } from "../i18n/ui";
+import { t, sectionHref, localePath, type Locale } from "../i18n/ui";
 import { CLINIC } from "../data/clinic";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
-const homeHref = localePath(locale);
-const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
+const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 
 // Layout lives entirely in components.css (.footer__*) — inline grid styles here
 // would outrank the responsive media queries and pin the footer to four columns

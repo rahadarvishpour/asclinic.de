@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
-import { t, localePath, type Locale } from "../i18n/ui";
+import { t, sectionHref, localePath, type Locale } from "../i18n/ui";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -76,7 +76,7 @@ const placeJsonLd = {
           <p class="lead" style="color:var(--text-muted); margin-top:var(--sp-4)">{t(locale, "loc.intro")}</p>
           <div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
             <a class="btn btn--lg" href={CLINIC.googleMaps} target="_blank" rel="noopener noreferrer">{t(locale, "loc.mapCta")}</a>
-            <a class="btn btn--lg btn--outline" href={`${homeHref === "/" ? "" : homeHref}#book`}>{t(locale, "hero.cta")}</a>
+            <a class="btn btn--lg btn--outline" href={sectionHref(locale, Astro.url.pathname, "book")}>{t(locale, "hero.cta")}</a>
           </div>
         </div>
       </section>

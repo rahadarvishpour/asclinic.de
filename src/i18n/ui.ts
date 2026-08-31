@@ -44,6 +44,18 @@ export function localizedPathFor(currentPathname: string, target: Locale): strin
   return localePath(target, stripped === "/" ? "" : stripped);
 }
 
+/** Link to a homepage section (#book, #faq, …) from anywhere on the site.
+ *
+ *  On the homepage this is a bare fragment so the browser scrolls in place. On
+ *  any other page it must carry the homepage path, otherwise the link points at
+ *  an id that does not exist on the current page and silently does nothing.
+ *  Note `localePath` returns "/" for the default locale, so the path cannot be
+ *  omitted just because it looks empty. */
+export function sectionHref(locale: Locale, pathname: string, id: string): string {
+  const onHomepage = stripLocalePrefix(pathname) === "/";
+  return onHomepage ? `#${id}` : `${localePath(locale)}#${id}`;
+}
+
 export function getLocaleMeta(locale: Locale): LocaleMeta {
   return LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
 }
