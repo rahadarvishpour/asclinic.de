@@ -10,7 +10,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "Cheek filler at AS Clinic, Berlin: restores midface volume to lift the nasolabial fold and jawline indirectly. Free consultation, physician-led dosing.",
       heroKicker: "Injectables · Cheeks Filler",
       heroLead: "Restoring the light-catching edge of the midface — a single change that lifts several areas at once.",
-      imageAlt: "Cheek filler injection restoring midface volume",
+      imageAlt: "Close-up of a patient's midface and cheek contour",
       chip: "30–40 min · Local numbing",
       sections: [
         { heading: "What it is", body: "Hyaluronic acid filler placed along the cheekbone and midface to restore the volume and projection that support the skin above the nasolabial fold and jawline. It's structural rather than purely cosmetic — the midface is a foundation the lower face rests on." },
@@ -47,7 +47,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "Wangenfiller in der AS Clinic Berlin: stellt Volumen im Mittelgesicht wieder her und hebt Nasolabialfalte und Kieferlinie indirekt an. Kostenlose Beratung, ärztliche Dosierung.",
       heroKicker: "Injektionen · Wangenfiller",
       heroLead: "Die lichtfangende Kante des Mittelgesichts zurückholen — eine Veränderung, die mehrere Bereiche zugleich anhebt.",
-      imageAlt: "Wangenfiller-Injektion zur Wiederherstellung des Mittelgesichtsvolumens",
+      imageAlt: "Nahaufnahme von Mittelgesicht und Wangenkontur einer Patientin",
       chip: "30–40 Min. · Lokale Betäubung",
       sections: [
         { heading: "Was es ist", body: "Hyaluronsäure-Filler entlang Jochbein und Mittelgesicht, um Volumen und Projektion wiederherzustellen, die die Haut über Nasolabialfalte und Kieferlinie stützen. Das ist strukturell und nicht nur kosmetisch — das Mittelgesicht ist das Fundament, auf dem die untere Gesichtshälfte ruht." },
@@ -84,7 +84,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "Relleno de pómulos en AS Clinic, Berlín: restaura el volumen del tercio medio y eleva de forma indirecta el surco nasogeniano y la mandíbula. Consulta gratuita, dosificación médica.",
       heroKicker: "Inyectables · Relleno de pómulos",
       heroLead: "Recuperar el borde del tercio medio que capta la luz: un solo cambio que eleva varias zonas a la vez.",
-      imageAlt: "Infiltración de relleno en el pómulo para restaurar volumen del tercio medio",
+      imageAlt: "Primer plano del tercio medio y el contorno del pómulo de una paciente",
       chip: "30–40 min · Anestesia local",
       sections: [
         { heading: "Qué es", body: "Relleno de ácido hialurónico colocado a lo largo del pómulo y el tercio medio para restaurar el volumen y la proyección que sostienen la piel por encima del surco nasogeniano y de la mandíbula. Es estructural más que puramente estético: el tercio medio es la base sobre la que descansa el inferior." },
@@ -121,7 +121,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "Филлеры скул в AS Clinic, Берлин: восстановление объёма средней зоны, что косвенно подтягивает носогубную складку и линию челюсти. Бесплатная консультация, дозировка врачом.",
       heroKicker: "Инъекции · Филлер скул",
       heroLead: "Возвращение светоотражающей грани средней зоны лица — одно изменение, которое подтягивает сразу несколько участков.",
-      imageAlt: "Введение филлера в скуловую область для восстановления объёма",
+      imageAlt: "Крупный план средней зоны лица и контура скулы пациентки",
       chip: "30–40 мин · Местная анестезия",
       sections: [
         { heading: "Что это", body: "Филлер на основе гиалуроновой кислоты, размещаемый вдоль скуловой кости и средней зоны лица для восстановления объёма и проекции, поддерживающих кожу над носогубной складкой и линией челюсти. Это скорее структурная, чем чисто косметическая работа: средняя зона — фундамент для нижней трети лица." },
@@ -158,7 +158,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "فیلر گونه در AS Clinic برلین: بازگرداندن حجم میان‌صورت که به‌طور غیرمستقیم خط خنده و خط فک را بالا می‌کشد. مشاوره رایگان، دوز تعیین‌شده توسط پزشک.",
       heroKicker: "تزریقات · فیلر گونه",
       heroLead: "بازگرداندن لبه نوردهنده میان‌صورت — یک تغییر که چند ناحیه را هم‌زمان بالا می‌کشد.",
-      imageAlt: "تزریق فیلر گونه برای بازگرداندن حجم میان‌صورت",
+      imageAlt: "نمای نزدیک از میان‌صورت و کانتور گونه مراجع",
       chip: "۳۰ تا ۴۰ دقیقه · بی‌حسی موضعی",
       sections: [
         { heading: "این درمان چیست", body: "فیلر اسید هیالورونیک که در امتداد استخوان گونه و میان‌صورت قرار می‌گیرد تا حجم و برجستگی نگهدارنده پوست بالای خط خنده و خط فک را بازگرداند. این کار بیش از آنکه صرفاً زیبایی باشد، ساختاری است — میان‌صورت پایه‌ای است که یک‌سوم پایین صورت روی آن می‌نشیند." },
@@ -195,7 +195,7 @@ export const CHEEK_FILLER: TreatmentPage = {
       metaDescription: "فيلر الخدود في AS Clinic ببرلين: يستعيد حجم منتصف الوجه فيرفع الخط الأنفي الشفوي وخط الفك بشكل غير مباشر. استشارة مجانية وجرعات يحددها الطبيب.",
       heroKicker: "الحقن · فيلر الخدود",
       heroLead: "استعادة الحافة التي يلتقطها الضوء في منتصف الوجه — تغيير واحد يرفع عدة مناطق في آن معًا.",
-      imageAlt: "حقن فيلر الخد لاستعادة حجم منتصف الوجه",
+      imageAlt: "لقطة قريبة لمنتصف الوجه وكفاف الخد لدى إحدى المراجعات",
       chip: "30–40 دقيقة · تخدير موضعي",
       sections: [
         { heading: "ما هو الإجراء", body: "فيلر حمض هيالورونيك يوضع على امتداد عظمة الخد ومنتصف الوجه لاستعادة الحجم والبروز اللذين يدعمان الجلد فوق الخط الأنفي الشفوي وخط الفك. هو إجراء بنيوي أكثر منه تجميليًا بحتًا، فمنتصف الوجه هو الأساس الذي يرتكز عليه ثلثه السفلي." },

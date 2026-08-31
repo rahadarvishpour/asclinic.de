@@ -1,6 +1,9 @@
 ---
 import { t, type Locale } from "../i18n/ui";
-import { GALLERY_SLIDES, unsplash } from "../data/treatments";
+import { GALLERY_SLIDES, unsplash, unsplashSrcSet } from "../data/treatments";
+
+const SLIDE_WIDTHS = [640, 960, 1280];
+const SLIDE_SIZES = "min(72vw, 640px)";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 ---
@@ -22,7 +25,7 @@ const { locale } = Astro.props;
   <div class="gallery-track" data-gallery-track style="margin-top:var(--sp-7)">
     {GALLERY_SLIDES.map((s) => (
       <figure class="gallery-slide">
-        <img src={unsplash(s.photoId, 1200, 75)} alt={t(locale, s.titleKey)} loading="lazy" width="900" height="620" />
+        <img src={unsplash(s.photoId, 960, 75)} srcset={unsplashSrcSet(s.photoId, SLIDE_WIDTHS, 75)} sizes={SLIDE_SIZES} alt={t(locale, s.titleKey)} loading="lazy" decoding="async" width="900" height="620" />
         <figcaption>
           <span class="chip chip--coral">{t(locale, s.tagKey)}</span>
           <h3 class="h3" style="margin-top:var(--sp-3); color:#F6F1ED">{t(locale, s.titleKey)}</h3>

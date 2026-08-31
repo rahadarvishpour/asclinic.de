@@ -10,7 +10,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "Botulinum toxin injections at AS Clinic, Berlin: dosed by physicians for expression that still moves. Free consultation, results in 3–14 days, last 3–4 months.",
       heroKicker: "Injectables · Botox",
       heroLead: "A calmer forehead and softer lines, dosed so the muscle still moves — just without the crease.",
-      imageAlt: "Botox injection being administered to a patient's forehead at AS Clinic",
+      imageAlt: "Physician mapping the treatment areas on a patient's face before Botox",
       chip: "15–20 min · No downtime",
       sections: [
         { heading: "What it is", body: "A purified botulinum toxin that temporarily relaxes the small muscles behind expression lines — most often the forehead, frown lines between the brows, and crow's feet. It softens the crease without erasing the muscle's ability to move." },
@@ -47,7 +47,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "Botulinumtoxin-Behandlung in der AS Clinic Berlin: ärztlich dosiert, damit Mimik erhalten bleibt. Kostenlose Beratung, Wirkung nach 3–14 Tagen, hält 3–4 Monate.",
       heroKicker: "Injektionen · Botox",
       heroLead: "Eine ruhigere Stirn und weichere Linien — dosiert, damit der Muskel sich weiter bewegt, nur ohne die Falte.",
-      imageAlt: "Botox-Injektion in die Stirn einer Patientin in der AS Clinic",
+      imageAlt: "Ärztin markiert vor der Botox-Behandlung die Behandlungsareale im Gesicht",
       chip: "15–20 Min. · Keine Ausfallzeit",
       sections: [
         { heading: "Was es ist", body: "Ein gereinigtes Botulinumtoxin, das die kleinen Muskeln hinter Mimikfalten vorübergehend entspannt — meist Stirn, Zornesfalte zwischen den Brauen und Krähenfüße. Es glättet die Falte, ohne die Bewegungsfähigkeit des Muskels aufzuheben." },
@@ -84,7 +84,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "Toxina botulínica en AS Clinic, Berlín: dosificada por médicos para que la expresión siga moviéndose. Consulta gratuita, efecto en 3–14 días, dura 3–4 meses.",
       heroKicker: "Inyectables · Bótox",
       heroLead: "Una frente más serena y líneas suavizadas, dosificado para que el músculo siga moviéndose, solo que sin marcar el pliegue.",
-      imageAlt: "Aplicación de bótox en la frente de una paciente en AS Clinic",
+      imageAlt: "Médica marcando las zonas de tratamiento en el rostro antes del bótox",
       chip: "15–20 min · Sin baja",
       sections: [
         { heading: "Qué es", body: "Toxina botulínica purificada que relaja temporalmente los pequeños músculos responsables de las líneas de expresión: sobre todo la frente, el entrecejo y las patas de gallo. Suaviza el pliegue sin anular la capacidad de movimiento del músculo." },
@@ -121,7 +121,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "Ботулинотерапия в AS Clinic, Берлин: дозировка подбирается врачом так, чтобы мимика сохранялась. Бесплатная консультация, эффект через 3–14 дней, держится 3–4 месяца.",
       heroKicker: "Инъекции · Ботокс",
       heroLead: "Спокойный лоб и мягкие линии: дозировка подобрана так, чтобы мышца по-прежнему работала — просто без залома.",
-      imageAlt: "Введение ботокса в область лба пациента в клинике AS Clinic",
+      imageAlt: "Врач размечает зоны обработки на лице перед процедурой ботокса",
       chip: "15–20 мин · Без реабилитации",
       sections: [
         { heading: "Что это", body: "Очищенный ботулотоксин, временно расслабляющий мелкие мышцы, формирующие мимические морщины: чаще всего лоб, межбровье и «гусиные лапки». Он смягчает залом, не лишая мышцу способности двигаться." },
@@ -158,7 +158,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "تزریق بوتولینوم توکسین در AS Clinic برلین: دوز توسط پزشک تعیین می‌شود تا حالت چهره طبیعی بماند. مشاوره رایگان، اثر طی ۳ تا ۱۴ روز و ماندگاری ۳ تا ۴ ماه.",
       heroKicker: "تزریقات · بوتاکس",
       heroLead: "پیشانی آرام‌تر و خطوط نرم‌تر، با دوزی که عضله همچنان حرکت کند — فقط بدون چین‌خوردگی.",
-      imageAlt: "تزریق بوتاکس در ناحیه پیشانی بیمار در کلینیک AS Clinic",
+      imageAlt: "پزشک پیش از تزریق بوتاکس نواحی درمان را روی صورت علامت‌گذاری می‌کند",
       chip: "۱۵ تا ۲۰ دقیقه · بدون دوره نقاهت",
       sections: [
         { heading: "این درمان چیست", body: "بوتولینوم توکسین خالص‌سازی‌شده که عضلات کوچک پشت خطوط بیانی را موقتاً شل می‌کند — بیشتر پیشانی، خط اخم بین ابروها و خطوط دور چشم. چین را نرم می‌کند بدون آنکه توانایی حرکت عضله را از بین ببرد." },
@@ -195,7 +195,7 @@ export const BOTOX: TreatmentPage = {
       metaDescription: "حقن توكسين البوتولينوم في AS Clinic ببرلين: جرعات يحددها الأطباء لتبقى تعابير الوجه طبيعية. استشارة مجانية، النتيجة خلال 3–14 يومًا وتدوم 3–4 أشهر.",
       heroKicker: "الحقن · بوتوكس",
       heroLead: "جبين أهدأ وخطوط أنعم، بجرعة تُبقي العضلة تتحرك — لكن دون أن ينطبع الخط.",
-      imageAlt: "حقن البوتوكس في جبين مراجعة داخل AS Clinic",
+      imageAlt: "طبيبة تحدّد مناطق العلاج على الوجه قبل حقن البوتوكس",
       chip: "15–20 دقيقة · دون فترة نقاهة",
       sections: [
         { heading: "ما هو الإجراء", body: "توكسين بوتولينوم منقّى يرخي مؤقتًا العضلات الصغيرة المسؤولة عن خطوط التعبير — غالبًا الجبين وخطوط العبوس بين الحاجبين وتجاعيد زاوية العين. يخفف الخط دون إلغاء قدرة العضلة على الحركة." },

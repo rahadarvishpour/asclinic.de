@@ -10,7 +10,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "Skin boosters at AS Clinic, Berlin: non-cross-linked hyaluronic acid placed in the dermis for hydration and glow. Changes quality, not shape. Free consultation.",
       heroKicker: "Injectables · Skin Booster",
       heroLead: "A quality treatment, not a shape treatment — hydration placed exactly where skin needs it most.",
-      imageAlt: "Skin booster injections improving hydration and glow",
+      imageAlt: "Skin booster treatment being applied to hydrate the skin",
       chip: "20–30 min · Minimal downtime",
       sections: [
         { heading: "What it is", body: "Non-cross-linked hyaluronic acid, injected in small, evenly spaced droplets into the dermis to draw in and hold water. Unlike structural filler, it doesn't add shape or volume — it changes how the skin holds hydration, so it looks plumper and glows rather than looking bigger." },
@@ -47,7 +47,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "Skin Booster in der AS Clinic Berlin: nicht quervernetzte Hyaluronsäure in der Dermis für Feuchtigkeit und Glow. Verändert Qualität, nicht Form. Kostenlose Beratung.",
       heroKicker: "Injektionen · Skin Booster",
       heroLead: "Eine Behandlung für Hautqualität, nicht für Form — Feuchtigkeit genau dort, wo die Haut sie am meisten braucht.",
-      imageAlt: "Skin-Booster-Injektionen für mehr Feuchtigkeit und Glow",
+      imageAlt: "Skin-Booster-Behandlung wird zur Hautfeuchtigkeit aufgetragen",
       chip: "20–30 Min. · Minimale Ausfallzeit",
       sections: [
         { heading: "Was es ist", body: "Nicht quervernetzte Hyaluronsäure, die in kleinen, gleichmäßig verteilten Tröpfchen in die Dermis injiziert wird, um Wasser zu binden. Anders als struktureller Filler gibt sie weder Form noch Volumen — sie verändert, wie die Haut Feuchtigkeit hält, sodass sie praller wirkt und strahlt, statt größer zu erscheinen." },
@@ -84,7 +84,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "Skin boosters en AS Clinic, Berlín: ácido hialurónico no reticulado en la dermis para hidratación y luminosidad. Cambia la calidad, no la forma. Consulta gratuita.",
       heroKicker: "Inyectables · Skin booster",
       heroLead: "Un tratamiento de calidad de piel, no de forma: hidratación exactamente donde la piel más la necesita.",
-      imageAlt: "Inyecciones de skin booster para mejorar hidratación y luminosidad",
+      imageAlt: "Tratamiento con skin booster aplicado para hidratar la piel",
       chip: "20–30 min · Recuperación mínima",
       sections: [
         { heading: "Qué es", body: "Ácido hialurónico no reticulado, inyectado en pequeñas gotas uniformemente repartidas en la dermis para atraer y retener agua. A diferencia del relleno estructural, no aporta forma ni volumen: cambia cómo la piel retiene la hidratación, de modo que se ve más turgente y luminosa, no más grande." },
@@ -121,7 +121,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "Скинбустеры в AS Clinic, Берлин: несшитая гиалуроновая кислота в дерму для увлажнения и сияния. Меняет качество кожи, а не форму. Бесплатная консультация.",
       heroKicker: "Инъекции · Скинбустер",
       heroLead: "Процедура для качества кожи, а не для формы — увлажнение именно там, где кожа нуждается в нём больше всего.",
-      imageAlt: "Инъекции скинбустера для увлажнения и сияния кожи",
+      imageAlt: "Нанесение препарата скинбустера для увлажнения кожи",
       chip: "20–30 мин · Минимальное восстановление",
       sections: [
         { heading: "Что это", body: "Несшитая гиалуроновая кислота, вводимая мелкими равномерно распределёнными каплями в дерму, чтобы притягивать и удерживать воду. В отличие от структурного филлера, она не создаёт форму и объём: она меняет способность кожи удерживать влагу, поэтому кожа выглядит наполненной и сияющей, а не увеличенной." },
@@ -158,7 +158,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "اسکین بوستر در AS Clinic برلین: اسید هیالورونیک غیرشبکه‌ای در درم برای آبرسانی و درخشش. کیفیت پوست را تغییر می‌دهد نه فرم را. مشاوره رایگان.",
       heroKicker: "تزریقات · اسکین بوستر",
       heroLead: "درمانی برای کیفیت پوست، نه برای فرم — آبرسانی دقیقاً همان‌جا که پوست بیشترین نیاز را دارد.",
-      imageAlt: "تزریق اسکین بوستر برای بهبود آبرسانی و شفافیت پوست",
+      imageAlt: "اجرای درمان اسکین بوستر برای آبرسانی پوست",
       chip: "۲۰ تا ۳۰ دقیقه · نقاهت بسیار کوتاه",
       sections: [
         { heading: "این درمان چیست", body: "اسید هیالورونیک غیرشبکه‌ای که در قطره‌های کوچک و با فاصله یکنواخت به درم تزریق می‌شود تا آب را جذب و نگه دارد. برخلاف فیلر ساختاری، فرم یا حجم اضافه نمی‌کند — نحوه نگهداری رطوبت در پوست را تغییر می‌دهد، پس پوست پرتر و درخشان‌تر دیده می‌شود، نه بزرگ‌تر." },
@@ -195,7 +195,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
       metaDescription: "معزّزات البشرة في AS Clinic ببرلين: حمض هيالورونيك غير متشابك يوضع في الأدمة للترطيب والإشراق. يغيّر الجودة لا الشكل. استشارة مجانية.",
       heroKicker: "الحقن · معزّز البشرة",
       heroLead: "علاج للجودة لا للشكل — ترطيب يوضع تمامًا حيث تحتاجه البشرة أكثر.",
-      imageAlt: "حقن معزّز البشرة لتحسين الترطيب والإشراق",
+      imageAlt: "تطبيق علاج معزّز البشرة لترطيب الجلد",
       chip: "20–30 دقيقة · نقاهة بسيطة",
       sections: [
         { heading: "ما هو الإجراء", body: "حمض هيالورونيك غير متشابك يُحقن في قطيرات صغيرة متساوية التباعد داخل الأدمة ليجذب الماء ويحتفظ به. وخلافًا للفيلر البنيوي، لا يضيف شكلًا ولا حجمًا — بل يغيّر كيفية احتفاظ البشرة بالترطيب، فتبدو أكثر امتلاءً وإشراقًا لا أكبر حجمًا." },

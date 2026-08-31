@@ -10,7 +10,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "Fat-dissolving injections at AS Clinic, Berlin: for small, pinchable pockets like the submental area, over 2–4 sessions. Not a weight-loss treatment.",
       heroKicker: "Injectables · Fat Dissolving Injection",
       heroLead: "For small, stubborn, pinchable pockets — a targeted answer, not a weight-loss treatment.",
-      imageAlt: "Fat-dissolving injection being administered to the submental area",
+      imageAlt: "Fat-dissolving injection being administered to a small pocket of fat on the body",
       chip: "20–30 min · 2–4 sessions",
       sections: [
         { heading: "What it is", body: "An injectable solution — typically deoxycholic acid — that breaks down fat cell membranes in a small, targeted pocket, most commonly under the chin. The body clears the released fat gradually over the following weeks." },
@@ -47,7 +47,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "Fett-weg-Spritze in der AS Clinic Berlin: für kleine, greifbare Fettpölsterchen wie das Doppelkinn, über 2–4 Sitzungen. Keine Behandlung zur Gewichtsreduktion.",
       heroKicker: "Injektionen · Fett-weg-Spritze",
       heroLead: "Für kleine, hartnäckige, greifbare Pölsterchen — eine gezielte Antwort, keine Abnehmbehandlung.",
-      imageAlt: "Fett-weg-Spritze wird unterhalb des Kinns gesetzt",
+      imageAlt: "Fett-weg-Spritze wird in ein kleines Fettpolster am Körper gesetzt",
       chip: "20–30 Min. · 2–4 Sitzungen",
       sections: [
         { heading: "Was es ist", body: "Eine injizierbare Lösung — meist Desoxycholsäure —, die die Membranen von Fettzellen in einem kleinen, gezielten Depot auflöst, am häufigsten unter dem Kinn. Der Körper baut das freigesetzte Fett über die folgenden Wochen schrittweise ab." },
@@ -84,7 +84,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "Inyecciones lipolíticas en AS Clinic, Berlín: para acúmulos pequeños y pellizcables como la papada, en 2–4 sesiones. No es un tratamiento de adelgazamiento.",
       heroKicker: "Inyectables · Inyección para disolver grasa",
       heroLead: "Para acúmulos pequeños, rebeldes y pellizcables: una respuesta puntual, no un tratamiento para perder peso.",
-      imageAlt: "Aplicación de inyección lipolítica en la zona submentoniana",
+      imageAlt: "Inyección lipolítica aplicada en un pequeño acúmulo graso del cuerpo",
       chip: "20–30 min · 2–4 sesiones",
       sections: [
         { heading: "Qué es", body: "Una solución inyectable — normalmente ácido desoxicólico — que rompe la membrana de las células grasas en un acúmulo pequeño y localizado, sobre todo bajo el mentón. El cuerpo elimina la grasa liberada de forma gradual durante las semanas siguientes." },
@@ -121,7 +121,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "Липолитические инъекции в AS Clinic, Берлин: для небольших локальных жировых пакетов, например второго подбородка, курсом из 2–4 процедур. Это не метод похудения.",
       heroKicker: "Инъекции · Липолитические инъекции",
       heroLead: "Для небольших упрямых жировых складок, которые можно взять пальцами — точечное решение, а не способ похудеть.",
-      imageAlt: "Введение липолитического препарата в подподбородочную область",
+      imageAlt: "Введение липолитика в небольшой жировой пакет на теле",
       chip: "20–30 мин · 2–4 процедуры",
       sections: [
         { heading: "Что это", body: "Инъекционный раствор — как правило, дезоксихолевая кислота, — разрушающий мембраны жировых клеток в небольшом локальном участке, чаще всего под подбородком. Организм постепенно выводит высвободившийся жир в течение последующих недель." },
@@ -158,7 +158,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "تزریق چربی‌سوز در AS Clinic برلین: برای بالشتک‌های کوچک و قابل گرفتن مانند غبغب، طی ۲ تا ۴ جلسه. این درمانی برای کاهش وزن نیست.",
       heroKicker: "تزریقات · تزریق چربی‌سوز",
       heroLead: "برای بالشتک‌های کوچک، سرسخت و قابل گرفتن — پاسخی هدفمند، نه درمان کاهش وزن.",
-      imageAlt: "تزریق ماده چربی‌سوز در ناحیه زیر چانه",
+      imageAlt: "تزریق ماده چربی‌سوز در یک بالشتک کوچک چربی روی بدن",
       chip: "۲۰ تا ۳۰ دقیقه · ۲ تا ۴ جلسه",
       sections: [
         { heading: "این درمان چیست", body: "محلولی تزریقی — معمولاً اسید دئوکسی‌کولیک — که غشای سلول‌های چربی را در یک بالشتک کوچک و هدفمند تجزیه می‌کند، بیشتر در زیر چانه. بدن چربی آزادشده را طی هفته‌های بعد به‌تدریج دفع می‌کند." },
@@ -195,7 +195,7 @@ export const FAT_DISSOLVING: TreatmentPage = {
       metaDescription: "حقن إذابة الدهون في AS Clinic ببرلين: للجيوب الدهنية الصغيرة القابلة للقرص مثل الذقن المزدوجة، على مدى 2–4 جلسات. ليست علاجًا لإنقاص الوزن.",
       heroKicker: "الحقن · حقن إذابة الدهون",
       heroLead: "للجيوب الصغيرة العنيدة القابلة للقرص — حلّ موضعي لا علاج لإنقاص الوزن.",
-      imageAlt: "حقن مذيب للدهون في المنطقة تحت الذقن",
+      imageAlt: "حقن مذيب للدهون في جيب دهني صغير في الجسم",
       chip: "20–30 دقيقة · 2–4 جلسات",
       sections: [
         { heading: "ما هو الإجراء", body: "محلول يُحقن — عادةً حمض الديوكسيكوليك — يفكك أغشية الخلايا الدهنية في جيب صغير محدد، وأكثرها شيوعًا تحت الذقن. ويتخلص الجسم من الدهون المحرّرة تدريجيًا خلال الأسابيع التالية." },

@@ -4,6 +4,13 @@ export function unsplash(id: string, w = 900, q = 70) {
   return `https://images.unsplash.com/${id}?fm=jpg&q=${q}&w=${w}&auto=format&fit=crop`;
 }
 
+/** srcset for a remote Unsplash photo, so the browser downloads a thumbnail on
+ *  small screens instead of the full-width file. Pair with a `sizes` attribute
+ *  describing how wide the image actually renders. */
+export function unsplashSrcSet(id: string, widths: number[], q = 70) {
+  return widths.map((w) => `${unsplash(id, w, q)} ${w}w`).join(", ");
+}
+
 export interface Treatment {
   slug: string;
   photoId: string;

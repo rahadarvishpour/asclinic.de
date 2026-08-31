@@ -16,7 +16,7 @@ const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
   <div class="container">
     <div class="footer__cols">
       <div class="footer__brand">
-        <img class="footer__logo" src="/assets/logo.jpg" alt={t(locale, "ft.logoAlt")} width="132" height="132" />
+        <img class="footer__logo" src="/assets/logo.jpg" alt={t(locale, "ft.logoAlt")} width="132" height="132" loading="lazy" decoding="async" />
         <p class="body footer__tagline">{t(locale, "ft.tagline")}</p>
         <div class="footer__social">
           <a class="social" href="https://www.instagram.com/asclinic" target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>

@@ -10,7 +10,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "Jawline filler at AS Clinic, Berlin: define the angle and border separately for a sharper, not broader, profile. Free consultation, physician-led dosing.",
       heroKicker: "Injectables · Jawline Filler",
       heroLead: "The angle and the border, planned as two separate decisions — so the face reads sharper, not wider.",
-      imageAlt: "Jawline filler injection defining the mandibular border",
+      imageAlt: "Profile view of a defined jawline and neck",
       chip: "30–40 min · Local numbing",
       sections: [
         { heading: "What it is", body: "Hyaluronic acid filler placed along the mandible to sharpen the jaw's border, define the angle, or both. Placement is planned as two separate anatomical decisions — border definition and angle projection — rather than one generic line." },
@@ -47,7 +47,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "Kieferfiller in der AS Clinic Berlin: Winkel und Kante werden getrennt definiert, damit das Profil schärfer und nicht breiter wirkt. Kostenlose Beratung, ärztliche Dosierung.",
       heroKicker: "Injektionen · Kieferlinien-Filler",
       heroLead: "Winkel und Kante als zwei getrennte Entscheidungen geplant — damit das Gesicht schärfer wirkt, nicht breiter.",
-      imageAlt: "Kieferfiller-Injektion zur Definition der Unterkieferkante",
+      imageAlt: "Profilansicht einer definierten Kieferlinie und des Halses",
       chip: "30–40 Min. · Lokale Betäubung",
       sections: [
         { heading: "Was es ist", body: "Hyaluronsäure-Filler entlang des Unterkiefers, um die Kante zu schärfen, den Kieferwinkel zu betonen oder beides. Die Platzierung wird als zwei getrennte anatomische Entscheidungen geplant — Kantendefinition und Winkelprojektion — statt als eine pauschale Linie." },
@@ -84,7 +84,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "Relleno de mandíbula en AS Clinic, Berlín: definimos ángulo y borde por separado para un perfil más marcado, no más ancho. Consulta gratuita, dosificación médica.",
       heroKicker: "Inyectables · Relleno mandibular",
       heroLead: "El ángulo y el borde, planificados como dos decisiones distintas, para que el rostro se lea más marcado y no más ancho.",
-      imageAlt: "Infiltración de relleno mandibular definiendo el borde de la mandíbula",
+      imageAlt: "Vista de perfil de una mandíbula definida y el cuello",
       chip: "30–40 min · Anestesia local",
       sections: [
         { heading: "Qué es", body: "Relleno de ácido hialurónico colocado a lo largo de la mandíbula para afilar el borde, definir el ángulo o ambas cosas. La colocación se planifica como dos decisiones anatómicas separadas — definición del borde y proyección del ángulo — en lugar de una línea genérica." },
@@ -121,7 +121,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "Филлер челюсти в AS Clinic, Берлин: угол и грань планируются отдельно, чтобы профиль стал чётче, а не шире. Бесплатная консультация, дозировка врачом.",
       heroKicker: "Инъекции · Филлер линии челюсти",
       heroLead: "Угол и грань как два отдельных решения — чтобы лицо читалось чётче, а не шире.",
-      imageAlt: "Введение филлера вдоль нижнечелюстной грани",
+      imageAlt: "Профиль с чёткой линией челюсти и шеей",
       chip: "30–40 мин · Местная анестезия",
       sections: [
         { heading: "Что это", body: "Филлер на основе гиалуроновой кислоты вдоль нижней челюсти, чтобы подчеркнуть грань, обозначить угол или и то и другое. Размещение планируется как два отдельных анатомических решения — чёткость грани и проекция угла, — а не как одна универсальная линия." },
@@ -158,7 +158,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "فیلر خط فک در AS Clinic برلین: زاویه و لبه به‌صورت جداگانه طراحی می‌شوند تا نیم‌رخ شفاف‌تر شود، نه پهن‌تر. مشاوره رایگان، دوز تعیین‌شده توسط پزشک.",
       heroKicker: "تزریقات · فیلر خط فک",
       heroLead: "زاویه و لبه، دو تصمیم جداگانه — تا چهره شفاف‌تر خوانده شود، نه پهن‌تر.",
-      imageAlt: "تزریق فیلر خط فک برای تعریف لبه فک پایین",
+      imageAlt: "نمای نیم‌رخ از خط فک مشخص و گردن",
       chip: "۳۰ تا ۴۰ دقیقه · بی‌حسی موضعی",
       sections: [
         { heading: "این درمان چیست", body: "فیلر اسید هیالورونیک که در امتداد فک پایین قرار می‌گیرد تا لبه فک را تیزتر کند، زاویه را مشخص کند یا هر دو. جای‌گذاری به‌عنوان دو تصمیم آناتومیک مجزا برنامه‌ریزی می‌شود — تعریف لبه و برجستگی زاویه — نه یک خط کلی." },
@@ -195,7 +195,7 @@ export const JAWLINE_FILLER: TreatmentPage = {
       metaDescription: "فيلر خط الفك في AS Clinic ببرلين: نحدّد الزاوية والحافة كقرارين منفصلين ليبدو الملمح أكثر حدّة لا أكثر عرضًا. استشارة مجانية وجرعات يحددها الطبيب.",
       heroKicker: "الحقن · فيلر خط الفك",
       heroLead: "الزاوية والحافة، مخططتان كقرارين منفصلين — ليقرأ الوجه أكثر حدّة لا أكثر عرضًا.",
-      imageAlt: "حقن فيلر خط الفك لتحديد حافة الفك السفلي",
+      imageAlt: "منظر جانبي لخط فك محدد والرقبة",
       chip: "30–40 دقيقة · تخدير موضعي",
       sections: [
         { heading: "ما هو الإجراء", body: "فيلر حمض هيالورونيك يوضع على امتداد الفك السفلي لشحذ حافته أو تحديد زاويته أو كليهما. ويُخطَّط للوضع كقرارين تشريحيين منفصلين — تحديد الحافة وبروز الزاوية — لا كخط واحد عام." },

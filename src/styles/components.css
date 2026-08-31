@@ -72,10 +72,11 @@ img { max-width: 100%; display: block; }
   transform: scaleX(0); transform-origin: left; transition: transform var(--dur-base) var(--ease-out);
 }
 .btn:hover::after { transform: scaleX(1); }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover { transform: translateY(-2px); color: var(--g-white); }
 .btn:focus-visible { outline: none; box-shadow: var(--sh-focus); }
 .btn--dark    { background: var(--g-charcoal); }
 .btn--dark::after { background: var(--accent-action); }
+.btn--dark:hover { color: var(--g-white); }
 .btn--outline { background: transparent; color: var(--text); border-color: var(--border); }
 .btn--outline:hover { color: var(--g-white); border-color: transparent; }
 .btn--light   { background: var(--g-white); color: var(--text); }
