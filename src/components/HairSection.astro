@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { t, type Locale } from "../i18n/ui";
+import { t, bookingUrl, type Locale } from "../i18n/ui";
 import { treatmentImage } from "../data/treatmentImages";
 import { HAIR_SERVICES, unsplash, unsplashSrcSet } from "../data/treatments";
 
@@ -35,7 +35,7 @@ const { locale } = Astro.props;
           </div>
           <h3 class="h3" style="margin:var(--sp-5) 0 var(--sp-2)">{t(locale, svc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, svc.descKey)}</p>
-          <a class="link-underline" href="#book">{t(locale, svc.linkKey)}</a>
+          <a class="link-underline" href={bookingUrl(locale)}>{t(locale, svc.linkKey)}</a>
         </div>
       ))}
     </div>

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { t, ti, sectionHref, localePath, type Locale } from "../i18n/ui";
+import { t, ti, localePath, bookingUrl, type Locale } from "../i18n/ui";
 import { TREATMENTS, unsplash, unsplashSrcSet, PHOTO_CREDITS } from "../data/treatments";
 import { TREATMENT_PAGES, treatmentContent } from "../data/treatmentPages";
 import { treatmentImage } from "../data/treatmentImages";
@@ -14,7 +14,7 @@ const cardCopy = (slug: string) => treatmentContent(TREATMENT_PAGES[slug], local
 // Once every card carries the clinic's own photography the Unsplash credit is no
 // longer true, so it is only rendered while at least one stock image remains.
 const usesStockPhotography = TREATMENTS.some((tr) => !treatmentImage(tr.slug));
-const bookHref = sectionHref(locale, Astro.url.pathname, "book");
+const bookHref = bookingUrl(locale);
 const hrefFor = (slug: string) => (DETAIL_SLUGS.has(slug) ? localePath(locale, `/treatments/${slug}`) : bookHref);
 
 // A card renders ~268px in the 4-up desktop grid, ~45vw in the 2-up tablet grid

@@ -1,5 +1,5 @@
 ---
-import { t, type Locale } from "../i18n/ui";
+import { t, bookingUrl, type Locale } from "../i18n/ui";
 import { TREATMENTS } from "../data/treatments";
 import { CLINIC } from "../data/clinic";
 interface Props { locale: Locale }
@@ -20,7 +20,7 @@ const heroImg = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm
       </h1>
       <p class="lead reveal" data-reveal="up" style="max-width:var(--measure); color:var(--text-muted)">{t(locale, "hero.lead")}</p>
       <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
-        <a class="btn btn--lg" href="#book">{t(locale, "hero.cta")}</a>
+        <a class="btn btn--lg" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
         <a class="btn btn--lg btn--outline" href="#injectables">{t(locale, "hero.cta2")}</a>
       </div>
       <div style="display:flex; gap:var(--sp-7); margin-top:var(--sp-7); flex-wrap:wrap">

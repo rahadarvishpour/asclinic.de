@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
-import { t, sectionHref, ti, localePath, type Locale } from "../i18n/ui";
+import { t, sectionHref, ti, localePath, bookingUrl, type Locale } from "../i18n/ui";
 import { TREATMENT_PAGES, treatmentContent } from "../data/treatmentPages";
 import type { TreatmentPage } from "../data/treatmentPages/types";
 
@@ -136,7 +136,7 @@ const procedureJsonLd = {
               <span class="chip chip--outline">{copy.chip}</span>
             </div>
             <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
-              <a class="btn btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
+              <a class="btn btn--lg" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
               <a class="btn btn--lg btn--outline" href={anchor(page.category.categoryAnchorId)}>{ti(locale, "treat.viewAll", { category: categoryLabel })}</a>
             </div>
           </div>
@@ -293,7 +293,7 @@ const procedureJsonLd = {
             <h2 class="h2">{article?.ctaHeading ?? ti(locale, "treat.ready", { title: copy.title })}</h2>
             <p class="body" style="color:rgba(246,241,237,.72)">{article?.ctaBody ?? t(locale, "cta.lead")}</p>
           </div>
-          <a class="btn btn--light btn--lg" href={anchor("book")}>{t(locale, "hero.cta")}</a>
+          <a class="btn btn--light btn--lg" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
         </div>
       </section>
       {page.review && (

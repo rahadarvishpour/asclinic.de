@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { t, type Locale } from "../i18n/ui";
+import { t, bookingUrl, type Locale } from "../i18n/ui";
 import { treatmentImage } from "../data/treatmentImages";
 import { SURGERY_PROCEDURES, unsplash, unsplashSrcSet } from "../data/treatments";
 
@@ -35,7 +35,7 @@ const { locale } = Astro.props;
           <span class="chip chip--outline">{t(locale, proc.chipKey)}</span>
           <h3 class="h2">{t(locale, proc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, proc.descKey)}</p>
-          <a class="btn btn--dark" href="#book">{t(locale, "s3.cta")}</a>
+          <a class="btn btn--dark" href={bookingUrl(locale)}>{t(locale, "s3.cta")}</a>
         </div>
       ))}
     </div>

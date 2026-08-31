@@ -56,6 +56,15 @@ export function sectionHref(locale: Locale, pathname: string, id: string): strin
   return onHomepage ? `#${id}` : `${localePath(locale)}#${id}`;
 }
 
+/** External booking system. Every "Book a visit" / "Book a consultation" CTA on the
+ *  site points here rather than at an on-page form, and carries the visitor's current
+ *  language so the booking flow opens already translated. */
+const BOOKING_BASE = "http://167.235.57.177:3200/c/defaultcomp1/book/defaultcomp1";
+
+export function bookingUrl(locale: Locale): string {
+  return `${BOOKING_BASE}?lang=${locale}`;
+}
+
 export function getLocaleMeta(locale: Locale): LocaleMeta {
   return LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
 }
