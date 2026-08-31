@@ -1,0 +1,42 @@
+---
+import { t, type Locale, type UiKey } from "../i18n/ui";
+import { HAIR_SERVICES } from "../data/treatments";
+import { unsplash } from "../data/treatments";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const linkKeys: Record<string, UiKey> = {
+  "hair-transplant": "hair.link1",
+  "eyebrow-transplant": "hair.link2",
+  "beard-transplant": "hair.link3"
+};
+---
+
+<section id="hair" class="section" style="background:var(--bg-quiet)">
+  <div class="container">
+    <div class="section-head" style="display:grid; gap:var(--sp-3); max-width:760px">
+      <p class="eyebrow reveal" data-reveal="up">{t(locale, "s2.eyebrow")}</p>
+      <h2 class="h1 reveal" data-reveal="up">{t(locale, "s2.title")}</h2>
+      <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{t(locale, "s2.lead")}</p>
+    </div>
+    <div class="grid grid--3 stagger" style="margin-top:var(--sp-7)">
+      {HAIR_SERVICES.map((svc) => (
+        <div class="reveal" data-reveal="up">
+          <div class="media media--arch" style="height:420px; position:relative">
+            <img src={unsplash(svc.photoId, 800)} alt={svc.alt} loading="lazy" width="800" height="420" style="width:100%; height:100%; object-fit:cover" />
+            <span class="photo-credit">
+              <a href={svc.creditHref} target="_blank" rel="noopener noreferrer">{svc.credit}</a>
+            </span>
+          </div>
+          <h3 class="h3" style="margin:var(--sp-5) 0 var(--sp-2)">{svc.title}</h3>
+          <p class="body" style="color:var(--text-muted)">{svc.description}</p>
+          <a class="link-underline" href="#book">{t(locale, linkKeys[svc.slug])}</a>
+        </div>
+      ))}
+    </div>
+    <div class="grid grid--3 stagger" style="margin-top:var(--sp-7)">
+      <div class="check-row reveal" data-reveal="up"><span>{t(locale, "hair.check1")}</span></div>
+      <div class="check-row reveal" data-reveal="up"><span>{t(locale, "hair.check2")}</span></div>
+      <div class="check-row reveal" data-reveal="up"><span>{t(locale, "hair.check3")}</span></div>
+    </div>
+  </div>
+</section>

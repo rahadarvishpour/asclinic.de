@@ -1,0 +1,65 @@
+---
+import { t, type Locale } from "../i18n/ui";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const heroImg = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm=jpg&q=80&w=1400&auto=format&fit=crop";
+---
+
+<section id="top" class="section" style="background:var(--bg-soft); position:relative; overflow:hidden">
+  <div class="shape-circle" style="width:520px; height:520px; inset-inline-end:-160px; top:-180px; opacity:.55"></div>
+  <div class="container" data-split="1" style="display:grid; grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr); gap:var(--sp-8); align-items:center; position:relative">
+    <div>
+      <p class="eyebrow reveal" data-reveal="up">{t(locale, "hero.eyebrow")}</p>
+      <h1 class="display reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">
+        <span style="font-size:64px">{t(locale, "hero.title")}</span><br />
+        <span class="italic-accent">{t(locale, "hero.accent")}</span>
+      </h1>
+      <p class="lead reveal" data-reveal="up" style="max-width:var(--measure); color:var(--text-muted)">{t(locale, "hero.lead")}</p>
+      <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
+        <a class="btn btn--lg" href="#book">{t(locale, "hero.cta")}</a>
+        <a class="btn btn--lg btn--outline" href="#injectables">{t(locale, "hero.cta2")}</a>
+      </div>
+      <div style="display:flex; gap:var(--sp-7); margin-top:var(--sp-7); flex-wrap:wrap">
+        <div>
+          <div class="stat__value">4200+</div>
+          <div class="stat__label">{t(locale, "hero.stat1")}</div>
+        </div>
+        <div>
+          <div class="stat__value">14</div>
+          <div class="stat__label">{t(locale, "hero.stat2")}</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal" data-reveal="scale" style="position:relative">
+      <div class="media media--blob" style="height:min(66vh,560px)">
+        <video
+          src="/videos/hero.mp4"
+          poster={heroImg}
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          width="1400"
+          height="1100"
+          style="width:100%; height:100%; object-fit:cover"
+        ></video>
+      </div>
+      <div class="float-card float" style="inset-inline-start:-6%; bottom:12%; width:240px; height:78px; left:27px">{t(locale, "hero.badge")}</div>
+      <div class="float-card float-card--light float float--rev" style="inset-inline-end:-4%; top:8%; display:flex; align-items:center; gap:var(--sp-3)">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="meta">{t(locale, "hero.rating")}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="feature">
+  <div class="container" style="display:flex; flex-wrap:wrap; gap:var(--sp-6) var(--sp-7); justify-content:space-between; padding-block:var(--sp-5)">
+    <span class="meta">{t(locale, "feat.1")}</span>
+    <span class="meta">{t(locale, "feat.2")}</span>
+    <span class="meta">{t(locale, "feat.3")}</span>
+    <span class="meta">{t(locale, "feat.4")}</span>
+    <span class="meta">{t(locale, "feat.5")}</span>
+  </div>
+</div>

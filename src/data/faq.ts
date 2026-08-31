@@ -1,0 +1,78 @@
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export type FaqCategory = "inject" | "hair" | "surgery";
+
+// 20 questions per service category, written by the clinic's physicians.
+// English-only across all locales for now — no verified medical translation
+// source exists yet for this content.
+export const FAQ: Record<FaqCategory, FaqItem[]> = {
+  inject: [
+    { q: "Am I a candidate for injectables?", a: "If you are over 18, not pregnant or breastfeeding, and have no active skin infection or autoimmune flare, you are usually a candidate. The consultation confirms it in ten minutes." },
+    { q: "Who performs the injection?", a: "Only physicians and specialist nurses trained in facial anatomy. Nobody injects in this clinic without a medical licence on file." },
+    { q: "Which brands of filler do you use?", a: "Cross-linked hyaluronic acid from CE-marked European manufacturers. You see the sealed box and batch label before it is opened." },
+    { q: "How long does lip filler last?", a: "Typically 8–12 months. Metabolism, smoking and heavy exercise shorten it; conservative dosing lengthens it." },
+    { q: "Will my lips look overfilled?", a: "Not with our protocol. We cap the first session at a small volume, review at two weeks, and add only if the shape asks for it." },
+    { q: "How soon does Botox work?", a: "First movement changes at day 3, full effect at day 14. We review you at two weeks and refine at no charge." },
+    { q: "How long does Botox last?", a: "Three to four months for a first treatment, often longer once the muscle is trained by repeat sessions." },
+    { q: "What is Mesobotox and how is it different?", a: "Micro-droplets placed superficially across a wider area. It softens fine crepe lines and pore texture without freezing expression." },
+    { q: "Is eye mesotherapy safe around the lower lid?", a: "Yes, with cannula-free micro-needling depth control and a lymphatic-drainage aftercare protocol to limit puffiness." },
+    { q: "What does cheek filler actually change?", a: "It restores the light-catching edge of the midface, which lifts the nasolabial fold and the jawline indirectly." },
+    { q: "Does jawline filler make a face look wider?", a: "Only if placed laterally without a plan. We define the angle and the border separately so the face reads sharper, not broader." },
+    { q: "What is an 8-point lift?", a: "Eight anatomically fixed points across the midface and jaw treated in one sitting to re-suspend descending tissue. No surgery, no downtime." },
+    { q: "Is full-face Botox a lot of product?", a: "It is a wider map at a lower dose per point — the total is often close to a standard upper-face session." },
+    { q: "Does fat-dissolving injection really work?", a: "For small, pinchable pockets like the submental area, yes, over 2–4 sessions. It is not a treatment for general weight loss." },
+    { q: "What is a skin booster?", a: "Non-cross-linked hyaluronic acid placed in the dermis for hydration and glow. It changes quality, not shape." },
+    { q: "What is Profhilo and when do you recommend it?", a: "A high-concentration bio-remodelling gel for laxity of the cheeks, neck and arms. Two sessions, four weeks apart." },
+    { q: "How is Fillart different from ordinary filler?", a: "It is a technique, not a product: layered micro-boluses following the light map of the face rather than filling a single line." },
+    { q: "Does it hurt?", a: "Topical anaesthetic for 20 minutes, lidocaine inside most fillers, ice and vibration during. Most guests rate it 2–3 out of 10." },
+    { q: "What is the downtime?", a: "Small bruising or swelling for 24–72 hours. Plan any event at least a week after your appointment." },
+    { q: "Can filler be reversed?", a: "Hyaluronic acid can be dissolved with hyaluronidase within a day if you dislike the result. Neuromodulators simply wear off." }
+  ],
+  hair: [
+    { q: "Am I too young for a hair transplant?", a: "Under 25 we usually stabilise loss medically first, then transplant — otherwise the donor is spent chasing a moving hairline." },
+    { q: "FUE or FUT — which do you do?", a: "Follicular unit extraction, punch by punch. It leaves no linear scar and lets you keep short hair." },
+    { q: "How many grafts will I need?", a: "A receding hairline is typically 1,800–2,500; a full crown restoration 3,000–4,500. Trichoscopy at consultation gives your number." },
+    { q: "Will the new hairline look natural?", a: "We draw it against your facial proportion and forehead movement, then place single hairs at the front row and doubles behind." },
+    { q: "Is the result permanent?", a: "Transplanted follicles come from the donor zone, which is genetically resistant to hormonal thinning, so they behave like donor hair for life." },
+    { q: "When will I see hair?", a: "Shedding at weeks 2–6, first growth at month 3–4, meaningful density at month 8, final result at month 12–15." },
+    { q: "Does the procedure hurt?", a: "It is done under local anaesthetic. You are awake, watching a film or sleeping. Soreness the first two nights, managed with simple analgesia." },
+    { q: "How long is the day?", a: "Six to nine hours including breaks and lunch, depending on graft count." },
+    { q: "When can I go back to work?", a: "Desk work at day 3–4 with a loose cap. Client-facing work is comfortable from day 10 once redness fades." },
+    { q: "When can I train again?", a: "Walking from day 3, light gym at day 10, heavy lifting and swimming from week 4." },
+    { q: "What happens to my donor area?", a: "It is harvested in a diffuse pattern so density drops evenly and invisibly. It is fully covered again in two weeks." },
+    { q: "Can you fix a previous bad transplant?", a: "Often yes — by redistributing the front row, excising plug grafts and adding density behind. It needs a longer plan." },
+    { q: "Do you transplant eyebrows?", a: "Yes. Single-hair grafts angled almost flat to the skin, following the natural sweep of each eyebrow section." },
+    { q: "How is beard transplant different?", a: "Sparser placement, steeper angles and a much finer punch, to read as stubble rather than a hair patch." },
+    { q: "Do women get hair transplants here?", a: "Yes — for frontal recession, widened parting and post-surgical scars, usually without shaving the recipient area." },
+    { q: "What is Hair Meso?", a: "A vitamin, peptide and growth-factor cocktail delivered to the scalp to strengthen existing follicles. It complements, not replaces, transplant." },
+    { q: "What is PRP Meso Hair?", a: "Your own platelet-rich plasma, spun in clinic and injected into the scalp. Typically three sessions a month apart, then maintenance." },
+    { q: "Will I still need medication after surgery?", a: "Usually yes, to protect the native hair around the graft. The transplant does not stop your original pattern of loss." },
+    { q: "Are there any scars?", a: "Hundreds of pin-point healing marks under 1 mm, invisible at conversational distance within a month." },
+    { q: "What if a graft does not take?", a: "We audit density at month 12. Any shortfall against the agreed plan is corrected in a touch-up session at no cost." }
+  ],
+  surgery: [
+    { q: "Who is a good candidate for blepharoplasty?", a: "Anyone with hooded upper lids, tired lower lids or fat pads that no longer respond to non-surgical work, in good general health." },
+    { q: "Upper or lower eyelid — how do I know?", a: "Upper if the crease disappears or the lid touches the lash; lower if the shadow and bag persist rested. Many need both." },
+    { q: "Will it change my expression?", a: "No. Removing skin restores the eye you had; we do not alter the shape of the aperture unless you ask for it." },
+    { q: "Is it done under general anaesthetic?", a: "Upper lids under local with light sedation. Lower lids and combined cases under sedation or general, decided with the anaesthetist." },
+    { q: "How long is the operation?", a: "45–60 minutes for upper lids, 90–120 minutes for a combined four-lid procedure." },
+    { q: "Where are the scars?", a: "In the natural upper crease and just beneath the lash line, or inside the lid for a transconjunctival approach. Invisible when healed." },
+    { q: "How long is the swelling?", a: "Peak at day 2–3, socially presentable at day 10–14 with makeup, fully settled at three months." },
+    { q: "When do stitches come out?", a: "Day 5–7 in clinic, in a five-minute appointment." },
+    { q: "When can I wear contact lenses again?", a: "Usually two weeks, once the lid margin is comfortable and dryness has resolved." },
+    { q: "What is a Direct Lift?", a: "A precise excision above the brow or along the jaw that lifts tissue directly, chosen when a thread or filler cannot hold the weight." },
+    { q: "Who is Direct Lift for?", a: "Mature skin with real laxity, where a mid-face filler plan would add volume without addressing descent." },
+    { q: "Will the scar be visible?", a: "It is hidden in the brow line or a natural crease, closed in layers and taped for six weeks. It matures pale and flat." },
+    { q: "Can it be combined with injectables?", a: "Yes — surgery for position, injectables for volume and texture, staged four to six weeks apart." },
+    { q: "How long do surgical results last?", a: "Eyelid surgery typically 10–15 years. A direct lift holds well but does not stop ageing elsewhere in the face." },
+    { q: "What are the risks?", a: "Bruising, asymmetry, dry eye and delayed healing are the common ones. Serious complications are rare and are listed in the consent you read at consultation." },
+    { q: "What tests do I need beforehand?", a: "Bloods, a medication review and an ophthalmic check for lid surgery. Anaesthetic clearance if you are sedated." },
+    { q: "Do I need to stop smoking?", a: "Yes — four weeks before and four weeks after. Nicotine is the single largest predictor of poor healing." },
+    { q: "Can I fly in for surgery?", a: "Yes. Plan seven to ten nights locally; we schedule follow-ups on day 2, day 6 and before departure." },
+    { q: "Is anyone allowed to stay with me?", a: "One companion in recovery and for every follow-up. Overnight stay is arranged when the plan requires it." },
+    { q: "What does aftercare include?", a: "Dressings, medication, four scheduled reviews, a scar protocol and direct access to your surgeon's line for six weeks." }
+  ]
+};

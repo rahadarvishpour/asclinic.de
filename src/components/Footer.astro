@@ -1,0 +1,49 @@
+---
+import { t, localePath, type Locale } from "../i18n/ui";
+import { CLINIC } from "../data/clinic";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+const homeHref = localePath(locale);
+const anchor = (id: string) => `${homeHref === "/" ? "" : homeHref}#${id}`;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__cols" style="display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:var(--sp-7); width:100%; padding-block:20px">
+      <div style="display:grid; gap:var(--sp-4); align-content:start">
+        <img src="/assets/logo.jpg" alt="AS Clinic — hair transplant & aesthetic medicine" width="132" height="132" style="width:132px; height:132px; border-radius:var(--r-pill); object-fit:cover; background:#000" />
+        <p class="body" style="color:rgba(246,241,237,.62); max-width:34ch">{t(locale, "ft.tagline")}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--sp-2)">
+          <a class="social" href="https://www.instagram.com/asclinic" target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>
+          <a class="social" href="https://www.tiktok.com/@asclinic" target="_blank" rel="noopener noreferrer me" aria-label="TikTok">TT</a>
+          <a class="social" href="https://www.youtube.com/@asclinic" target="_blank" rel="noopener noreferrer me" aria-label="YouTube">YT</a>
+          <a class="social" href={`https://wa.me/${CLINIC.telephone.replace("+", "")}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div style="display:grid; gap:var(--sp-3); align-content:start">
+        <span class="eyebrow" style="color:var(--accent)">{t(locale, "ft.explore")}</span>
+        <a href={anchor("injectables")} style="color:rgba(246,241,237,.72)">{t(locale, "nav.inject")}</a>
+        <a href={anchor("hair")} style="color:rgba(246,241,237,.72)">{t(locale, "nav.hair")}</a>
+        <a href={anchor("surgery")} style="color:rgba(246,241,237,.72)">{t(locale, "nav.surgery")}</a>
+        <a href={anchor("faq")} style="color:rgba(246,241,237,.72)">{t(locale, "nav.faq")}</a>
+      </div>
+      <div style="display:grid; gap:var(--sp-3); align-content:start">
+        <span class="eyebrow" style="color:var(--accent)">{t(locale, "ft.hours")}</span>
+        <span class="body" style="color:rgba(246,241,237,.72)">{t(locale, "ft.hours1")}</span>
+        <span class="body" style="color:rgba(246,241,237,.72)">{t(locale, "ft.hours2")}</span>
+        <span class="body" style="color:rgba(246,241,237,.72)">{t(locale, "ft.hours3")}</span>
+      </div>
+      <div style="display:grid; gap:var(--sp-3); align-content:start">
+        <span class="eyebrow" style="color:var(--accent)">{t(locale, "ft.clinic")}</span>
+        <span class="body" style="color:rgba(246,241,237,.72)">{CLINIC.streetAddress}<br />{CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}</span>
+        <a href={`tel:${CLINIC.telephone}`} style="color:rgba(246,241,237,.72)">{CLINIC.telephoneDisplay}</a>
+        <a href={CLINIC.url} style="color:rgba(246,241,237,.72)">asclinic.de</a>
+      </div>
+    </div>
+    <div class="footer__bottom" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:var(--sp-3); margin-top:var(--sp-7)">
+      <span class="meta" style="color:rgba(246,241,237,.5)">© {year} {CLINIC.name} Berlin. {t(locale, "ft.rights")}</span>
+      <span class="meta" style="color:rgba(246,241,237,.5)">English · Deutsch · Español · Русский · فارسی · العربية</span>
+    </div>
+  </div>
+</footer>

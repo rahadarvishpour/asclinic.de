@@ -1,0 +1,22 @@
+---
+import { t, type Locale } from "../i18n/ui";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const STATS = [
+  { value: "16", key: "stats.1" as const },
+  { value: "38,000+", key: "stats.2" as const },
+  { value: "98%", key: "stats.3" as const },
+  { value: "6", key: "stats.4" as const }
+];
+---
+
+<section class="section section--quiet">
+  <div class="container grid grid--4 stagger" style="text-align:center">
+    {STATS.map((s) => (
+      <div class="reveal" data-reveal="up">
+        <div class="stat__value">{s.value}</div>
+        <div class="stat__label">{t(locale, s.key)}</div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,87 @@
+---
+import { t, type Locale } from "../i18n/ui";
+import { GALLERY_SLIDES, unsplash } from "../data/treatments";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+
+<section id="results" class="section" style="background:var(--bg-invert); color:var(--text-invert); overflow:hidden">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:var(--sp-5)">
+      <div style="display:grid; gap:var(--sp-3)">
+        <p class="eyebrow" style="color:var(--accent)">{t(locale, "sl.eyebrow")}</p>
+        <h2 class="h1">{t(locale, "sl.title")}</h2>
+        <p class="lead" style="color:rgba(246,241,237,.7); max-width:46ch">{t(locale, "sl.lead")}</p>
+      </div>
+      <div style="display:flex; gap:var(--sp-2)">
+        <button type="button" class="gallery-nav" data-gallery-prev aria-label={t(locale, "sl.prev")}>←</button>
+        <button type="button" class="gallery-nav" data-gallery-next aria-label={t(locale, "sl.next")}>→</button>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-track" data-gallery-track style="margin-top:var(--sp-7)">
+    {GALLERY_SLIDES.map((s) => (
+      <figure class="gallery-slide">
+        <img src={unsplash(s.photoId, 1200, 75)} alt={s.title} loading="lazy" width="900" height="620" />
+        <figcaption>
+          <span class="chip chip--coral">{s.tag}</span>
+          <h3 class="h3" style="margin-top:var(--sp-3); color:#F6F1ED">{s.title}</h3>
+          <p class="meta" style="color:rgba(246,241,237,.65)">{s.sub}</p>
+        </figcaption>
+        <span class="photo-credit">
+          <a href={s.creditHref} target="_blank" rel="noopener noreferrer">{s.credit}</a>
+        </span>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery-nav {
+    width: 52px; height: 52px; border-radius: var(--r-pill); border: 1px solid rgba(246,241,237,.25);
+    background: none; color: var(--text-invert); font-size: 1.1rem; cursor: pointer;
+    transition: background var(--dur-base) var(--ease-soft), border-color var(--dur-base) var(--ease-soft);
+  }
+  .gallery-nav:hover { background: var(--accent); border-color: var(--accent); }
+
+  .gallery-track {
+    display: flex; gap: var(--sp-5); overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 var(--gutter) var(--sp-4); scrollbar-width: none;
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-slide {
+    position: relative; flex: 0 0 min(72vw, 640px); scroll-snap-align: center;
+    height: min(60vh, 520px); border-radius: var(--r-lg); overflow: hidden; margin: 0; background: #2A2725;
+    box-shadow: var(--sh-3);
+  }
+  .gallery-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .gallery-slide figcaption {
+    position: absolute; inset-inline: 0; top: 0; padding: var(--sp-5) var(--sp-5) var(--sp-8);
+    background: linear-gradient(to bottom, rgba(21,20,19,.9), rgba(21,20,19,0));
+  }
+</style>
+
+<script>
+  const track = document.querySelector<HTMLElement>("[data-gallery-track]");
+  const prev = document.querySelector<HTMLButtonElement>("[data-gallery-prev]");
+  const next = document.querySelector<HTMLButtonElement>("[data-gallery-next]");
+  if (track && prev && next) {
+    const scrollByOne = (dir: 1 | -1) => {
+      const slide = track.querySelector<HTMLElement>(".gallery-slide");
+      const amount = (slide?.offsetWidth ?? 400) + 24;
+      track.scrollBy({ left: dir * amount, behavior: "smooth" });
+    };
+    prev.addEventListener("click", () => scrollByOne(-1));
+    next.addEventListener("click", () => scrollByOne(1));
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      let timer = window.setInterval(() => scrollByOne(1), 5200);
+      const pause = () => { window.clearInterval(timer); };
+      const resume = () => { timer = window.setInterval(() => scrollByOne(1), 5200); };
+      track.addEventListener("pointerenter", pause);
+      track.addEventListener("pointerleave", resume);
+      track.addEventListener("touchstart", pause, { passive: true });
+    }
+  }
+</script>

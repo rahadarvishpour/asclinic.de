@@ -1,0 +1,42 @@
+---
+import { t, type Locale } from "../i18n/ui";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const bookImg = "https://images.unsplash.com/photo-1758448500688-3ababa93fd67?fm=jpg&q=80&w=1200&auto=format&fit=crop";
+---
+
+<section id="book" class="section" style="padding:0">
+  <div data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-height:640px">
+    <div style="position:relative; background:var(--g-blush)">
+      <img src={bookImg} alt="AS Clinic reception, Berlin" loading="lazy" width="1200" height="900" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
+      <span class="photo-credit">
+        Photo by <a href="https://unsplash.com/@aalolens?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Aalo Lens</a> on <a href="https://unsplash.com/?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a>
+      </span>
+    </div>
+    <div style="background:var(--bg-invert); color:var(--text-invert); display:grid; align-content:center; gap:var(--sp-5); padding:var(--sp-9) var(--gutter)">
+      <p class="eyebrow" style="color:var(--accent)">{t(locale, "cta.eyebrow")}</p>
+      <h2 class="h1">{t(locale, "cta.title")}</h2>
+      <p class="lead" style="color:rgba(246,241,237,.72); max-width:44ch">{t(locale, "cta.lead")}</p>
+      <form style="display:grid; gap:var(--sp-4); max-width:460px" action="mailto:hello@asclinic.de" method="post" enctype="text/plain">
+        <div class="field">
+          <label class="visually-hidden" for="cta-name">{t(locale, "cta.name")}</label>
+          <input class="input" type="text" id="cta-name" name="name" placeholder={t(locale, "cta.name")} required />
+        </div>
+        <div class="field">
+          <label class="visually-hidden" for="cta-phone">{t(locale, "cta.phone")}</label>
+          <input class="input" type="tel" id="cta-phone" name="phone" placeholder={t(locale, "cta.phone")} required />
+        </div>
+        <div class="field">
+          <label class="visually-hidden" for="cta-service">{t(locale, "cta.service")}</label>
+          <select class="select" id="cta-service" name="service">
+            <option value="">{t(locale, "cta.service")}</option>
+            <option value="injectables">{t(locale, "nav.inject")}</option>
+            <option value="hair">{t(locale, "nav.hair")}</option>
+            <option value="surgery">{t(locale, "nav.surgery")}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--light btn--lg btn--block">{t(locale, "cta.submit")}</button>
+      </form>
+    </div>
+  </div>
+</section>
