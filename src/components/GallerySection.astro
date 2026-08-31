@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { t, type Locale } from "../i18n/ui";
+import { galleryImage } from "../data/treatmentImages";
 import { GALLERY_SLIDES, unsplash, unsplashSrcSet } from "../data/treatments";
 
 const SLIDE_WIDTHS = [640, 960, 1280];
@@ -24,16 +26,22 @@ const { locale } = Astro.props;
   </div>
   <div class="gallery-track" data-gallery-track style="margin-top:var(--sp-7)">
     {GALLERY_SLIDES.map((s) => (
-      <figure class="gallery-slide">
-        <img src={unsplash(s.photoId, 960, 75)} srcset={unsplashSrcSet(s.photoId, SLIDE_WIDTHS, 75)} sizes={SLIDE_SIZES} alt={t(locale, s.titleKey)} loading="lazy" decoding="async" width="900" height="620" />
+      <figure class={`gallery-slide${s.fit === "contain" ? " gallery-slide--contain" : ""}`}>
+        {s.localSlug && galleryImage(s.localSlug) ? (
+          <Image src={galleryImage(s.localSlug)!} alt={t(locale, s.altKey ?? s.titleKey)} width={960} height={720} widths={SLIDE_WIDTHS} sizes={SLIDE_SIZES} />
+        ) : (
+          <img src={unsplash(s.photoId!, 960, 75)} srcset={unsplashSrcSet(s.photoId!, SLIDE_WIDTHS, 75)} sizes={SLIDE_SIZES} alt={t(locale, s.altKey ?? s.titleKey)} loading="lazy" decoding="async" width="900" height="620" />
+        )}
         <figcaption>
           <span class="chip chip--coral">{t(locale, s.tagKey)}</span>
           <h3 class="h3" style="margin-top:var(--sp-3); color:#F6F1ED">{t(locale, s.titleKey)}</h3>
           <p class="meta" style="color:rgba(246,241,237,.65)">{t(locale, s.subKey)}</p>
         </figcaption>
-        <span class="photo-credit">
-          {t(locale, "credit.photoBy")} <a href={s.creditHref} target="_blank" rel="noopener noreferrer">{s.photographer}</a> {t(locale, "credit.on")} Unsplash
-        </span>
+        {s.photographer && s.creditHref && (
+          <span class="photo-credit">
+            {t(locale, "credit.photoBy")} <a href={s.creditHref} target="_blank" rel="noopener noreferrer">{s.photographer}</a> {t(locale, "credit.on")} Unsplash
+          </span>
+        )}
       </figure>
     ))}
   </div>
@@ -61,6 +69,14 @@ const { locale } = Astro.props;
   .gallery-slide figcaption {
     position: absolute; inset-inline: 0; top: 0; padding: var(--sp-5) var(--sp-5) var(--sp-8);
     background: linear-gradient(to bottom, rgba(21,20,19,.9), rgba(21,20,19,0));
+  }
+
+  /* Before/after comparisons must never be cropped — a cover-crop cuts straight
+     through the gap between the two panels on a narrow screen. */
+  .gallery-slide--contain img { object-fit: contain; background: #2A2725; }
+  .gallery-slide--contain figcaption {
+    top: auto; bottom: 0; padding: var(--sp-8) var(--sp-5) var(--sp-5);
+    background: linear-gradient(to top, rgba(21,20,19,.92), rgba(21,20,19,0));
   }
 </style>
 

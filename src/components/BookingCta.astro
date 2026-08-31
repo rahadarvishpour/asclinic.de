@@ -1,17 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import { t, type Locale } from "../i18n/ui";
+import officeImage from "../assets/clinic/office.jpg";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
-const bookImg = "https://images.unsplash.com/photo-1758448500688-3ababa93fd67?fm=jpg&q=80&w=1200&auto=format&fit=crop";
+// The panel is half the viewport above 980px and full width below it.
+const PANEL_SIZES = "(max-width: 980px) 100vw, 50vw";
+const PANEL_WIDTHS = [640, 960, 1448];
 ---
 
 <section id="book" class="section" style="padding:0">
   <div data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-height:640px">
     <div style="position:relative; background:var(--g-blush)">
-      <img src={bookImg} alt={t(locale, "cta.imgAlt")} loading="lazy" width="1200" height="900" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
-      <span class="photo-credit">
-        {t(locale, "credit.photoBy")} <a href="https://unsplash.com/@aalolens?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Aalo Lens</a> {t(locale, "credit.on")} <a href="https://unsplash.com/?utm_source=asclinic&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer">Unsplash</a>
-      </span>
+      <Image src={officeImage} alt={t(locale, "cta.imgAlt")} widths={PANEL_WIDTHS} sizes={PANEL_SIZES} width={960} height={720} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
     </div>
     <div style="background:var(--bg-invert); color:var(--text-invert); display:grid; align-content:center; gap:var(--sp-5); padding:var(--sp-9) var(--gutter)">
       <p class="eyebrow" style="color:var(--accent)">{t(locale, "cta.eyebrow")}</p>

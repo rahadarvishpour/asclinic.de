@@ -23,3 +23,20 @@ export const TREATMENT_IMAGES: Record<string, ImageMetadata> = Object.fromEntrie
 export function treatmentImage(slug: string): ImageMetadata | undefined {
   return TREATMENT_IMAGES[slug];
 }
+
+/** The same arrangement for the results gallery: src/assets/gallery/<slug>.jpg. */
+const galleryFiles = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/gallery/*.{jpg,jpeg,png,webp,avif}",
+  { eager: true }
+);
+
+export const GALLERY_IMAGES: Record<string, ImageMetadata> = Object.fromEntries(
+  Object.entries(galleryFiles).map(([path, mod]) => [
+    path.split("/").pop()!.replace(/\.[^.]+$/, ""),
+    mod.default
+  ])
+);
+
+export function galleryImage(slug: string): ImageMetadata | undefined {
+  return GALLERY_IMAGES[slug];
+}

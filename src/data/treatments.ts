@@ -124,16 +124,29 @@ export const SURGERY_PROCEDURES: SurgeryProcedure[] = [
 
 export interface GallerySlide {
   slug: string;
-  photoId: string;
+  /** Unsplash id — used only when the slide has no local image. */
+  photoId?: string;
   /** Photographer's name; the surrounding "Photo by … on Unsplash" wording is translated at render time. */
-  photographer: string;
-  creditHref: string;
+  photographer?: string;
+  creditHref?: string;
+  /** Filename (without extension) in src/assets/gallery/. Takes priority over photoId. */
+  localSlug?: string;
+  /** "contain" preserves the whole frame. Required for before/after comparisons,
+   *  which a cover-crop would slice through the middle on a narrow screen. */
+  fit?: "cover" | "contain";
   tagKey: UiKey;
   titleKey: UiKey;
   subKey: UiKey;
+  altKey?: UiKey;
 }
 
 export const GALLERY_SLIDES: GallerySlide[] = [
+  {
+    slug: "hair-transplant-before-after",
+    localSlug: "hair-transplant-before-after",
+    fit: "contain",
+    tagKey: "gal.ba.tag", titleKey: "gal.ba.title", subKey: "gal.ba.sub", altKey: "gal.ba.alt"
+  },
   {
     slug: "lip-contour",
     photoId: "photo-1570172619644-dfd03ed5d881",

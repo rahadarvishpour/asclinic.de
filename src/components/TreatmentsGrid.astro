@@ -11,6 +11,9 @@ const { locale } = Astro.props;
 // card's translated title and alt text come from.
 const DETAIL_SLUGS = new Set(Object.keys(TREATMENT_PAGES));
 const cardCopy = (slug: string) => treatmentContent(TREATMENT_PAGES[slug], locale);
+// Once every card carries the clinic's own photography the Unsplash credit is no
+// longer true, so it is only rendered while at least one stock image remains.
+const usesStockPhotography = TREATMENTS.some((tr) => !treatmentImage(tr.slug));
 const homeHref = localePath(locale);
 const bookHref = `${homeHref === "/" ? "" : homeHref}#book`;
 const hrefFor = (slug: string) => (DETAIL_SLUGS.has(slug) ? localePath(locale, `/treatments/${slug}`) : bookHref);
@@ -45,7 +48,9 @@ const CARD_SIZES = "(max-width: 620px) 40vw, (max-width: 980px) 45vw, 268px";
         </a>
       ); })}
     </div>
-    <p class="meta" style="margin-top:var(--sp-5); color:var(--text-faint)">{ti(locale, "grid.credits", { credits: PHOTO_CREDITS })}</p>
+    {usesStockPhotography && (
+      <p class="meta" style="margin-top:var(--sp-5); color:var(--text-faint)">{ti(locale, "grid.credits", { credits: PHOTO_CREDITS })}</p>
+    )}
   </div>
 </section>
 
