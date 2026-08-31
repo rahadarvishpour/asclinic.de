@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from "../i18n/ui";
 import { TREATMENTS } from "../data/treatments";
+import { CLINIC } from "../data/clinic";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 // Countable, checkable facts rather than unsourced volume claims.
@@ -48,7 +49,14 @@ const heroImg = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm
           style="width:100%; height:100%; object-fit:cover"
         ></video>
       </div>
-      <div class="float-card float" style="inset-inline-start:-6%; bottom:12%; width:240px; height:78px; left:27px">{t(locale, "hero.badge")}</div>
+      <a
+        class="float-card float"
+        href={CLINIC.googleMaps}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${t(locale, "hero.badge")} — ${t(locale, "loc.mapCta")}`}
+        style="inset-inline-start:-6%; bottom:12%; width:240px; height:78px; left:27px"
+      >{t(locale, "hero.badge")}</a>
       <div class="float-card float-card--light float float--rev" style="inset-inline-end:-4%; top:8%; display:flex; align-items:center; gap:var(--sp-3)">
         <span class="meta">{t(locale, "hero.rating")}</span>
       </div>

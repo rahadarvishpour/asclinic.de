@@ -183,6 +183,12 @@ img { max-width: 100%; display: block; }
   font-size: var(--fs-sm); max-width: 240px;
 }
 .float-card--light { background: var(--g-white); color: var(--text); }
+/* When the card is a link: keep its own colours (the generic a:hover rule
+   would otherwise repaint the label charcoal on coral) and hint that it opens. */
+a.float-card { text-decoration: none; transition: box-shadow var(--dur-base) var(--ease-soft), filter var(--dur-base) var(--ease-soft); }
+a.float-card:hover { color: var(--g-white); box-shadow: var(--sh-3); filter: brightness(1.06); }
+a.float-card--light:hover { color: var(--text); }
+a.float-card:focus-visible { outline: none; box-shadow: var(--sh-focus); }
 
 /* price rows + packages */
 .price-row { display: flex; align-items: baseline; gap: var(--sp-4); padding-block: var(--sp-4); border-bottom: 1px dashed var(--border); }

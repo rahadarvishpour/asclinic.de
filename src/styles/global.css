@@ -15,10 +15,11 @@ body {
   position: relative;
 }
 a { color: var(--accent-action); text-decoration: none; }
-/* Buttons carry their own hover colours (see .btn in components.css); without
-   the :not(.btn) guard this repaints their labels charcoal — which on the
-   charcoal hover sweep made the label vanish entirely. */
-a:not(.btn):hover { color: var(--g-charcoal); }
+/* Buttons and the coral float-card carry their own hover colours (components.css).
+   Without these guards this rule repaints their labels charcoal — and since
+   components.css is imported above, it would win on source order at equal
+   specificity. */
+a:not(.btn):not(.float-card):hover { color: var(--g-charcoal); }
 
 [dir="rtl"] {
   font-family: "Vazirmatn", "Noto Kufi Arabic", var(--font-body);

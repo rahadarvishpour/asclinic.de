@@ -19,7 +19,7 @@ export const CLINIC = {
   /** Google Business Profile. `googleMaps` feeds schema.org hasMap; `googleReviews`
    *  is a link only — no AggregateRating is emitted, because the rating value and
    *  review count are not recorded here and must not be guessed. */
-  googleMaps: "https://maps.app.goo.gl/xhv7yLf7VaFuCFBS8",
+  googleMaps: "https://maps.app.goo.gl/e6VvWrPkYcRzryxZ6",
   googleReviews: "https://maps.app.goo.gl/QkRaCpXUWwJq5avVA",
   social: {
     instagram: "https://www.instagram.com/asclinic.de/",
