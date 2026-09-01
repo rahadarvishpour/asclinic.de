@@ -17,7 +17,13 @@ export const LOCALES: LocaleMeta[] = [
   { code: "ar", label: "Arabic", native: "العربية", dir: "rtl", hreflang: "ar" }
 ];
 
-export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE: Locale = "de";
+
+/** Locales offered in the header language switcher. The remaining locales stay
+ *  fully live (pages, sitemap, hreflang) — they are simply not advertised in the
+ *  navbar, where German and English are the two the clinic wants front of house. */
+const NAV_LOCALE_CODES: Locale[] = ["de", "en"];
+export const NAV_LOCALES: LocaleMeta[] = NAV_LOCALE_CODES.map((code) => getLocaleMeta(code));
 
 export function localePath(locale: Locale, path = "") {
   const base = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
@@ -26,9 +32,9 @@ export function localePath(locale: Locale, path = "") {
 
 const NON_DEFAULT_CODES = LOCALES.map((l) => l.code).filter((c) => c !== DEFAULT_LOCALE);
 
-/** Strips a locale prefix (e.g. "/de/treatments/x" -> "/treatments/x", "/de" -> "/") so the
+/** Strips a locale prefix (e.g. "/en/treatments/x" -> "/treatments/x", "/en" -> "/") so the
  *  remainder can be re-prefixed for another locale via localePath(). Paths with no locale
- *  prefix (the default-locale/English paths) are returned unchanged. */
+ *  prefix (the default-locale/German paths) are returned unchanged. */
 export function stripLocalePrefix(pathname: string): string {
   for (const code of NON_DEFAULT_CODES) {
     if (pathname === `/${code}`) return "/";

@@ -1,5 +1,5 @@
 ---
-import { LOCALES, localePath, localizedPathFor, stripLocalePrefix, bookingUrl, type Locale } from "../i18n/ui";
+import { LOCALES, NAV_LOCALES, localePath, localizedPathFor, stripLocalePrefix, bookingUrl, type Locale } from "../i18n/ui";
 import { t, sectionHref } from "../i18n/ui";
 
 interface Props { locale: Locale }
@@ -62,7 +62,7 @@ const brandHref = onHomepage ? "#top" : homeHref;
           <span>{currentMeta.hreflang.toUpperCase()}</span>
         </summary>
         <div class="lang-pop">
-          {LOCALES.map((l) => (
+          {NAV_LOCALES.map((l) => (
             <a class="lang-pop__item" data-lang-link={l.code} href={localizedPathFor(currentPath, l.code)} aria-current={l.code === locale ? "true" : undefined}>
               <span>{l.native}</span>
               <span class="meta" style="letter-spacing:var(--ls-nav); text-transform:uppercase">{l.hreflang}</span>

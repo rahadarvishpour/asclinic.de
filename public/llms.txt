@@ -27,8 +27,8 @@ Full physician-written FAQ (60 questions across injectables, hair restoration an
 ## Languages
 
 Site content is available at:
-- English: https://asclinic-berlin.de/
-- German (Deutsch): https://asclinic-berlin.de/de
+- German (Deutsch): https://asclinic-berlin.de/
+- English: https://asclinic-berlin.de/en
 - Spanish (Español): https://asclinic-berlin.de/es
 - Russian (Русский): https://asclinic-berlin.de/ru
 - Persian (فارسی): https://asclinic-berlin.de/fa

@@ -32,15 +32,21 @@ a:not(.btn):not(.float-card):hover { color: var(--g-charcoal); }
   font-family: "Vazirmatn", "Noto Kufi Arabic", var(--font-display);
 }
 
+/* Treatment card photography reads at full strength at rest — hover is what
+   changes: the image zooms (see .hover-zoom) and gains a slight warmth and
+   contrast lift, instead of waking up from a dimmed state. */
 [data-fade] img {
-  opacity: .4;
-  filter: saturate(.65);
-  transition: opacity var(--dur-base) var(--ease-soft), filter var(--dur-base) var(--ease-soft), transform var(--dur-slow) var(--ease-out);
+  opacity: 1;
+  filter: none;
+  transition: filter var(--dur-base) var(--ease-soft), transform var(--dur-slow) var(--ease-out);
 }
 [data-fade]:hover img,
 [data-fade]:focus img,
 [data-fade]:focus-within img,
-[data-fade]:active img { opacity: 1; filter: none; }
+[data-fade]:active img {
+  filter: saturate(1.12) contrast(1.05) brightness(1.03);
+  transform: scale(1.08);
+}
 
 [data-tabbtn][aria-selected="true"] {
   background: var(--g-charcoal) !important;

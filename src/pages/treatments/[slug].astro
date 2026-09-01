@@ -14,4 +14,4 @@ const page = TREATMENT_PAGES[slug];
 const photoId = TREATMENTS.find((t) => t.slug === slug)?.photoId;
 const image = treatmentImage(slug) ?? (photoId ? unsplash(photoId, 1200, 80) : "");
 ---
-<TreatmentDetail locale="en" page={page} image={image} />
+<TreatmentDetail locale="de" page={page} image={image} />

@@ -2,26 +2,34 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import node from '@astrojs/node';
 
-const locales = ['en', 'de', 'es', 'ru', 'fa', 'ar'];
+const locales = ['de', 'en', 'es', 'ru', 'fa', 'ar'];
 
 export default defineConfig({
   site: 'https://asclinic-berlin.de',
   trailingSlash: 'never',
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'de',
     locales,
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false
     }
   },
+  // German is now the unprefixed default locale, so the old German URLs under
+  // /de/* point at their new home at the site root rather than 404-ing.
+  redirects: {
+    '/de': '/',
+    '/de/location': '/location',
+    '/de/treatments/[slug]': '/treatments/[slug]',
+  },
+
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: 'en',
+        defaultLocale: 'de',
         locales: {
-          en: 'en-US',
           de: 'de-DE',
+          en: 'en-US',
           es: 'es-ES',
           ru: 'ru-RU',
           fa: 'fa-IR',
