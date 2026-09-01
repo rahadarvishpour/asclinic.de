@@ -5,13 +5,403 @@ export const EIGHT_POINT_LIFT: TreatmentPage = {
   category: { categoryLabelKey: "nav.inject", categoryAnchorId: "injectables" },
   content: {
     en: {
+      article: {
+        h1: "8 point lift in Berlin with hyaluronic acid – AS Clinic",
+        heroIntro: "The 8 point lift with hyaluronic acid is a whole-face filler concept. Instead of treating a single fold in isolation, several strategically relevant areas are assessed together, so that the distribution of volume, the contours and the facial proportions can be supported in a targeted way.",
+        heroBody: [
+          "At AS Clinic Berlin on Kurfürstendamm, the 8 point lift is planned individually according to your facial anatomy and starting point. What matters is not treating as many areas as possible, or automatically exactly eight points. What matters is which structures genuinely need support and which should deliberately stay untreated.",
+          "Depending on the starting point, the midface, the cheeks, the transitions in the lower face, the jawline and other areas can be included in the planning.",
+          "The aim is a more harmonious and fresher overall contour, without overloading the face with unnecessary volume."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "What is an 8 point lift?",
+          body: "The 8 point lift is a minimally invasive treatment concept with hyaluronic acid in which not just a single fold, but several strategically important areas of the face are assessed together and — where it makes sense — supported with filler. The concept is often also called an 8 point lift, liquid lifting or a liquid facelift. The approach rests on the fact that facial ageing and changed proportions do not arise at a single fold alone: over time the distribution of volume, the fat compartments, the skin, the soft tissue, the bony structures and the transitions between facial regions all change. A loss of volume in the midface, for example, can affect several other areas. A whole-face treatment plan therefore takes the connections between facial regions into account, rather than filling each fold independently."
+        },
+        glanceHeading: "8 point lift in Berlin – the key facts at a glance",
+        glance: [
+          { label: "Treatment", value: "Multi-point facial contouring with hyaluronic acid" },
+          { label: "Also searched as", value: "8 point lift, 8-point lifting, liquid lifting, liquid facelift" },
+          { label: "Treatment goal", value: "Distribution of volume, contour and harmonious facial proportions" },
+          { label: "Treatment region", value: "Several individually selected areas of the face" },
+          { label: "Location", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Treatment time", value: "Approx. 45–60 minutes" },
+          { label: "Anaesthesia", value: "Local anaesthesia" },
+          { label: "First change", value: "Visible immediately" },
+          { label: "Final result", value: "Best assessed once the initial swelling has subsided" },
+          { label: "Downtime", value: "Usually minimal" },
+          { label: "Longevity", value: "Several months to over a year possible, varies from person to person" },
+          { label: "Reversible", value: "Hyaluronic acid can generally be broken down with hyaluronidase" },
+          { label: "Consultation", value: "Individual full-face analysis before treatment" }
+        ],
+        sections: [
+          {
+            heading: "Does an 8 point lift always mean exactly eight points?",
+            body: "No. The name describes a treatment concept built around strategic facial regions. An individual treatment should not mean that exactly eight points, or the same amount of filler, are injected in every person. Faces differ considerably: one person may mainly have lost volume in the midface, while for another the contour of the lower face is the priority. Not every theoretical point has to be treated — a good treatment plan can also mean deliberately leaving certain regions alone. Before treatment we therefore assess:",
+            points: [
+              "Which regions have actually lost volume",
+              "Which areas are already pronounced enough",
+              "Which asymmetries exist",
+              "Which treatment can create a relevant change",
+              "Where additional filler would be unnecessary"
+            ],
+            links: [
+              { label: "All injectable treatments in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "Which areas can be considered in an 8 point lift?",
+            body: "The 8 point lift considers several functionally and aesthetically connected areas of the face. Which of them are actually treated depends on your individual anatomy. These areas should not be understood as a rigid injection template — the anatomical planning matters more than the number eight. Depending on the starting point, the following can be considered:",
+            points: [
+              "The cheekbones",
+              "The midface",
+              "The front of the cheek",
+              "The transition between the lower lid and the cheek",
+              "The nasolabial region",
+              "The area around the corners of the mouth",
+              "The lower face",
+              "The jawline and jaw angle",
+              "The transition to the chin"
+            ]
+          },
+          {
+            heading: "What can an 8 point lift achieve?",
+            body: "With a suitable starting point, an 8 point lift can help to compensate for lost volume, give more structure to the facial contours and make the transitions between several facial regions appear more harmonious. What can actually be improved depends on the individual cause: a filler can add volume and structure, but it cannot remove excess skin and cannot replace a surgical facelift. Possible treatment goals are:",
+            points: [
+              "Supporting the midface",
+              "Restoring selected volume deficits",
+              "Stronger definition of the cheeks",
+              "More harmonious transitions in the lower face",
+              "Evening out slight asymmetries",
+              "Supporting the jawline",
+              "Improving the overall balance between cheeks, chin and jaw",
+              "Visually fresher facial proportions"
+            ]
+          },
+          {
+            heading: "Is the 8 point lift really a facelift without surgery?",
+            body: "The term \"liquid facelift\" describes a visually lifting or supporting effect created by targeted filler placement. Medically, however, the treatment is not a substitute for a surgical facelift, in which tissue layers are surgically repositioned and excess skin may be removed. \"Lifting without surgery\" should therefore be understood as an aesthetic effect – not as an equivalent to an operation.",
+            points: [
+              "A filler can add volume, change projection, support contours and harmonise transitions.",
+              "A filler cannot remove excess skin, cannot surgically reposition markedly descended tissue and cannot fully replace a surgical tightening effect."
+            ]
+          },
+          {
+            heading: "Why can midface augmentation change several areas at once?",
+            body: "The midface plays a central role in the architecture of the whole face. Changes to volume and projection in the cheek area can therefore affect how adjacent regions are perceived. With suitable anatomy it can be more sensible to assess the structural cause first, rather than filling only the most visible fold directly. Volume loss in the midface can, for example, contribute to:",
+            points: [
+              "The lid-cheek transition appearing more distinct",
+              "Nasolabial folds standing out more",
+              "The cheek looking flatter",
+              "Shadows in the face increasing",
+              "The face looking more tired"
+            ],
+            links: [
+              { label: "Cheek filler in Berlin", slug: "cheek-filler" },
+              { label: "Eye mesotherapy in Berlin", slug: "eyes-mesotherapy" }
+            ]
+          },
+          {
+            heading: "Can an 8 point lift look natural?",
+            body: "Yes. A natural-looking result depends above all on whether volume is only placed where it makes anatomical sense. A full-face concept explicitly does not mean distributing as much filler as possible across the whole face. The aim should be to support structures – not to change the face through unnecessary volume. Planning takes into account, among other things:",
+            points: [
+              "The natural bone structure",
+              "The existing volume",
+              "Midface projection",
+              "Facial length and width",
+              "Cheek shape",
+              "Chin projection and jawline",
+              "Natural asymmetries",
+              "Filler already present",
+              "The frontal view, profile and three-quarter view"
+            ]
+          },
+          {
+            heading: "What does an \"overfilled face\" mean?",
+            body: "An overfilled appearance can arise when filler is repeatedly added over a longer period without sufficiently taking into account how much product and volume is already present. Before every further treatment it should therefore be reassessed whether additional filler is genuinely necessary: more volume is not automatically more rejuvenation. Possible causes are:",
+            points: [
+              "Unnecessarily large amounts of filler",
+              "Treating too many areas",
+              "Topping up repeatedly at short intervals",
+              "Unsuitable placement",
+              "No assessment of the face as a whole",
+              "Treating individual folds without considering the cause"
+            ]
+          },
+          {
+            heading: "Is an 8 point lift the same as a full-face filler treatment?",
+            body: "The terms overlap in part, but they are not completely identical. The 8 point lift describes a particular strategic multi-point concept; \"full face filler\" is a more general term for a treatment in which several facial regions are planned together. What both approaches share is the idea of looking at the face as a whole. The decisive difference lies less in the name than in the actual treatment planning:",
+            points: [
+              "Which areas need support?",
+              "Which regions should stay unchanged?",
+              "What amount of filler is sensible?",
+              "What change does it create from the front and in profile?"
+            ]
+          },
+          {
+            heading: "8 point lift or cheek filler – what is the difference?",
+            body: "Cheek filler concentrates primarily on the cheeks and midface. With the 8 point lift, several interconnected facial regions are assessed together. If only the cheeks need treating, a broader multi-point concept may not be necessary.",
+            points: [
+              "Cheek filler — focused, for example, on cheek volume, the cheekbones and midface projection.",
+              "8 point lift — can additionally consider transitions in the lower face, the nasolabial region, the jawline, the corners of the mouth and other structurally relevant points."
+            ],
+            links: [
+              { label: "Cheek filler in Berlin", slug: "cheek-filler" },
+              { label: "Lip filler in Berlin", slug: "lip-filler" }
+            ]
+          },
+          {
+            heading: "8 point lift or jawline filler?",
+            body: "Jawline filler concentrates on the contour of the jaw. The 8 point lift, by contrast, considers several layers and regions of the whole face. A less defined jawline can have different causes, so more filler along the jaw border should not be used automatically. Those causes include, for example:",
+            points: [
+              "Jaw shape",
+              "Chin projection",
+              "The distribution of volume",
+              "Skin laxity",
+              "Soft tissue",
+              "Fatty tissue"
+            ],
+            links: [
+              { label: "Jawline filler in Berlin", slug: "jawline-filler" }
+            ]
+          },
+          {
+            heading: "8 point lift or Botox – what is the difference?",
+            body: "Hyaluronic acid fillers and botulinum toxin treat different causes. Hyaluronic acid changes volume and contours, while botulinum toxin reduces muscle activity in a targeted way. The two are therefore not directly interchangeable.",
+            compare: {
+              headings: ["8 point lift with hyaluronic acid", "Botulinum toxin"],
+              rows: [
+                ["Adds volume or structure", "Affects muscle activity"],
+                ["Changes contours", "Treats mainly expression lines"],
+                ["Part of the result is visible immediately", "The effect develops over several days"],
+                ["Hyaluronic acid can generally be dissolved", "Cannot be dissolved with hyaluronidase"],
+                ["Focus on facial proportions", "Focus on selected muscles"]
+              ]
+            },
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "8 point lift or thread lifting?",
+            body: "A thread lift and a hyaluronic acid lift rest on different principles. The 8 point lift uses filler, while a thread lift places special threads into the tissue. Neither procedure should automatically be regarded as a substitute for the other. Which one is an option depends on:",
+            points: [
+              "The starting anatomy",
+              "The condition of the skin",
+              "Tissue laxity",
+              "The desired result",
+              "Individual risks"
+            ]
+          },
+          {
+            heading: "Why should the face be assessed from several perspectives?",
+            body: "A change can look positive in profile and at the same time create unnecessary width in the frontal view. A full-face filler concept should therefore always be planned from several perspectives — the frontal view, the profile, the three-quarter view, the face at rest and the face in movement. That makes it easier to assess:",
+            points: [
+              "Where volume is actually missing",
+              "Which areas are already pronounced enough",
+              "How the right and left sides differ",
+              "Which change suits the natural shape of the face"
+            ]
+          },
+          {
+            heading: "How much hyaluronic acid do you need for an 8 point lift?",
+            body: "There is no universal amount of filler for an 8 point lift. The amount needed depends on which areas are actually treated, how pronounced the volume loss is and what result is wanted. A smaller structural correction needs a different treatment concept from marked volume loss across several facial regions. The important point: the number of millilitres should not determine the treatment goal. Where more treatment is needed, a step-by-step build-up can make sense — after each treatment that allows you to assess:",
+            points: [
+              "How the proportions have changed",
+              "Whether more volume is required",
+              "Which region should still be treated",
+              "Whether certain areas should deliberately stay unchanged"
+            ]
+          },
+          {
+            heading: "Why can a step-by-step build-up make sense?",
+            body: "When several facial regions are treated, working in stages can help to avoid unnecessary volume and to reassess the change after each session. Particularly where filler treatments have already taken place, it is not always obvious how much product is still present. Conservative planning can therefore make more sense than trying to achieve the entire result in a single session."
+          }
+        ],
+        process: {
+          heading: "How an 8 point lift works at AS Clinic Berlin",
+          steps: [
+            { heading: "Personal consultation", body: "We start by establishing what you would like to change about your face. This is not only about individual folds: we discuss which areas look tired or descended, where contour is missing, which changes bother you most, what result you expect and which filler treatments you have already had. The possibilities, the limits and the possible risks are explained before treatment." },
+            { heading: "Whole-face analysis", body: "The face is examined from several perspectives. Among other things, cheek projection, midface volume, the lid-cheek transition, the nasolabial region, the corners of the mouth, the chin, the jawline, the jaw angle, facial width, the facial profile and existing asymmetries can be assessed." },
+            { heading: "Setting priorities", body: "Not every possible treatment area matters equally. We therefore decide which structure most strongly affects the facial proportions, which region should be treated first, which changes may already follow indirectly, and which areas then still need additional filler at all. This prioritisation helps to avoid unnecessary volume." },
+            { heading: "Individual treatment plan", body: "We then determine which areas are actually treated, which regions stay untreated, how much filler appears sensible, whether different filler properties are needed and whether the treatment should take place in one session or several." },
+            { heading: "Preparation and local anaesthesia", body: "The skin is cleaned and disinfected. Local anaesthesia is used to reduce what you feel during treatment; depending on the hyaluronic acid filler used, lidocaine may also be included." },
+            { heading: "Injection", body: "The hyaluronic acid is placed into the regions planned beforehand. The technique, the injection depth and the instrument used can differ according to the anatomical area. Allow about 45 to 60 minutes for the whole appointment." },
+            { heading: "Assessment after treatment", body: "Part of the change is visible immediately. Straight after treatment, however, swelling, redness, tenderness, small bruises and slight temporary asymmetries can occur. The final result should therefore only be assessed once these immediate reactions have subsided." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "When do you see the result of the 8 point lift?",
+            body: "Changes in volume and contour are visible immediately after the hyaluronic acid injection. The final result should only be assessed once the initial swelling and tissue reaction have subsided. Because several areas can be treated, the face can look somewhat fuller overall straight afterwards — that does not automatically mean this will be the final shape."
+          },
+          {
+            heading: "How long does an 8 point lift last?",
+            body: "The result of an 8 point lift with hyaluronic acid is temporary. Depending on the product used, the region treated, the amount of filler, the injection plane and individual factors, the effect can remain visible for several months to over a year. Not all treated regions break hyaluronic acid down at the same rate: more mobile areas can behave differently from regions treated structurally. A blanket longevity guarantee for the whole face would therefore make no sense."
+          },
+          {
+            heading: "How often should an 8 point lift be repeated?",
+            body: "A repeat treatment should not follow a fixed calendar automatically. Before every further filler appointment it should be reassessed how much volume is still present and which region genuinely needs more. With full-face treatments in particular, this reassessment matters in order to avoid long-term overcorrection."
+          },
+          {
+            heading: "Does an 8 point lift hurt?",
+            body: "How much you feel is individual. Because several facial regions can be treated, local anaesthesia is used; some hyaluronic acid fillers also contain lidocaine. Individual areas can be differently sensitive. During the treatment you may feel:",
+            points: [
+              "Brief pinpricks",
+              "Pressure",
+              "A feeling of tightness",
+              "A pulling sensation"
+            ]
+          },
+          {
+            heading: "How long is the downtime?",
+            body: "Downtime after an 8 point lift is usually minimal. Because several injection areas can be treated, visible swelling or bruising is possible. Many people can carry on with their normal day afterwards; for important work or social commitments, still allow enough time for possible visible reactions."
+          },
+          {
+            heading: "8 point lift before a wedding or photoshoot",
+            body: "A multi-region filler treatment should not be planned immediately before an important occasion. Swelling and bruising can be visible for several days. Before a wedding, a professional photoshoot, a video shoot, important business commitments, travel or public events in particular, an appropriate gap makes sense."
+          },
+          {
+            heading: "Risks and side effects of the 8 point lift",
+            body: "An 8 point lift is an invasive filler treatment and not free of risk. The more common temporary reactions are swelling, redness, tenderness and small bruises. Serious complications can occur, though rarely; delayed reactions to hyaluronic acid fillers are also possible. A rare but important complication is vascular occlusion, in which the blood supply to an area of tissue can be impaired. Possible reactions are:",
+            points: [
+              "Swelling",
+              "Redness",
+              "Tenderness",
+              "Pain",
+              "Small bruises",
+              "Temporary irregularities",
+              "Asymmetries",
+              "Palpable nodules",
+              "Inflammatory reactions",
+              "Infections"
+            ]
+          },
+          {
+            heading: "Which warning signs after a filler treatment matter?",
+            body: "Severe or increasingly unusual pain, striking blanching of the skin, mottled, grey or bluish discolouration, and sudden visual disturbances should be assessed medically at once. Sudden visual disturbances, loss of vision or severe neurological symptoms after a filler injection are a medical emergency. With symptoms like these, do not wait until a regular review appointment."
+          },
+          {
+            heading: "Can an 8 point lift be dissolved again?",
+            body: "Where hyaluronic acid fillers are used, they can generally be broken down with the enzyme hyaluronidase. Dissolving is itself a medical treatment, however, and should only be carried out after an individual assessment. It should not be regarded as a simple undo button. Hyaluronidase can play a role, for example, with:",
+            points: [
+              "Certain complications",
+              "Unwanted volume",
+              "Unfavourable placement",
+              "Medical necessity"
+            ]
+          },
+          {
+            heading: "Who may an 8 point lift be suitable for?",
+            body: "An 8 point lift may be an option for adults in whom several interconnected facial regions are affected by volume loss or changed contours, and where a whole-face filler approach appears sensible. Suitability depends on your individual anatomy and state of health. Possible starting points are:",
+            points: [
+              "Volume loss in the midface",
+              "Cheeks that look flatter",
+              "A less defined facial contour",
+              "Changes across several facial regions",
+              "Slight asymmetries",
+              "A wish for a more harmonious full-face contour"
+            ]
+          },
+          {
+            heading: "When may an 8 point lift not be the right treatment?",
+            body: "Not every form of facial ageing or tissue laxity can sensibly be treated with more filler. A hyaluronic acid concept can be unsuitable, or not sufficient on its own, with pronounced skin laxity, considerable excess skin, pronounced fat deposits, structural problems that are not a lack of volume, a face that is already heavily filled, or unrealistic expectations of a non-surgical procedure. Prescribed medicines must never be stopped on your own initiative for an aesthetic treatment. Certain health situations can also speak against treatment or make postponing it necessary:",
+            points: [
+              "Infections or inflammation in the treatment area",
+              "Pregnancy or breastfeeding",
+              "Relevant allergies",
+              "Certain clotting problems",
+              "Certain illnesses or medicines"
+            ]
+          },
+          {
+            heading: "What should you bear in mind after an 8 point lift?",
+            body: "You will receive individual instructions after treatment. In general it can be recommended to:",
+            points: [
+              "Touch the treated regions as little as possible at first",
+              "Avoid unnecessary firm pressure",
+              "Not massage the filler on your own initiative, unless this has been expressly recommended",
+              "Keep the injection sites clean",
+              "Avoid intense physical exertion at first",
+              "Avoid strong heat and saunas for a while",
+              "Take visible swelling into account when scheduling commitments",
+              "Report unusual symptoms early"
+            ]
+          }
+        ],
+        local: {
+          heading: "8 point lift on Kurfürstendamm in Berlin-Charlottenburg",
+          body: "AS Clinic Berlin is located on Kurfürstendamm in Berlin-Charlottenburg. If you are looking for an 8 point lift in Berlin, liquid lifting with hyaluronic acid or a whole-face filler concept, the first step is to assess which areas of the face could genuinely benefit from treatment. The first consultation is free and without obligation.",
+          links: [
+            { label: "AS Clinic Berlin on Kurfürstendamm — location and directions", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Why choose AS Clinic for an 8 point lift in Berlin?",
+          points: [
+            { heading: "Whole-face analysis", body: "We do not look only at the most visible fold. The midface, the cheeks, the lower face and the profile are assessed in context." },
+            { heading: "No rigid eight-point template", body: "Not every possible point has to be filled automatically. We treat the regions where there is a genuine, explicable need." },
+            { heading: "Priority rather than maximum filler", body: "The most important structural areas are identified first. That way unnecessary injections can be avoided." },
+            { heading: "Natural results rather than overfilling", body: "A full-face concept does not mean making the whole face bigger or fuller. The aim is a harmonious distribution, not the maximum amount." },
+            { heading: "A step-by-step build-up is possible", body: "Where more treatment is needed, a controlled build-up across several appointments can make sense." },
+            { heading: "Hyaluronic acid as a temporary filler", body: "The treatment is not permanent. Hyaluronic acid is broken down over time and, where indicated, can generally be treated with hyaluronidase." },
+            { heading: "Transparent consultation", body: "The possibilities, the limits, the risks and possible alternatives are discussed before treatment." }
+          ]
+        },
+        faqHeading: "Frequently asked questions about the 8 point lift in Berlin",
+        faqs: [
+          { q: "What is an 8 point lift?", a: "An 8 point lift is a multi-region treatment concept using hyaluronic acid. Instead of treating only a single fold, several strategically relevant facial areas are assessed together and supported where needed." },
+          { q: "Does an 8 point lift always mean exactly eight injection points?", a: "No. The name describes a concept. Which regions are actually treated should depend on your individual anatomy and treatment goal. Not everyone needs filler at every possible point." },
+          { q: "Is the 8 point lift a facelift without surgery?", a: "It can create a visually supporting or contouring effect, but it is not a surgical facelift. Hyaluronic acid can change volume and contours, but it does not remove excess skin and does not surgically reposition tissue." },
+          { q: "What does liquid lifting mean?", a: "Liquid lifting describes non-surgical facial contouring with injectable products, often hyaluronic acid fillers. The aim is to support volume and proportions without an operation." },
+          { q: "When do you see the result?", a: "A change is visible immediately after the injection. The final result should only be assessed once the initial swelling has subsided." },
+          { q: "How long does an 8 point lift last?", a: "Depending on the region treated and the hyaluronic acid filler used, the effect can remain visible for several months to over a year. Actual longevity is individual and cannot be guaranteed." },
+          { q: "How much hyaluronic acid is needed?", a: "There is no fixed amount of filler for an 8 point lift. The amount needed depends on which areas are actually treated and how pronounced your individual need for volume is." },
+          { q: "Does the whole face have to be treated in one session?", a: "No. Where more treatment is needed, a step-by-step build-up can make sense. That way changes can be assessed after each session and unnecessary amounts of filler avoided." },
+          { q: "How long does an 8 point lift take?", a: "Allow about 45 to 60 minutes for an appointment at AS Clinic, including analysis, preparation, local anaesthesia and the treatment itself." },
+          { q: "Does the 8 point lift hurt?", a: "How much you feel is individual. Local anaesthesia can reduce the sensation. Brief pinpricks, pressure or a feeling of tightness are still possible." },
+          { q: "Is there downtime after an 8 point lift?", a: "Downtime is usually minimal. Because several regions can be treated, swelling and bruising are possible and can be visible for a while." },
+          { q: "Can I work afterwards?", a: "Many people can carry on with their day afterwards. If you want to avoid visible swelling or bruising, do not schedule important work or social commitments immediately after." },
+          { q: "Does an 8 point lift make the face fuller?", a: "Not necessarily. The aim is a targeted distribution of volume. Too much filler can make the face look unnecessarily full, which is why the individual dose and the choice of treatment regions are decisive." },
+          { q: "Can an 8 point lift improve nasolabial folds?", a: "Where volume loss in the midface contributes to a more visible nasolabial region, a structural treatment can affect the appearance indirectly. Complete removal of the fold cannot be guaranteed, however." },
+          { q: "Does an 8 point lift help with dark circles?", a: "Only with certain causes. Where the lid-cheek transition is affected by volume loss, the midface can be relevant. Pigment-related, vascular or other forms of dark circle may need a different treatment." },
+          { q: "Which is better: an 8 point lift or cheek filler?", a: "If mainly the cheeks or midface are affected, a targeted cheek treatment can be enough. The 8 point lift, by contrast, considers several facial regions together." },
+          { q: "Which is better: an 8 point lift or Botox?", a: "The two treat different causes. Hyaluronic acid changes volume and contour. Botulinum toxin reduces muscle activity in expression lines." },
+          { q: "Which is better: an 8 point lift or a thread lift?", a: "The two rest on different principles. The 8 point lift uses hyaluronic acid, a thread lift uses special threads. Which method is an option depends on the anatomy and the treatment goal." },
+          { q: "Can the 8 point lift replace a surgical facelift?", a: "Not with pronounced skin laxity or markedly descended tissue. A filler can change volume and contour, but it cannot remove excess skin or surgically reposition tissue." },
+          { q: "Can an 8 point lift be dissolved again?", a: "Where hyaluronic acid was used, it can generally be broken down with hyaluronidase. Whether and how dissolving should be carried out has to be assessed individually." },
+          { q: "What are the risks?", a: "The more common reactions are swelling, redness, tenderness and bruising. Less often, inflammation, infections, nodules or vascular complications can occur." },
+          { q: "Which warning signs after a filler treatment matter?", a: "Severe or increasing pain, striking blanching or unusual discolouration of the skin should be assessed without delay. Sudden visual disturbances or neurological symptoms require immediate emergency medical assessment." },
+          { q: "Can I have an 8 point lift before a wedding?", a: "Yes, but allow enough time. Because several regions can be treated, temporary swelling or bruising is possible." },
+          { q: "From what age does an 8 point lift make sense?", a: "There is no general minimum age at which an 8 point lift automatically makes sense. What matters is your individual anatomy, the volume loss present, the treatment goal and your suitability – not a particular birthday." },
+          { q: "How often does the 8 point lift need repeating?", a: "A repeat should not follow a fixed calendar automatically. Before a further treatment it should be checked what changes are still present and whether more filler is genuinely needed." },
+          { q: "What does an 8 point lift cost at AS Clinic Berlin?", a: "The cost depends on your individual treatment plan, the regions actually treated and the amount of filler needed. The specific price is discussed after the personal analysis and before treatment." },
+          { q: "Where can I have an 8 point lift in Berlin?", a: "AS Clinic offers consultations on the 8 point lift with hyaluronic acid at Kurfürstendamm 102 in Berlin-Charlottenburg. Before treatment, the face is analysed as a whole and it is determined which regions should actually be treated." }
+        ],
+        relatedHeading: "Related treatments at AS Clinic Berlin",
+        related: [
+          { slug: "cheek-filler", blurb: "Cheek filler in Berlin: a targeted treatment of the cheeks and midface rather than several regions." },
+          { slug: "jawline-filler", blurb: "Jawline filler in Berlin: the contour of the jaw as a treatment in its own right." },
+          { slug: "lip-filler", blurb: "Lip filler in Berlin: hyaluronic acid for lip volume and contour." },
+          { slug: "botox", blurb: "Botox in Berlin: treats expression lines through muscle activity rather than volume." },
+          { slug: "eyes-mesotherapy", blurb: "Eye mesotherapy in Berlin: skin quality around the eyes rather than building volume." },
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injectable hydration for skin quality rather than contour." }
+        ],
+        ctaHeading: "Arrange an 8 point lift consultation in Berlin",
+        ctaBody: "Would you rather not simply \"fill\" your face, but know which areas actually matter for your contour and facial proportions? At a free, no-obligation consultation at AS Clinic Berlin on Kurfürstendamm we establish which regions have actually lost volume, what changes you want, whether an 8 point lift suits your starting point, which areas take priority, which should deliberately stay untreated, what amount of filler appears sensible, whether a step-by-step build-up is advisable, which alternatives are options, which risks have to be taken into account and what the cost will be.",
+        disclaimer: {
+          heading: "Medical note",
+          body: "The information on this page is general information about aesthetic injectable treatments with hyaluronic acid and does not replace a personal examination, individual consultation or explanation of risks. The term \"8 point lift\" describes an aesthetic treatment concept and does not mean that exactly eight areas must be treated in every person. Which regions, which product and what amount of filler are appropriate in an individual case must be assessed on the basis of the facial structure, previous treatments and state of health."
+        }
+      },
       title: "8 Point Lift Filler",
-      metaTitle: "8-Point Lift in Berlin — No-Surgery Face Lift | AS Clinic",
-      metaDescription: "8-point lift filler at AS Clinic, Berlin: eight anatomically fixed points re-suspend descending tissue in one sitting. No surgery, no downtime. Free consultation.",
+      metaTitle: "8 Point Lift Berlin with Hyaluronic Acid | AS Clinic",
+      metaDescription: "8 point lift in Berlin at AS Clinic on Kurfürstendamm: hyaluronic acid for the midface, contour and harmonious facial proportions. Book a consultation.",
       heroKicker: "Injectables · 8 Point Lift Filler",
       heroLead: "Eight fixed anatomical points, treated in one sitting, to re-suspend tissue that's started to descend.",
-      imageAlt: "8-point lift filler treatment mapping midface support points",
-      chip: "45–60 min · Local numbing",
+      imageAlt: "8 point lift with hyaluronic acid at AS Clinic Berlin",
+      chip: "approx. 45–60 min · Local anaesthesia",
       sections: [
         { heading: "What it is", body: "A structured filler technique using eight anatomically fixed points across the midface and jaw, each chosen for its support role rather than a single line or fold. Together they re-suspend tissue that has started to descend, without surgery or downtime." },
         { heading: "Who it's for", body: "Guests noticing an overall lower, heavier-looking face — jowls forming, cheeks flattening, the lower face pulling downward — who want a broader lift rather than treating one area in isolation." },
@@ -42,13 +432,403 @@ export const EIGHT_POINT_LIFT: TreatmentPage = {
       ]
     },
     de: {
+      article: {
+        h1: "8-Punkte-Lift in Berlin mit Hyaluronsäure – AS Clinic",
+        heroIntro: "Der 8-Punkte-Lift mit Hyaluronsäure ist ein ganzheitliches Filler-Konzept für das Gesicht. Statt eine einzelne Falte isoliert zu unterspritzen, werden mehrere strategisch relevante Bereiche gemeinsam beurteilt, um Volumenverteilung, Konturen und Gesichtsproportionen gezielt zu unterstützen.",
+        heroBody: [
+          "In der AS Clinic Berlin am Kurfürstendamm wird der 8-Punkte-Lift individuell nach Gesichtsanatomie und Ausgangssituation geplant. Entscheidend ist nicht, möglichst viele Bereiche oder automatisch exakt acht Punkte mit Filler zu behandeln. Entscheidend ist, welche Strukturen tatsächlich Unterstützung benötigen und welche bewusst unbehandelt bleiben sollten.",
+          "Je nach Ausgangssituation können insbesondere Mittelgesicht, Wangen, Übergänge im unteren Gesicht, Kieferlinie und weitere Bereiche in die Planung einbezogen werden.",
+          "Das Ziel ist eine harmonischere und frischere Gesamtkontur, ohne das Gesicht unnötig mit Volumen zu überladen."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "Was ist ein 8-Punkte-Lift?",
+          body: "Der 8-Punkte-Lift ist ein minimalinvasives Behandlungskonzept mit Hyaluronsäure, bei dem nicht nur eine einzelne Falte, sondern mehrere strategisch wichtige Gesichtsbereiche gemeinsam beurteilt und – falls sinnvoll – gezielt mit Filler unterstützt werden. Das Konzept wird häufig auch als 8 Point Lift, 8-Punkte-Lifting, Liquid Lifting oder Liquid Facelift bezeichnet. Der Ansatz basiert darauf, dass Gesichtsalterung und veränderte Proportionen nicht ausschließlich an einer einzelnen Falte entstehen: Mit der Zeit verändern sich unter anderem Volumenverteilung, Fettkompartimente, Haut, Weichteile, knöcherne Strukturen und die Übergänge zwischen verschiedenen Gesichtsregionen. Dadurch kann beispielsweise ein Volumenverlust im Mittelgesicht Auswirkungen auf mehrere andere Bereiche haben. Ein ganzheitlicher Behandlungsplan berücksichtigt deshalb Zusammenhänge zwischen den Gesichtsregionen, anstatt jede Falte unabhängig voneinander aufzufüllen."
+        },
+        glanceHeading: "8-Punkte-Lift in Berlin – die wichtigsten Informationen auf einen Blick",
+        glance: [
+          { label: "Behandlung", value: "Mehrpunktbasierte Gesichtskonturierung mit Hyaluronsäure" },
+          { label: "Auch gesucht als", value: "8 Point Lift, 8-Punkte-Lifting, Liquid Lifting, Liquid Facelift" },
+          { label: "Behandlungsziel", value: "Volumenverteilung, Kontur und harmonische Gesichtsproportionen" },
+          { label: "Behandlungsregion", value: "Mehrere individuell ausgewählte Bereiche des Gesichts" },
+          { label: "Standort", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Behandlungsdauer", value: "ca. 45–60 Minuten" },
+          { label: "Betäubung", value: "Lokale Betäubung" },
+          { label: "Erste Veränderung", value: "Unmittelbar sichtbar" },
+          { label: "Endergebnis", value: "Nach Rückgang der anfänglichen Schwellung sinnvoll zu beurteilen" },
+          { label: "Ausfallzeit", value: "Meist gering" },
+          { label: "Haltbarkeit", value: "Mehrere Monate bis über ein Jahr möglich, individuell unterschiedlich" },
+          { label: "Auflösbar", value: "Hyaluronsäure kann grundsätzlich mit Hyaluronidase abgebaut werden" },
+          { label: "Beratung", value: "Individuelle Full-Face-Analyse vor der Behandlung" }
+        ],
+        sections: [
+          {
+            heading: "Bedeutet 8-Punkte-Lift, dass immer genau acht Punkte behandelt werden?",
+            body: "Nein. Der Name beschreibt ein Behandlungskonzept mit strategischen Gesichtsregionen. Eine individuelle Behandlung sollte nicht bedeuten, dass bei jeder Person automatisch exakt acht Punkte oder dieselbe Fillermenge injiziert werden. Gesichter unterscheiden sich erheblich: Eine Person kann hauptsächlich Volumen im Mittelgesicht verloren haben, während bei einer anderen die Kontur des unteren Gesichts stärker im Vordergrund steht. Nicht jeder theoretische Punkt muss behandelt werden — ein hochwertiger Behandlungsplan kann auch bedeuten, bestimmte Regionen bewusst auszulassen. Deshalb wird vor der Behandlung beurteilt:",
+            points: [
+              "Welche Regionen tatsächlich Volumen verloren haben",
+              "Welche Bereiche bereits ausreichend ausgeprägt sind",
+              "Welche Asymmetrien bestehen",
+              "Welche Behandlung eine relevante Veränderung erzeugen kann",
+              "Wo zusätzlicher Filler unnötig wäre"
+            ],
+            links: [
+              { label: "Alle Injektionsbehandlungen in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "Welche Bereiche können beim 8-Punkte-Lift berücksichtigt werden?",
+            body: "Der 8-Punkte-Lift betrachtet mehrere funktionell und ästhetisch zusammenhängende Bereiche des Gesichts. Welche davon tatsächlich behandelt werden, hängt von der individuellen Anatomie ab. Diese Bereiche sollten nicht als starres Injektionsschema verstanden werden — die anatomische Planung ist wichtiger als die Zahl „acht“. Je nach Ausgangssituation können unter anderem berücksichtigt werden:",
+            points: [
+              "Wangenknochen",
+              "Mittelgesicht",
+              "Vordere Wangenregion",
+              "Übergang zwischen Unterlid und Wange",
+              "Nasolabialregion",
+              "Bereich um die Mundwinkel",
+              "Unteres Gesicht",
+              "Kieferlinie und Kieferwinkel",
+              "Übergang zum Kinn"
+            ]
+          },
+          {
+            heading: "Was kann ein 8-Punkte-Lift bewirken?",
+            body: "Ein 8-Punkte-Lift kann bei geeigneter Ausgangssituation dazu beitragen, verlorenes Volumen gezielt auszugleichen, Gesichtskonturen stärker zu strukturieren und Übergänge zwischen mehreren Gesichtsregionen harmonischer erscheinen zu lassen. Was tatsächlich verbessert werden kann, hängt von der individuellen Ursache ab: Ein Filler kann Volumen und Struktur ergänzen, er kann jedoch keine überschüssige Haut entfernen und kein chirurgisches Facelift ersetzen. Mögliche Behandlungsziele sind:",
+            points: [
+              "Unterstützung des Mittelgesichts",
+              "Wiederherstellung ausgewählter Volumendefizite",
+              "Stärkere Definition der Wangen",
+              "Harmonischere Übergänge im unteren Gesicht",
+              "Ausgleich leichter Asymmetrien",
+              "Unterstützung der Jawline",
+              "Verbesserung der Gesamtbalance zwischen Wangen, Kinn und Unterkiefer",
+              "Optisch frischere Gesichtsproportionen"
+            ]
+          },
+          {
+            heading: "Ist der 8-Punkte-Lift wirklich ein Facelift ohne OP?",
+            body: "Der Begriff „Liquid Facelift“ beschreibt einen optischen Lifting- beziehungsweise Stützeffekt durch gezielte Filler-Platzierung. Medizinisch ist die Behandlung jedoch kein Ersatz für ein chirurgisches Facelift, bei dem Gewebeebenen operativ repositioniert und gegebenenfalls überschüssige Haut entfernt werden. Der Begriff „Lifting ohne OP“ sollte deshalb als ästhetischer Effekt verstanden werden – nicht als Gleichsetzung mit einer Operation.",
+            points: [
+              "Ein Filler kann Volumen ergänzen, die Projektion verändern, Konturen unterstützen und Übergänge harmonisieren.",
+              "Ein Filler kann keine überschüssige Haut entfernen, stark abgesunkenes Gewebe nicht operativ repositionieren und einen chirurgischen Straffungseffekt nicht vollständig ersetzen."
+            ]
+          },
+          {
+            heading: "Warum kann ein Mittelgesichtsaufbau mehrere Bereiche gleichzeitig verändern?",
+            body: "Das Mittelgesicht spielt eine zentrale Rolle für die gesamte Gesichtsarchitektur. Veränderungen von Volumen und Projektion im Wangenbereich können deshalb beeinflussen, wie angrenzende Regionen optisch wahrgenommen werden. Bei geeigneter Anatomie kann es deshalb sinnvoller sein, zunächst die strukturelle Ursache zu beurteilen, anstatt ausschließlich die sichtbarste Falte direkt zu füllen. Beispielsweise kann Volumenverlust im Mittelgesicht dazu beitragen, dass:",
+            points: [
+              "Der Unterlid-Wangen-Übergang deutlicher erscheint",
+              "Nasolabialfalten stärker auffallen",
+              "Die Wange flacher wirkt",
+              "Schatten im Gesicht zunehmen",
+              "Das Gesicht müder erscheint"
+            ],
+            links: [
+              { label: "Wangenfiller in Berlin", slug: "cheek-filler" },
+              { label: "Augen-Mesotherapie in Berlin", slug: "eyes-mesotherapy" }
+            ]
+          },
+          {
+            heading: "Kann ein 8-Punkte-Lift natürlich aussehen?",
+            body: "Ja. Ein natürlich wirkendes Ergebnis hängt vor allem davon ab, ob tatsächlich nur dort Volumen eingesetzt wird, wo es anatomisch sinnvoll ist. Ein Full-Face-Konzept bedeutet ausdrücklich nicht, möglichst viel Filler im gesamten Gesicht zu verteilen. Das Ziel sollte sein, Strukturen zu unterstützen – nicht das Gesicht durch unnötiges Volumen zu verändern. Bei der Planung werden unter anderem betrachtet:",
+            points: [
+              "Natürliche Knochenstruktur",
+              "Vorhandenes Volumen",
+              "Mittelgesichtsprojektion",
+              "Gesichtslänge und -breite",
+              "Wangenform",
+              "Kinnprojektion und Jawline",
+              "Natürliche Asymmetrien",
+              "Vorhandene Filler",
+              "Frontalansicht, Profil und Dreiviertelansicht"
+            ]
+          },
+          {
+            heading: "Was bedeutet „Overfilled Face“?",
+            body: "Ein überfülltes Erscheinungsbild kann entstehen, wenn über längere Zeit wiederholt Filler ergänzt wird, ohne ausreichend zu berücksichtigen, wie viel Material beziehungsweise Volumen bereits vorhanden ist. Deshalb sollte vor jeder weiteren Behandlung neu beurteilt werden, ob zusätzlicher Filler tatsächlich notwendig ist: Mehr Volumen ist nicht automatisch mehr Verjüngung. Mögliche Ursachen sind:",
+            points: [
+              "Unnötig große Fillermengen",
+              "Behandlung zu vieler Bereiche",
+              "Wiederholtes Nachfüllen in kurzen Abständen",
+              "Ungeeignete Platzierung",
+              "Fehlende Beurteilung des gesamten Gesichts",
+              "Behandlung einzelner Falten ohne Berücksichtigung der Ursache"
+            ]
+          },
+          {
+            heading: "Ist ein 8-Punkte-Lift dasselbe wie eine Full-Face-Filler-Behandlung?",
+            body: "Die Begriffe überschneiden sich teilweise, sind aber nicht vollständig identisch. Der 8-Punkte-Lift beschreibt ein bestimmtes strategisches Mehrpunkt-Konzept; „Full Face Filler“ ist ein allgemeinerer Begriff für eine Behandlung, bei der mehrere Gesichtsregionen gemeinsam geplant werden. Beiden Ansätzen gemeinsam ist die Idee, das Gesicht als Ganzes zu betrachten. Der entscheidende Unterschied liegt weniger im Namen als in der tatsächlichen Behandlungsplanung:",
+            points: [
+              "Welche Bereiche benötigen Unterstützung?",
+              "Welche Regionen sollten unverändert bleiben?",
+              "Welche Fillermenge ist sinnvoll?",
+              "Welche Veränderung entsteht frontal und im Profil?"
+            ]
+          },
+          {
+            heading: "8-Punkte-Lift oder Wangenfiller – was ist der Unterschied?",
+            body: "Ein Wangenfiller konzentriert sich primär auf Wangen und Mittelgesicht. Beim 8-Punkte-Lift werden mehrere miteinander verbundene Gesichtsregionen gemeinsam beurteilt. Wenn ausschließlich die Wangen behandelt werden müssen, ist ein umfassenderes Mehrpunktkonzept möglicherweise nicht notwendig.",
+            points: [
+              "Wangenfiller — Fokus beispielsweise auf Wangenvolumen, Wangenknochen und Mittelgesichtsprojektion.",
+              "8-Punkte-Lift — kann zusätzlich Übergänge im unteren Gesicht, die Nasolabialregion, die Kieferlinie, den Mundwinkelbereich und weitere strukturell relevante Punkte berücksichtigen."
+            ],
+            links: [
+              { label: "Wangenfiller in Berlin", slug: "cheek-filler" },
+              { label: "Lippenfiller in Berlin", slug: "lip-filler" }
+            ]
+          },
+          {
+            heading: "8-Punkte-Lift oder Jawline Filler?",
+            body: "Jawline Filler konzentrieren sich auf die Kontur des Unterkiefers. Der 8-Punkte-Lift betrachtet dagegen mehrere Ebenen und Regionen des gesamten Gesichts. Eine weniger definierte Jawline kann unterschiedliche Ursachen haben, deshalb sollte nicht automatisch mehr Filler entlang der Kieferkante eingesetzt werden. Dazu gehören beispielsweise:",
+            points: [
+              "Kieferform",
+              "Kinnprojektion",
+              "Volumenverteilung",
+              "Hauterschlaffung",
+              "Weichteilgewebe",
+              "Fettgewebe"
+            ],
+            links: [
+              { label: "Jawline Filler in Berlin", slug: "jawline-filler" }
+            ]
+          },
+          {
+            heading: "8-Punkte-Lift oder Botox – was ist der Unterschied?",
+            body: "Hyaluronsäure-Filler und Botulinumtoxin behandeln unterschiedliche Ursachen. Hyaluronsäure verändert Volumen und Konturen, während Botulinumtoxin gezielt Muskelaktivität reduziert. Beide Verfahren sind deshalb nicht direkt austauschbar.",
+            compare: {
+              headings: ["8-Punkte-Lift mit Hyaluron", "Botulinumtoxin"],
+              rows: [
+                ["Ergänzt Volumen oder Struktur", "Beeinflusst Muskelaktivität"],
+                ["Verändert Konturen", "Behandelt vor allem mimische Falten"],
+                ["Ergebnis teilweise sofort sichtbar", "Wirkung entwickelt sich über mehrere Tage"],
+                ["Hyaluronsäure grundsätzlich auflösbar", "Nicht mit Hyaluronidase auflösbar"],
+                ["Fokus auf Gesichtsproportionen", "Fokus auf ausgewählte Muskeln"]
+              ]
+            },
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "8-Punkte-Lift oder Fadenlifting?",
+            body: "Ein Fadenlifting und ein Hyaluronsäure-Lifting beruhen auf unterschiedlichen Prinzipien. Beim 8-Punkte-Lift wird Filler eingesetzt, während bei einem Fadenlifting spezielle Fäden in das Gewebe eingebracht werden. Keines der Verfahren sollte automatisch als Ersatz für das andere betrachtet werden. Welches Verfahren infrage kommt, hängt ab von:",
+            points: [
+              "Ausgangsanatomie",
+              "Hautzustand",
+              "Gewebeerschlaffung",
+              "Gewünschtem Ergebnis",
+              "Individuellen Risiken"
+            ]
+          },
+          {
+            heading: "Warum sollte das Gesicht aus mehreren Perspektiven beurteilt werden?",
+            body: "Eine Veränderung kann im Seitenprofil positiv wirken und gleichzeitig in der Frontalansicht unnötige Breite erzeugen. Deshalb sollte ein Full-Face-Filler-Konzept immer aus mehreren Perspektiven geplant werden — Frontalansicht, Seitenprofil, Dreiviertelansicht, das Gesicht in Ruhe und das Gesicht bei Mimik. So lässt sich besser beurteilen:",
+            points: [
+              "Wo Volumen tatsächlich fehlt",
+              "Welche Bereiche bereits ausreichend ausgeprägt sind",
+              "Wie rechts und links voneinander abweichen",
+              "Welche Veränderung zur natürlichen Gesichtsform passt"
+            ]
+          },
+          {
+            heading: "Wie viel Hyaluronsäure braucht man für einen 8-Punkte-Lift?",
+            body: "Für einen 8-Punkte-Lift gibt es keine universelle Fillermenge. Die benötigte Menge hängt davon ab, welche Bereiche tatsächlich behandelt werden, wie stark der Volumenverlust ausgeprägt ist und welches Ergebnis gewünscht wird. Eine kleinere strukturelle Korrektur benötigt ein anderes Behandlungskonzept als ein deutlicher Volumenverlust in mehreren Gesichtsregionen. Wichtig ist deshalb: Die Zahl der Milliliter sollte nicht das Behandlungsziel bestimmen. Bei größerem Behandlungsbedarf kann ein schrittweiser Aufbau sinnvoll sein — dadurch kann nach jeder Behandlung beurteilt werden:",
+            points: [
+              "Wie sich die Proportionen verändert haben",
+              "Ob weiteres Volumen erforderlich ist",
+              "Welche Region noch behandelt werden sollte",
+              "Ob bestimmte Bereiche bewusst unverändert bleiben sollten"
+            ]
+          },
+          {
+            heading: "Warum kann ein schrittweiser Aufbau sinnvoll sein?",
+            body: "Bei einer Behandlung mehrerer Gesichtsregionen kann ein stufenweises Vorgehen helfen, unnötiges Volumen zu vermeiden und die Veränderung nach jeder Sitzung neu zu beurteilen. Besonders wenn bereits frühere Filler-Behandlungen stattgefunden haben, ist nicht immer offensichtlich, wie viel Material noch vorhanden ist. Eine konservative Planung kann deshalb sinnvoller sein als der Versuch, das gesamte gewünschte Ergebnis in einer einzigen Sitzung zu erreichen."
+          }
+        ],
+        process: {
+          heading: "Wie läuft ein 8-Punkte-Lift bei AS Clinic Berlin ab?",
+          steps: [
+            { heading: "Persönliche Beratung", body: "Zu Beginn wird geklärt, was Sie an Ihrem Gesicht verändern möchten. Dabei geht es nicht nur um einzelne Falten: Besprochen wird beispielsweise, welche Bereiche müde oder abgesunken wirken, wo Kontur fehlt, welche Veränderungen Sie besonders stören, welches Ergebnis Sie erwarten und welche bisherigen Filler-Behandlungen durchgeführt wurden. Möglichkeiten, Grenzen und mögliche Risiken werden vor der Behandlung erläutert." },
+            { heading: "Ganzheitliche Gesichtsanalyse", body: "Das Gesicht wird aus mehreren Perspektiven betrachtet. Beurteilt werden können unter anderem Wangenprojektion, Mittelgesichtsvolumen, der Unterlid-Wangen-Übergang, die Nasolabialregion, die Mundwinkel, das Kinn, die Jawline, der Kieferwinkel, Gesichtsbreite, Gesichtsprofil und vorhandene Asymmetrien." },
+            { heading: "Prioritäten festlegen", body: "Nicht jeder mögliche Behandlungsbereich hat dieselbe Bedeutung. Deshalb wird entschieden, welche Struktur die Gesichtsproportion am stärksten beeinflusst, welche Region zuerst behandelt werden sollte, welche Veränderungen sich möglicherweise bereits indirekt ergeben und welche Bereiche danach überhaupt noch zusätzlichen Filler benötigen. Diese Priorisierung hilft, unnötiges Volumen zu vermeiden." },
+            { heading: "Individueller Behandlungsplan", body: "Anschließend wird festgelegt, welche Bereiche tatsächlich behandelt werden, welche Regionen unbehandelt bleiben, wie viel Filler sinnvoll erscheint, ob unterschiedliche Filler-Eigenschaften benötigt werden und ob die Behandlung in einer oder mehreren Sitzungen erfolgen sollte." },
+            { heading: "Vorbereitung und lokale Betäubung", body: "Die Haut wird gereinigt und desinfiziert. Zur Verringerung des Behandlungsempfindens wird eine lokale Betäubung eingesetzt; abhängig vom verwendeten Hyaluronsäure-Filler kann zusätzlich Lidocain enthalten sein." },
+            { heading: "Injektion", body: "Die Hyaluronsäure wird gezielt in die zuvor geplanten Regionen eingebracht. Technik, Injektionstiefe und das verwendete Instrument können je nach anatomischem Bereich unterschiedlich sein. Für den gesamten Termin sollten ungefähr 45 bis 60 Minuten eingeplant werden." },
+            { heading: "Beurteilung nach der Behandlung", body: "Ein Teil der Veränderung ist unmittelbar sichtbar. Direkt nach der Behandlung können jedoch Schwellung, Rötung, Druckempfindlichkeit, kleine Blutergüsse und leichte vorübergehende Asymmetrien auftreten. Das endgültige Ergebnis sollte deshalb erst nach dem Rückgang dieser unmittelbaren Reaktionen beurteilt werden." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "Wann sieht man das Ergebnis des 8-Punkte-Lifts?",
+            body: "Volumen- und Konturveränderungen sind unmittelbar nach der Hyaluronsäure-Injektion sichtbar. Das endgültige Ergebnis sollte jedoch erst nach dem Abklingen der anfänglichen Schwellung und Gewebereaktion beurteilt werden. Da mehrere Bereiche behandelt werden können, kann das Gesicht unmittelbar danach insgesamt etwas voller wirken — das bedeutet nicht automatisch, dass dies die endgültige Form sein wird."
+          },
+          {
+            heading: "Wie lange hält ein 8-Punkte-Lift?",
+            body: "Das Ergebnis eines 8-Punkte-Lifts mit Hyaluronsäure ist vorübergehend. Je nach verwendetem Produkt, behandelter Region, Fillermenge, Injektionsebene und individuellen Faktoren kann der Effekt mehrere Monate bis über ein Jahr sichtbar bleiben. Nicht alle behandelten Regionen bauen Hyaluronsäure gleich schnell ab: Stärker bewegte Bereiche können sich anders verhalten als strukturell behandelte Regionen. Eine pauschale Haltbarkeitsgarantie für das gesamte Gesicht wäre deshalb nicht sinnvoll."
+          },
+          {
+            heading: "Wie oft sollte ein 8-Punkte-Lift wiederholt werden?",
+            body: "Eine erneute Behandlung sollte nicht automatisch nach einem festen Kalender erfolgen. Vor jedem weiteren Filler-Termin sollte erneut beurteilt werden, wie viel Volumen noch vorhanden ist und welche Region tatsächlich zusätzlichen Bedarf hat. Besonders bei Full-Face-Behandlungen ist diese Neubewertung wichtig, um eine langfristige Überkorrektur zu vermeiden."
+          },
+          {
+            heading: "Tut ein 8-Punkte-Lift weh?",
+            body: "Das individuelle Schmerzempfinden ist unterschiedlich. Da mehrere Gesichtsregionen behandelt werden können, wird eine lokale Betäubung eingesetzt; einige Hyaluronsäure-Filler enthalten zusätzlich Lidocain. Die einzelnen Bereiche können unterschiedlich empfindlich sein. Während der Behandlung können wahrgenommen werden:",
+            points: [
+              "Kurze Einstiche",
+              "Druck",
+              "Spannungsgefühl",
+              "Ziehen"
+            ]
+          },
+          {
+            heading: "Wie lange ist die Ausfallzeit?",
+            body: "Die Ausfallzeit nach einem 8-Punkte-Lift ist meist gering. Da mehrere Injektionsbereiche behandelt werden können, sind sichtbare Schwellungen oder Blutergüsse jedoch möglich. Viele Personen können ihren normalen Alltag anschließend fortsetzen; bei wichtigen beruflichen oder gesellschaftlichen Terminen sollte jedoch ausreichend Zeit für mögliche sichtbare Reaktionen eingeplant werden."
+          },
+          {
+            heading: "8-Punkte-Lift vor Hochzeit oder Fotoshooting",
+            body: "Eine mehrregionale Filler-Behandlung sollte nicht unmittelbar vor einem wichtigen Ereignis geplant werden. Schwellungen und Blutergüsse können mehrere Tage sichtbar sein. Besonders vor einer Hochzeit, einem professionellen Fotoshooting, einem Videodreh, wichtigen Geschäftsterminen, Reisen oder öffentlichen Veranstaltungen ist ein ausreichender zeitlicher Abstand sinnvoll."
+          },
+          {
+            heading: "Risiken und Nebenwirkungen des 8-Punkte-Lifts",
+            body: "Ein 8-Punkte-Lift ist eine invasive Filler-Behandlung und nicht risikofrei. Häufigere vorübergehende Reaktionen sind Schwellungen, Rötungen, Druckempfindlichkeit und kleine Blutergüsse. Selten können ernsthafte Komplikationen auftreten; auch verzögerte Reaktionen auf Hyaluronsäure-Filler sind möglich. Eine seltene, aber wichtige Komplikation ist ein Gefäßverschluss, bei dem die Blutversorgung eines Gewebebereichs beeinträchtigt werden kann. Mögliche Reaktionen sind:",
+            points: [
+              "Schwellungen",
+              "Rötungen",
+              "Druckempfindlichkeit",
+              "Schmerzen",
+              "Kleine Blutergüsse",
+              "Vorübergehende Unebenheiten",
+              "Asymmetrien",
+              "Tastbare Knötchen",
+              "Entzündungsreaktionen",
+              "Infektionen"
+            ]
+          },
+          {
+            heading: "Welche Warnzeichen nach einer Filler-Behandlung sind wichtig?",
+            body: "Starke oder zunehmend ungewöhnliche Schmerzen, auffälliges Abblassen der Haut, netzartige, graue oder bläuliche Verfärbungen sowie plötzlich auftretende Sehstörungen sollten sofort medizinisch abgeklärt werden. Plötzliche Sehstörungen, Sehverlust oder starke neurologische Beschwerden nach einer Filler-Injektion stellen einen medizinischen Notfall dar. Bei solchen Symptomen sollte nicht bis zu einem regulären Kontrolltermin gewartet werden."
+          },
+          {
+            heading: "Kann ein 8-Punkte-Lift wieder aufgelöst werden?",
+            body: "Wenn Hyaluronsäure-Filler verwendet werden, können diese grundsätzlich mit dem Enzym Hyaluronidase abgebaut werden. Eine Auflösung ist jedoch selbst eine medizinische Behandlung und sollte nur nach individueller Beurteilung durchgeführt werden. Sie sollte nicht als einfache „Undo-Taste“ betrachtet werden. Hyaluronidase kann beispielsweise eine Rolle spielen bei:",
+            points: [
+              "Bestimmten Komplikationen",
+              "Unerwünschtem Volumen",
+              "Ungünstiger Platzierung",
+              "Medizinischer Notwendigkeit"
+            ]
+          },
+          {
+            heading: "Für wen kann ein 8-Punkte-Lift geeignet sein?",
+            body: "Ein 8-Punkte-Lift kann für Erwachsene infrage kommen, bei denen mehrere miteinander verbundene Gesichtsregionen durch Volumenverlust oder veränderte Konturen betroffen sind und ein ganzheitlicher Filler-Ansatz sinnvoll erscheint. Die Eignung hängt jedoch von der individuellen Anatomie und gesundheitlichen Ausgangssituation ab. Mögliche Ausgangssituationen sind:",
+            points: [
+              "Volumenverlust im Mittelgesicht",
+              "Flacher wirkende Wangen",
+              "Weniger definierte Gesichtskontur",
+              "Veränderungen mehrerer Gesichtsregionen",
+              "Leichte Asymmetrien",
+              "Wunsch nach einer harmonischeren Full-Face-Kontur"
+            ]
+          },
+          {
+            heading: "Wann ist ein 8-Punkte-Lift möglicherweise nicht die richtige Behandlung?",
+            body: "Nicht jede Form von Gesichtsalterung oder Gewebeerschlaffung lässt sich sinnvoll mit zusätzlichem Filler behandeln. Ein Hyaluronsäure-Konzept kann ungeeignet oder allein nicht ausreichend sein bei stark ausgeprägter Hauterschlaffung, erheblichem Hautüberschuss, ausgeprägten Fettdepots, strukturellen Problemen ohne Volumenmangel, einem bereits sehr stark gefüllten Gesicht oder unrealistischen Erwartungen an einen nichtoperativen Eingriff. Verschriebene Medikamente dürfen niemals eigenständig für eine ästhetische Behandlung abgesetzt werden. Auch bestimmte gesundheitliche Situationen können gegen eine Behandlung sprechen oder eine Verschiebung erforderlich machen:",
+            points: [
+              "Infektionen oder Entzündungen im Behandlungsbereich",
+              "Schwangerschaft oder Stillzeit",
+              "Relevante Allergien",
+              "Bestimmte Gerinnungsprobleme",
+              "Bestimmte Erkrankungen oder Medikamente"
+            ]
+          },
+          {
+            heading: "Was sollte man nach dem 8-Punkte-Lift beachten?",
+            body: "Nach der Behandlung erhalten Sie individuelle Hinweise. Allgemein kann empfohlen werden:",
+            points: [
+              "Behandelte Regionen zunächst möglichst wenig zu berühren",
+              "Keinen unnötigen starken Druck auszuüben",
+              "Filler nicht eigenständig zu massieren, sofern dies nicht ausdrücklich empfohlen wurde",
+              "Einstichstellen sauber zu halten",
+              "Intensive körperliche Belastung zunächst zu vermeiden",
+              "Starke Hitze und Sauna vorübergehend zu meiden",
+              "Sichtbare Schwellungen bei der Terminplanung zu berücksichtigen",
+              "Ungewöhnliche Beschwerden frühzeitig mitzuteilen"
+            ]
+          }
+        ],
+        local: {
+          heading: "8-Punkte-Lift am Kurfürstendamm in Berlin-Charlottenburg",
+          body: "Die AS Clinic Berlin befindet sich am Kurfürstendamm in Berlin-Charlottenburg. Wenn Sie nach einem 8-Punkte-Lift in Berlin, einem Liquid Lifting mit Hyaluronsäure, einem 8 Point Lift oder einem ganzheitlichen Full-Face-Filler-Konzept suchen, wird zunächst beurteilt, welche Gesichtsbereiche tatsächlich von einer Behandlung profitieren könnten. Die Erstberatung ist kostenlos und unverbindlich.",
+          links: [
+            { label: "AS Clinic Berlin am Kurfürstendamm — Anfahrt und Lage", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Warum AS Clinic für den 8-Punkte-Lift in Berlin?",
+          points: [
+            { heading: "Ganzheitliche Gesichtsanalyse", body: "Es wird nicht nur die sichtbarste Falte betrachtet. Mittelgesicht, Wangen, unteres Gesicht und Profil werden im Zusammenhang beurteilt." },
+            { heading: "Keine Behandlung nach starrem 8-Punkte-Schema", body: "Nicht jeder mögliche Punkt muss automatisch gefüllt werden. Behandelt werden die Regionen, bei denen tatsächlich ein nachvollziehbarer Bedarf besteht." },
+            { heading: "Priorität statt maximaler Fillermenge", body: "Die wichtigsten strukturellen Bereiche werden zuerst identifiziert. Dadurch können unnötige Injektionen vermieden werden." },
+            { heading: "Natürlichkeit statt Overfilling", body: "Ein Full-Face-Konzept bedeutet nicht, das gesamte Gesicht größer oder voller zu machen. Ziel ist eine harmonische Verteilung und nicht die maximale Menge." },
+            { heading: "Schrittweiser Aufbau möglich", body: "Bei größerem Behandlungsbedarf kann ein kontrollierter Aufbau über mehrere Termine sinnvoll sein." },
+            { heading: "Hyaluronsäure als temporärer Filler", body: "Die Behandlung ist nicht dauerhaft. Hyaluronsäure wird im Laufe der Zeit abgebaut und kann bei entsprechender Indikation grundsätzlich mit Hyaluronidase behandelt werden." },
+            { heading: "Transparente Beratung", body: "Möglichkeiten, Grenzen, Risiken und mögliche Alternativen werden vor der Behandlung besprochen." }
+          ]
+        },
+        faqHeading: "Häufige Fragen zum 8-Punkte-Lift in Berlin",
+        faqs: [
+          { q: "Was ist ein 8-Punkte-Lift?", a: "Ein 8-Punkte-Lift ist ein mehrregioniges Behandlungskonzept mit Hyaluronsäure. Statt nur eine einzelne Falte zu unterspritzen, werden mehrere strategisch relevante Gesichtsbereiche gemeinsam beurteilt und bei Bedarf gezielt unterstützt." },
+          { q: "Werden bei einem 8-Punkte-Lift immer genau acht Punkte gespritzt?", a: "Nein. Die Bezeichnung beschreibt ein Konzept. Welche Regionen tatsächlich behandelt werden, sollte von der individuellen Anatomie und dem Behandlungsziel abhängen. Nicht jede Person benötigt Filler an jedem möglichen Punkt." },
+          { q: "Ist der 8-Punkte-Lift ein Facelift ohne OP?", a: "Er kann einen optisch stützenden oder konturierenden Effekt erzeugen, ist aber kein chirurgisches Facelift. Hyaluronsäure kann Volumen und Konturen verändern, entfernt jedoch keine überschüssige Haut und repositioniert Gewebe nicht operativ." },
+          { q: "Was bedeutet Liquid Lifting?", a: "Liquid Lifting beschreibt nichtoperative Gesichtskonturierung mit injizierbaren Produkten, häufig Hyaluronsäure-Fillern. Das Ziel besteht darin, Volumen und Proportionen gezielt zu unterstützen, ohne einen operativen Eingriff durchzuführen." },
+          { q: "Wann sieht man das Ergebnis?", a: "Eine Veränderung ist unmittelbar nach der Injektion sichtbar. Das endgültige Ergebnis sollte jedoch erst nach dem Rückgang der anfänglichen Schwellung beurteilt werden." },
+          { q: "Wie lange hält ein 8-Punkte-Lift?", a: "Die Wirkung kann je nach behandelter Region und verwendetem Hyaluronsäure-Filler mehrere Monate bis über ein Jahr sichtbar bleiben. Die tatsächliche Haltbarkeit ist individuell und kann nicht garantiert werden." },
+          { q: "Wie viel Hyaluronsäure benötigt man?", a: "Es gibt keine feste Fillermenge für einen 8-Punkte-Lift. Die benötigte Menge hängt davon ab, welche Bereiche tatsächlich behandelt werden und wie ausgeprägt der individuelle Volumenbedarf ist." },
+          { q: "Muss das ganze Gesicht in einer Sitzung behandelt werden?", a: "Nein. Bei größerem Behandlungsbedarf kann ein schrittweiser Aufbau sinnvoll sein. Dadurch können Veränderungen nach jeder Sitzung beurteilt und unnötige Fillermengen vermieden werden." },
+          { q: "Wie lange dauert ein 8-Punkte-Lift?", a: "Für einen Termin in der AS Clinic sollten ungefähr 45 bis 60 Minuten inklusive Analyse, Vorbereitung, lokaler Betäubung und Behandlung eingeplant werden." },
+          { q: "Tut der 8-Punkte-Lift weh?", a: "Das individuelle Schmerzempfinden ist unterschiedlich. Eine lokale Betäubung kann das Behandlungsempfinden reduzieren. Kurze Einstiche, Druck oder Spannungsgefühl sind dennoch möglich." },
+          { q: "Hat der 8-Punkte-Lift Ausfallzeit?", a: "Die Ausfallzeit ist meist gering. Da mehrere Regionen behandelt werden können, sind Schwellungen und Blutergüsse jedoch möglich und können vorübergehend sichtbar sein." },
+          { q: "Kann ich danach arbeiten?", a: "Viele Personen können ihrem Alltag anschließend nachgehen. Wer sichtbare Schwellungen oder Blutergüsse vermeiden möchte, sollte jedoch keine wichtigen beruflichen oder gesellschaftlichen Termine unmittelbar danach planen." },
+          { q: "Macht ein 8-Punkte-Lift das Gesicht voller?", a: "Nicht zwangsläufig. Ziel ist eine gezielte Volumenverteilung. Zu viel Filler kann das Gesicht jedoch unnötig voller wirken lassen, weshalb die individuelle Dosierung und Auswahl der Behandlungsregionen entscheidend sind." },
+          { q: "Kann ein 8-Punkte-Lift Nasolabialfalten verbessern?", a: "Wenn Volumenverlust im Mittelgesicht zu einer stärker sichtbaren Nasolabialregion beiträgt, kann eine strukturelle Behandlung das Erscheinungsbild indirekt beeinflussen. Eine vollständige Entfernung der Falte kann jedoch nicht garantiert werden." },
+          { q: "Hilft ein 8-Punkte-Lift bei Augenringen?", a: "Nur bei bestimmten Ursachen. Wenn der Unterlid-Wangen-Übergang durch Volumenverlust beeinflusst wird, kann das Mittelgesicht relevant sein. Pigmentbedingte, gefäßbedingte oder andere Formen von Augenringen benötigen möglicherweise eine andere Behandlung." },
+          { q: "Was ist besser: 8-Punkte-Lift oder Wangenfiller?", a: "Wenn hauptsächlich Wangen beziehungsweise Mittelgesicht betroffen sind, kann eine gezielte Wangenbehandlung ausreichend sein. Der 8-Punkte-Lift betrachtet dagegen mehrere Gesichtsregionen gemeinsam." },
+          { q: "Was ist besser: 8-Punkte-Lift oder Botox?", a: "Die Verfahren behandeln unterschiedliche Ursachen. Hyaluronsäure verändert Volumen und Kontur. Botulinumtoxin reduziert gezielt Muskelaktivität bei mimischen Falten." },
+          { q: "Was ist besser: 8-Punkte-Lift oder Fadenlifting?", a: "Beide Verfahren beruhen auf unterschiedlichen Prinzipien. Beim 8-Punkte-Lift wird Hyaluronsäure eingesetzt, beim Fadenlifting werden spezielle Fäden verwendet. Welche Methode infrage kommt, hängt von Anatomie und Behandlungsziel ab." },
+          { q: "Kann der 8-Punkte-Lift ein chirurgisches Facelift ersetzen?", a: "Bei ausgeprägter Hauterschlaffung oder stark abgesunkenem Gewebe nicht. Ein Filler kann Volumen und Kontur verändern, aber keine überschüssige Haut entfernen oder Gewebe chirurgisch repositionieren." },
+          { q: "Kann man einen 8-Punkte-Lift wieder auflösen?", a: "Wenn Hyaluronsäure verwendet wurde, kann diese grundsätzlich mit Hyaluronidase abgebaut werden. Ob und wie eine Auflösung durchgeführt werden sollte, muss individuell beurteilt werden." },
+          { q: "Welche Risiken gibt es?", a: "Zu den häufigeren Reaktionen gehören Schwellungen, Rötungen, Druckempfindlichkeit und Blutergüsse. Seltener können Entzündungen, Infektionen, Knötchen oder Gefäßkomplikationen auftreten." },
+          { q: "Welche Warnzeichen nach einer Filler-Behandlung sind wichtig?", a: "Starke oder zunehmende Schmerzen, auffälliges Abblassen oder ungewöhnliche Hautverfärbungen sollten unverzüglich abgeklärt werden. Plötzliche Sehstörungen oder neurologische Beschwerden erfordern eine sofortige medizinische Notfallbeurteilung." },
+          { q: "Kann ich den 8-Punkte-Lift vor einer Hochzeit machen lassen?", a: "Ja, allerdings sollte ausreichend Abstand eingeplant werden. Da mehrere Regionen behandelt werden können, sind vorübergehende Schwellungen oder Blutergüsse möglich." },
+          { q: "Ab welchem Alter ist ein 8-Punkte-Lift sinnvoll?", a: "Es gibt kein allgemeines Mindestalter, ab dem ein 8-Punkte-Lift automatisch sinnvoll wird. Entscheidend sind individuelle Anatomie, vorhandener Volumenverlust, Behandlungsziel und Eignung – nicht ein bestimmter Geburtstag." },
+          { q: "Wie oft muss der 8-Punkte-Lift wiederholt werden?", a: "Eine Wiederholung sollte nicht automatisch nach einem festen Kalender erfolgen. Vor einer erneuten Behandlung sollte geprüft werden, welche Veränderungen noch vorhanden sind und ob tatsächlich weiterer Filler benötigt wird." },
+          { q: "Was kostet ein 8-Punkte-Lift bei AS Clinic Berlin?", a: "Die Kosten hängen vom individuellen Behandlungsplan, den tatsächlich behandelten Regionen und der benötigten Fillermenge ab. Der konkrete Preis wird nach der persönlichen Analyse und vor der Behandlung besprochen." },
+          { q: "Wo kann ich einen 8-Punkte-Lift in Berlin machen lassen?", a: "AS Clinic bietet Beratung zum 8-Punkte-Lift mit Hyaluronsäure am Kurfürstendamm 102 in Berlin-Charlottenburg an. Vor der Behandlung wird das Gesicht ganzheitlich analysiert und festgelegt, welche Regionen tatsächlich behandelt werden sollten." }
+        ],
+        relatedHeading: "Passende Behandlungen in der AS Clinic Berlin",
+        related: [
+          { slug: "cheek-filler", blurb: "Wangenfiller in Berlin: gezielte Behandlung von Wangen und Mittelgesicht statt mehrerer Regionen." },
+          { slug: "jawline-filler", blurb: "Jawline Filler in Berlin: Kontur des Unterkiefers als eigenständige Behandlung." },
+          { slug: "lip-filler", blurb: "Lippenfiller in Berlin: Hyaluronsäure für Volumen und Kontur der Lippen." },
+          { slug: "botox", blurb: "Botox in Berlin: behandelt mimische Falten über die Muskelaktivität statt über Volumen." },
+          { slug: "eyes-mesotherapy", blurb: "Augen-Mesotherapie in Berlin: Hautqualität der Augenpartie statt Volumenaufbau." },
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injizierbare Feuchtigkeit für die Hautqualität statt Kontur." }
+        ],
+        ctaHeading: "Beratung für einen 8-Punkte-Lift in Berlin vereinbaren",
+        ctaBody: "Sie möchten Ihr Gesicht nicht einfach „auffüllen“, sondern wissen, welche Bereiche tatsächlich für Ihre Kontur und Gesichtsproportionen relevant sind? Im kostenlosen und unverbindlichen Beratungsgespräch in der AS Clinic Berlin am Kurfürstendamm klären wir, welche Regionen tatsächlich Volumen verloren haben, welche Veränderungen Sie sich wünschen, ob ein 8-Punkte-Lift für Ihre Ausgangssituation sinnvoll ist, welche Bereiche Priorität haben, welche bewusst unbehandelt bleiben sollten, welche Fillermenge sinnvoll erscheint, ob ein schrittweiser Aufbau empfehlenswert ist, welche Alternativen infrage kommen, welche Risiken berücksichtigt werden müssen und welche Kosten entstehen.",
+        disclaimer: {
+          heading: "Medizinischer Hinweis",
+          body: "Die Informationen auf dieser Seite dienen der allgemeinen Information über ästhetische Injektionsbehandlungen mit Hyaluronsäure und ersetzen keine persönliche Untersuchung, individuelle Beratung oder Risikoaufklärung. Der Begriff „8-Punkte-Lift“ beschreibt ein ästhetisches Behandlungskonzept und bedeutet nicht, dass bei jeder Person zwingend exakt acht Bereiche behandelt werden müssen. Welche Regionen, welches Präparat und welche Fillermenge im individuellen Fall infrage kommen, muss anhand der Gesichtsstruktur, früherer Behandlungen und gesundheitlichen Ausgangssituation beurteilt werden."
+        }
+      },
       title: "8-Punkte-Lift Filler",
-      metaTitle: "8-Punkte-Lift in Berlin — Lifting ohne OP | AS Clinic",
-      metaDescription: "8-Punkte-Lift in der AS Clinic Berlin: acht anatomisch festgelegte Punkte heben absinkendes Gewebe in einer Sitzung an. Ohne OP, ohne Ausfallzeit. Kostenlose Beratung.",
+      metaTitle: "8-Punkte-Lift Berlin mit Hyaluron | AS Clinic",
+      metaDescription: "8-Punkte-Lift in Berlin bei AS Clinic am Kurfürstendamm: Hyaluronsäure für Mittelgesicht, Kontur und harmonische Gesichtsproportionen. Beratung buchen.",
       heroKicker: "Injektionen · 8-Punkte-Lift Filler",
       heroLead: "Acht anatomisch festgelegte Punkte, in einer Sitzung behandelt, um abgesunkenes Gewebe wieder anzuheben.",
-      imageAlt: "8-Punkte-Lift mit Markierung der Stützpunkte im Mittelgesicht",
-      chip: "45–60 Min. · Lokale Betäubung",
+      imageAlt: "8-Punkte-Lift mit Hyaluronsäure bei AS Clinic Berlin",
+      chip: "ca. 45–60 Min. · Lokale Betäubung",
       sections: [
         { heading: "Was es ist", body: "Eine strukturierte Filler-Technik mit acht anatomisch festgelegten Punkten über Mittelgesicht und Kiefer, die jeweils wegen ihrer Stützfunktion gewählt werden statt wegen einer einzelnen Linie oder Falte. Gemeinsam heben sie abgesunkenes Gewebe wieder an — ohne Operation und ohne Ausfallzeit." },
         { heading: "Für wen es geeignet ist", body: "Für Gäste, deren Gesicht insgesamt tiefer und schwerer wirkt — beginnende Hängebäckchen, flacher werdende Wangen, ein nach unten ziehendes Untergesicht — und die eine breitere Anhebung statt der Behandlung eines einzelnen Areals wünschen." },
