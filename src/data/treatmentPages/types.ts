@@ -16,12 +16,22 @@ export interface GlanceRow {
   value: string;
 }
 
+/** A contextual internal link offered under a section body. Either a treatment
+ *  `slug` (resolved to the reader's own locale) or a homepage section `anchor`,
+ *  so the anchor text describes the destination rather than repeating "here". */
+export interface SectionLink {
+  label: string;
+  slug?: string;
+  anchor?: string;
+}
+
 /** An H2 block: a heading whose first sentence directly answers it (Rule 12),
  *  optionally followed by a scannable list. */
 export interface RichSection {
   heading: string;
   body: string;
   points?: string[];
+  links?: SectionLink[];
 }
 
 export interface ProcessStep {
@@ -57,6 +67,9 @@ export interface TreatmentArticle {
   /** "[Treatment] in Berlin" — the single H1 for the page. */
   h1: string;
   heroIntro: string;
+  /** Further intro paragraphs under the lead, for pages whose opening needs more
+   *  than one paragraph to set out the approach before the first H2. */
+  heroBody?: string[];
   /** "What is X?" — must stand alone if lifted out of the page. */
   directAnswer: RichSection;
   glanceHeading: string;
@@ -64,6 +77,9 @@ export interface TreatmentArticle {
   /** Uses, suitability, contraindications, risks, aftercare, results, longevity. */
   sections: RichSection[];
   process: { heading: string; steps: ProcessStep[] };
+  /** Sections that only make sense once the reader knows how the appointment
+   *  runs — results, healing, risks, aftercare — rendered after the steps. */
+  sectionsAfterProcess?: RichSection[];
   /** "[Treatment] in Berlin at AS Clinic" — carries the real NAP details. */
   local: RichSection;
   why: { heading: string; points: ProcessStep[] };
@@ -73,6 +89,9 @@ export interface TreatmentArticle {
   related: RelatedTreatment[];
   ctaHeading: string;
   ctaBody: string;
+  /** Closing note that the page is general information, not individual medical
+   *  advice. Rendered last, in muted type. */
+  disclaimer?: RichSection;
   /** ISO date used for schema.org dateModified. */
   updated: string;
 }

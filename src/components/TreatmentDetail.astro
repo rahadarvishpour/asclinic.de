@@ -7,7 +7,7 @@ import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
 import { t, sectionHref, ti, localePath, bookingUrl, type Locale } from "../i18n/ui";
 import { TREATMENT_PAGES, treatmentContent } from "../data/treatmentPages";
-import type { TreatmentPage } from "../data/treatmentPages/types";
+import type { TreatmentPage, SectionLink } from "../data/treatmentPages/types";
 
 interface Props {
   locale: Locale;
@@ -36,6 +36,11 @@ const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
 const homeHref = localePath(locale);
 const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 const categoryLabel = t(locale, page.category.categoryLabelKey);
+
+// Contextual links inside the article body: a treatment slug resolves to that
+// page in the reader's own locale, an anchor to the matching homepage section.
+const sectionLinkHref = (link: SectionLink) =>
+  link.slug ? localePath(locale, `/treatments/${link.slug}`) : anchor(link.anchor!);
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -132,6 +137,9 @@ const procedureJsonLd = {
             <p class="eyebrow reveal" data-reveal="up">{copy.heroKicker}</p>
             <h1 class="h1 reveal" data-reveal="up" style="margin:var(--sp-3) 0 var(--sp-5)">{article?.h1 ?? copy.title}</h1>
             <p class="lead reveal" data-reveal="up" style="color:var(--text-muted)">{article?.heroIntro ?? copy.heroLead}</p>
+            {article?.heroBody?.map((para) => (
+              <p class="body reveal" data-reveal="up" style="margin-top:var(--sp-4); color:var(--text-muted)">{para}</p>
+            ))}
             <div style="margin-top:var(--sp-5)">
               <span class="chip chip--outline">{copy.chip}</span>
             </div>
@@ -188,6 +196,12 @@ const procedureJsonLd = {
                       {sec.points.map((pt) => <li>{pt}</li>)}
                     </ul>
                   )}
+                  {sec.links && (
+                    <p class="seealso">
+                      <span>{t(locale, "treat.seeAlso")}</span>
+                      {sec.links.map((link) => <a href={sectionLinkHref(link)}>{link.label}</a>)}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -206,6 +220,30 @@ const procedureJsonLd = {
               </ol>
             </div>
           </section>
+
+          {article.sectionsAfterProcess && (
+            <section class="section" style="padding-block:var(--sp-7)">
+              <div class="container prose">
+                {article.sectionsAfterProcess.map((sec) => (
+                  <div class="prose__block reveal" data-reveal="up">
+                    <h2 class="h2">{sec.heading}</h2>
+                    <p class="body" style="color:var(--text-muted)">{sec.body}</p>
+                    {sec.points && (
+                      <ul class="ticklist">
+                        {sec.points.map((pt) => <li>{pt}</li>)}
+                      </ul>
+                    )}
+                    {sec.links && (
+                      <p class="seealso">
+                        <span>{t(locale, "treat.seeAlso")}</span>
+                        {sec.links.map((link) => <a href={sectionLinkHref(link)}>{link.label}</a>)}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Local relevance built from the clinic's real record, not repetition
               of the city name. */}
@@ -296,6 +334,14 @@ const procedureJsonLd = {
           <a class="btn btn--light btn--lg" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
         </div>
       </section>
+      {article?.disclaimer && (
+        <section class="section" style="padding-block:var(--sp-6)">
+          <div class="container prose">
+            <h2 class="h3" style="margin:0 0 var(--sp-3)">{article.disclaimer.heading}</h2>
+            <p class="meta" style="color:var(--text-faint)">{article.disclaimer.body}</p>
+          </div>
+        </section>
+      )}
       {page.review && (
         <section class="section" style="padding-block:var(--sp-6)">
           <div class="container prose">
@@ -325,6 +371,13 @@ const procedureJsonLd = {
     .glance dt { color: var(--text-muted); font-size: var(--fs-sm); }
     .glance dd { margin: 0; color: var(--text); }
     @media (max-width: 620px) { .glance__row { grid-template-columns: 1fr; gap: var(--sp-1); } }
+
+    .seealso {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4);
+      margin: var(--sp-4) 0 0; font-size: var(--fs-sm);
+    }
+    .seealso span { color: var(--text-faint); }
+    .seealso a { color: var(--accent-action); text-decoration: underline; text-underline-offset: 3px; }
 
     .ticklist { margin: var(--sp-4) 0 0; padding-inline-start: 1.15rem; display: grid; gap: var(--sp-2); }
     .ticklist li { color: var(--text-muted); }
