@@ -16,13 +16,22 @@ export interface GlanceRow {
   value: string;
 }
 
-/** A contextual internal link offered under a section body. Either a treatment
- *  `slug` (resolved to the reader's own locale) or a homepage section `anchor`,
- *  so the anchor text describes the destination rather than repeating "here". */
+/** A contextual internal link offered under a section body: a treatment `slug`,
+ *  a homepage section `anchor`, or any other site `path` — each resolved to the
+ *  reader's own locale, so the anchor text describes the destination rather than
+ *  repeating "here". */
 export interface SectionLink {
   label: string;
   slug?: string;
   anchor?: string;
+  path?: string;
+}
+
+/** A two-column comparison ("this treatment vs. that one"), for questions that
+ *  are genuinely about a difference rather than a list. */
+export interface CompareTable {
+  headings: [string, string];
+  rows: [string, string][];
 }
 
 /** An H2 block: a heading whose first sentence directly answers it (Rule 12),
@@ -31,6 +40,7 @@ export interface RichSection {
   heading: string;
   body: string;
   points?: string[];
+  compare?: CompareTable;
   links?: SectionLink[];
 }
 

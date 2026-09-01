@@ -40,7 +40,9 @@ const categoryLabel = t(locale, page.category.categoryLabelKey);
 // Contextual links inside the article body: a treatment slug resolves to that
 // page in the reader's own locale, an anchor to the matching homepage section.
 const sectionLinkHref = (link: SectionLink) =>
-  link.slug ? localePath(locale, `/treatments/${link.slug}`) : anchor(link.anchor!);
+  link.slug ? localePath(locale, `/treatments/${link.slug}`)
+  : link.path ? localePath(locale, link.path)
+  : anchor(link.anchor!);
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -196,6 +198,18 @@ const procedureJsonLd = {
                       {sec.points.map((pt) => <li>{pt}</li>)}
                     </ul>
                   )}
+                  {sec.compare && (
+                    <div class="compare-wrap">
+                      <table class="compare">
+                        <thead>
+                          <tr><th scope="col">{sec.compare.headings[0]}</th><th scope="col">{sec.compare.headings[1]}</th></tr>
+                        </thead>
+                        <tbody>
+                          {sec.compare.rows.map(([a, b]) => <tr><td>{a}</td><td>{b}</td></tr>)}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                   {sec.links && (
                     <p class="seealso">
                       <span>{t(locale, "treat.seeAlso")}</span>
@@ -232,6 +246,18 @@ const procedureJsonLd = {
                       <ul class="ticklist">
                         {sec.points.map((pt) => <li>{pt}</li>)}
                       </ul>
+                    )}
+                    {sec.compare && (
+                      <div class="compare-wrap">
+                        <table class="compare">
+                          <thead>
+                            <tr><th scope="col">{sec.compare.headings[0]}</th><th scope="col">{sec.compare.headings[1]}</th></tr>
+                          </thead>
+                          <tbody>
+                            {sec.compare.rows.map(([a, b]) => <tr><td>{a}</td><td>{b}</td></tr>)}
+                          </tbody>
+                        </table>
+                      </div>
                     )}
                     {sec.links && (
                       <p class="seealso">
@@ -371,6 +397,18 @@ const procedureJsonLd = {
     .glance dt { color: var(--text-muted); font-size: var(--fs-sm); }
     .glance dd { margin: 0; color: var(--text); }
     @media (max-width: 620px) { .glance__row { grid-template-columns: 1fr; gap: var(--sp-1); } }
+
+    /* Wide comparison tables scroll inside their own box rather than pushing
+       the page sideways on a phone. */
+    .compare-wrap { margin-top: var(--sp-5); overflow-x: auto; }
+    .compare { width: 100%; border-collapse: collapse; text-align: start; min-width: 34rem; }
+    .compare th, .compare td {
+      padding: var(--sp-3) var(--sp-4); border-top: 1px solid var(--border);
+      vertical-align: top; text-align: start;
+    }
+    .compare thead th { border-top: 0; font-family: var(--font-display); font-weight: 500; }
+    .compare tbody tr:last-child td { border-bottom: 1px solid var(--border); }
+    .compare td { color: var(--text-muted); }
 
     .seealso {
       display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4);
