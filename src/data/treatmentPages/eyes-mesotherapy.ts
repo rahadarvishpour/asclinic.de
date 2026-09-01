@@ -5,13 +5,335 @@ export const EYES_MESOTHERAPY: TreatmentPage = {
   category: { categoryLabelKey: "nav.inject", categoryAnchorId: "injectables" },
   content: {
     en: {
+      article: {
+        h1: "Eye mesotherapy in Berlin – for a fresher-looking eye area",
+        heroIntro: "The skin around the eyes is particularly thin and delicate. Loss of hydration, fine lines, an uneven skin texture or a tired-looking eye area can therefore become visible early.",
+        heroBody: [
+          "Eye mesotherapy at AS Clinic Berlin is a superficial, low-dose micro-injection treatment for the delicate skin of the eye area. Unlike a classic tear-trough filler, the focus is not on building volume but on treating skin quality.",
+          "Depending on your starting point, the treatment can aim to support the skin with hydration, make fine dryness lines appear softer, and let the eye area look fresher overall.",
+          "Before every treatment we first assess why the eye area looks tired, dark or uneven. Dark circles, the tear trough, pigmentation, visible vessels, skin quality and swelling all have different causes and do not automatically need the same treatment."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "What is eye mesotherapy?",
+          body: "In eye mesotherapy, small amounts of a product selected for the particular treatment are placed superficially into the skin of the eye area through fine micro-injections. The aim is not a marked build-up of volume, but a targeted treatment of thin, delicate skin. Mesotherapy primarily describes an injection technique; which substances are used can differ according to the treatment concept and the product chosen. Around the eyes, this individual planning matters particularly, because the skin is thinner than in many other areas of the face."
+        },
+        glanceHeading: "Eye mesotherapy in Berlin – the key facts at a glance",
+        glance: [
+          { label: "Treatment", value: "Superficial mesotherapy of the eye area" },
+          { label: "Also searched as", value: "Eye mesotherapy, mesotherapy for dark circles, under-eye mesotherapy" },
+          { label: "Treatment goal", value: "Supporting hydration and skin quality" },
+          { label: "Volume build-up", value: "No – not the same as a classic tear-trough filler" },
+          { label: "Region", value: "The delicate skin around the eyes" },
+          { label: "Treatment time", value: "Approx. 20–30 minutes" },
+          { label: "Location", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Downtime", value: "Usually minimal" },
+          { label: "Result", value: "Individual, and not final immediately after treatment" },
+          { label: "Treatment planning", value: "Depends on the cause and the condition of the skin" }
+        ],
+        sections: [
+          {
+            heading: "What should be clarified before a mesotherapy treatment?",
+            body: "Mesotherapy describes an injection technique, not a single standardised product. Before treatment it should therefore be clarified transparently:",
+            points: [
+              "Which product is used",
+              "Which ingredients it contains",
+              "Which treatment goal is being pursued",
+              "Which effect can realistically be expected",
+              "Which risks exist"
+            ],
+            links: [
+              { label: "All injectable treatments in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "What can mesotherapy of the eye area treat?",
+            body: "Eye mesotherapy can be of particular interest when the quality of the thin skin under or around the eyes is the priority. It is not, however, the right treatment for every form of dark circles or under-eye concern — the first thing that matters is determining the cause of what you can see. Depending on your starting point, the treatment can for example be aimed at:",
+            points: [
+              "Dry skin, or skin low in moisture",
+              "Fine dryness lines",
+              "A tired-looking eye area",
+              "Fine superficial lines",
+              "Uneven skin texture",
+              "Skin that looks thin or lacks freshness"
+            ]
+          },
+          {
+            heading: "Why do dark circles look dark?",
+            body: "Dark circles can have various causes. These include pigmentation, vessels visible through thin skin, shadow cast by a pronounced tear trough, and changes in skin quality. That means no single treatment can improve every form of dark circle equally. The cause should therefore be assessed first – not just the colour under the eyes. Possible causes include:",
+            points: [
+              "Pigment-related dark circles — stronger pigmentation of the skin can make the under-eye area look darker.",
+              "Vascular dark circles — where the skin is very thin, the vessels beneath can be more visible and create a bluish or violet impression.",
+              "Shadow from the tear trough — an anatomical difference in volume between the lower lid and the cheek can cast a shadow that looks like a dark circle.",
+              "Thin or dry skin — skin low in moisture and finely textured can reflect light differently and make the eye area look more tired.",
+              "Swelling — fluid retention or pronounced lower-lid structures can also affect the appearance."
+            ]
+          },
+          {
+            heading: "Does eye mesotherapy help with dark circles?",
+            body: "Whether mesotherapy can help with dark circles depends on what is causing the darkness. Where skin quality is the problem, a superficial treatment can make sense; pronounced pigmentation, a structural tear trough or protruding fat pads often need different approaches. A blanket claim such as \"mesotherapy removes dark circles\" would therefore not be honest. At the consultation we first establish which component is actually the main one in your case."
+          },
+          {
+            heading: "Eye mesotherapy for fine lines",
+            body: "Fine lines under the eyes can be caused by dry, thin skin and by repeated movement, among other things. Mesotherapy can be aimed at skin quality, but it does not replace treatment of stronger muscle activity or of deeply established folds. The right treatment depends on which of these components predominates:",
+            points: [
+              "Dryness lines — these can become more visible when the skin holds little moisture.",
+              "Expression lines — these arise, or deepen, through repeated muscle movement, for example when smiling.",
+              "Static lines — these remain visible even when the face is relaxed and can be more pronounced structurally."
+            ],
+            links: [
+              { label: "Botox for crow's feet in Berlin", slug: "botox" }
+            ]
+          },
+          {
+            heading: "Eye mesotherapy for more hydration",
+            body: "An important goal of mesotherapy around the eyes can be supporting the skin's hydration. Depending on the treatment concept chosen, products intended for superficial skin treatments can be used for this. How marked the effect is varies from person to person; eye mesotherapy should therefore not be advertised with a guaranteed \"glow\" or the complete removal of fine lines. Skin that looks better hydrated can:",
+            points: [
+              "Appear smoother",
+              "Emphasise fine dryness lines less",
+              "Reflect light more evenly",
+              "Look fresher overall"
+            ]
+          },
+          {
+            heading: "Eye mesotherapy or tear-trough filler – what is the difference?",
+            body: "Eye mesotherapy and a tear-trough filler pursue different goals. Mesotherapy primarily treats skin quality with superficial micro-injections. A tear-trough filler, by contrast, is used to compensate for selected structural volume deficits in the tear-trough area. A dark eye area caused by a deep tear trough cannot therefore automatically be corrected with superficial mesotherapy — and conversely, skin low in moisture does not automatically need a filler.",
+            compare: {
+              headings: ["Eye mesotherapy", "Tear-trough filler"],
+              rows: [
+                ["Superficial micro-injections", "Filler placed more deeply"],
+                ["Focus on skin quality", "Focus on structural volume"],
+                ["No pronounced build-up of volume", "Targeted compensation of volume"],
+                ["Suitability depends on the skin concern", "Suitability depends on the anatomy of the tear trough"],
+                ["Several small injection points possible", "Different injection techniques and placement"],
+                ["A subtle result", "A structural change is possible"]
+              ]
+            }
+          },
+          {
+            heading: "Why is too much volume under the eyes a problem?",
+            body: "The lower-lid region is anatomically delicate. Not every tired-looking eye area benefits from added volume, and unsuitable filler treatments can lead to visible irregularities or longer-lasting swelling, among other things. With eye mesotherapy, building volume is deliberately not the focus. That is precisely why an important part of treatment planning is distinguishing between:",
+            points: [
+              "A skin concern",
+              "A volume deficit",
+              "A pigment concern",
+              "Visible vessels",
+              "Swelling",
+              "Anatomically pronounced lower-lid structures"
+            ]
+          },
+          {
+            heading: "Eye mesotherapy or Skin Booster – what is the difference?",
+            body: "The terms mesotherapy and Skin Booster are sometimes used in overlapping ways in aesthetics, but they are not automatically identical. What matters is the product used, its properties, the injection depth and the specific treatment goal. A Skin Booster can, for example, be aimed at skin hydration and skin quality, while mesotherapy describes more the superficial technique with several small injection points. Before treatment, you should therefore ask not only about the name of the method but about:",
+            points: [
+              "The product used",
+              "Its ingredients",
+              "The planned injection depth",
+              "The specific goal"
+            ],
+            links: [
+              { label: "Skin Booster in Berlin", slug: "skin-booster" },
+              { label: "Profhilo in Berlin", slug: "profhilo" }
+            ]
+          },
+          {
+            heading: "Eye mesotherapy or polynucleotides?",
+            body: "Mesotherapy describes a treatment technique, whereas polynucleotides are a particular group of active substances. Depending on the product, a treatment with polynucleotides can also be given through small injections, but it is not automatically the same as any eye mesotherapy. Polynucleotides are increasingly discussed for treating skin quality around the eyes. Which method makes more sense depends among other things on:",
+            points: [
+              "The condition of the skin",
+              "The treatment goal",
+              "The product used",
+              "The intensity wanted",
+              "Individual suitability"
+            ]
+          },
+          {
+            heading: "Eye mesotherapy or PRP?",
+            body: "PRP and mesotherapy differ above all in the material used. PRP uses prepared blood plasma from your own body; with mesotherapy, other products selected for the particular treatment are injected superficially. Both procedures can address skin quality, but they rest on different treatment concepts. A recommendation should therefore not follow simply from a wish for \"fresher eyes\", but from an analysis of the actual starting point."
+          },
+          {
+            heading: "Eye mesotherapy or Botox?",
+            body: "Botulinum toxin and eye mesotherapy treat different problems. Botulinum toxin reduces specific muscle activity, while mesotherapy is aimed more at superficial skin quality. For crow's feet caused mainly by muscle movement, a botulinum toxin treatment can have a different effect from mesotherapy; for dry, finely textured skin, botulinum toxin does not treat hydration directly. The two methods should therefore not be confused.",
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "Who may eye mesotherapy be suitable for?",
+            body: "Eye mesotherapy may be an option for adults whose priority is improving the skin quality of the eye area. Suitability depends, however, on the cause, the condition of the skin, the anatomy, pre-existing conditions and the product used. Not everyone with dark circles is automatically suitable for this treatment. Possible starting points can be:",
+            points: [
+              "Fine dryness lines",
+              "Skin low in moisture",
+              "A tired-looking eye area",
+              "Fine superficial changes in skin texture",
+              "A wish for a subtle treatment without building volume"
+            ]
+          },
+          {
+            heading: "When may eye mesotherapy not be the right treatment?",
+            body: "Mesotherapy can make less sense when the main problem is caused by other factors. In these cases a different treatment concept may be required:",
+            points: [
+              "A strongly pronounced tear trough",
+              "Marked structural volume loss",
+              "Pronounced lower-lid fat pads",
+              "Marked skin laxity",
+              "Pronounced pigmentation",
+              "Discolouration that is primarily vascular",
+              "Swelling with a medical cause"
+            ]
+          }
+        ],
+        process: {
+          heading: "How eye mesotherapy works at AS Clinic Berlin",
+          steps: [
+            { heading: "Personal consultation", body: "We start by establishing what bothers you about your eye area. Here we distinguish between different concerns: dark circles, dryness lines, skin texture, swelling, the tear trough, pigmentation and volume loss. That distinction matters, because the treatment is not equally suitable for every cause." },
+            { heading: "Analysis of the eye area", body: "The region is examined at rest and with normal expression. Among other things, skin thickness, skin quality, visible vessels, pigmentation, the tear trough, swelling, the relationship between the lower lid and the cheek, and any existing asymmetries can be assessed." },
+            { heading: "Choosing the treatment concept", body: "We then decide whether mesotherapy is suitable for the goal you want. If it is, we determine the region to be treated, the product used, the number and distribution of the micro-injections, the injection depth and, where needed, a course of treatments. The same substance or scheme is not automatically used for every eye area." },
+            { heading: "Micro-injections", body: "The chosen product is placed superficially into the planned areas in small amounts with a fine needle. Because the region is delicate, small injection volumes are used. The whole appointment takes about 20 to 30 minutes." },
+            { heading: "Review and further planning", body: "The result is not judged conclusively right after the last injection; small swellings or injection-site reactions can be visible at first. Over the following period we assess how the skin and the eye area develop and whether further sessions appear sensible." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "When do you see the result of eye mesotherapy?",
+            body: "The final result of eye mesotherapy is not visible immediately after the injection. Directly after treatment, small raised spots, redness or swelling can appear; changes in skin quality then develop gradually. A blanket guarantee after a single session therefore makes no sense. How quickly and how clearly an effect becomes visible depends among other things on:",
+            points: [
+              "The starting condition of the skin",
+              "The product used",
+              "The treatment goal",
+              "The number of sessions",
+              "Your individual response"
+            ]
+          },
+          {
+            heading: "How many sessions do you need?",
+            body: "How many treatments make sense depends on the product used, the starting findings and the result you want. Mesotherapy concepts often use a course of treatments, but there is no universal scheme for everyone. Before starting, it should be clarified:",
+            points: [
+              "Whether a single treatment makes sense",
+              "Whether a course is planned",
+              "At what interval treatments should take place",
+              "When the result will be assessed",
+              "Whether and when a top-up is an option"
+            ]
+          },
+          {
+            heading: "How long does the result last?",
+            body: "The longevity of eye mesotherapy is not the same for everyone and depends substantially on the product used and your individual skin situation. The treatment should therefore not be advertised with a blanket longevity guarantee. Even with a good result, skin continues to change; a possible repeat should be planned according to the actual condition of the skin, not solely to a fixed calendar."
+          },
+          {
+            heading: "Does eye mesotherapy hurt?",
+            body: "Eye mesotherapy involves several very fine micro-injections. These can be felt as brief pinpricks, slight burning or a sensation of pressure. How much you feel is individual. The skin under the eyes is particularly sensitive, so the treatment can be felt more intensely there than in less sensitive areas of the face."
+          },
+          {
+            heading: "How long is the downtime?",
+            body: "Downtime is normally minimal, though visible reactions at the injection sites can occur, including small swellings, redness or bruising. Around the eyes in particular, even small bruises can be clearly visible. If a wedding, an event, a trip, a professional photoshoot or an important work occasion is planned immediately afterwards, allow an appropriate gap."
+          },
+          {
+            heading: "Can the eye area swell after treatment?",
+            body: "Yes. Slight swelling is one of the possible immediate reactions after micro-injections under the eyes. Because of its anatomy, the region is particularly prone to visible fluid retention. How pronounced any swelling is varies from person to person. With unusually severe, increasing or persistent symptoms, contact the clinic."
+          },
+          {
+            heading: "Risks and possible side effects",
+            body: "Eye mesotherapy is also an injectable treatment and therefore not entirely free of risk. The anatomically sensitive eye region in particular requires careful treatment planning. Depending on the product used, further risks can be relevant — for example hypersensitivity reactions, infections, longer-lasting swelling or unwanted tissue reactions. The specific risks therefore have to be discussed on the basis of the product actually used. Possible temporary reactions are:",
+            points: [
+              "Redness",
+              "Small swellings",
+              "Tenderness",
+              "Pinpoint injection sites",
+              "Small bruises",
+              "Temporary irregularities"
+            ]
+          },
+          {
+            heading: "Which symptoms after treatment should be checked?",
+            body: "Severe or increasingly unusual pain, pronounced swelling, marked changes in the skin, signs of infection or visual disturbances should be assessed without delay. Visual disturbances after an injectable treatment in the face are not a normal outcome and require immediate medical assessment."
+          },
+          {
+            heading: "Aftercare following eye mesotherapy",
+            body: "You will receive individual instructions after treatment. Prescribed medicines should never be stopped on your own initiative for an aesthetic treatment. In general it can be recommended to:",
+            points: [
+              "Keep the injection sites clean",
+              "Avoid rubbing the treated region firmly",
+              "Avoid firm pressure under the eyes",
+              "Not apply unnecessary make-up to the injection sites straight afterwards",
+              "Avoid intense physical exertion at first",
+              "Avoid saunas and strong heat for a while",
+              "Report unusual symptoms early"
+            ]
+          },
+          {
+            heading: "Eye mesotherapy before a wedding or photoshoot",
+            body: "Eye mesotherapy should not be planned immediately before an important date. Small bruises or swelling can remain visible even after a treatment that is otherwise uncomplicated. If you want treatment before a wedding, a photoshoot, important work commitments, travel or events, allow enough time for the injection sites to recover."
+          }
+        ],
+        local: {
+          heading: "Eye mesotherapy on Kurfürstendamm in Berlin-Charlottenburg",
+          body: "AS Clinic Berlin is located on Kurfürstendamm in Berlin-Charlottenburg. If you are looking for mesotherapy for the eye area in Berlin, a treatment for fine lines under the eyes, or a way to improve skin quality in the under-eye region, the first step is to check whether this method suits your individual starting point.",
+          links: [
+            { label: "AS Clinic Berlin on Kurfürstendamm — location and directions", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Why choose AS Clinic for eye mesotherapy in Berlin?",
+          points: [
+            { heading: "Cause before treatment", body: "Not every dark circle and not every tired-looking eye area has the same cause. The analysis therefore comes first." },
+            { heading: "Skin quality rather than unnecessary volume", body: "Eye mesotherapy is not about automatically putting volume under the eyes. The treatment concept is aimed specifically at the skin." },
+            { heading: "Individual choice of product", body: "Which product is used should follow the treatment goal and your individual starting point." },
+            { heading: "A sensitive region – conservative planning", body: "The skin under the eyes is among the thinnest areas of facial skin. The treatment is planned individually accordingly." },
+            { heading: "A clear distinction from other procedures", body: "Mesotherapy, tear-trough filler, botulinum toxin, Skin Boosters and other treatments serve different purposes and are not automatically swapped for one another." },
+            { heading: "Multilingual consultation", body: "Consultation and communication at AS Clinic are possible in German, English, Spanish, Russian, Persian and Arabic." }
+          ]
+        },
+        faqHeading: "Frequently asked questions about eye mesotherapy in Berlin",
+        faqs: [
+          { q: "What is eye mesotherapy?", a: "In eye mesotherapy, small amounts of a selected product are placed into the thin skin of the eye area through superficial micro-injections. The focus is on skin quality and hydration, not on a pronounced build-up of volume." },
+          { q: "Does mesotherapy help with dark circles?", a: "That depends on the cause of the dark circles. Where skin quality is the problem, mesotherapy may be an option. If pigmentation, vessels, a pronounced tear trough or fat pads are the main cause, other treatments can be more suitable." },
+          { q: "Does mesotherapy help with eye bags?", a: "Pronounced eye bags often result from anatomical or structural changes and cannot simply be removed with superficial mesotherapy. Before treatment it should therefore be established what is causing the visible bulge." },
+          { q: "Does mesotherapy help with the tear trough?", a: "A clearly pronounced tear trough is primarily a structural or volumetric problem. Mesotherapy does not normally build the same volume as a filler intended for that purpose and is therefore not automatically the right treatment." },
+          { q: "Can eye mesotherapy improve fine lines?", a: "Fine lines can appear less visible, depending on their cause and on skin quality. Deeply etched lines, or lines that are mainly expression-related, may need a different approach." },
+          { q: "Does eye mesotherapy improve dry skin?", a: "Depending on the product used, the treatment can be aimed at hydration and skin quality. How strongly the skin responds is individual." },
+          { q: "Is eye mesotherapy a filler?", a: "Not in the classic sense. The treatment is not primarily designed to fill a tear trough with substantial volume. The focus is on superficial micro-injections and skin quality." },
+          { q: "Which is better: eye mesotherapy or a tear-trough filler?", a: "That depends on the problem. With a structural volume deficit, a filler can be relevant. With fine, dry or superficially changed skin, a skin-quality concept can make more sense." },
+          { q: "Which is better: eye mesotherapy or a Skin Booster?", a: "The terms can overlap, depending on the product and technique. What matters is not just the name of the treatment but which active substance is used and which problem is to be treated." },
+          { q: "Which is better: eye mesotherapy or polynucleotides?", a: "Both concepts can be aimed at skin quality, but they do not automatically use the same active substances. Which option fits better depends on the condition of the skin, the product and the result you want." },
+          { q: "Which is better: eye mesotherapy or Botox?", a: "Botulinum toxin mainly treats muscle activity, mesotherapy more the quality of the skin. For crow's feet caused by expression, a different concept can therefore make sense than for dry skin with fine dryness lines." },
+          { q: "How long does the treatment take?", a: "Allow about 20 to 30 minutes for eye mesotherapy at AS Clinic. The actual duration depends on your individual treatment plan." },
+          { q: "How many sessions are needed?", a: "The number of sessions depends on the product used, the condition of the skin and the treatment goal. There is no universal treatment scheme for everyone." },
+          { q: "When do you see a result?", a: "Injection sites and swelling can be visible right after treatment. Changes in skin quality develop afterwards and should not be judged conclusively straight after the injection." },
+          { q: "How long does the result last?", a: "Longevity depends on the product used and your individual skin situation. A blanket figure therefore makes no sense without knowing the specific treatment concept." },
+          { q: "Is there downtime after eye mesotherapy?", a: "Downtime is usually minimal. Small swellings, redness and bruising can occur, however, and be visible for a while." },
+          { q: "Can I work after the treatment?", a: "Many people can carry on with their day afterwards. Because the eye area can visibly swell or develop small bruises, though, take that into account for important commitments." },
+          { q: "When can I wear make-up again?", a: "Fresh injection sites should be kept clean and as untouched as possible at first. When make-up can be used again is advised individually, depending on the treatment." },
+          { q: "Does eye mesotherapy hurt?", a: "The treatment consists of several fine micro-injections. Brief stinging or slight burning is possible; how much you feel is individual." },
+          { q: "Can the treatment cause swelling?", a: "Yes. Temporary swelling is possible after micro-injections and can be particularly visible in the thin under-eye area." },
+          { q: "What are the risks?", a: "Possible effects include redness, swelling, bruising, infection or a reaction to the product used. The specific risks also depend on the product actually used and are discussed before treatment." },
+          { q: "What does eye mesotherapy cost at AS Clinic Berlin?", a: "The cost depends on your individual treatment concept, the product used and, where applicable, the number of sessions. The specific price is discussed transparently before treatment." },
+          { q: "Where can I have eye mesotherapy in Berlin?", a: "AS Clinic offers consultations on eye mesotherapy at Kurfürstendamm 102 in Berlin-Charlottenburg. Before treatment we check what is causing the change you want in your eye area and whether mesotherapy is suitable for it." }
+        ],
+        relatedHeading: "Related treatments at AS Clinic Berlin",
+        related: [
+          { slug: "botox", blurb: "Botox in Berlin: treats crow's feet through muscle activity rather than through skin quality." },
+          { slug: "mesobotox", blurb: "Mesobotox in Berlin: a superficial micro-dose technique for fine lines and skin appearance." },
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injectable hydration for skin quality across the face." },
+          { slug: "profhilo", blurb: "Profhilo in Berlin: distributed hyaluronic acid to improve skin quality and elasticity." },
+          { slug: "mesotherapy-mesocan", blurb: "Mesotherapy in Berlin: superficial injections of active substances across larger areas of the face." },
+          { slug: "lip-filler", blurb: "Lip filler in Berlin: hyaluronic acid for lip volume and contour." }
+        ],
+        ctaHeading: "Arrange an eye mesotherapy consultation in Berlin",
+        ctaBody: "Does your eye area look tired, dry or finely lined, and would you like to know which treatment actually suits your starting point? At a personal consultation at AS Clinic Berlin on Kurfürstendamm we establish what makes your eye area look tired or dark, whether skin quality, the tear trough, pigmentation or swelling is the main factor, whether eye mesotherapy is suitable for you, which product fits the planned goal, how many sessions appear sensible, which alternatives exist, which risks have to be taken into account, and what the cost will be.",
+        disclaimer: {
+          heading: "Medical note",
+          body: "The information on this page is general information about aesthetic injectable treatments of the eye area and does not replace a personal examination, individual consultation or explanation of risks. The term mesotherapy does not describe a single standardised product. The effect, the risks, the appropriate injection technique and possible contraindications therefore depend substantially on the product actually used, and on your individual anatomy and starting point."
+        }
+      },
       title: "Eyes Mesotherapy",
-      metaTitle: "Eye Mesotherapy in Berlin — Under-Eye Refresh | AS Clinic",
-      metaDescription: "Eye mesotherapy at AS Clinic, Berlin: cannula-free micro-needling around the delicate under-eye area to soften fine lines and reduce puffiness. Free consultation.",
+      metaTitle: "Eye Mesotherapy Berlin: A Fresher Eye Area | AS Clinic",
+      metaDescription: "Eye mesotherapy in Berlin at AS Clinic on Kurfürstendamm: micro-injections for hydration, fine lines and a fresher eye area. Book a consultation.",
       heroKicker: "Injectables · Eyes Mesotherapy",
       heroLead: "A gentle, low-volume treatment for the thinnest skin on your face — hydration and drainage support rather than volume.",
-      imageAlt: "Eye mesotherapy treatment being applied around the under-eye area",
-      chip: "20–30 min · Minimal downtime",
+      imageAlt: "Eye mesotherapy with micro-injections at AS Clinic Berlin",
+      chip: "approx. 20–30 min · Superficial micro-injections",
       sections: [
         { heading: "What it is", body: "A precise, low-volume mesotherapy cocktail — typically hydrating hyaluronic acid alongside vitamins and peptides — delivered just under the skin around the eye with controlled micro-needling depth, avoiding the deeper injections used elsewhere on the face." },
         { heading: "Who it's for", body: "Guests with fine dehydration lines, dullness or mild puffiness around the eyes who aren't ready for (or don't need) a surgical or filler-based approach. Not suitable during active eye infection or if you're pregnant or breastfeeding." },
@@ -42,13 +364,335 @@ export const EYES_MESOTHERAPY: TreatmentPage = {
       ]
     },
     de: {
+      article: {
+        h1: "Augen-Mesotherapie in Berlin – für eine frischere Augenpartie",
+        heroIntro: "Die Haut rund um die Augen ist besonders dünn und empfindlich. Feuchtigkeitsverlust, feine Linien, eine unruhige Hautstruktur oder ein müde wirkender Augenbereich können deshalb früh sichtbar werden.",
+        heroBody: [
+          "Die Augen-Mesotherapie bei AS Clinic Berlin ist eine oberflächliche, niedrig dosierte Mikroinjektionsbehandlung für die empfindliche Haut der Augenpartie. Anders als ein klassischer Tear-Trough-Filler steht dabei nicht der Aufbau von Volumen, sondern die Behandlung der Hautqualität im Vordergrund.",
+          "Je nach Ausgangssituation kann die Behandlung darauf ausgerichtet sein, die Haut mit Feuchtigkeit zu unterstützen, feine Trockenheitslinien weicher erscheinen zu lassen und die Augenpartie insgesamt frischer wirken zu lassen.",
+          "Vor jeder Behandlung wird zunächst beurteilt, warum die Augenpartie müde, dunkel oder unruhig erscheint. Denn Augenringe, Tränenrinne, Pigmentierung, Gefäßzeichnung, Hautqualität und Schwellungen haben unterschiedliche Ursachen und benötigen nicht automatisch dieselbe Behandlung."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "Was ist eine Augen-Mesotherapie?",
+          body: "Bei der Augen-Mesotherapie werden kleine Mengen eines für die jeweilige Behandlung ausgewählten Präparats über feine Mikroinjektionen oberflächlich in die Haut der Augenpartie eingebracht. Ziel ist nicht ein deutlicher Volumenaufbau, sondern eine gezielte Behandlung der dünnen und empfindlichen Haut. Die Mesotherapie beschreibt in erster Linie eine Injektionstechnik; welche Substanzen eingesetzt werden, kann sich je nach Behandlungskonzept und verwendetem Präparat unterscheiden. Bei der Augenpartie ist diese individuelle Planung besonders wichtig, da die Haut dünner ist als in vielen anderen Gesichtsregionen."
+        },
+        glanceHeading: "Augen-Mesotherapie in Berlin – die wichtigsten Informationen auf einen Blick",
+        glance: [
+          { label: "Behandlung", value: "Oberflächliche Mesotherapie der Augenpartie" },
+          { label: "Auch gesucht als", value: "Mesotherapie Augen, Augenringe Mesotherapie, Unteraugen-Mesotherapie" },
+          { label: "Behandlungsziel", value: "Unterstützung von Feuchtigkeit und Hautqualität" },
+          { label: "Volumenaufbau", value: "Nein – nicht mit einem klassischen Tear-Trough-Filler gleichzusetzen" },
+          { label: "Region", value: "Empfindliche Haut im Bereich der Augen" },
+          { label: "Standort", value: "AS Clinic, Kurfürstendamm 102, Berlin-Charlottenburg" },
+          { label: "Behandlungsdauer", value: "ca. 20–30 Minuten" },
+          { label: "Ausfallzeit", value: "Meist gering" },
+          { label: "Ergebnis", value: "Individuell und nicht unmittelbar endgültig zu beurteilen" },
+          { label: "Behandlungsplanung", value: "Abhängig von Ursache und Hautzustand" }
+        ],
+        sections: [
+          {
+            heading: "Was sollte vor einer Mesotherapie geklärt werden?",
+            body: "Die Mesotherapie beschreibt eine Injektionstechnik und kein einzelnes standardisiertes Präparat. Deshalb sollte vor einer Behandlung transparent geklärt werden:",
+            points: [
+              "Welches Produkt verwendet wird",
+              "Welche Inhaltsstoffe enthalten sind",
+              "Welches Behandlungsziel verfolgt wird",
+              "Welche Wirkung realistisch erwartet werden kann",
+              "Welche Risiken bestehen"
+            ],
+            links: [
+              { label: "Alle Injektionsbehandlungen in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "Was kann eine Mesotherapie der Augenpartie behandeln?",
+            body: "Eine Augen-Mesotherapie kann insbesondere dann interessant sein, wenn die Qualität der dünnen Haut unter oder rund um die Augen im Vordergrund steht. Sie ist jedoch nicht für jede Form von Augenringen oder Unteraugenproblemen die richtige Behandlung — entscheidend ist zunächst, die Ursache des sichtbaren Problems zu bestimmen. Je nach Ausgangssituation kann die Behandlung beispielsweise auf folgende Punkte ausgerichtet sein:",
+            points: [
+              "Trockene oder feuchtigkeitsarme Haut",
+              "Feine Trockenheitslinien",
+              "Müde wirkende Augenpartie",
+              "Feine oberflächliche Fältchen",
+              "Unruhige Hautstruktur",
+              "Haut, die dünn oder wenig frisch wirkt"
+            ]
+          },
+          {
+            heading: "Warum sehen Augenringe dunkel aus?",
+            body: "Dunkle Augenringe können verschiedene Ursachen haben. Dazu gehören unter anderem Pigmentierung, sichtbare Gefäße durch dünne Haut, Schatten durch eine ausgeprägte Tränenrinne sowie Veränderungen der Hautqualität. Das bedeutet: Eine einzige Behandlung kann nicht jede Form von Augenringen gleichermaßen verbessern. Vor einer Behandlung sollte deshalb zuerst die Ursache beurteilt werden – nicht nur die Farbe unter den Augen. Mögliche Ursachen sind beispielsweise:",
+            points: [
+              "Pigmentbedingte Augenringe — eine stärkere Pigmentierung der Haut kann den Unteraugenbereich dunkler erscheinen lassen.",
+              "Gefäßbedingte Augenringe — bei sehr dünner Haut können darunterliegende Gefäße stärker sichtbar sein und einen bläulichen oder violetten Eindruck erzeugen.",
+              "Schatten durch die Tränenrinne — ein anatomischer Volumenunterschied zwischen Unterlid und Wange kann Schatten werfen und dadurch wie ein dunkler Augenring aussehen.",
+              "Dünne oder trockene Haut — feuchtigkeitsarme und feinstrukturierte Haut kann Licht anders reflektieren und die Augenpartie müder wirken lassen.",
+              "Schwellungen — auch Flüssigkeitseinlagerungen oder ausgeprägte Unterlidstrukturen können das Erscheinungsbild beeinflussen."
+            ]
+          },
+          {
+            heading: "Hilft Augen-Mesotherapie gegen Augenringe?",
+            body: "Ob eine Mesotherapie gegen Augenringe helfen kann, hängt davon ab, wodurch die dunkle Augenpartie verursacht wird. Bei Problemen der Hautqualität kann eine oberflächliche Behandlung sinnvoll sein; ausgeprägte Pigmentierung, strukturelle Tränenrinnen oder hervortretende Fettpolster benötigen häufig andere Behandlungsansätze. Eine pauschale Aussage wie „Mesotherapie entfernt Augenringe“ wäre deshalb nicht seriös. Bei der Beratung wird zunächst geklärt, welche Komponente bei Ihnen tatsächlich im Vordergrund steht."
+          },
+          {
+            heading: "Augen-Mesotherapie gegen feine Linien",
+            body: "Feine Linien unter den Augen können unter anderem durch trockene, dünne Haut und wiederholte Bewegung entstehen. Eine Mesotherapie kann auf die Hautqualität ausgerichtet werden, ersetzt jedoch keine Behandlung stärkerer mimischer Muskelaktivität oder tief ausgeprägter Falten. Die geeignete Behandlung hängt davon ab, welche dieser Komponenten überwiegt:",
+            points: [
+              "Trockenheitslinien — sie können stärker sichtbar werden, wenn die Haut wenig Feuchtigkeit enthält.",
+              "Mimische Linien — sie entstehen beziehungsweise verstärken sich durch wiederholte Muskelbewegung, beispielsweise beim Lächeln.",
+              "Statische Falten — diese bleiben auch bei entspannter Mimik sichtbar und können strukturell stärker ausgeprägt sein."
+            ],
+            links: [
+              { label: "Botox gegen Krähenfüße in Berlin", slug: "botox" }
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie für mehr Feuchtigkeit",
+            body: "Ein wichtiges Ziel der Mesotherapie im Augenbereich kann die Unterstützung der Hautfeuchtigkeit sein. Dafür können abhängig vom gewählten Behandlungskonzept Präparate eingesetzt werden, die für oberflächliche Hautbehandlungen vorgesehen sind. Wie deutlich dieser Effekt ausfällt, ist individuell; eine Augen-Mesotherapie sollte deshalb nicht mit einem garantierten „Glow“ oder einer vollständigen Entfernung feiner Linien beworben werden. Eine besser hydratisiert wirkende Haut kann:",
+            points: [
+              "Glatter erscheinen",
+              "Feine Trockenheitslinien weniger betonen",
+              "Licht gleichmäßiger reflektieren",
+              "Insgesamt frischer wirken"
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie oder Tear-Trough-Filler – was ist der Unterschied?",
+            body: "Eine Augen-Mesotherapie und ein Tear-Trough-Filler verfolgen unterschiedliche Ziele. Die Mesotherapie behandelt primär die Hautqualität mit oberflächlichen Mikroinjektionen. Ein Tear-Trough-Filler wird dagegen eingesetzt, um ausgewählte strukturelle Volumendefizite im Bereich der Tränenrinne auszugleichen. Eine dunkle Augenpartie aufgrund einer tiefen Tränenrinne lässt sich deshalb nicht automatisch mit einer oberflächlichen Mesotherapie korrigieren — umgekehrt benötigt feuchtigkeitsarme Haut nicht automatisch einen Filler.",
+            compare: {
+              headings: ["Augen-Mesotherapie", "Tear-Trough-Filler"],
+              rows: [
+                ["Oberflächliche Mikroinjektionen", "Tiefer platzierter Filler"],
+                ["Fokus auf Hautqualität", "Fokus auf strukturelles Volumen"],
+                ["Kein ausgeprägter Volumenaufbau", "Gezielter Volumenausgleich"],
+                ["Geeignet abhängig vom Hautproblem", "Geeignet abhängig von der Anatomie der Tränenrinne"],
+                ["Mehrere kleine Injektionspunkte möglich", "Andere Injektionstechniken und Platzierung"],
+                ["Ergebnis subtil", "Strukturelle Veränderung möglich"]
+              ]
+            }
+          },
+          {
+            heading: "Warum ist zu viel Volumen unter den Augen problematisch?",
+            body: "Die Unterlidregion ist anatomisch empfindlich. Nicht jede müde wirkende Augenpartie profitiert von zusätzlichem Volumen, und ungeeignete Filler-Behandlungen können unter anderem zu sichtbaren Unebenheiten oder länger anhaltender Schwellung führen. Bei der Augen-Mesotherapie steht bewusst nicht der Volumenaufbau im Mittelpunkt. Gerade deshalb ist ein wichtiger Teil der Behandlungsplanung die Unterscheidung zwischen:",
+            points: [
+              "Hautproblem",
+              "Volumendefizit",
+              "Pigmentproblem",
+              "Gefäßzeichnung",
+              "Schwellung",
+              "Anatomisch ausgeprägten Unterlidstrukturen"
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie oder Skin Booster – was ist der Unterschied?",
+            body: "Die Begriffe Mesotherapie und Skin Booster werden im ästhetischen Bereich teilweise überlappend verwendet, sind jedoch nicht automatisch identisch. Entscheidend sind das verwendete Produkt, dessen Eigenschaften, die Injektionstiefe und das konkrete Behandlungsziel. Ein Skin Booster kann beispielsweise auf Hautfeuchtigkeit und Hautqualität ausgerichtet sein, während eine Mesotherapie stärker die oberflächliche Technik mit mehreren kleinen Injektionspunkten beschreibt. Vor der Behandlung sollte deshalb nicht nur nach dem Namen der Methode gefragt werden, sondern nach:",
+            points: [
+              "Dem verwendeten Präparat",
+              "Dessen Inhaltsstoffen",
+              "Der vorgesehenen Injektionstiefe",
+              "Dem konkreten Ziel"
+            ],
+            links: [
+              { label: "Skin Booster in Berlin", slug: "skin-booster" },
+              { label: "Profhilo in Berlin", slug: "profhilo" }
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie oder Polynukleotide?",
+            body: "Mesotherapie beschreibt eine Behandlungstechnik, während Polynukleotide eine bestimmte Wirkstoffgruppe darstellen. Eine Behandlung mit Polynukleotiden kann daher je nach Produkt ebenfalls über kleine Injektionen erfolgen, ist aber nicht automatisch mit jeder Augen-Mesotherapie gleichzusetzen. Polynukleotide werden zunehmend zur Behandlung der Hautqualität im Augenbereich diskutiert. Welche Methode sinnvoller ist, hängt unter anderem ab von:",
+            points: [
+              "Hautzustand",
+              "Behandlungsziel",
+              "Verwendetem Präparat",
+              "Gewünschter Intensität",
+              "Individueller Eignung"
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie oder PRP?",
+            body: "PRP und Mesotherapie unterscheiden sich vor allem durch das verwendete Material. Bei PRP wird aufbereitetes körpereigenes Blutplasma eingesetzt; bei einer Mesotherapie werden andere für die jeweilige Behandlung ausgewählte Präparate oberflächlich injiziert. Beide Verfahren können sich mit dem Thema Hautqualität beschäftigen, beruhen jedoch auf unterschiedlichen Behandlungskonzepten. Eine Empfehlung sollte deshalb nicht nur nach dem Wunsch nach „frischeren Augen“ erfolgen, sondern nach einer Analyse der tatsächlichen Ausgangssituation."
+          },
+          {
+            heading: "Augen-Mesotherapie oder Botox?",
+            body: "Botulinumtoxin und Augen-Mesotherapie behandeln unterschiedliche Probleme. Botulinumtoxin reduziert gezielt bestimmte Muskelaktivität, während die Mesotherapie stärker auf die oberflächliche Hautqualität ausgerichtet ist. Bei Krähenfüßen, die hauptsächlich durch Muskelbewegung entstehen, kann eine Botulinumtoxin-Behandlung eine andere Wirkung haben als eine Mesotherapie; bei trockener, fein strukturierter Haut behandelt Botulinumtoxin dagegen nicht direkt die Hautfeuchtigkeit. Beide Methoden sollten deshalb nicht miteinander verwechselt werden.",
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "Für wen kann eine Augen-Mesotherapie geeignet sein?",
+            body: "Eine Augen-Mesotherapie kann für Erwachsene infrage kommen, bei denen vor allem die Hautqualität der Augenpartie verbessert werden soll. Die Eignung hängt jedoch von Ursache, Hautzustand, Anatomie, Vorerkrankungen und dem verwendeten Präparat ab. Nicht jede Person mit Augenringen ist automatisch für diese Behandlung geeignet. Mögliche Ausgangssituationen können sein:",
+            points: [
+              "Feine Trockenheitslinien",
+              "Feuchtigkeitsarme Haut",
+              "Müde wirkende Augenpartie",
+              "Feine oberflächliche Hautstrukturveränderungen",
+              "Wunsch nach einer subtilen Behandlung ohne Volumenaufbau"
+            ]
+          },
+          {
+            heading: "Wann ist Augen-Mesotherapie möglicherweise nicht die richtige Behandlung?",
+            body: "Eine Mesotherapie kann weniger sinnvoll sein, wenn das Hauptproblem durch andere Faktoren verursacht wird. In diesen Fällen kann ein anderes Behandlungskonzept erforderlich sein:",
+            points: [
+              "Stark ausgeprägte Tränenrinne",
+              "Deutlicher struktureller Volumenverlust",
+              "Ausgeprägte Unterlid-Fettpolster",
+              "Starke Hauterschlaffung",
+              "Ausgeprägte Pigmentierung",
+              "Primär gefäßbedingte Verfärbung",
+              "Medizinisch bedingte Schwellungen"
+            ]
+          }
+        ],
+        process: {
+          heading: "Wie läuft eine Augen-Mesotherapie bei AS Clinic Berlin ab?",
+          steps: [
+            { heading: "Persönliche Beratung", body: "Zunächst wird geklärt, was Sie an Ihrer Augenpartie stört. Dabei kann zwischen unterschiedlichen Problemen unterschieden werden: Augenringe, Trockenheitslinien, Hautstruktur, Schwellungen, Tränenrinne, Pigmentierung und Volumenverlust. Diese Unterscheidung ist wichtig, weil die Behandlung nicht für jede Ursache gleich gut geeignet ist." },
+            { heading: "Analyse der Augenpartie", body: "Die Region wird in Ruhe und bei normaler Mimik betrachtet. Beurteilt werden können unter anderem Hautdicke, Hautqualität, sichtbare Gefäßzeichnung, Pigmentierung, Tränenrinne, Schwellungen, das Verhältnis zwischen Unterlid und Wange sowie vorhandene Asymmetrien." },
+            { heading: "Auswahl des Behandlungskonzepts", body: "Anschließend wird entschieden, ob die Mesotherapie für das gewünschte Ziel geeignet ist. Wenn ja, werden unter anderem die zu behandelnde Region, das verwendete Präparat, Anzahl und Verteilung der Mikroinjektionen, die Injektionstiefe und gegebenenfalls eine erforderliche Behandlungsserie festgelegt. Es wird nicht automatisch bei jeder Augenpartie dieselbe Substanz oder dasselbe Schema eingesetzt." },
+            { heading: "Mikroinjektionen", body: "Das ausgewählte Präparat wird mit einer feinen Nadel in kleinen Mengen oberflächlich in die vorgesehenen Bereiche eingebracht. Aufgrund der empfindlichen Region wird mit kleinen Injektionsmengen gearbeitet. Der gesamte Termin dauert ungefähr 20 bis 30 Minuten." },
+            { heading: "Nachkontrolle und weitere Planung", body: "Das Ergebnis wird nicht direkt nach der letzten Injektion endgültig beurteilt; zunächst können kleine Schwellungen oder Einstichreaktionen sichtbar sein. Im weiteren Verlauf wird beurteilt, wie sich Haut und Augenpartie entwickeln und ob weitere Sitzungen sinnvoll erscheinen." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "Wann sieht man das Ergebnis einer Augen-Mesotherapie?",
+            body: "Das endgültige Ergebnis einer Augen-Mesotherapie ist nicht unmittelbar nach der Injektion sichtbar. Direkt nach der Behandlung können zunächst kleine Erhebungen, Rötungen oder Schwellungen auftreten; Veränderungen der Hautqualität entwickeln sich anschließend schrittweise. Eine pauschale Garantie nach einer einzigen Sitzung ist deshalb nicht sinnvoll. Wie schnell und wie deutlich ein Effekt sichtbar wird, hängt unter anderem ab von:",
+            points: [
+              "Ausgangszustand der Haut",
+              "Verwendetem Präparat",
+              "Behandlungsziel",
+              "Anzahl der Sitzungen",
+              "Individueller Reaktion"
+            ]
+          },
+          {
+            heading: "Wie viele Sitzungen braucht man?",
+            body: "Wie viele Behandlungen sinnvoll sind, hängt vom verwendeten Präparat, dem Ausgangsbefund und dem gewünschten Ergebnis ab. Bei Mesotherapie-Konzepten werden häufig Behandlungsserien eingesetzt, ein universelles Schema für jede Person gibt es jedoch nicht. Vor Beginn sollte geklärt werden:",
+            points: [
+              "Ob eine einzelne Behandlung sinnvoll ist",
+              "Ob eine Serie vorgesehen ist",
+              "In welchem Abstand behandelt werden soll",
+              "Wann das Ergebnis beurteilt wird",
+              "Ob und wann eine Auffrischung infrage kommt"
+            ]
+          },
+          {
+            heading: "Wie lange hält das Ergebnis?",
+            body: "Die Haltbarkeit einer Augen-Mesotherapie ist nicht bei jeder Person gleich und hängt wesentlich vom verwendeten Präparat und der individuellen Hautsituation ab. Die Behandlung sollte deshalb nicht mit einer pauschalen Haltbarkeitsgarantie beworben werden. Auch bei einem guten Ergebnis verändert sich Haut kontinuierlich weiter; eine mögliche Wiederholung sollte nach dem tatsächlichen Hautzustand und nicht ausschließlich nach einem festen Kalender geplant werden."
+          },
+          {
+            heading: "Tut die Augen-Mesotherapie weh?",
+            body: "Bei der Augen-Mesotherapie werden mehrere sehr feine Mikroinjektionen gesetzt. Diese können als kurze Einstiche, leichtes Brennen oder ein Druckgefühl wahrgenommen werden. Das individuelle Schmerzempfinden unterscheidet sich. Die Haut unter den Augen ist besonders empfindlich, dadurch kann die Behandlung dort intensiver wahrgenommen werden als in weniger sensiblen Gesichtsbereichen."
+          },
+          {
+            heading: "Wie lange ist die Ausfallzeit?",
+            body: "Die Ausfallzeit ist normalerweise gering, sichtbare Reaktionen an den Einstichstellen können jedoch auftreten. Dazu gehören kleine Schwellungen, Rötungen oder Blutergüsse. Besonders bei der Augenpartie können selbst kleine Blutergüsse deutlich sichtbar sein. Wenn unmittelbar danach eine Hochzeit, eine Veranstaltung, eine Reise, eine professionelle Fotoaufnahme oder ein wichtiger beruflicher Termin geplant ist, sollte ausreichend zeitlicher Abstand berücksichtigt werden."
+          },
+          {
+            heading: "Kann die Augenpartie nach der Behandlung anschwellen?",
+            body: "Ja. Leichte Schwellungen gehören zu den möglichen unmittelbaren Reaktionen nach Mikroinjektionen unter den Augen. Die Region neigt aufgrund ihrer Anatomie besonders zu sichtbaren Flüssigkeitseinlagerungen. Wie stark eine Schwellung ausfällt, ist individuell. Bei ungewöhnlich starken, zunehmenden oder länger anhaltenden Beschwerden sollte die behandelnde Stelle kontaktiert werden."
+          },
+          {
+            heading: "Risiken und mögliche Nebenwirkungen",
+            body: "Auch eine Augen-Mesotherapie ist eine Injektionsbehandlung und damit nicht vollständig risikofrei. Besonders die anatomisch sensible Augenregion erfordert eine sorgfältige Behandlungsplanung. Je nach verwendetem Präparat können weitere Risiken relevant sein — etwa Überempfindlichkeitsreaktionen, Infektionen, länger anhaltende Schwellungen oder unerwünschte Gewebereaktionen. Die konkreten Risiken müssen deshalb anhand des tatsächlich verwendeten Präparats besprochen werden. Mögliche vorübergehende Reaktionen sind:",
+            points: [
+              "Rötung",
+              "Kleine Schwellungen",
+              "Druckempfindlichkeit",
+              "Punktförmige Einstichstellen",
+              "Kleine Blutergüsse",
+              "Vorübergehende Unebenheiten"
+            ]
+          },
+          {
+            heading: "Welche Beschwerden sollten nach der Behandlung abgeklärt werden?",
+            body: "Starke oder zunehmend ungewöhnliche Schmerzen, ausgeprägte Schwellung, deutliche Hautveränderungen, Anzeichen einer Infektion oder Sehstörungen sollten unverzüglich abgeklärt werden. Sehstörungen nach einer Injektionsbehandlung im Gesichtsbereich sind kein normales Behandlungsergebnis und erfordern eine sofortige medizinische Beurteilung."
+          },
+          {
+            heading: "Nachsorge nach Augen-Mesotherapie",
+            body: "Nach der Behandlung erhalten Sie individuelle Hinweise. Verschriebene Medikamente sollten niemals eigenständig für eine ästhetische Behandlung abgesetzt werden. Allgemein kann empfohlen werden:",
+            points: [
+              "Einstichstellen sauber zu halten",
+              "Die behandelte Region nicht stark zu reiben",
+              "Starken Druck unter den Augen zu vermeiden",
+              "Unmittelbar danach kein unnötiges Make-up auf die Einstichstellen aufzutragen",
+              "Intensive körperliche Belastung zunächst zu vermeiden",
+              "Sauna und starke Hitze vorübergehend zu meiden",
+              "Ungewöhnliche Beschwerden frühzeitig mitzuteilen"
+            ]
+          },
+          {
+            heading: "Augen-Mesotherapie vor Hochzeit oder Fotoshooting",
+            body: "Eine Augen-Mesotherapie sollte nicht unmittelbar vor einem wichtigen Termin geplant werden. Kleine Blutergüsse oder Schwellungen können auch bei einer grundsätzlich unkomplizierten Behandlung sichtbar bleiben. Wer vor einer Hochzeit, einem Fotoshooting, wichtigen beruflichen Terminen, Reisen oder Veranstaltungen behandelt werden möchte, sollte ausreichend Zeit für die Erholung der Einstichstellen einplanen."
+          }
+        ],
+        local: {
+          heading: "Augen-Mesotherapie am Kurfürstendamm in Berlin-Charlottenburg",
+          body: "Die AS Clinic Berlin befindet sich am Kurfürstendamm in Berlin-Charlottenburg. Wenn Sie nach einer Mesotherapie für die Augenpartie in Berlin, einer Behandlung für feine Linien unter den Augen oder einer Möglichkeit zur Verbesserung der Hautqualität im Unteraugenbereich suchen, wird zunächst geprüft, ob diese Methode zu Ihrer individuellen Ausgangssituation passt.",
+          links: [
+            { label: "AS Clinic Berlin am Kurfürstendamm — Anfahrt und Lage", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Warum AS Clinic für Augen-Mesotherapie in Berlin?",
+          points: [
+            { heading: "Ursache vor Behandlung", body: "Nicht jeder Augenring und nicht jede müde wirkende Augenpartie hat dieselbe Ursache. Deshalb steht zunächst die Analyse im Vordergrund." },
+            { heading: "Hautqualität statt unnötigem Volumen", body: "Bei der Augen-Mesotherapie geht es nicht darum, automatisch Volumen unter die Augen zu bringen. Das Behandlungskonzept richtet sich gezielt an die Haut." },
+            { heading: "Individuelle Produktauswahl", body: "Welches Präparat eingesetzt wird, sollte sich nach Behandlungsziel und individueller Ausgangssituation richten." },
+            { heading: "Sensible Region – zurückhaltende Planung", body: "Die Haut unter den Augen gehört zu den dünnsten Hautregionen im Gesicht. Dementsprechend wird die Behandlung individuell geplant." },
+            { heading: "Klare Abgrenzung zu anderen Verfahren", body: "Mesotherapie, Tear-Trough-Filler, Botulinumtoxin, Skin Booster und andere Behandlungen erfüllen unterschiedliche Aufgaben und werden nicht automatisch gegeneinander ausgetauscht." },
+            { heading: "Mehrsprachige Beratung", body: "Beratung und Kommunikation sind in der AS Clinic auf Deutsch, Englisch, Spanisch, Russisch, Persisch und Arabisch möglich." }
+          ]
+        },
+        faqHeading: "Häufige Fragen zur Augen-Mesotherapie in Berlin",
+        faqs: [
+          { q: "Was ist eine Augen-Mesotherapie?", a: "Bei der Augen-Mesotherapie werden kleine Mengen eines ausgewählten Präparats über oberflächliche Mikroinjektionen in die dünne Haut der Augenpartie eingebracht. Im Vordergrund stehen Hautqualität und Feuchtigkeit, nicht ein ausgeprägter Volumenaufbau." },
+          { q: "Hilft Mesotherapie gegen Augenringe?", a: "Das hängt von der Ursache der Augenringe ab. Bei Problemen der Hautqualität kann eine Mesotherapie infrage kommen. Sind dagegen Pigmentierung, Gefäße, eine ausgeprägte Tränenrinne oder Fettpolster die Hauptursache, können andere Behandlungen besser geeignet sein." },
+          { q: "Hilft Mesotherapie gegen Tränensäcke?", a: "Ausgeprägte Tränensäcke entstehen häufig durch anatomische beziehungsweise strukturelle Veränderungen und können durch eine oberflächliche Mesotherapie nicht einfach entfernt werden. Vor der Behandlung sollte deshalb geklärt werden, was die sichtbare Vorwölbung verursacht." },
+          { q: "Hilft Mesotherapie gegen die Tränenrinne?", a: "Eine deutlich ausgeprägte Tränenrinne ist primär ein strukturelles beziehungsweise volumetrisches Problem. Eine Mesotherapie baut normalerweise nicht dasselbe Volumen auf wie ein dafür vorgesehener Filler und ist deshalb nicht automatisch die passende Behandlung." },
+          { q: "Kann Augen-Mesotherapie feine Falten verbessern?", a: "Feine Linien können abhängig von ihrer Ursache und der Hautqualität weniger sichtbar erscheinen. Tief eingeprägte Falten oder vorwiegend mimische Linien benötigen möglicherweise einen anderen Behandlungsansatz." },
+          { q: "Verbessert Augen-Mesotherapie trockene Haut?", a: "Die Behandlung kann abhängig vom verwendeten Präparat auf die Feuchtigkeitsversorgung und Hautqualität ausgerichtet sein. Wie stark die Haut darauf reagiert, ist individuell." },
+          { q: "Ist Augen-Mesotherapie ein Filler?", a: "Nicht im klassischen Sinn. Die Behandlung ist nicht primär darauf ausgelegt, eine Tränenrinne mit größerem Volumen aufzufüllen. Der Schwerpunkt liegt auf oberflächlichen Mikroinjektionen und der Hautqualität." },
+          { q: "Was ist besser: Augen-Mesotherapie oder Tear-Trough-Filler?", a: "Das hängt vom Problem ab. Bei einem strukturellen Volumendefizit kann ein Filler relevant sein. Bei feiner, trockener oder oberflächlich veränderter Haut kann ein Hautqualitätskonzept sinnvoller sein." },
+          { q: "Was ist besser: Augen-Mesotherapie oder Skin Booster?", a: "Die Begriffe können sich je nach Produkt und Technik teilweise überschneiden. Entscheidend ist nicht nur der Name der Behandlung, sondern welcher Wirkstoff eingesetzt wird und welches Problem behandelt werden soll." },
+          { q: "Was ist besser: Augen-Mesotherapie oder Polynukleotide?", a: "Beide Konzepte können auf die Hautqualität ausgerichtet sein, verwenden jedoch nicht automatisch dieselben Wirkstoffe. Welche Option besser passt, hängt vom Hautzustand, Produkt und gewünschten Ergebnis ab." },
+          { q: "Was ist besser: Augen-Mesotherapie oder Botox?", a: "Botulinumtoxin behandelt hauptsächlich Muskelaktivität, Mesotherapie dagegen stärker die Hautqualität. Bei Krähenfüßen durch Mimik kann daher ein anderes Konzept sinnvoll sein als bei trockener Haut und feinen Trockenheitslinien." },
+          { q: "Wie lange dauert die Behandlung?", a: "Für eine Augen-Mesotherapie bei AS Clinic sollten ungefähr 20 bis 30 Minuten eingeplant werden. Die tatsächliche Dauer hängt vom individuellen Behandlungsplan ab." },
+          { q: "Wie viele Sitzungen sind notwendig?", a: "Die Anzahl der Sitzungen hängt vom verwendeten Präparat, dem Hautzustand und dem Behandlungsziel ab. Ein universelles Behandlungsschema für jede Person gibt es nicht." },
+          { q: "Wann sieht man ein Ergebnis?", a: "Direkt nach der Behandlung können zunächst Einstichstellen und Schwellungen sichtbar sein. Veränderungen der Hautqualität entwickeln sich anschließend und sollten nicht unmittelbar nach der Injektion abschließend beurteilt werden." },
+          { q: "Wie lange hält das Ergebnis?", a: "Die Haltbarkeit ist abhängig vom verwendeten Produkt und der individuellen Hautsituation. Eine pauschale Haltbarkeitsangabe ist deshalb ohne Kenntnis des konkreten Behandlungskonzeptes nicht sinnvoll." },
+          { q: "Hat die Augen-Mesotherapie Ausfallzeit?", a: "Die Ausfallzeit ist meist gering. Kleine Schwellungen, Rötungen und Blutergüsse können jedoch auftreten und vorübergehend sichtbar sein." },
+          { q: "Kann ich nach der Behandlung arbeiten?", a: "Viele Personen können ihren Alltag anschließend fortsetzen. Da die Augenpartie jedoch sichtbar anschwellen oder kleine Blutergüsse entwickeln kann, sollte dies bei wichtigen Terminen berücksichtigt werden." },
+          { q: "Wann darf ich wieder Make-up benutzen?", a: "Frische Einstichstellen sollten zunächst sauber und möglichst unberührt bleiben. Wann Make-up wieder verwendet werden kann, wird abhängig von der Behandlung individuell empfohlen." },
+          { q: "Tut Augen-Mesotherapie weh?", a: "Die Behandlung besteht aus mehreren feinen Mikroinjektionen. Kurze Einstichreize oder leichtes Brennen sind möglich; das individuelle Schmerzempfinden unterscheidet sich." },
+          { q: "Kann die Behandlung Schwellungen verursachen?", a: "Ja. Vorübergehende Schwellungen sind nach Mikroinjektionen möglich und können im dünnen Unteraugenbereich besonders sichtbar sein." },
+          { q: "Welche Risiken gibt es?", a: "Möglich sind unter anderem Rötung, Schwellung, Blutergüsse, Infektionen oder Reaktionen auf das verwendete Präparat. Die konkreten Risiken hängen auch vom tatsächlich eingesetzten Produkt ab und werden vor der Behandlung besprochen." },
+          { q: "Was kostet Augen-Mesotherapie bei AS Clinic Berlin?", a: "Die Kosten hängen vom individuellen Behandlungskonzept, dem verwendeten Präparat und gegebenenfalls der Anzahl der Sitzungen ab. Der konkrete Preis wird vor der Behandlung transparent besprochen." },
+          { q: "Wo kann ich Augen-Mesotherapie in Berlin machen lassen?", a: "Die AS Clinic bietet Beratung zur Augen-Mesotherapie am Kurfürstendamm 102 in Berlin-Charlottenburg an. Vor einer Behandlung wird geprüft, welche Ursache hinter der gewünschten Veränderung der Augenpartie steht und ob eine Mesotherapie dafür geeignet ist." }
+        ],
+        relatedHeading: "Passende Behandlungen in der AS Clinic Berlin",
+        related: [
+          { slug: "botox", blurb: "Botox in Berlin: behandelt mimische Krähenfüße über die Muskelaktivität statt über die Hautqualität." },
+          { slug: "mesobotox", blurb: "Mesobotox in Berlin: oberflächliche Micro-Dose-Technik für feine Linien und Hautbild." },
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injizierbare Feuchtigkeit für die Hautqualität im Gesicht." },
+          { slug: "profhilo", blurb: "Profhilo in Berlin: verteiltes Hyaluron zur Verbesserung von Hautbild und Elastizität." },
+          { slug: "mesotherapy-mesocan", blurb: "Mesotherapie in Berlin: oberflächliche Wirkstoffinjektionen für größere Gesichtsareale." },
+          { slug: "lip-filler", blurb: "Lippenfiller in Berlin: Hyaluronsäure für Volumen und Kontur der Lippen." }
+        ],
+        ctaHeading: "Beratung für Augen-Mesotherapie in Berlin vereinbaren",
+        ctaBody: "Ihre Augenpartie wirkt müde, trocken oder feinlinig und Sie möchten wissen, welche Behandlung tatsächlich zu Ihrer Ausgangssituation passt? Im persönlichen Beratungstermin in der AS Clinic Berlin am Kurfürstendamm klären wir, wodurch Ihre Augenpartie müde oder dunkel wirkt, ob Hautqualität, Tränenrinne, Pigmentierung oder Schwellung im Vordergrund stehen, ob eine Augen-Mesotherapie für Sie geeignet ist, welches Präparat für das geplante Ziel infrage kommt, wie viele Sitzungen sinnvoll erscheinen, welche Alternativen bestehen, welche Risiken berücksichtigt werden müssen und welche Kosten entstehen.",
+        disclaimer: {
+          heading: "Medizinischer Hinweis",
+          body: "Die Informationen auf dieser Seite dienen der allgemeinen Information über ästhetische Injektionsbehandlungen der Augenpartie und ersetzen keine persönliche Untersuchung, individuelle Beratung oder Risikoaufklärung. Der Begriff Mesotherapie beschreibt kein einzelnes standardisiertes Präparat. Wirkung, Risiken, geeignete Injektionstechnik und mögliche Gegenanzeigen hängen deshalb wesentlich vom tatsächlich verwendeten Produkt sowie von der individuellen Anatomie und Ausgangssituation ab."
+        }
+      },
       title: "Augen-Mesotherapie",
-      metaTitle: "Augen-Mesotherapie in Berlin — Frische Augenpartie | AS Clinic",
-      metaDescription: "Augen-Mesotherapie in der AS Clinic Berlin: kanülenfreies Micro-Needling für die zarte Augenpartie, gegen feine Linien und leichte Schwellungen. Kostenlose Beratung.",
+      metaTitle: "Augen-Mesotherapie Berlin: Frische Augenpartie | AS Clinic",
+      metaDescription: "Augen-Mesotherapie in Berlin bei AS Clinic am Kurfürstendamm: Mikroinjektionen für Feuchtigkeit, feine Linien und eine frischere Augenpartie. Beratung buchen.",
       heroKicker: "Injektionen · Augen-Mesotherapie",
       heroLead: "Eine sanfte Behandlung mit geringem Volumen für die dünnste Haut Ihres Gesichts — Feuchtigkeit und Lymphunterstützung statt Volumen.",
-      imageAlt: "Mesotherapie-Behandlung der Augenpartie unter dem Auge",
-      chip: "20–30 Min. · Minimale Ausfallzeit",
+      imageAlt: "Augen-Mesotherapie mit Mikroinjektionen bei AS Clinic Berlin",
+      chip: "ca. 20–30 Min. · Oberflächliche Mikroinjektionen",
       sections: [
         { heading: "Was es ist", body: "Ein präziser Mesotherapie-Cocktail mit geringem Volumen — meist feuchtigkeitsspendende Hyaluronsäure mit Vitaminen und Peptiden —, der mit kontrollierter Micro-Needling-Tiefe direkt unter die Haut der Augenpartie eingebracht wird, ohne die tieferen Injektionen anderer Gesichtsareale." },
         { heading: "Für wen es geeignet ist", body: "Für Gäste mit feinen Trockenheitslinien, fahler Haut oder leichten Schwellungen um die Augen, die (noch) keinen chirurgischen oder Filler-Ansatz brauchen. Nicht geeignet bei akuter Augeninfektion, in der Schwangerschaft oder Stillzeit." },
