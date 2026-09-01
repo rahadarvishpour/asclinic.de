@@ -16,6 +16,10 @@ import { BIO_LIFTING } from "./bio-lifting";
 import { MESOTHERAPY_MESOCAN } from "./mesotherapy-mesocan";
 import { HAIR_MESO } from "./hair-meso";
 import { PRP_MESO_HAIR } from "./prp-meso-hair";
+import { EYEBROW_TRANSPLANT } from "./eyebrow-transplant";
+import { BEARD_TRANSPLANT } from "./beard-transplant";
+import { BLEPHAROPLASTY } from "./blepharoplasty";
+import { DIRECT_LIFT } from "./direct-lift";
 
 export const TREATMENT_PAGES: Record<string, TreatmentPage> = {
   [LIP_FILLER.slug]: LIP_FILLER,
@@ -33,13 +37,28 @@ export const TREATMENT_PAGES: Record<string, TreatmentPage> = {
   [BIO_LIFTING.slug]: BIO_LIFTING,
   [MESOTHERAPY_MESOCAN.slug]: MESOTHERAPY_MESOCAN,
   [HAIR_MESO.slug]: HAIR_MESO,
-  [PRP_MESO_HAIR.slug]: PRP_MESO_HAIR
+  [PRP_MESO_HAIR.slug]: PRP_MESO_HAIR,
+  [EYEBROW_TRANSPLANT.slug]: EYEBROW_TRANSPLANT,
+  [BEARD_TRANSPLANT.slug]: BEARD_TRANSPLANT,
+  [BLEPHAROPLASTY.slug]: BLEPHAROPLASTY,
+  [DIRECT_LIFT.slug]: DIRECT_LIFT
 };
 
-/** Locale-resolved page copy. Every locale is fully translated; the English
- *  fallback exists only so a newly added locale can never render undefined. */
+/** Locale-resolved page copy. The English fallback exists only so a caller that
+ *  reaches for a locale this treatment is not published in still renders. */
 export function treatmentContent(page: TreatmentPage, locale: Locale): TreatmentContent {
   return page.content[locale] ?? page.content.en;
+}
+
+/** Whether this treatment is published in `locale` — used both to decide which
+ *  URLs exist and which hreflang alternates may be advertised. */
+export function hasLocale(page: TreatmentPage, locale: Locale): boolean {
+  return Boolean(page.content[locale]);
+}
+
+/** The treatments that have a detail page in `locale`. */
+export function treatmentPagesFor(locale: Locale): TreatmentPage[] {
+  return Object.values(TREATMENT_PAGES).filter((page) => hasLocale(page, locale));
 }
 
 export type { TreatmentPage, TreatmentContent } from "./types";

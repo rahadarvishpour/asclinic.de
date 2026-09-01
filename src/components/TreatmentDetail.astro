@@ -5,8 +5,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
-import { t, sectionHref, ti, localePath, bookingUrl, type Locale } from "../i18n/ui";
-import { TREATMENT_PAGES, treatmentContent } from "../data/treatmentPages";
+import { t, sectionHref, ti, localePath, bookingUrl, LOCALES, type Locale } from "../i18n/ui";
+import { TREATMENT_PAGES, treatmentContent, hasLocale } from "../data/treatmentPages";
 import type { TreatmentPage, SectionLink } from "../data/treatmentPages/types";
 
 interface Props {
@@ -36,6 +36,9 @@ const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
 const homeHref = localePath(locale);
 const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 const categoryLabel = t(locale, page.category.categoryLabelKey);
+// Some treatments are published in fewer languages; hreflang must only list the
+// URLs that were actually built for this treatment.
+const publishedLocales = LOCALES.map((l) => l.code).filter((code) => hasLocale(page, code));
 
 // Contextual links inside the article body: a treatment slug resolves to that
 // page in the reader's own locale, an anchor to the matching homepage section.
@@ -113,6 +116,7 @@ const procedureJsonLd = {
   description={copy.metaDescription}
   includeFaqSchema={false}
   unprefixedPath={unprefixedPath}
+  hreflangLocales={publishedLocales}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} is:inline />

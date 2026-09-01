@@ -5,13 +5,278 @@ export const MESOTHERAPY_MESOCAN: TreatmentPage = {
   category: { categoryLabelKey: "nav.inject", categoryAnchorId: "injectables" },
   content: {
     en: {
+      article: {
+        h1: "Mesotherapy · Mesocan in Berlin – AS Clinic",
+        heroIntro: "Skin that is low in moisture, dull or finely lined does not automatically need more volume. In mesotherapy, small amounts of a selected product are placed superficially into the skin through many fine micro-injections. The focus is skin quality, hydration and a fresher-looking complexion overall – not changing the shape or proportions of the face.",
+        heroBody: [
+          "At AS Clinic Berlin on Kurfürstendamm the treatment is planned individually according to the condition of your skin, the treatment goal and the injection solution used. The name \"Mesotherapy · Mesocan\" denotes AS Clinic's mesotherapy concept; which solution and which ingredients are planned for your appointment is discussed transparently before treatment.",
+          "Mesotherapy is not a classic hyaluronic acid filler and not botulinum toxin. It is carried out more superficially and across an area, to support the skin without deliberately building up the cheeks, lips, chin or jawline."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "What is mesotherapy?",
+          body: "Mesotherapy is an injection technique in which small amounts of a selected product are placed superficially into the skin through numerous fine micro-injections. Which active substances are used depends on the specific product and the treatment goal. The term \"mesotherapy\" therefore does not describe a single standardised product: depending on the preparation, the composition, injection depth, number of treatment points and course of treatment can all differ."
+        },
+        glanceHeading: "Mesotherapy in Berlin – the key facts at a glance",
+        glance: [
+          { label: "Treatment", value: "Superficial mesotherapy with micro-injections" },
+          { label: "Treatment goal", value: "Skin quality, hydration and fine superficial lines" },
+          { label: "Location", value: "AS Clinic, Kurfürstendamm 102, 10711 Berlin-Charlottenburg" },
+          { label: "Treatment time", value: "Approx. 25–35 minutes" },
+          { label: "Treatment plan", value: "Depends on the condition of the skin, the product and the treatment goal" },
+          { label: "Sessions", value: "A course of treatments can make sense; the number and interval are set individually" },
+          { label: "Downtime", value: "Usually minimal; redness, small swellings or bruising are possible" },
+          { label: "Result", value: "Develops gradually and is individual" },
+          { label: "Volume build-up", value: "Not the primary treatment goal" },
+          { label: "Consultation", value: "In person and without obligation" }
+        ],
+        sections: [
+          {
+            heading: "What should be established before mesotherapy?",
+            body: "For a sound consultation, the name of the method alone is not what matters. Before treatment it should be clear:",
+            points: [
+              "Which product is used",
+              "Which ingredients it contains",
+              "Which skin concern is to be treated",
+              "How many sessions appear sensible",
+              "Which effect is realistic",
+              "Which side effects and contraindications have to be taken into account"
+            ],
+            links: [
+              { label: "All injectable treatments in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "What does \"Mesocan\" mean at AS Clinic?",
+            body: "\"Mesotherapy · Mesocan\" is the name of AS Clinic's mesotherapy offering. The specific injection solution is not inferred from the name in blanket terms, but named before treatment and chosen according to your skin and the treatment goal. That keeps it transparent which product is actually used — a general description such as \"vitamin cocktail\" would be too imprecise without knowing the specific composition."
+          },
+          {
+            heading: "What can facial mesotherapy be used for?",
+            body: "Facial mesotherapy can be of particular interest where the priority is not more facial volume but an improvement in selected properties of the skin. How much these points change depends on the product used and on your individual skin; mesotherapy should therefore not be understood as a treatment that corrects every form of line, pigmentation, scarring or skin laxity equally.",
+            points: [
+              "Skin that is dry or low in moisture",
+              "A dull or tired-looking complexion",
+              "Fine superficial lines",
+              "Uneven skin texture",
+              "Elasticity that appears to be decreasing",
+              "A wish for a subtle refresh without classic volume build-up"
+            ]
+          },
+          {
+            heading: "Can mesotherapy improve skin hydration?",
+            body: "With mesotherapy concepts using suitable hyaluronic-acid-based products, clinical studies show indications of improvements in skin hydration and elasticity. The effect depends on the product and the person, however, and is not equivalent to a volume filler. Hyaluronic acid that is not cross-linked, or developed for superficial skin treatments, can bind water in the tissue; with a suitable treatment the skin can therefore appear smoother and fresher."
+          },
+          {
+            heading: "Can mesotherapy improve fine lines?",
+            body: "Fine superficial lines can appear less distinct depending on their cause and the product used. Deeply etched lines, or lines that are mainly expression-related, may need a different approach. Before treatment we therefore distinguish between:",
+            points: [
+              "Dryness lines",
+              "Expression lines caused by muscle movement",
+              "Static lines that remain visible at rest",
+              "Structural changes from volume loss or skin laxity"
+            ]
+          },
+          {
+            heading: "How well is mesotherapy studied scientifically?",
+            body: "The scientific evidence depends heavily on the injection solution used. For certain hyaluronic-acid-based mesotherapy and skin booster concepts there are clinical studies with positive results for hydration, elasticity and skin quality; for unspecific multivitamin mixtures the results are considerably less consistent. The effect should therefore not be inferred from the term \"mesotherapy\" in blanket terms — the product, the ingredients, the injection technique, the course of treatment and the specific indication are what matter."
+          },
+          {
+            heading: "Mesotherapy or a Skin Booster – what is the difference?",
+            body: "Mesotherapy describes above all a technique with several superficial micro-injections. \"Skin booster\" is a more broadly used term for injectable treatments aimed at skin quality and hydration. Depending on the product used, the two concepts can overlap. What matters for the decision is therefore which product is used and which goal is to be treated, rather than the name of the method alone.",
+            links: [
+              { label: "Skin Booster in Berlin", slug: "skin-booster" }
+            ]
+          },
+          {
+            heading: "Mesotherapy or a hyaluronic acid filler – what is the difference?",
+            body: "A classic hyaluronic acid filler is used to change volume, shape or contour in a targeted way. Mesotherapy works more superficially and across an area; a pronounced build-up of volume is not its primary goal.",
+            compare: {
+              headings: ["Mesotherapy", "Classic hyaluronic acid filler"],
+              rows: [
+                ["Superficial micro-injections", "Targeted placement of volume"],
+                ["Focus on skin quality", "Focus on shape, contour or volume"],
+                ["Many small treatment points", "Different injection techniques depending on the region"],
+                ["No primary facial modelling", "A visible structural change is possible"]
+              ]
+            },
+            links: [
+              { label: "Cheek filler in Berlin", slug: "cheek-filler" },
+              { label: "Lip filler in Berlin", slug: "lip-filler" }
+            ]
+          },
+          {
+            heading: "Mesotherapy or Botox – what is the difference?",
+            body: "Botulinum toxin reduces the activity of specific muscles and is used above all for expression lines. Mesotherapy addresses the superficial skin instead and does not change muscle activity in the same way. For a pronounced frown line or crow's feet caused by strong facial movement, a different treatment can therefore make sense than for dry, finely textured skin.",
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "Mesotherapy or Profhilo – what is the difference?",
+            body: "Profhilo is a specific hyaluronic-acid-based product and treatment concept. Mesotherapy, by contrast, is a technique — a collective term for superficial micro-injections with various possible products. Which treatment suits better depends on the condition of the skin, the effect you want and the product actually planned.",
+            links: [
+              { label: "Profhilo in Berlin", slug: "profhilo" }
+            ]
+          },
+          {
+            heading: "Which areas can be treated?",
+            body: "Which regions are suitable for mesotherapy depends on the product used and your individual skin. The face is often the focus; depending on the treatment concept, other areas of skin can also be discussed. In the face, particular attention can be paid to areas where skin quality and hydration are the priority. Very delicate regions, for example immediately around the eyes, need their own anatomical assessment and, where applicable, a concept designed specifically for them.",
+            links: [
+              { label: "Eye mesotherapy in Berlin", slug: "eyes-mesotherapy" }
+            ]
+          }
+        ],
+        process: {
+          heading: "How mesotherapy works at AS Clinic Berlin",
+          steps: [
+            { heading: "Personal consultation", body: "We start by establishing what you would like to change about your skin, distinguishing whether dryness, fine lines, skin texture, pigmentation, volume loss or another change is the priority." },
+            { heading: "Skin analysis and choice of concept", body: "The skin is assessed for texture, hydration, sensitivity and visible changes. We then decide whether mesotherapy makes sense or whether another procedure fits the treatment goal better." },
+            { heading: "Transparent discussion of the product", body: "Before treatment we discuss which product is to be used and which ingredients are relevant for the specific injection solution. That allows the treatment to be distinguished clearly from other injectable procedures." },
+            { heading: "Preparation", body: "The skin is cleaned and disinfected. Depending on the region treated and how you feel, local pain relief can be planned differently." },
+            { heading: "Micro-injections", body: "The chosen product is placed into the planned areas of skin in small amounts across numerous fine injection points. The whole appointment takes about 25 to 35 minutes." },
+            { heading: "Further sessions and course", body: "Mesotherapy is often planned as a course of treatments. Whether several sessions make sense, at what interval they take place and when a top-up is an option depends on the product used, the condition of the skin and the result so far." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "When do you see the result of mesotherapy?",
+            body: "The final result is not visible right after the last micro-injection. Immediately afterwards, small bumps, redness or swelling can appear; changes in skin quality then develop gradually. How quickly an effect is noticed depends particularly on your starting skin, the product and the number of sessions planned."
+          },
+          {
+            heading: "How many sessions do you need?",
+            body: "There is no fixed number of sessions that applies to every mesotherapy. Depending on the product and the treatment goal, a course can make sense; the number and interval of appointments are set individually. A course should not be extended simply because a blanket standard package provides for it — it makes more sense to assess the course so far and the effect actually achieved."
+          },
+          {
+            heading: "How long does the result last?",
+            body: "The longevity of mesotherapy cannot be stated in blanket terms. It depends heavily on the product used, the course of treatments and your individual skin. Even after a visible result the skin continues to change; a possible repeat should therefore be planned according to the actual condition of the skin and not solely by a fixed calendar."
+          },
+          {
+            heading: "Does mesotherapy hurt?",
+            body: "The treatment consists of many small injections. These can be felt as brief pinpricks, slight burning or pressure. How much you feel is individual. Because the work covers a wider area than a treatment with a few injection points, the experience differs from classic filler or Botox treatments."
+          },
+          {
+            heading: "How long is the downtime?",
+            body: "Downtime is usually minimal. Small areas of redness, pinpoint swelling, temporary bumps or bruising can occur, however, and be visible for a while. If a wedding, photoshoot, important business appointment or another event is planned straight afterwards, allow an appropriate gap."
+          },
+          {
+            heading: "Risks and possible side effects",
+            body: "Mesotherapy is an invasive injectable treatment too and not entirely free of risk. Local, temporary reactions are more common; further risks depend substantially on the product used and the region treated. The specific explanation of risks must therefore relate to the product actually used. Possible reactions are:",
+            points: [
+              "Redness",
+              "Small swellings or bumps",
+              "Tenderness or burning",
+              "Small bruises",
+              "Temporary irregularities",
+              "Infections",
+              "Hypersensitivity or inflammatory reactions to components of the product used"
+            ]
+          },
+          {
+            heading: "Which symptoms should be assessed?",
+            body: "Unusually severe or increasingly painful reactions, marked signs of inflammation, strongly increasing swelling or other unexpected symptoms should be assessed medically promptly. For any injectable treatment in the face the following also applies: sudden visual disturbances or neurological symptoms are not a normal treatment outcome and require immediate emergency medical assessment."
+          },
+          {
+            heading: "Who may mesotherapy be suitable for?",
+            body: "Mesotherapy may be an option for adults where skin quality, hydration or fine superficial changes are the priority and the chosen product suits their individual situation. Among the things taken into account are:",
+            points: [
+              "The condition of the skin",
+              "The treatment goal",
+              "Allergies and intolerances",
+              "Existing illnesses",
+              "Medication taken regularly",
+              "Previous injectable treatments",
+              "Current inflammation or infection"
+            ]
+          },
+          {
+            heading: "When should mesotherapy not be carried out, or be postponed?",
+            body: "With acute infections or inflammation in the treatment area, and with certain medical risk factors, mesotherapy can be unsuitable or postponed. Further contraindications depend on the product actually used. Pregnancy or breastfeeding, known allergies and certain illnesses or medicines should be stated before treatment planning begins. Prescribed medicines should never be stopped or paused on your own initiative for an aesthetic treatment."
+          },
+          {
+            heading: "Aftercare following mesotherapy",
+            body: "You will receive individual instructions after treatment. In general it can make sense to:",
+            points: [
+              "Touch the treated skin as little as possible at first",
+              "Keep the injection sites clean",
+              "Avoid firm rubbing or massaging, unless this has been expressly recommended",
+              "Not apply unnecessary irritating skin products immediately after treatment",
+              "Avoid intense physical exertion at first",
+              "Avoid saunas and strong heat for a while",
+              "Report noticeable or increasingly severe symptoms early"
+            ]
+          },
+          {
+            heading: "Medically reviewed",
+            body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. The medical review of this content does not replace a personal assessment before treatment."
+          }
+        ],
+        local: {
+          heading: "Mesotherapy on Kurfürstendamm in Berlin-Charlottenburg",
+          body: "AS Clinic Berlin is located on Kurfürstendamm in Berlin-Charlottenburg. If you are looking for mesotherapy in Berlin, facial mesotherapy or a treatment to support skin quality, the first step is to assess which concern is the priority and whether the mesotherapy concept is suitable for it.",
+          links: [
+            { label: "AS Clinic Berlin on Kurfürstendamm — location and directions", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Why choose AS Clinic for mesotherapy in Berlin?",
+          points: [
+            { heading: "Define the skin concern first", body: "Not every dull or finely lined skin needs the same injectable treatment. Before treatment we therefore establish whether mesotherapy suits the visible problem at all." },
+            { heading: "Transparency about the product", body: "Because mesotherapy does not denote a uniform product, the injection solution actually planned is named and discussed before treatment." },
+            { heading: "Not to be confused with a volume filler", body: "The goal of mesotherapy is not to reshape features with added volume. Where contour or structural volume loss is the priority, we check whether another procedure makes more sense." },
+            { heading: "A course of treatments as needed", body: "The number of sessions is not derived from a blanket scheme alone, but adapted to the product, the condition of the skin and the response so far." },
+            { heading: "Medical framing", body: "The possibilities, the limits, possible side effects and relevant contraindications are discussed before treatment." }
+          ]
+        },
+        faqHeading: "Frequently asked questions about mesotherapy in Berlin",
+        faqs: [
+          { q: "What is mesotherapy?", a: "Mesotherapy is a treatment technique using many small, superficial micro-injections. The product used can be composed differently depending on the treatment concept." },
+          { q: "What is Mesocan?", a: "\"Mesotherapy · Mesocan\" is the name of AS Clinic's mesotherapy offering. The specific injection solution and its ingredients are discussed transparently before treatment." },
+          { q: "Is mesotherapy a vitamin cocktail?", a: "Not necessarily. Which active substances it contains depends on the specific product. Describing it in blanket terms as a vitamin cocktail would be too imprecise without knowing the solution used." },
+          { q: "Does mesotherapy help with dry skin?", a: "With suitable hyaluronic-acid-based products, mesotherapy can be aimed at skin hydration. How marked the effect is depends on the product and your individual skin." },
+          { q: "Can mesotherapy improve fine lines?", a: "Fine superficial lines can appear less visible depending on the cause and the product used. Deeply etched or strongly expression-related lines may need a different treatment." },
+          { q: "Is mesotherapy the same as a skin booster?", a: "Not necessarily. Mesotherapy describes above all the injection technique, while skin booster is a more broadly used term for certain injectable skin-quality treatments. Depending on the product, the concepts can overlap." },
+          { q: "Is mesotherapy a hyaluronic acid filler?", a: "No. Classic fillers serve targeted volume and contour build-up. Mesotherapy is carried out more superficially and across an area and does not have pronounced volume build-up as its primary goal." },
+          { q: "Is mesotherapy the same as Profhilo?", a: "No. Profhilo is a specific hyaluronic-acid-based product and treatment concept. Mesotherapy is a technique, or collective term, for superficial micro-injections with various products." },
+          { q: "Is mesotherapy the same as Botox?", a: "No. Botulinum toxin influences muscle activity in a targeted way. Mesotherapy addresses the superficial skin instead and does not change the activity of the muscles of expression in the same way." },
+          { q: "How long does mesotherapy take?", a: "Allow about 25 to 35 minutes for an appointment at AS Clinic. The exact duration depends on the region treated and your individual concept." },
+          { q: "How many sessions are needed?", a: "There is no fixed number of sessions for every mesotherapy. Depending on the product and the treatment goal, a course can make sense; the number and interval are planned individually." },
+          { q: "When do you see the result?", a: "The result is not conclusively visible right after the last micro-injection. Changes in skin quality develop gradually, while immediate redness or small bumps subside first." },
+          { q: "How long does the result last?", a: "Longevity depends substantially on the product used, the course of treatments and your individual skin. A blanket duration therefore cannot honestly be given for all mesotherapy treatments." },
+          { q: "Does mesotherapy hurt?", a: "The many small micro-injections can be felt as brief pinpricks, slight burning or pressure. How much you feel is individual." },
+          { q: "Is there downtime after mesotherapy?", a: "Downtime is usually minimal. Redness, small swellings, pinpoint bumps or bruising can be visible for a while, however." },
+          { q: "Can I work after mesotherapy?", a: "Many people can carry on with their day afterwards. If you want to avoid visible injection-site reactions, do not schedule important commitments immediately after treatment." },
+          { q: "Can I wear make-up after mesotherapy?", a: "Fresh injection sites should be kept clean and touched as little as possible at first. When make-up can sensibly be used again is explained to you individually after treatment." },
+          { q: "What side effects can mesotherapy have?", a: "Possible effects include redness, swelling, tenderness, small bruises, infections or reactions to components of the product used." },
+          { q: "Is mesotherapy possible during pregnancy or breastfeeding?", a: "Whether a treatment can be carried out also depends on the product used. Pregnancy or breastfeeding should always be stated before planning; aesthetic injectable treatments are often postponed in this situation." },
+          { q: "Can mesotherapy remove pigment spots?", a: "Mesotherapy is not a universal treatment for pigment spots. With changes in pigmentation, the cause should first be established along with which procedure is suitable for it." },
+          { q: "Can mesotherapy treat acne?", a: "Active acne or inflammatory skin conditions should not be treated with aesthetic mesotherapy as a matter of course. The dermatological cause, or the current state of the skin, has to be assessed first." },
+          { q: "What does mesotherapy cost at AS Clinic Berlin?", a: "The cost depends on the product used, the region treated and, where applicable, the planned course of treatments. The specific price is discussed transparently before treatment." },
+          { q: "Where can I have mesotherapy in Berlin?", a: "AS Clinic offers mesotherapy consultations at Kurfürstendamm 102 in Berlin-Charlottenburg. Before treatment, the condition of your skin, the treatment goal and the product actually planned are discussed individually." }
+        ],
+        relatedHeading: "Related treatments at AS Clinic Berlin",
+        related: [
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: an injectable skin-quality treatment — a product category rather than a technique." },
+          { slug: "profhilo", blurb: "Profhilo in Berlin: a specific hyaluronic acid product with its own bio-remodelling concept." },
+          { slug: "eyes-mesotherapy", blurb: "Eye mesotherapy in Berlin: its own concept for the particularly delicate eye area." },
+          { slug: "mesobotox", blurb: "Mesobotox in Berlin: a superficial micro-dose technique using botulinum toxin." },
+          { slug: "bio-lifting", blurb: "Bio-lifting in Berlin: a collagen-stimulating concept for skin firmness and structure." },
+          { slug: "cheek-filler", blurb: "Cheek filler in Berlin: targeted volume build-up rather than superficial skin treatment." }
+        ],
+        ctaHeading: "Arrange a mesotherapy consultation in Berlin",
+        ctaBody: "Would you like a targeted treatment for skin quality and want to know whether mesotherapy suits your skin? Arrange a personal consultation at AS Clinic Berlin on Kurfürstendamm. We establish which skin concern is the priority, which product is an option for the planned goal, whether a course of treatments makes sense and which alternatives exist.",
+        disclaimer: {
+          heading: "Medical note",
+          body: "The information on this page is general information about aesthetic mesotherapy and does not replace a personal examination, individual consultation or explanation of risks. Mesotherapy does not denote a uniform preparation. The effect, the appropriate injection technique, possible contraindications and side effects therefore depend substantially on the injection solution actually used, the region treated and your individual state of health."
+        }
+      },
       title: "Mesotherapy · Mesocan",
-      metaTitle: "Mesotherapy (Mesocan) in Berlin — Vitamin Skin Revitalisation | AS Clinic",
-      metaDescription: "Mesocan mesotherapy at AS Clinic, Berlin: a vitamin, mineral and antioxidant cocktail delivered to the dermis for overall skin revitalisation.",
+      metaTitle: "Mesotherapy Berlin: Mesocan for Skin Quality | AS Clinic",
+      metaDescription: "Mesotherapy in Berlin at AS Clinic on Kurfürstendamm: superficial micro-injections for skin quality, hydration and fine lines. The product is named before treatment.",
       heroKicker: "Injectables · Mesotherapy · Mesocan",
       heroLead: "A vitamin and mineral cocktail delivered exactly where the skin needs it, for an overall revitalised finish.",
-      imageAlt: "Mesocan mesotherapy vitamin infusion being administered to the skin",
-      chip: "25–35 min · Course of sessions",
+      imageAlt: "Mesotherapy micro-injections for skin quality at AS Clinic Berlin",
+      chip: "approx. 25–35 min · Often a course of sessions",
       sections: [
         { heading: "What it is", body: "A mesotherapy cocktail — vitamins, minerals, amino acids and antioxidants — delivered directly into the dermis in a grid of small injections. It supports overall skin health, tone and radiance rather than targeting one specific concern." },
         { heading: "Who it's for", body: "Guests with generally tired, dull or uneven-toned skin looking for a broad revitalising treatment, or anyone wanting to support skin health between more targeted treatments." },
@@ -42,13 +307,278 @@ export const MESOTHERAPY_MESOCAN: TreatmentPage = {
       ]
     },
     de: {
+      article: {
+        h1: "Mesotherapie · Mesocan in Berlin – AS Clinic",
+        heroIntro: "Feuchtigkeitsarme, fahle oder feinlinige Haut braucht nicht automatisch mehr Volumen. Bei der Mesotherapie werden kleine Mengen eines ausgewählten Präparats über viele feine Mikroinjektionen oberflächlich in die Haut eingebracht. Im Mittelpunkt stehen Hautqualität, Feuchtigkeitsversorgung und ein insgesamt frischer wirkendes Hautbild – nicht die Veränderung von Gesichtsform oder -proportionen.",
+        heroBody: [
+          "In der AS Clinic Berlin am Kurfürstendamm wird die Behandlung individuell nach Hautzustand, Behandlungsziel und verwendeter Injektionslösung geplant. Der Name „Mesotherapie · Mesocan“ bezeichnet das Mesotherapie-Konzept der AS Clinic; welche Lösung und welche Inhaltsstoffe bei Ihrem Termin konkret vorgesehen sind, wird vor der Behandlung transparent besprochen.",
+          "Eine Mesotherapie ist kein klassischer Hyaluron-Filler und kein Botulinumtoxin. Sie wird oberflächlicher und flächiger durchgeführt und soll die Haut unterstützen, ohne gezielt Wangen, Lippen, Kinn oder Kieferlinie aufzubauen."
+        ],
+        updated: "2026-09-01",
+        directAnswer: {
+          heading: "Was ist Mesotherapie?",
+          body: "Mesotherapie ist eine Injektionstechnik, bei der kleine Mengen eines ausgewählten Präparats über zahlreiche feine Mikroinjektionen oberflächlich in die Haut eingebracht werden. Welche Wirkstoffe verwendet werden, hängt vom konkreten Produkt und Behandlungsziel ab. Der Begriff „Mesotherapie“ beschreibt deshalb nicht ein einziges standardisiertes Produkt: Je nach Präparat können sich Zusammensetzung, Injektionstiefe, Anzahl der Behandlungspunkte und Behandlungsserie unterscheiden."
+        },
+        glanceHeading: "Mesotherapie in Berlin – die wichtigsten Informationen auf einen Blick",
+        glance: [
+          { label: "Behandlung", value: "Oberflächliche Mesotherapie mit Mikroinjektionen" },
+          { label: "Behandlungsziel", value: "Hautqualität, Feuchtigkeitsversorgung und feine oberflächliche Linien" },
+          { label: "Standort", value: "AS Clinic, Kurfürstendamm 102, 10711 Berlin-Charlottenburg" },
+          { label: "Behandlungsdauer", value: "ca. 25–35 Minuten" },
+          { label: "Behandlungsplan", value: "Abhängig von Hautzustand, Produkt und Behandlungsziel" },
+          { label: "Sitzungen", value: "Eine Behandlungsserie kann sinnvoll sein; Anzahl und Abstand werden individuell festgelegt" },
+          { label: "Ausfallzeit", value: "Meist gering; Rötungen, kleine Schwellungen oder Blutergüsse sind möglich" },
+          { label: "Ergebnis", value: "Entwickelt sich schrittweise und ist individuell" },
+          { label: "Volumenaufbau", value: "Nicht das primäre Behandlungsziel" },
+          { label: "Beratung", value: "Persönlich und unverbindlich" }
+        ],
+        sections: [
+          {
+            heading: "Was sollte vor einer Mesotherapie feststehen?",
+            body: "Für eine seriöse Beratung ist nicht nur der Name der Methode wichtig. Vor der Behandlung sollte klar sein:",
+            points: [
+              "Welches Präparat verwendet wird",
+              "Welche Inhaltsstoffe enthalten sind",
+              "Welches Hautproblem behandelt werden soll",
+              "Wie viele Sitzungen sinnvoll erscheinen",
+              "Welche Wirkung realistisch ist",
+              "Welche Nebenwirkungen und Gegenanzeigen zu berücksichtigen sind"
+            ],
+            links: [
+              { label: "Alle Injektionsbehandlungen in Berlin", anchor: "injectables" }
+            ]
+          },
+          {
+            heading: "Was bedeutet „Mesocan“ bei AS Clinic?",
+            body: "„Mesotherapie · Mesocan“ ist die Bezeichnung des Mesotherapie-Angebots der AS Clinic. Die konkrete Injektionslösung wird nicht pauschal aus dem Namen abgeleitet, sondern vor der Behandlung benannt und anhand Ihrer Haut und des Behandlungsziels ausgewählt. Damit bleibt transparent, welches Präparat tatsächlich eingesetzt wird — eine allgemeine Aussage wie „Vitamin-Cocktail“ wäre ohne Kenntnis der konkreten Zusammensetzung zu ungenau."
+          },
+          {
+            heading: "Wofür kann eine Gesichts-Mesotherapie eingesetzt werden?",
+            body: "Eine Gesichts-Mesotherapie kann vor allem dann interessant sein, wenn nicht mehr Gesichtsvolumen, sondern eine Verbesserung ausgewählter Eigenschaften der Haut im Vordergrund steht. Wie deutlich sich diese Punkte verändern, hängt vom verwendeten Präparat und von der individuellen Hautsituation ab; Mesotherapie sollte deshalb nicht als Behandlung verstanden werden, die jede Form von Falten, Pigmentierung, Narben oder Hauterschlaffung gleichermaßen korrigiert.",
+            points: [
+              "Feuchtigkeitsarme oder trocken wirkende Haut",
+              "Fahler oder müde wirkender Teint",
+              "Feine oberflächliche Linien",
+              "Unruhige Hautstruktur",
+              "Nachlassend wirkende Elastizität",
+              "Wunsch nach einer subtilen Hautauffrischung ohne klassischen Volumenaufbau"
+            ]
+          },
+          {
+            heading: "Kann Mesotherapie die Hautfeuchtigkeit verbessern?",
+            body: "Bei Mesotherapie-Konzepten mit geeigneten Hyaluronsäure-basierten Präparaten zeigen klinische Studien Hinweise auf eine Verbesserung von Hautfeuchtigkeit und Hautelastizität. Der Effekt ist jedoch produkt- und personenabhängig und nicht mit einem Volumenfiller gleichzusetzen. Nicht quervernetzte beziehungsweise für oberflächliche Hautbehandlungen entwickelte Hyaluronsäure kann Wasser im Gewebe binden; dadurch kann die Haut bei geeigneter Behandlung glatter und frischer erscheinen."
+          },
+          {
+            heading: "Kann Mesotherapie feine Linien verbessern?",
+            body: "Feine oberflächliche Linien können abhängig von ihrer Ursache und vom verwendeten Präparat weniger deutlich erscheinen. Tief eingeprägte Falten oder vorwiegend mimische Linien benötigen möglicherweise einen anderen Behandlungsansatz. Vor der Behandlung sollte deshalb unterschieden werden zwischen:",
+            points: [
+              "Trockenheitslinien",
+              "Mimischen Falten durch Muskelbewegung",
+              "Statischen Falten, die auch in Ruhe sichtbar bleiben",
+              "Strukturellen Veränderungen durch Volumenverlust oder Hauterschlaffung"
+            ]
+          },
+          {
+            heading: "Wie gut ist Mesotherapie wissenschaftlich untersucht?",
+            body: "Die wissenschaftliche Datenlage hängt stark von der verwendeten Injektionslösung ab. Für bestimmte Hyaluronsäure-basierte Mesotherapie- und Skin-Booster-Konzepte gibt es klinische Studien mit positiven Ergebnissen bei Hautfeuchtigkeit, Elastizität und Hautqualität; für unspezifische Multivitamin-Mischungen sind die Ergebnisse deutlich uneinheitlicher. Deshalb sollte die Wirkung nicht pauschal aus dem Begriff „Mesotherapie“ abgeleitet werden — entscheidend sind Produkt, Inhaltsstoffe, Injektionstechnik, Behandlungsserie und die konkrete Indikation."
+          },
+          {
+            heading: "Mesotherapie oder Skin Booster – was ist der Unterschied?",
+            body: "Mesotherapie beschreibt vor allem eine Technik mit mehreren oberflächlichen Mikroinjektionen. „Skin Booster“ ist ein breiter verwendeter Begriff für injizierbare Behandlungen, die auf Hautqualität und Feuchtigkeit ausgerichtet sind. Beide Konzepte können sich je nach verwendetem Produkt überschneiden. Für die Entscheidung ist deshalb wichtiger, welches Präparat eingesetzt wird und welches Ziel behandelt werden soll, als allein der Name der Methode.",
+            links: [
+              { label: "Skin Booster in Berlin", slug: "skin-booster" }
+            ]
+          },
+          {
+            heading: "Mesotherapie oder Hyaluron-Filler – was ist der Unterschied?",
+            body: "Ein klassischer Hyaluron-Filler wird eingesetzt, um gezielt Volumen, Form oder Kontur zu verändern. Mesotherapie arbeitet oberflächlicher und flächiger; ein ausgeprägter Volumenaufbau ist nicht ihr primäres Ziel.",
+            compare: {
+              headings: ["Mesotherapie", "Klassischer Hyaluron-Filler"],
+              rows: [
+                ["Oberflächliche Mikroinjektionen", "Gezielte Volumenplatzierung"],
+                ["Fokus auf Hautqualität", "Fokus auf Form, Kontur oder Volumen"],
+                ["Viele kleine Behandlungspunkte", "Je nach Region andere Injektionstechniken"],
+                ["Keine primäre Gesichtsmodellierung", "Sichtbare strukturelle Veränderung möglich"]
+              ]
+            },
+            links: [
+              { label: "Wangenfiller in Berlin", slug: "cheek-filler" },
+              { label: "Lippenfiller in Berlin", slug: "lip-filler" }
+            ]
+          },
+          {
+            heading: "Mesotherapie oder Botox – was ist der Unterschied?",
+            body: "Botulinumtoxin reduziert gezielt die Aktivität bestimmter Muskeln und wird vor allem bei mimischen Falten eingesetzt. Mesotherapie zielt dagegen stärker auf die oberflächliche Haut und verändert die Muskelaktivität nicht auf dieselbe Weise. Bei einer ausgeprägten Zornesfalte oder Krähenfüßen durch starke Mimik kann deshalb eine andere Behandlung sinnvoll sein als bei trockener, fein strukturierter Haut.",
+            links: [
+              { label: "Botox in Berlin", slug: "botox" },
+              { label: "Mesobotox in Berlin", slug: "mesobotox" }
+            ]
+          },
+          {
+            heading: "Mesotherapie oder Profhilo – was ist der Unterschied?",
+            body: "Profhilo ist ein konkretes Hyaluronsäure-basiertes Produkt- und Behandlungskonzept. Mesotherapie ist dagegen eine Technik beziehungsweise Sammelbezeichnung für oberflächliche Mikroinjektionen mit unterschiedlichen möglichen Präparaten. Welche Behandlung besser passt, hängt von Hautzustand, gewünschtem Effekt und dem konkret vorgesehenen Produkt ab.",
+            links: [
+              { label: "Profhilo in Berlin", slug: "profhilo" }
+            ]
+          },
+          {
+            heading: "Welche Bereiche können behandelt werden?",
+            body: "Welche Regionen für eine Mesotherapie geeignet sind, hängt vom verwendeten Präparat und der individuellen Hautsituation ab. Häufig steht das Gesicht im Vordergrund; je nach Behandlungskonzept können auch andere Hautregionen diskutiert werden. Im Gesicht kann besonders auf Bereiche geachtet werden, in denen Hautqualität und Feuchtigkeit im Vordergrund stehen. Sehr empfindliche Regionen, beispielsweise unmittelbar um die Augen, benötigen eine eigene anatomische Beurteilung und gegebenenfalls ein speziell dafür vorgesehenes Behandlungskonzept.",
+            links: [
+              { label: "Augen-Mesotherapie in Berlin", slug: "eyes-mesotherapy" }
+            ]
+          }
+        ],
+        process: {
+          heading: "Wie läuft die Mesotherapie bei AS Clinic Berlin ab?",
+          steps: [
+            { heading: "Persönliche Beratung", body: "Zu Beginn wird geklärt, was Sie an Ihrer Haut verändern möchten. Dabei wird unterschieden, ob vor allem Trockenheit, feine Linien, Hautstruktur, Pigmentierung, Volumenverlust oder eine andere Veränderung im Vordergrund steht." },
+            { heading: "Hautanalyse und Auswahl des Behandlungskonzepts", body: "Die Haut wird hinsichtlich Struktur, Feuchtigkeit, Empfindlichkeit und sichtbarer Veränderungen beurteilt. Anschließend wird entschieden, ob eine Mesotherapie sinnvoll ist oder ob ein anderes Verfahren besser zum Behandlungsziel passt." },
+            { heading: "Transparente Produktbesprechung", body: "Vor der Behandlung wird besprochen, welches Präparat eingesetzt werden soll und welche Inhaltsstoffe für die konkrete Injektionslösung relevant sind. So lässt sich die Behandlung nachvollziehbar von anderen Injektionsverfahren abgrenzen." },
+            { heading: "Vorbereitung", body: "Die Haut wird gereinigt und desinfiziert. Je nach Behandlungsregion und individuellem Empfinden kann die lokale Schmerzlinderung unterschiedlich geplant werden." },
+            { heading: "Mikroinjektionen", body: "Das ausgewählte Präparat wird in kleinen Mengen über zahlreiche feine Injektionspunkte in die geplanten Hautbereiche eingebracht. Der gesamte Termin dauert ungefähr 25 bis 35 Minuten." },
+            { heading: "Weitere Sitzungen und Verlauf", body: "Mesotherapie wird häufig als Behandlungsserie geplant. Ob mehrere Sitzungen sinnvoll sind, in welchem Abstand sie stattfinden und wann eine Auffrischung infrage kommt, hängt vom verwendeten Präparat, Hautzustand und bisherigen Ergebnis ab." }
+          ]
+        },
+        sectionsAfterProcess: [
+          {
+            heading: "Wann sieht man das Ergebnis einer Mesotherapie?",
+            body: "Das endgültige Ergebnis ist nicht direkt nach der letzten Mikroinjektion sichtbar. Unmittelbar danach können zunächst kleine Quaddeln, Rötungen oder Schwellungen auftreten; Veränderungen der Hautqualität entwickeln sich anschließend schrittweise. Wie schnell ein Effekt wahrgenommen wird, hängt insbesondere von Ausgangshaut, Präparat und Zahl der vorgesehenen Sitzungen ab."
+          },
+          {
+            heading: "Wie viele Sitzungen braucht man?",
+            body: "Es gibt keine feste Sitzungszahl, die für jede Mesotherapie gilt. Je nach Produkt und Behandlungsziel kann eine Serie sinnvoll sein; Anzahl und Abstand der Termine werden individuell festgelegt. Eine Behandlungsserie sollte nicht allein deshalb verlängert werden, weil ein pauschales Standardpaket vorgesehen ist — sinnvoll ist eine Beurteilung des bisherigen Verlaufs und des tatsächlich erreichten Effekts."
+          },
+          {
+            heading: "Wie lange hält das Ergebnis?",
+            body: "Die Haltbarkeit einer Mesotherapie lässt sich nicht pauschal angeben. Sie hängt stark vom verwendeten Präparat, der Behandlungsserie und der individuellen Hautsituation ab. Auch nach einem sichtbaren Ergebnis verändert sich die Haut weiter; eine mögliche Wiederholung sollte deshalb nach dem tatsächlichen Hautzustand geplant werden und nicht ausschließlich nach einem festen Kalender."
+          },
+          {
+            heading: "Tut Mesotherapie weh?",
+            body: "Die Behandlung besteht aus vielen kleinen Injektionen. Diese können als kurze Einstiche, leichtes Brennen oder Druck wahrgenommen werden. Das individuelle Schmerzempfinden ist unterschiedlich. Da flächiger gearbeitet wird als bei einer Behandlung mit wenigen Injektionspunkten, unterscheidet sich das Empfinden von klassischen Filler- oder Botox-Behandlungen."
+          },
+          {
+            heading: "Wie lange ist die Ausfallzeit?",
+            body: "Die Ausfallzeit ist meist gering. Kleine Rötungen, punktförmige Schwellungen, vorübergehende Quaddeln oder Blutergüsse können jedoch auftreten und für einige Zeit sichtbar sein. Wenn direkt danach eine Hochzeit, ein Fotoshooting, ein wichtiger Geschäftstermin oder eine andere Veranstaltung geplant ist, sollte ein angemessener zeitlicher Abstand berücksichtigt werden."
+          },
+          {
+            heading: "Risiken und mögliche Nebenwirkungen",
+            body: "Auch Mesotherapie ist eine invasive Injektionsbehandlung und nicht vollständig risikofrei. Häufiger sind lokale, vorübergehende Reaktionen; weitere Risiken hängen wesentlich vom verwendeten Präparat und der behandelten Region ab. Die konkrete Risikoaufklärung muss sich deshalb auf das tatsächlich verwendete Produkt beziehen. Mögliche Reaktionen sind:",
+            points: [
+              "Rötungen",
+              "Kleine Schwellungen oder Quaddeln",
+              "Druckempfindlichkeit oder Brennen",
+              "Kleine Blutergüsse",
+              "Vorübergehende Unebenheiten",
+              "Infektionen",
+              "Überempfindlichkeits- oder Entzündungsreaktionen auf Bestandteile des verwendeten Präparats"
+            ]
+          },
+          {
+            heading: "Welche Beschwerden sollten abgeklärt werden?",
+            body: "Ungewöhnlich starke oder zunehmend schmerzhafte Reaktionen, deutliche Entzündungszeichen, stark zunehmende Schwellung oder andere unerwartete Beschwerden sollten zeitnah medizinisch abgeklärt werden. Bei jeder Injektionsbehandlung im Gesichtsbereich gilt außerdem: plötzlich auftretende Sehstörungen oder neurologische Symptome sind kein normales Behandlungsergebnis und erfordern eine sofortige medizinische Notfallbeurteilung."
+          },
+          {
+            heading: "Für wen kann Mesotherapie geeignet sein?",
+            body: "Mesotherapie kann für Erwachsene infrage kommen, bei denen vor allem Hautqualität, Feuchtigkeit oder feine oberflächliche Veränderungen im Vordergrund stehen und das gewählte Präparat für die individuelle Situation geeignet ist. Berücksichtigt werden unter anderem:",
+            points: [
+              "Hautzustand",
+              "Behandlungsziel",
+              "Allergien und Unverträglichkeiten",
+              "Bestehende Erkrankungen",
+              "Regelmäßig eingenommene Medikamente",
+              "Frühere Injektionsbehandlungen",
+              "Aktuelle Entzündungen oder Infektionen"
+            ]
+          },
+          {
+            heading: "Wann sollte Mesotherapie nicht durchgeführt oder verschoben werden?",
+            body: "Bei akuten Infektionen oder Entzündungen im Behandlungsbereich sowie bei bestimmten medizinischen Risikokonstellationen kann eine Mesotherapie ungeeignet sein oder verschoben werden. Weitere Gegenanzeigen hängen vom konkret verwendeten Präparat ab. Schwangerschaft oder Stillzeit, bekannte Allergien sowie bestimmte Erkrankungen oder Medikamente sollten bereits vor der Behandlungsplanung angegeben werden. Verschriebene Medikamente sollten niemals eigenständig für eine ästhetische Behandlung abgesetzt oder pausiert werden."
+          },
+          {
+            heading: "Nachsorge nach der Mesotherapie",
+            body: "Nach der Behandlung erhalten Sie individuelle Hinweise. Allgemein kann es sinnvoll sein:",
+            points: [
+              "Die behandelte Haut zunächst möglichst wenig zu berühren",
+              "Die Einstichstellen sauber zu halten",
+              "Kein starkes Reiben oder Massieren durchzuführen, sofern dies nicht ausdrücklich empfohlen wurde",
+              "Unmittelbar nach der Behandlung keine unnötigen reizenden Hautprodukte aufzutragen",
+              "Intensive körperliche Belastung zunächst zu vermeiden",
+              "Sauna und starke Hitze vorübergehend zu meiden",
+              "Auffällige oder zunehmend starke Beschwerden frühzeitig mitzuteilen"
+            ]
+          },
+          {
+            heading: "Medizinisch geprüft",
+            body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die medizinische Prüfung der Inhalte ersetzt nicht die persönliche Beurteilung vor einer Behandlung."
+          }
+        ],
+        local: {
+          heading: "Mesotherapie am Kurfürstendamm in Berlin-Charlottenburg",
+          body: "Die AS Clinic Berlin befindet sich am Kurfürstendamm in Berlin-Charlottenburg. Wenn Sie nach Mesotherapie in Berlin, einer Gesichts-Mesotherapie oder einer Behandlung zur Unterstützung der Hautqualität suchen, wird zunächst beurteilt, welches Problem im Vordergrund steht und ob das Mesotherapie-Konzept dafür geeignet ist.",
+          links: [
+            { label: "AS Clinic Berlin am Kurfürstendamm — Anfahrt und Lage", path: "/location" }
+          ]
+        },
+        why: {
+          heading: "Warum AS Clinic für Mesotherapie in Berlin?",
+          points: [
+            { heading: "Hautproblem zuerst definieren", body: "Nicht jede fahle oder feinlinige Haut benötigt dieselbe Injektionsbehandlung. Vor der Behandlung wird deshalb geklärt, ob Mesotherapie überhaupt zum sichtbaren Problem passt." },
+            { heading: "Produkttransparenz", body: "Da Mesotherapie kein einheitliches Produkt bezeichnet, wird die konkret vorgesehene Injektionslösung vor der Behandlung benannt und besprochen." },
+            { heading: "Keine Verwechslung mit Volumenfiller", body: "Das Ziel der Mesotherapie ist nicht, Gesichtszüge mit zusätzlichem Volumen neu zu formen. Wenn Kontur oder struktureller Volumenverlust im Vordergrund stehen, wird geprüft, ob ein anderes Verfahren sinnvoller ist." },
+            { heading: "Behandlungsserie nach Bedarf", body: "Die Zahl der Sitzungen wird nicht allein aus einem pauschalen Schema abgeleitet, sondern an Produkt, Hautzustand und bisherige Reaktion angepasst." },
+            { heading: "Medizinische Einordnung", body: "Möglichkeiten, Grenzen, mögliche Nebenwirkungen und relevante Gegenanzeigen werden vor der Behandlung besprochen." }
+          ]
+        },
+        faqHeading: "Häufige Fragen zur Mesotherapie in Berlin",
+        faqs: [
+          { q: "Was ist Mesotherapie?", a: "Mesotherapie ist eine Behandlungstechnik mit vielen kleinen, oberflächlichen Mikroinjektionen. Das verwendete Präparat kann je nach Behandlungskonzept unterschiedlich zusammengesetzt sein." },
+          { q: "Was ist Mesocan?", a: "„Mesotherapie · Mesocan“ ist die Bezeichnung des Mesotherapie-Angebots der AS Clinic. Die konkrete Injektionslösung und deren Inhaltsstoffe werden vor der Behandlung transparent besprochen." },
+          { q: "Ist Mesotherapie ein Vitamin-Cocktail?", a: "Nicht zwangsläufig. Welche Wirkstoffe enthalten sind, hängt vom konkreten Präparat ab. Eine pauschale Beschreibung als Vitamin-Cocktail wäre deshalb ohne Kenntnis der eingesetzten Lösung zu ungenau." },
+          { q: "Hilft Mesotherapie bei trockener Haut?", a: "Bei geeigneten Hyaluronsäure-basierten Präparaten kann Mesotherapie auf die Hautfeuchtigkeit ausgerichtet sein. Wie deutlich der Effekt ausfällt, hängt von Produkt und individueller Hautsituation ab." },
+          { q: "Kann Mesotherapie feine Falten verbessern?", a: "Feine oberflächliche Linien können abhängig von Ursache und verwendetem Präparat weniger sichtbar erscheinen. Tief eingeprägte oder stark mimische Falten benötigen möglicherweise eine andere Behandlung." },
+          { q: "Ist Mesotherapie dasselbe wie Skin Booster?", a: "Nicht zwingend. Mesotherapie beschreibt vor allem die Injektionstechnik, während Skin Booster ein breiter verwendeter Begriff für bestimmte injizierbare Hautqualitätsbehandlungen ist. Je nach Produkt können sich die Konzepte überschneiden." },
+          { q: "Ist Mesotherapie ein Hyaluron-Filler?", a: "Nein. Klassische Filler dienen vor allem dem gezielten Volumen- und Konturaufbau. Mesotherapie wird oberflächlicher und flächiger durchgeführt und hat keinen ausgeprägten Volumenaufbau als primäres Ziel." },
+          { q: "Ist Mesotherapie dasselbe wie Profhilo?", a: "Nein. Profhilo ist ein konkretes Hyaluronsäure-basiertes Produkt- und Behandlungskonzept. Mesotherapie ist eine Technik beziehungsweise Sammelbezeichnung für oberflächliche Mikroinjektionen mit unterschiedlichen Präparaten." },
+          { q: "Ist Mesotherapie dasselbe wie Botox?", a: "Nein. Botulinumtoxin beeinflusst gezielt Muskelaktivität. Mesotherapie zielt stärker auf die oberflächliche Haut und verändert mimische Muskelaktivität nicht in derselben Weise." },
+          { q: "Wie lange dauert Mesotherapie?", a: "Für einen Termin bei AS Clinic sollten ungefähr 25 bis 35 Minuten eingeplant werden. Die genaue Dauer hängt von Behandlungsregion und individuellem Konzept ab." },
+          { q: "Wie viele Sitzungen sind notwendig?", a: "Es gibt keine feste Sitzungszahl für jede Mesotherapie. Je nach Präparat und Behandlungsziel kann eine Serie sinnvoll sein; Anzahl und Abstand werden individuell geplant." },
+          { q: "Wann sieht man das Ergebnis?", a: "Das Ergebnis ist nicht unmittelbar nach der letzten Mikroinjektion endgültig sichtbar. Veränderungen der Hautqualität entwickeln sich schrittweise, während unmittelbare Rötungen oder kleine Quaddeln zunächst abklingen." },
+          { q: "Wie lange hält das Ergebnis?", a: "Die Haltbarkeit hängt wesentlich vom verwendeten Präparat, der Behandlungsserie und der individuellen Hautsituation ab. Eine pauschale Dauer lässt sich deshalb nicht seriös für alle Mesotherapie-Behandlungen angeben." },
+          { q: "Tut Mesotherapie weh?", a: "Die vielen kleinen Mikroinjektionen können als kurze Einstiche, leichtes Brennen oder Druck wahrgenommen werden. Das individuelle Schmerzempfinden ist unterschiedlich." },
+          { q: "Hat Mesotherapie Ausfallzeit?", a: "Die Ausfallzeit ist meist gering. Rötungen, kleine Schwellungen, punktförmige Quaddeln oder Blutergüsse können jedoch vorübergehend sichtbar sein." },
+          { q: "Kann ich nach Mesotherapie arbeiten?", a: "Viele Personen können ihren Alltag anschließend fortsetzen. Wer sichtbare Einstichreaktionen vermeiden möchte, sollte wichtige Termine nicht unmittelbar nach der Behandlung planen." },
+          { q: "Kann ich nach Mesotherapie Make-up verwenden?", a: "Frische Einstichstellen sollten zunächst sauber und möglichst wenig berührt werden. Wann Make-up wieder sinnvoll verwendet werden kann, wird Ihnen nach der Behandlung individuell erklärt." },
+          { q: "Welche Nebenwirkungen kann Mesotherapie haben?", a: "Möglich sind unter anderem Rötung, Schwellung, Druckempfindlichkeit, kleine Blutergüsse, Infektionen oder Reaktionen auf Bestandteile des verwendeten Präparats." },
+          { q: "Ist Mesotherapie während Schwangerschaft oder Stillzeit möglich?", a: "Ob eine Behandlung durchgeführt werden kann, hängt auch vom verwendeten Präparat ab. Schwangerschaft oder Stillzeit sollten vor der Planung immer angegeben werden; ästhetische Injektionsbehandlungen werden in dieser Situation häufig verschoben." },
+          { q: "Kann Mesotherapie Pigmentflecken entfernen?", a: "Mesotherapie ist keine universelle Behandlung gegen Pigmentflecken. Bei Pigmentveränderungen sollte zunächst geklärt werden, welche Ursache vorliegt und welches Verfahren dafür geeignet ist." },
+          { q: "Kann Mesotherapie Akne behandeln?", a: "Aktive Akne oder entzündliche Hauterkrankungen sollten nicht pauschal mit einer ästhetischen Mesotherapie behandelt werden. Zunächst muss die dermatologische Ursache beziehungsweise aktuelle Hautsituation beurteilt werden." },
+          { q: "Was kostet Mesotherapie bei AS Clinic Berlin?", a: "Die Kosten hängen vom verwendeten Präparat, der Behandlungsregion und gegebenenfalls der geplanten Behandlungsserie ab. Der konkrete Preis wird vor der Behandlung transparent besprochen." },
+          { q: "Wo kann ich Mesotherapie in Berlin machen lassen?", a: "AS Clinic bietet Beratung zur Mesotherapie am Kurfürstendamm 102 in Berlin-Charlottenburg an. Vor der Behandlung werden Hautzustand, Behandlungsziel und das konkret vorgesehene Präparat individuell besprochen." }
+        ],
+        relatedHeading: "Passende Behandlungen in der AS Clinic Berlin",
+        related: [
+          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injizierbare Hautqualitätsbehandlung — Produktkategorie statt Technik." },
+          { slug: "profhilo", blurb: "Profhilo in Berlin: konkretes Hyaluronsäureprodukt mit eigenem Bioremodellierungs-Konzept." },
+          { slug: "eyes-mesotherapy", blurb: "Augen-Mesotherapie in Berlin: eigenes Konzept für die besonders empfindliche Augenpartie." },
+          { slug: "mesobotox", blurb: "Mesobotox in Berlin: oberflächliche Micro-Dose-Technik mit Botulinumtoxin." },
+          { slug: "bio-lifting", blurb: "Bio-Lifting in Berlin: kollagenstimulierendes Konzept für Hautfestigkeit und Struktur." },
+          { slug: "cheek-filler", blurb: "Wangenfiller in Berlin: gezielter Volumenaufbau statt oberflächlicher Hautbehandlung." }
+        ],
+        ctaHeading: "Beratung für Mesotherapie in Berlin vereinbaren",
+        ctaBody: "Sie wünschen sich eine gezielte Behandlung der Hautqualität und möchten wissen, ob Mesotherapie zu Ihrer Haut passt? Vereinbaren Sie ein persönliches Beratungsgespräch bei der AS Clinic Berlin am Kurfürstendamm. Dabei wird geklärt, welches Hautproblem im Vordergrund steht, welches Präparat für das geplante Ziel infrage kommt, ob eine Behandlungsserie sinnvoll ist und welche Alternativen bestehen.",
+        disclaimer: {
+          heading: "Medizinischer Hinweis",
+          body: "Die Informationen auf dieser Seite dienen der allgemeinen Information über ästhetische Mesotherapie und ersetzen keine persönliche Untersuchung, individuelle Beratung oder Risikoaufklärung. Mesotherapie bezeichnet kein einheitliches Präparat. Wirkung, geeignete Injektionstechnik, mögliche Gegenanzeigen und Nebenwirkungen hängen deshalb wesentlich von der tatsächlich verwendeten Injektionslösung, der behandelten Region und der individuellen gesundheitlichen Ausgangssituation ab."
+        }
+      },
       title: "Mesotherapie · Mesocan",
-      metaTitle: "Mesotherapie (Mesocan) in Berlin — Vitamin-Revitalisierung | AS Clinic",
-      metaDescription: "Mesocan-Mesotherapie in der AS Clinic Berlin: Vitamin-, Mineral- und Antioxidantien-Cocktail in die Dermis für eine allgemeine Revitalisierung der Haut.",
+      metaTitle: "Mesotherapie Berlin: Mesocan für die Hautqualität | AS Clinic",
+      metaDescription: "Mesotherapie in Berlin bei AS Clinic am Kurfürstendamm: oberflächliche Mikroinjektionen für Hautqualität, Feuchtigkeit und feine Linien. Präparat vorab benannt.",
       heroKicker: "Injektionen · Mesotherapie · Mesocan",
       heroLead: "Ein Vitamin- und Mineralcocktail genau dort, wo die Haut ihn braucht — für ein insgesamt revitalisiertes Hautbild.",
-      imageAlt: "Mesocan-Mesotherapie mit Vitamincocktail wird in die Haut eingebracht",
-      chip: "25–35 Min. · Behandlungsserie",
+      imageAlt: "Mesotherapie-Mikroinjektionen für die Hautqualität bei AS Clinic Berlin",
+      chip: "ca. 25–35 Min. · Häufig als Behandlungsserie",
       sections: [
         { heading: "Was es ist", body: "Ein Mesotherapie-Cocktail aus Vitaminen, Mineralstoffen, Aminosäuren und Antioxidantien, der über ein Raster kleiner Injektionen direkt in die Dermis gelangt. Er unterstützt Hautgesundheit, Hautbild und Ausstrahlung insgesamt, statt ein einzelnes Problem zu behandeln." },
         { heading: "Für wen es geeignet ist", body: "Für Gäste mit insgesamt müder, fahler oder ungleichmäßiger Haut, die eine breite Revitalisierung suchen, sowie für alle, die die Hautgesundheit zwischen gezielteren Behandlungen unterstützen möchten." },

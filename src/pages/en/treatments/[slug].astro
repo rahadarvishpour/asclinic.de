@@ -1,11 +1,13 @@
 ---
 import TreatmentDetail from "../../../components/TreatmentDetail.astro";
-import { TREATMENT_PAGES } from "../../../data/treatmentPages";
+import { TREATMENT_PAGES, treatmentPagesFor } from "../../../data/treatmentPages";
 import { TREATMENTS, unsplash } from "../../../data/treatments";
 import { treatmentImage } from "../../../data/treatmentImages";
 
 export function getStaticPaths() {
-  return Object.keys(TREATMENT_PAGES).map((slug) => ({ params: { slug } }));
+  // Only the treatments published in this locale get a URL here; a treatment
+  // without en copy has no en page rather than an English one.
+  return treatmentPagesFor("en").map((page) => ({ params: { slug: page.slug } }));
 }
 
 const { slug } = Astro.params as { slug: string };

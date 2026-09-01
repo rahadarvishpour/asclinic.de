@@ -1,13 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import { t, bookingUrl, type Locale } from "../i18n/ui";
+import { t, localePath, bookingUrl, type Locale } from "../i18n/ui";
 import { treatmentImage } from "../data/treatmentImages";
 import { HAIR_SERVICES, unsplash, unsplashSrcSet } from "../data/treatments";
+import { TREATMENT_PAGES, hasLocale } from "../data/treatmentPages";
 
 const CARD_WIDTHS = [400, 600, 900];
 const CARD_SIZES = "(max-width: 620px) 100vw, (max-width: 860px) 45vw, 365px";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
+
+// A card points at its own detail page wherever that page is published in this
+// locale; the treatments still without one — or without this language — keep
+// sending the reader straight to booking.
+const bookHref = bookingUrl(locale);
+const detailHref = (slug: string) => {
+  const page = TREATMENT_PAGES[slug];
+  return page && hasLocale(page, locale) ? localePath(locale, `/treatments/${slug}`) : null;
+};
 ---
 
 <section id="hair" class="section" style="background:var(--bg-quiet)">
@@ -35,7 +45,7 @@ const { locale } = Astro.props;
           </div>
           <h3 class="h3" style="margin:var(--sp-5) 0 var(--sp-2)">{t(locale, svc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, svc.descKey)}</p>
-          <a class="link-underline" href={bookingUrl(locale)}>{t(locale, svc.linkKey)}</a>
+          <a class="link-underline" href={detailHref(svc.slug) ?? bookHref}>{detailHref(svc.slug) ? t(locale, "card.details") : t(locale, svc.linkKey)}</a>
         </div>
       ))}
     </div>

@@ -1,13 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import { t, bookingUrl, type Locale } from "../i18n/ui";
+import { t, localePath, bookingUrl, type Locale } from "../i18n/ui";
 import { treatmentImage } from "../data/treatmentImages";
 import { SURGERY_PROCEDURES, unsplash, unsplashSrcSet } from "../data/treatments";
+import { TREATMENT_PAGES, hasLocale } from "../data/treatmentPages";
 
 const CARD_WIDTHS = [600, 900, 1200];
 const CARD_SIZES = "(max-width: 620px) 100vw, 560px";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
+
+// A card points at its own detail page wherever that page is published in this
+// locale; otherwise the surgical consultation request stays the destination.
+const bookHref = bookingUrl(locale);
+const detailHref = (slug: string) => {
+  const page = TREATMENT_PAGES[slug];
+  return page && hasLocale(page, locale) ? localePath(locale, `/treatments/${slug}`) : null;
+};
 ---
 
 <section id="surgery" class="section">
@@ -35,7 +44,7 @@ const { locale } = Astro.props;
           <span class="chip chip--outline">{t(locale, proc.chipKey)}</span>
           <h3 class="h2">{t(locale, proc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, proc.descKey)}</p>
-          <a class="btn btn--dark" href={bookingUrl(locale)}>{t(locale, "s3.cta")}</a>
+          <a class="btn btn--dark" href={detailHref(proc.slug) ?? bookHref}>{detailHref(proc.slug) ? t(locale, "card.details") : t(locale, "s3.cta")}</a>
         </div>
       ))}
     </div>

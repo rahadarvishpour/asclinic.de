@@ -14,9 +14,18 @@ export interface Props {
   unprefixedPath?: string;
   /** Set false to skip hreflang alternates — for pages that don't have translated equivalents at other locale paths yet. */
   hreflangAlternates?: boolean;
+  /** The locales this page actually exists in. Defaults to all of them; pass a
+   *  subset for pages published in fewer languages, so hreflang never advertises
+   *  a URL that was never built. */
+  hreflangLocales?: Locale[];
 }
 
-const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true } = Astro.props;
+const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales } = Astro.props;
+const alternateLocales = hreflangLocales
+  ? LOCALES.filter((l) => hreflangLocales.includes(l.code))
+  : LOCALES;
+// x-default points at the default locale's URL only when that page exists there.
+const xDefaultLocale = alternateLocales.some((l) => l.code === DEFAULT_LOCALE) ? DEFAULT_LOCALE : alternateLocales[0]?.code;
 const meta = getLocaleMeta(locale);
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
 const canonicalPath = localePath(locale, unprefixedPath);
@@ -93,10 +102,10 @@ const faqJsonLd = includeFaqSchema
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
 
-  {hreflangAlternates && LOCALES.map((l) => (
+  {hreflangAlternates && alternateLocales.map((l) => (
     <link rel="alternate" hreflang={l.hreflang} href={`${site}${localePath(l.code, unprefixedPath)}`} />
   ))}
-  {hreflangAlternates && <link rel="alternate" hreflang="x-default" href={`${site}${localePath(DEFAULT_LOCALE, unprefixedPath)}`} />}
+  {hreflangAlternates && xDefaultLocale && <link rel="alternate" hreflang="x-default" href={`${site}${localePath(xDefaultLocale, unprefixedPath)}`} />}
 
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content={CLINIC.name} />
@@ -111,7 +120,7 @@ const faqJsonLd = includeFaqSchema
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content={meta.hreflang.replace("-", "_")} />
-  {hreflangAlternates && LOCALES.filter((l) => l.code !== locale).map((l) => (
+  {hreflangAlternates && alternateLocales.filter((l) => l.code !== locale).map((l) => (
     <meta property="og:locale:alternate" content={l.hreflang.replace("-", "_")} />
   ))}
 

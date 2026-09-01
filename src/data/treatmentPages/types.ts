@@ -125,8 +125,11 @@ export interface TreatmentPage {
   slug: string;
   /** categoryAnchorId: the homepage section id this treatment belongs to (e.g. "injectables"). categoryLabelKey: the UI dictionary key for its translated nav label (e.g. "nav.inject"). */
   category: { categoryLabelKey: UiKey; categoryAnchorId: string };
-  /** Full page copy per locale — every locale is translated, so a German page never falls back to English body text. */
-  content: Record<Locale, TreatmentContent>;
+  /** Full page copy per locale. Locales are listed only when the copy for them
+   *  actually exists: a treatment offered in fewer languages simply has no page
+   *  at the missing locales' URLs, rather than falling back to English body text
+   *  under a foreign `lang` attribute. English is always present. */
+  content: Partial<Record<Locale, TreatmentContent>> & { en: TreatmentContent };
   /** Undefined until the clinic supplies a named reviewer; see MedicalReview. */
   review?: MedicalReview;
 }
