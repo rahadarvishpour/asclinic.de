@@ -16,6 +16,7 @@ import { BIO_LIFTING } from "./bio-lifting";
 import { MESOTHERAPY_MESOCAN } from "./mesotherapy-mesocan";
 import { HAIR_MESO } from "./hair-meso";
 import { PRP_MESO_HAIR } from "./prp-meso-hair";
+import { HAIR_TRANSPLANT } from "./hair-transplant";
 import { EYEBROW_TRANSPLANT } from "./eyebrow-transplant";
 import { BEARD_TRANSPLANT } from "./beard-transplant";
 import { BLEPHAROPLASTY } from "./blepharoplasty";
@@ -38,6 +39,7 @@ export const TREATMENT_PAGES: Record<string, TreatmentPage> = {
   [MESOTHERAPY_MESOCAN.slug]: MESOTHERAPY_MESOCAN,
   [HAIR_MESO.slug]: HAIR_MESO,
   [PRP_MESO_HAIR.slug]: PRP_MESO_HAIR,
+  [HAIR_TRANSPLANT.slug]: HAIR_TRANSPLANT,
   [EYEBROW_TRANSPLANT.slug]: EYEBROW_TRANSPLANT,
   [BEARD_TRANSPLANT.slug]: BEARD_TRANSPLANT,
   [BLEPHAROPLASTY.slug]: BLEPHAROPLASTY,
