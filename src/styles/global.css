@@ -55,6 +55,10 @@ a:not(.btn):not(.float-card):hover { color: var(--g-charcoal); }
   [data-desknav] { display: none !important; }
   [data-burger] { display: inline-flex !important; }
   [data-split] { grid-template-columns: minmax(0,1fr) !important; }
+  /* The booking panel's photo is absolutely positioned, so once the split
+     collapses to one column its row has no content to give it a height and
+     the image disappears. Give the cell the photo's own 4:3 ratio. */
+  .cta-media { aspect-ratio: 4 / 3; }
 }
 @media (min-width: 981px) {
   [data-burger] { display: none !important; }

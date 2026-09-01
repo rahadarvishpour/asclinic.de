@@ -11,7 +11,7 @@ const PANEL_WIDTHS = [640, 960, 1448];
 
 <section id="book" class="section" style="padding:0">
   <div data-split="1" style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-height:640px">
-    <div style="position:relative; background:var(--g-blush)">
+    <div class="cta-media" style="position:relative; background:var(--g-blush)">
       <Image src={officeImage} alt={t(locale, "cta.imgAlt")} widths={PANEL_WIDTHS} sizes={PANEL_SIZES} width={960} height={720} style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover" />
     </div>
     <div style="background:var(--bg-invert); color:var(--text-invert); display:grid; align-content:center; gap:var(--sp-5); padding:var(--sp-9) var(--gutter)">
