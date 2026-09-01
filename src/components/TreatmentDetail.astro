@@ -284,6 +284,12 @@ const procedureJsonLd = {
                 <a href={`tel:${CLINIC.telephone}`}>{CLINIC.telephoneDisplay}</a><br />
                 {t(locale, "ft.hours1")}<br />{t(locale, "ft.hours2")}<br />{t(locale, "ft.hours3")}
               </address>
+              {article.local.links && (
+                <p class="seealso">
+                  <span>{t(locale, "treat.seeAlso")}</span>
+                  {article.local.links.map((link) => <a href={sectionLinkHref(link)}>{link.label}</a>)}
+                </p>
+              )}
             </div>
           </section>
 
