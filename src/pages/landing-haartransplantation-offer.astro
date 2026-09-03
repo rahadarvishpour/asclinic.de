@@ -1,0 +1,333 @@
+---
+/** Paid-traffic landing page for hair transplantation.
+ *
+ *  The form and nothing else. No site header, no navigation, no marketing
+ *  sections, no footer — a visitor arriving from an ad has exactly one thing to
+ *  do here, and every link that could lead them away has been removed. The only
+ *  outbound link left is the privacy notice inside the consent wording, which
+ *  the consent needs in order to be valid.
+ *
+ *  Submitting posts to /api/haartransplantation-anfrage, which mails the
+ *  request to the clinic and hands the visitor to /danke.
+ *
+ *  noindex: this page argues nothing and would only compete with
+ *  /treatments/hair-transplant for the same queries.
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { LANDING } from "../i18n/landing";
+import { t } from "../i18n/ui";
+
+const { form } = LANDING;
+const FORM_ACTION = "/api/haartransplantation-anfrage";
+const PHOTO_FIELDS = ["foto1", "foto2", "foto3", "foto4"] as const;
+---
+
+<BaseLayout
+  locale="de"
+  title={LANDING.meta.title}
+  description={LANDING.meta.description}
+  includeFaqSchema={false}
+  unprefixedPath="/landing-haartransplantation-offer"
+  hreflangAlternates={false}
+  noindex={true}
+>
+  <main id="main" class="lp">
+    <div class="lp-card">
+      <div class="lp-brand">
+        <img src="/assets/logo.jpg" width="44" height="44" alt={t("de", "brand.logoAlt")} />
+        <span class="lp-brand__name">{t("de", "hero.title")}</span>
+      </div>
+
+      <h1 class="h2 lp-title">{form.heading}</h1>
+      <p class="lead lp-lead">{form.lead}</p>
+
+      <div id="anfrage-fehler" class="lp-alert" role="alert" hidden>
+        <strong>{form.errorHeading}</strong>
+        <span id="anfrage-fehler-text">{form.errorGeneric}</span>
+      </div>
+
+      <form
+        id="anfrage-form"
+        class="lp-form"
+        method="post"
+        action={FORM_ACTION}
+        enctype="multipart/form-data"
+        data-errors={JSON.stringify(form.errors)}
+        data-generic={form.errorGeneric}
+      >
+        <!-- Bait for form bots; people never see or tab into it. -->
+        <div class="lp-hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="lp-form__row">
+          <div class="field">
+            <label class="label" for="vorname">{form.firstName} <span class="lp-req">*</span></label>
+            <input class="input" type="text" id="vorname" name="vorname" autocomplete="given-name" required />
+          </div>
+          <div class="field">
+            <label class="label" for="nachname">{form.lastName} <span class="lp-req">*</span></label>
+            <input class="input" type="text" id="nachname" name="nachname" autocomplete="family-name" required />
+          </div>
+        </div>
+
+        <div class="lp-form__row">
+          <div class="field">
+            <label class="label" for="telefon">{form.phone} <span class="lp-req">*</span></label>
+            <input class="input" type="tel" id="telefon" name="telefon" autocomplete="tel" inputmode="tel" required />
+          </div>
+          <div class="field">
+            <label class="label" for="email">{form.email} <span class="lp-req">*</span></label>
+            <input class="input" type="email" id="email" name="email" autocomplete="email" inputmode="email" required />
+          </div>
+        </div>
+
+        <fieldset class="lp-uploads">
+          <legend class="label">{form.photosHeading} <span class="lp-opt">{form.optional}</span></legend>
+          <p class="hint lp-uploads__hint">{form.photosHint}</p>
+          <div class="lp-uploads__grid">
+            {PHOTO_FIELDS.map((name, i) => (
+              <div class="upload" data-upload>
+                <input
+                  class="upload__input"
+                  type="file"
+                  id={name}
+                  name={name}
+                  accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"
+                />
+                <label class="upload__label" for={name}>
+                  <span class="upload__num" aria-hidden="true">{i + 1}</span>
+                  <span class="upload__title">{form.photoLabels[i]}</span>
+                  <span class="upload__hint" data-upload-hint>{form.photoChoose}</span>
+                </label>
+                <img class="upload__preview" data-upload-preview alt="" hidden />
+                <button type="button" class="upload__remove" data-upload-remove hidden>
+                  <span aria-hidden="true">×</span>
+                  <span class="visually-hidden">{form.photoRemove}</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="label" for="nachricht">{form.message}</label>
+          <textarea class="textarea" id="nachricht" name="nachricht" rows="4" maxlength="4000" placeholder={form.messagePlaceholder}></textarea>
+        </div>
+
+        <label class="check lp-consent">
+          <input type="checkbox" name="einwilligung" value="ja" required />
+          <span>
+            {form.consent}{" "}
+            <a href="/datenschutz" target="_blank" rel="noopener">{form.consentLink}</a>
+          </span>
+        </label>
+
+        <div class="lp-progress" data-progress hidden>
+          <div class="lp-progress__bar" data-progress-bar></div>
+        </div>
+
+        <button type="submit" id="anfrage-submit" class="btn btn--lg btn--block" data-busy={form.submitting}>{form.submit}</button>
+        <p class="meta lp-form__note">{form.privacyNote}</p>
+      </form>
+    </div>
+  </main>
+
+  <style>
+    .lp {
+      min-height: 100dvh; background: var(--bg-soft);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: clamp(1rem, .5rem + 3vw, 3.5rem) var(--gutter);
+    }
+    .lp-card {
+      width: 100%; max-width: 680px;
+      background: var(--surface); border-radius: var(--r-lg); box-shadow: var(--sh-2);
+      padding: clamp(1.25rem, .75rem + 2.5vw, 2.75rem);
+      display: grid; gap: var(--sp-4);
+    }
+
+    .lp-brand { display: inline-flex; align-items: center; gap: var(--sp-3); }
+    .lp-brand img { width: 44px; height: 44px; border-radius: var(--r-pill); object-fit: cover; background: #000; }
+    .lp-brand__name { font-family: var(--font-display); font-size: 1.3rem; }
+
+    .lp-title { margin-top: var(--sp-2); }
+    .lp-lead { font-size: var(--fs-body); }
+
+    .lp-form { display: grid; gap: var(--sp-5); margin-top: var(--sp-2); }
+    .lp-form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); }
+    @media (max-width: 620px) { .lp-form__row { grid-template-columns: minmax(0, 1fr); } }
+    .lp-req { color: var(--accent-action); }
+    .lp-opt { font-weight: 400; color: var(--text-faint); font-size: var(--fs-xs); }
+    .lp-form__note { margin-top: calc(var(--sp-2) * -1); }
+
+    .lp-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .lp-uploads { border: 0; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+    .lp-uploads__hint { margin-bottom: var(--sp-2); }
+    .lp-uploads__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); }
+    @media (max-width: 480px) { .lp-uploads__grid { grid-template-columns: minmax(0, 1fr); } }
+
+    .upload { position: relative; }
+    /* Kept in the accessibility tree and keyboard-focusable — the label below
+       is what is actually painted. */
+    .upload__input {
+      position: absolute; width: 1px; height: 1px; opacity: 0;
+      inset-block-start: 50%; inset-inline-start: 50%;
+    }
+    .upload__label {
+      display: grid; gap: var(--sp-1); align-content: center; justify-items: center; text-align: center;
+      min-height: 118px; padding: var(--sp-4); cursor: pointer;
+      border: 1px dashed var(--border); border-radius: var(--r-md); background: var(--bg-soft);
+      transition: border-color var(--dur-base) var(--ease-soft), background var(--dur-base) var(--ease-soft);
+    }
+    .upload__label:hover { border-color: var(--accent); background: var(--g-coral-100); }
+    .upload__input:focus-visible + .upload__label { outline: none; box-shadow: var(--sh-focus); border-color: var(--accent); }
+    .upload__num {
+      width: 26px; height: 26px; display: grid; place-items: center; border-radius: var(--r-pill);
+      background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-size: var(--fs-xs);
+    }
+    .upload__title { font-size: var(--fs-sm); font-weight: 500; }
+    .upload__hint { font-size: var(--fs-xs); color: var(--text-faint); word-break: break-word; }
+    .upload--filled .upload__hint { color: var(--g-sage); }
+    .upload__preview {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; border-radius: var(--r-md); pointer-events: none;
+    }
+    .upload--filled .upload__label {
+      position: relative; z-index: 1; border-style: solid; border-color: var(--accent);
+      background: rgba(255, 255, 255, .82); backdrop-filter: blur(2px);
+    }
+    .upload__remove {
+      position: absolute; top: 6px; inset-inline-end: 6px; z-index: 2;
+      width: 30px; height: 30px; display: grid; place-items: center; cursor: pointer;
+      border: 0; border-radius: var(--r-pill); background: var(--g-charcoal); color: var(--g-white);
+      font-size: 1.1rem; line-height: 1;
+    }
+    .upload__remove:hover { background: var(--accent-action); }
+
+    .lp-consent { align-items: flex-start; gap: var(--sp-3); font-size: var(--fs-xs); line-height: 1.6; }
+    .lp-consent input { margin-top: 3px; width: 20px; height: 20px; flex: none; accent-color: var(--accent-action); }
+
+    .lp-alert {
+      display: grid; gap: var(--sp-1); padding: var(--sp-4) var(--sp-5);
+      border: 1px solid #B3261E; border-radius: var(--r-md); background: #FDECEA;
+      color: #6B1811; font-size: var(--fs-sm);
+    }
+    .lp-alert[hidden] { display: none; }
+
+    .lp-progress { height: 6px; border-radius: var(--r-pill); background: var(--g-stone); overflow: hidden; }
+    .lp-progress__bar { height: 100%; width: 0%; background: var(--accent-action); transition: width 120ms linear; }
+  </style>
+
+  <script>
+    const form = document.getElementById("anfrage-form") as HTMLFormElement | null;
+    if (form) {
+      const messages: Record<string, string> = JSON.parse(form.dataset.errors ?? "{}");
+      const generic = form.dataset.generic ?? "";
+      const alertBox = document.getElementById("anfrage-fehler");
+      const alertText = document.getElementById("anfrage-fehler-text");
+      const submitButton = document.getElementById("anfrage-submit") as HTMLButtonElement | null;
+      const submitLabel = submitButton?.textContent ?? "";
+      const progress = form.querySelector<HTMLElement>("[data-progress]");
+      const progressBar = form.querySelector<HTMLElement>("[data-progress-bar]");
+      const MAX_FILE_BYTES = 8 * 1024 * 1024;
+
+      const showError = (code: string) => {
+        if (!alertBox || !alertText) return;
+        alertText.textContent = messages[code] ?? generic;
+        alertBox.hidden = false;
+        alertBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      };
+      const clearError = () => { if (alertBox) alertBox.hidden = true; };
+
+      // A submission that failed without JavaScript comes back with the reason
+      // in the query string; surface it and tidy the URL again.
+      const failed = new URLSearchParams(window.location.search).get("fehler");
+      if (failed) {
+        showError(failed);
+        window.history.replaceState({}, "", window.location.pathname);
+      }
+
+      // ---- Photo fields: thumbnail, file name, remove ----
+      form.querySelectorAll<HTMLElement>("[data-upload]").forEach((card) => {
+        const input = card.querySelector<HTMLInputElement>(".upload__input");
+        const hint = card.querySelector<HTMLElement>("[data-upload-hint]");
+        const preview = card.querySelector<HTMLImageElement>("[data-upload-preview]");
+        const remove = card.querySelector<HTMLButtonElement>("[data-upload-remove]");
+        if (!input || !hint || !preview || !remove) return;
+        const placeholder = hint.textContent ?? "";
+
+        const reset = () => {
+          input.value = "";
+          card.classList.remove("upload--filled");
+          hint.textContent = placeholder;
+          if (preview.src.startsWith("blob:")) URL.revokeObjectURL(preview.src);
+          preview.removeAttribute("src");
+          preview.hidden = true;
+          remove.hidden = true;
+        };
+
+        input.addEventListener("change", () => {
+          const file = input.files?.[0];
+          if (!file) return reset();
+          if (file.size > MAX_FILE_BYTES) {
+            reset();
+            showError("fileSize");
+            return;
+          }
+          clearError();
+          card.classList.add("upload--filled");
+          hint.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} MB`;
+          // HEIC has no browser-renderable preview; the label still confirms it.
+          if (/^image\/(jpeg|png|webp|avif|gif)$/.test(file.type)) {
+            preview.src = URL.createObjectURL(file);
+            preview.hidden = false;
+          }
+          remove.hidden = false;
+        });
+
+        remove.addEventListener("click", reset);
+      });
+
+      // ---- Submit over XHR, so large phone photos get a progress bar ----
+      form.addEventListener("submit", (event) => {
+        if (!form.reportValidity()) return;
+        event.preventDefault();
+        clearError();
+
+        const request = new XMLHttpRequest();
+        request.open("POST", form.action);
+        request.setRequestHeader("Accept", "application/json");
+
+        const finish = () => {
+          if (submitButton) { submitButton.disabled = false; submitButton.textContent = submitLabel; }
+          if (progress) progress.hidden = true;
+        };
+
+        request.upload.addEventListener("progress", (e) => {
+          if (!progressBar || !e.lengthComputable) return;
+          progressBar.style.width = `${Math.round((e.loaded / e.total) * 100)}%`;
+        });
+
+        request.addEventListener("load", () => {
+          let payload: { ok?: boolean; error?: string; redirect?: string } = {};
+          try { payload = JSON.parse(request.responseText); } catch { /* fall through to the generic message */ }
+          if (request.status === 200 && payload.ok) {
+            window.location.assign(payload.redirect ?? "/danke");
+            return;
+          }
+          finish();
+          showError(payload.error ?? "send");
+        });
+
+        request.addEventListener("error", () => { finish(); showError("send"); });
+        request.addEventListener("abort", finish);
+
+        if (submitButton) { submitButton.disabled = true; submitButton.textContent = submitButton.dataset.busy ?? submitLabel; }
+        if (progress && progressBar) { progressBar.style.width = "0%"; progress.hidden = false; }
+        request.send(new FormData(form));
+      });
+    }
+  </script>
+</BaseLayout>

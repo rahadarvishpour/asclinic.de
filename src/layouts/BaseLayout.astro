@@ -18,9 +18,13 @@ export interface Props {
    *  subset for pages published in fewer languages, so hreflang never advertises
    *  a URL that was never built. */
   hreflangLocales?: Locale[];
+  /** Keeps the page out of the index — for campaign landing pages and the
+   *  thank-you page they hand off to, which would otherwise compete with the
+   *  editorial treatment pages for the same queries. */
+  noindex?: boolean;
 }
 
-const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales } = Astro.props;
+const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales, noindex = false } = Astro.props;
 const alternateLocales = hreflangLocales
   ? LOCALES.filter((l) => hreflangLocales.includes(l.code))
   : LOCALES;
@@ -107,7 +111,7 @@ const faqJsonLd = includeFaqSchema
   ))}
   {hreflangAlternates && xDefaultLocale && <link rel="alternate" hreflang="x-default" href={`${site}${localePath(xDefaultLocale, unprefixedPath)}`} />}
 
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
   <meta name="author" content={CLINIC.name} />
   <meta name="theme-color" content="#1F1D1C" />
 

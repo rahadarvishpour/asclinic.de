@@ -25,3 +25,6 @@ pnpm-debug.log*
 /asclinic_images_2
 /missing_data.md
 /SEO
+
+# lead submissions kept on disk when SMTP delivery fails (see src/lib/leadMail.ts)
+/.leads

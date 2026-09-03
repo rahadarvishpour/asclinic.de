@@ -23,8 +23,30 @@ export default defineConfig({
     '/de/treatments/[slug]': '/treatments/[slug]',
   },
 
+  // The node adapter only trusts the Host / X-Forwarded-Host of a request when
+  // the domain is listed here — otherwise `Astro.url` falls back to
+  // http://localhost. That matters for the landing-page form: Astro's built-in
+  // CSRF guard (security.checkOrigin, on by default) compares the browser's
+  // Origin header against `Astro.url.origin`, so without these entries every
+  // form POST through Caddy would be rejected as cross-site.
+  security: {
+    allowedDomains: [
+      { hostname: 'asclinic.de', protocol: 'https' },
+      { hostname: 'www.asclinic.de', protocol: 'https' },
+      { hostname: 'asclinic-berlin.de', protocol: 'https' },
+      { hostname: 'www.asclinic-berlin.de', protocol: 'https' },
+      // Local runs of the built server (npm start) and Caddy's upstream health checks.
+      { hostname: 'localhost', protocol: 'http' },
+      { hostname: '127.0.0.1', protocol: 'http' },
+    ],
+  },
+
   integrations: [
     sitemap({
+      // The paid-traffic landing page and its thank-you page carry
+      // `noindex` — keeping them out of the sitemap too avoids advertising
+      // URLs we are asking search engines to ignore.
+      filter: (page) => !/\/(landing-haartransplantation-offer|danke)\/?$/.test(page),
       i18n: {
         defaultLocale: 'de',
         locales: {

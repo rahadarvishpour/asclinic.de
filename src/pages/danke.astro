@@ -1,0 +1,131 @@
+---
+/** Thank-you page — the one and only destination after the landing-page form.
+ *
+ *  It is rendered on demand rather than prerendered, because it is gated: the
+ *  form endpoint sets a short-lived cookie on a successful submission and this
+ *  page only exists for visitors who carry it. Anyone arriving without one
+ *  (a typed URL, a shared link, a crawler) is sent back to the form, so the
+ *  "we will call you within 24 hours" promise is never shown to someone whose
+ *  request never arrived.
+ */
+export const prerender = false;
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CLINIC } from "../data/clinic";
+import { LANDING } from "../i18n/landing";
+import { bookingUrl, localePath, t } from "../i18n/ui";
+import { LANDING_PATH, LEAD_COOKIE } from "../lib/leadCookie";
+
+if (!Astro.cookies.has(LEAD_COOKIE)) {
+  return Astro.redirect(LANDING_PATH, 303);
+}
+
+// Nothing about this page should be cached by a proxy — it is per-visitor.
+Astro.response.headers.set("cache-control", "no-store");
+
+const { danke, footer } = LANDING;
+const year = new Date().getFullYear();
+---
+
+<BaseLayout
+  locale="de"
+  title={danke.metaTitle}
+  description={danke.metaDescription}
+  includeFaqSchema={false}
+  unprefixedPath="/danke"
+  hreflangAlternates={false}
+  noindex={true}
+>
+  <div class="dk">
+    <header class="dk-head">
+      <div class="container dk-head__inner">
+        <span class="dk-brand">
+          <img src="/assets/logo.jpg" width="44" height="44" alt={t("de", "brand.logoAlt")} />
+          <span class="dk-brand__name">{t("de", "hero.title")}</span>
+        </span>
+      </div>
+    </header>
+
+    <main id="main" class="dk-main">
+      <div class="container dk-wrap">
+        <div class="dk-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">{danke.eyebrow}</p>
+        <h1 class="display dk-title">{danke.h1}</h1>
+        <p class="lead dk-lead">{danke.lead}</p>
+
+        <section class="dk-next">
+          <h2 class="h4">{danke.nextHeading}</h2>
+          <ol class="dk-next__list">
+            {danke.next.map((step) => <li>{step}</li>)}
+          </ol>
+        </section>
+
+        <section class="dk-cta">
+          <h2 class="h2 dk-cta__title">{danke.ctaHeading}</h2>
+          <p class="body dk-cta__body">{danke.ctaBody}</p>
+          <div class="dk-cta__actions">
+            <a class="btn btn--lg" href={bookingUrl("de")}>{danke.ctaButton}</a>
+            <a class="btn btn--lg btn--outline" href={`${localePath("de")}#injectables`}>{danke.ctaSecondary}</a>
+          </div>
+        </section>
+
+        <p class="meta dk-urgent">
+          {danke.urgentNote} <a href={`tel:${CLINIC.telephone}`}>{CLINIC.telephoneDisplay}</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="dk-foot">
+      <div class="container dk-foot__inner">
+        <span>© {year} {CLINIC.name} Berlin. {footer.rights}</span>
+        <span class="dk-foot__links">
+          <a href="/impressum">{footer.imprint}</a>
+          <a href="/datenschutz">{footer.privacy}</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    .dk { display: flex; flex-direction: column; min-height: 100dvh; overflow-x: hidden; }
+    .dk-head { border-bottom: 1px solid var(--border); background: var(--surface); }
+    .dk-head__inner { display: flex; align-items: center; padding-block: var(--sp-4); }
+    .dk-brand { display: inline-flex; align-items: center; gap: var(--sp-3); }
+    .dk-brand img { width: 44px; height: 44px; border-radius: var(--r-pill); object-fit: cover; background: #000; }
+    .dk-brand__name { font-family: var(--font-display); font-size: 1.3rem; }
+
+    .dk-main { flex: 1; background: var(--bg-soft); padding-block: clamp(2.5rem, 1.5rem + 5vw, 6rem); }
+    .dk-wrap { max-width: 72ch; display: grid; gap: var(--sp-4); justify-items: start; }
+    .dk-mark {
+      width: 62px; height: 62px; display: grid; place-items: center; border-radius: var(--r-pill);
+      background: var(--g-sage); color: var(--g-white); font-size: 1.7rem; margin-bottom: var(--sp-2);
+    }
+    .dk-title { max-width: 18ch; }
+    .dk-lead { max-width: 60ch; }
+
+    .dk-next {
+      margin-top: var(--sp-4); padding: var(--sp-5) var(--sp-6);
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md);
+      width: 100%;
+    }
+    .dk-next__list { margin: var(--sp-3) 0 0; padding-inline-start: 1.2rem; display: grid; gap: var(--sp-2); color: var(--text-muted); }
+
+    .dk-cta {
+      margin-top: var(--sp-5); width: 100%; padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+      background: var(--bg-invert); color: var(--text-invert); border-radius: var(--r-lg);
+      display: grid; gap: var(--sp-4);
+    }
+    .dk-cta__title { max-width: 22ch; }
+    .dk-cta__body { color: rgba(246, 241, 237, .72); }
+    .dk-cta__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-2); }
+    .dk-cta .btn--outline { color: var(--text-invert); border-color: rgba(246, 241, 237, .32); }
+
+    .dk-urgent { margin-top: var(--sp-4); }
+
+    .dk-foot { background: var(--g-charcoal-900); color: rgba(246, 241, 237, .55); font-size: var(--fs-sm); }
+    .dk-foot a { color: rgba(246, 241, 237, .72); text-decoration: underline; text-underline-offset: 3px; }
+    .dk-foot a:hover { color: var(--accent); }
+    .dk-foot__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-3); padding-block: var(--sp-5); }
+    .dk-foot__links { display: flex; gap: var(--sp-4); }
+  </style>
+</BaseLayout>
