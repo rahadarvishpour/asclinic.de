@@ -1,0 +1,19 @@
+---
+import LegalDocument from "../components/LegalDocument.astro";
+import { PRIVACY_SECTIONS, PRIVACY_UPDATED } from "../data/privacy";
+
+// The privacy notice is a German legal document and is published in German only,
+// so it is not part of the multilingual page set: no locale variants, and
+// LegalDocument switches hreflang alternates off rather than pointing at URLs
+// that were never built. Footers in every language link here.
+---
+<LegalDocument
+  locale="de"
+  heading="Datenschutzerklärung"
+  metaTitle="Datenschutzerklärung — AS Clinic Berlin"
+  metaDescription="Datenschutzerklärung der AS Clinic Berlin: Verantwortlicher, Hosting, Kontakt- und Beratungsformular, Fotos, Pabau, Cookies, Google-Dienste, Speicherdauer und Ihre Rechte nach DSGVO."
+  unprefixedPath="/datenschutz"
+  sections={PRIVACY_SECTIONS}
+  updated={PRIVACY_UPDATED}
+  toc
+/>

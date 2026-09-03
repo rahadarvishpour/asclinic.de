@@ -1,0 +1,16 @@
+---
+import LegalDocument from "../components/LegalDocument.astro";
+import { IMPRINT_SECTIONS } from "../data/imprint";
+
+// German-only, like the privacy notice: the imprint is the disclosure required
+// by § 5 DDG of the German-registered provider, so every locale's footer links
+// to this one page.
+---
+<LegalDocument
+  locale="de"
+  heading="Impressum"
+  metaTitle="Impressum — AS Clinic Berlin"
+  metaDescription="Impressum der AS Clinic Berlin nach § 5 DDG: Diensteanbieter, Kontakt, Umsatzsteuer-ID, ärztliche Angaben, zuständige Kammer und Aufsichtsbehörde sowie berufsrechtliche Regelungen."
+  unprefixedPath="/impressum"
+  sections={IMPRINT_SECTIONS}
+/>

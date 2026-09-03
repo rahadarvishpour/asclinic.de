@@ -1,10 +1,9 @@
 ---
-import { LOCALES, NAV_LOCALES, localePath, localizedPathFor, stripLocalePrefix, bookingUrl, type Locale } from "../i18n/ui";
+import { localePath, stripLocalePrefix, bookingUrl, hasContactPage, type Locale } from "../i18n/ui";
 import { t, sectionHref } from "../i18n/ui";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
-const currentMeta = LOCALES.find((l) => l.code === locale)!;
 
 // Home is where the anchored sections (#injectables, #book, etc.) actually
 // live — from any other page (e.g. a treatment detail page) these need to
@@ -12,18 +11,18 @@ const currentMeta = LOCALES.find((l) => l.code === locale)!;
 const homeHref = localePath(locale);
 const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 
+// The contact page exists in German and English only, so it joins the nav in
+// those locales and is left out of the others rather than 404-ing.
 const NAV = [
   { href: anchor("injectables"), key: "nav.inject" as const },
   { href: anchor("hair"), key: "nav.hair" as const },
   { href: anchor("surgery"), key: "nav.surgery" as const },
   { href: anchor("results"), key: "nav.results" as const },
-  { href: anchor("faq"), key: "nav.faq" as const }
+  { href: anchor("faq"), key: "nav.faq" as const },
+  ...(hasContactPage(locale) ? [{ href: localePath(locale, "/contact"), key: "nav.contact" as const }] : [])
 ];
 const bookHref = bookingUrl(locale);
 
-// Same-page language switch: swap only the locale prefix, keep the rest of
-// the current path (and, via the client script below, the #hash) so
-// switching language never drops you back to the homepage.
 const currentPath = Astro.url.pathname;
 
 // The brand logo is the conventional "go home" control. On the homepage it
@@ -56,20 +55,6 @@ const brandHref = onHomepage ? "#top" : homeHref;
       </ul>
     </nav>
     <div style="display:flex; align-items:center; gap:var(--sp-3)">
-      <details class="lang-details">
-        <summary class="lang-summary" aria-label={t(locale, "lang.switch")}>
-          <span style="color:var(--accent)">◍</span>
-          <span>{currentMeta.hreflang.toUpperCase()}</span>
-        </summary>
-        <div class="lang-pop">
-          {NAV_LOCALES.map((l) => (
-            <a class="lang-pop__item" data-lang-link={l.code} href={localizedPathFor(currentPath, l.code)} aria-current={l.code === locale ? "true" : undefined}>
-              <span>{l.native}</span>
-              <span class="meta" style="letter-spacing:var(--ls-nav); text-transform:uppercase">{l.hreflang}</span>
-            </a>
-          ))}
-        </div>
-      </details>
       <a class="btn nav-cta" href={bookHref}>{t(locale, "nav.cta")}</a>
       <details class="burger-details" data-burger="1">
         <summary class="burger-summary" aria-label={t(locale, "nav.menu")}>≡</summary>
@@ -87,26 +72,6 @@ const brandHref = onHomepage ? "#top" : homeHref;
 </header>
 
 <style>
-  .lang-details { position: relative; }
-  .lang-summary {
-    display: inline-flex; align-items: center; gap: 8px; list-style: none; cursor: pointer;
-    background: none; border: 1px solid var(--border); border-radius: var(--r-pill);
-    padding: 8px 14px; font-size: var(--fs-2xs); letter-spacing: var(--ls-nav); text-transform: uppercase; color: var(--text);
-  }
-  .lang-summary::-webkit-details-marker { display: none; }
-  .lang-pop {
-    position: absolute; inset-inline-end: 0; top: calc(100% + 10px);
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md);
-    box-shadow: var(--sh-2); padding: var(--sp-2); min-width: 190px; z-index: 40;
-    display: grid; gap: 2px;
-  }
-  .lang-pop__item {
-    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
-    border-radius: var(--r-sm); padding: 10px 12px; font-size: var(--fs-sm); color: var(--text);
-  }
-  .lang-pop__item:hover { background: var(--g-blush-50); }
-  .lang-pop__item[aria-current="true"] { color: var(--accent-action); font-weight: 500; }
-
   [data-burger] { display: none; }
   .burger-summary {
     display: none; align-items: center; justify-content: center; width: 42px; height: 42px;
@@ -130,44 +95,24 @@ const brandHref = onHomepage ? "#top" : homeHref;
   @media (max-width: 640px) {
     .nav { gap: var(--sp-3); }
     .nav-cta { display: none; }
-    .lang-summary {
-      gap: 0; padding: 0; width: 42px; height: 42px; justify-content: center;
-      border-color: var(--g-charcoal); font-size: var(--fs-xs); font-weight: 600; letter-spacing: normal;
-    }
-    .lang-summary span:first-child { display: none; }
-    .lang-pop { min-width: 168px; }
   }
 </style>
 
 <script>
-  // The server only knows the path, never the #hash (browsers don't send it).
-  // Carry the current section hash over into each language link here so
-  // switching language while reading e.g. #faq lands on #faq in the new
-  // language too, instead of the top of the page.
-  if (window.location.hash) {
-    document.querySelectorAll<HTMLAnchorElement>("[data-lang-link]").forEach((a) => {
-      a.href = a.href.split("#")[0] + window.location.hash;
-    });
-  }
-
   // Explicit toggle (rather than relying solely on native <summary> default
-  // action) so the drawer/lang popover open reliably for every input type,
-  // including synthetic/automated click dispatch.
-  document.querySelectorAll<HTMLElement>(".lang-summary, .burger-summary").forEach((summary) => {
+  // action) so the drawer opens reliably for every input type, including
+  // synthetic/automated click dispatch.
+  document.querySelectorAll<HTMLElement>(".burger-summary").forEach((summary) => {
     summary.addEventListener("click", (e) => {
       e.preventDefault();
       const details = summary.closest("details");
       if (!details) return;
-      const opening = !details.open;
-      document.querySelectorAll<HTMLDetailsElement>("details.lang-details, details.burger-details").forEach((d) => {
-        if (d !== details) d.removeAttribute("open");
-      });
-      details.open = opening;
+      details.open = !details.open;
     });
   });
 
   document.addEventListener("click", (e) => {
-    document.querySelectorAll<HTMLDetailsElement>(".lang-details[open], .burger-details[open]").forEach((el) => {
+    document.querySelectorAll<HTMLDetailsElement>(".burger-details[open]").forEach((el) => {
       if (!el.contains(e.target as Node)) el.removeAttribute("open");
     });
   });

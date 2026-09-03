@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import BookingCta from "./BookingCta.astro";
+import { CLINIC } from "../data/clinic";
+import { t, localePath, bookingUrl, CONTACT_LOCALES } from "../i18n/ui";
+import { tc, type ContactLocale } from "../i18n/contact";
+
+interface Props { locale: ContactLocale }
+const { locale } = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? CLINIC.url;
+const unprefixedPath = "/contact";
+const homeHref = localePath(locale);
+
+// Published in German and English only, so hreflang advertises just those two
+// rather than four URLs that were never built.
+const channels = [
+  { label: tc(locale, "ct.phoneLabel"), value: CLINIC.telephoneDisplay, href: `tel:${CLINIC.telephone}`, note: tc(locale, "ct.phoneNote"), external: false },
+  { label: tc(locale, "ct.emailLabel"), value: CLINIC.email, href: `mailto:${CLINIC.email}`, note: tc(locale, "ct.emailNote"), external: false },
+  { label: "WhatsApp", value: "WhatsApp", href: CLINIC.whatsapp, note: tc(locale, "ct.whatsappNote"), external: true },
+  { label: "Telegram", value: "Telegram", href: CLINIC.social.telegram, note: tc(locale, "ct.telegramNote"), external: true },
+  { label: "Instagram", value: "@asclinic.de", href: CLINIC.social.instagram, note: tc(locale, "ct.instagramNote"), external: true }
+];
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": tc(locale, "ct.h1"),
+  "url": `${site}${localePath(locale, unprefixedPath)}`,
+  "mainEntity": {
+    "@type": "MedicalClinic",
+    "name": CLINIC.name,
+    "url": CLINIC.url,
+    "telephone": CLINIC.telephone,
+    "email": CLINIC.email,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": CLINIC.streetAddress,
+      "addressLocality": CLINIC.addressLocality,
+      "postalCode": CLINIC.postalCode,
+      "addressRegion": CLINIC.addressRegion,
+      "addressCountry": CLINIC.addressCountry
+    },
+    "openingHoursSpecification": CLINIC.openingHours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": h.days,
+      "opens": h.opens,
+      "closes": h.closes
+    })),
+    "contactPoint": [
+      { "@type": "ContactPoint", "contactType": "customer service", "telephone": CLINIC.telephone, "email": CLINIC.email, "availableLanguage": ["de", "en", "es", "ru", "fa", "ar"] }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={tc(locale, "ct.metaTitle")}
+  description={tc(locale, "ct.metaDescription")}
+  includeFaqSchema={false}
+  unprefixedPath={unprefixedPath}
+  hreflangLocales={CONTACT_LOCALES}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(contactJsonLd)} is:inline />
+  </Fragment>
+  <div style="overflow-x:hidden">
+    <Header locale={locale} />
+    <main id="main">
+      <nav aria-label={t(locale, "a11y.breadcrumb")} class="container" style="padding-top:var(--sp-6)">
+        <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
+          <li><a href={homeHref} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" style="color:var(--text)">{tc(locale, "ct.h1")}</li>
+        </ol>
+      </nav>
+
+      <section class="section" style="padding-top:var(--sp-6); padding-bottom:var(--sp-7)">
+        <div class="container prose">
+          <h1 class="h1">{tc(locale, "ct.h1")}</h1>
+          <p class="lead" style="color:var(--text-muted); margin-top:var(--sp-4)">{tc(locale, "ct.intro")}</p>
+          <div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
+            <a class="btn btn--lg" href={`tel:${CLINIC.telephone}`}>{tc(locale, "ct.callCta")}</a>
+            <a class="btn btn--lg btn--outline" href={`mailto:${CLINIC.email}`}>{tc(locale, "ct.emailCta")}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
+        <div class="container">
+          <div class="prose">
+            <h2 class="h2">{tc(locale, "ct.channelsHeading")}</h2>
+            <p class="body" style="color:var(--text-muted)">{tc(locale, "ct.channelsBody")}</p>
+          </div>
+          <ul class="channels">
+            {channels.map((c) => (
+              <li class="channel">
+                <span class="eyebrow">{c.label}</span>
+                <a
+                  class="channel__value"
+                  href={c.href}
+                  target={c.external ? "_blank" : undefined}
+                  rel={c.external ? "noopener noreferrer" : undefined}
+                >{c.value}</a>
+                <span class="meta channel__note">{c.note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" style="padding-block:var(--sp-7)">
+        <div class="container prose">
+          <h2 class="h2">{tc(locale, "ct.responseHeading")}</h2>
+          <p class="body" style="color:var(--text-muted)">{tc(locale, "ct.responseBody")}</p>
+
+          <h2 class="h2" style="margin-top:var(--sp-8)">{t(locale, "loc.hoursHeading")}</h2>
+          <ul class="ticklist">
+            <li>{t(locale, "ft.hours1")}</li>
+            <li>{t(locale, "ft.hours2")}</li>
+            <li>{t(locale, "ft.hours3")}</li>
+          </ul>
+
+          <h2 class="h2" style="margin-top:var(--sp-8)">{tc(locale, "ct.visitHeading")}</h2>
+          <p class="body" style="color:var(--text-muted)">{tc(locale, "ct.visitBody")}</p>
+          <address class="nap">
+            <strong>{CLINIC.name}</strong><br />
+            {CLINIC.streetAddress}<br />
+            {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}
+          </address>
+          <div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-5)">
+            <a class="btn" href={localePath(locale, "/location")}>{tc(locale, "ct.directionsCta")}</a>
+            <a class="btn btn--outline" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
+          </div>
+        </div>
+      </section>
+
+      <BookingCta locale={locale} />
+
+      <section class="section" style="padding-block:var(--sp-6)">
+        <div class="container prose">
+          <p class="meta" style="color:var(--text-faint)">
+            {tc(locale, "ct.privacyNote")} <a href="/datenschutz">{tc(locale, "ct.privacyCta")}</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <Footer locale={locale} />
+  </div>
+
+  <style>
+    .prose { max-width: 78ch; }
+    .ticklist { margin: var(--sp-4) 0 0; padding-inline-start: 1.15rem; display: grid; gap: var(--sp-2); }
+    .ticklist li { color: var(--text-muted); }
+    .nap {
+      margin-top: var(--sp-5); padding: var(--sp-5); border: 1px solid var(--border);
+      border-radius: var(--r-md); font-style: normal; line-height: 1.9; background: var(--surface);
+    }
+
+    .channels {
+      list-style: none; margin: var(--sp-6) 0 0; padding: 0;
+      display: grid; gap: var(--sp-4);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .channel {
+      display: grid; gap: var(--sp-2); align-content: start;
+      padding: var(--sp-5); background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--r-md);
+    }
+    .channel__value { font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.15; }
+    .channel__note { color: var(--text-faint); }
+  </style>
+</BaseLayout>

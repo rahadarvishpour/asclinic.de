@@ -71,6 +71,11 @@ export function bookingUrl(locale: Locale): string {
   return `${BOOKING_BASE}?lang=${locale}`;
 }
 
+/** Locales the standalone contact page is published in. Header and footer link to
+ *  it only from these, so no navigation ever points at a URL that was not built. */
+export const CONTACT_LOCALES: Locale[] = ["de", "en"];
+export const hasContactPage = (locale: Locale) => CONTACT_LOCALES.includes(locale);
+
 export function getLocaleMeta(locale: Locale): LocaleMeta {
   return LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
 }
@@ -90,6 +95,7 @@ export const ui = {
     "nav.inject": "Injectables", "nav.hair": "Hair Restoration", "nav.surgery": "Surgery",
     "nav.results": "Results", "nav.faq": "FAQ", "nav.cta": "Book a visit",
     "nav.menu": "Menu",
+    "nav.contact": "Contact",
     "hero.eyebrow": "Aesthetics & Medicine",
     "hero.title": "AS Clinic",
     "hero.accent": "Hair Transplant & Aesthetic Medicine",
@@ -128,6 +134,8 @@ export const ui = {
     "lang.label": "Language", "lang.switch": "Change language",
     "skip.content": "Skip to content",
     "breadcrumb.home": "Home",
+    "ft.privacy": "Privacy Policy",
+    "ft.imprint": "Legal Notice",
     "treat.ready": "Ready to talk about {title}?",
     "treat.faqHeading": "{title} — frequently asked",
     "treat.faqLead": "Twenty answers written by our physicians.",
@@ -196,6 +204,7 @@ export const ui = {
     "nav.inject": "Injektionen", "nav.hair": "Haartransplantation", "nav.surgery": "Chirurgie",
     "nav.results": "Ergebnisse", "nav.faq": "FAQ", "nav.cta": "Termin buchen",
     "nav.menu": "Menü",
+    "nav.contact": "Kontakt",
     "hero.eyebrow": "Ästhetik & Medizin",
     "hero.title": "AS Clinic",
     "hero.accent": "Haartransplantation & Ästhetische Medizin",
@@ -234,6 +243,8 @@ export const ui = {
     "lang.label": "Sprache", "lang.switch": "Sprache ändern",
     "skip.content": "Zum Inhalt springen",
     "breadcrumb.home": "Startseite",
+    "ft.privacy": "Datenschutzerklärung",
+    "ft.imprint": "Impressum",
     "treat.ready": "Bereit, über {title} zu sprechen?",
     "treat.faqHeading": "{title} — häufig gestellte Fragen",
     "treat.faqLead": "Zwanzig Antworten, verfasst von unseren Ärzten.",
@@ -302,6 +313,7 @@ export const ui = {
     "nav.inject": "Inyectables", "nav.hair": "Injerto capilar", "nav.surgery": "Cirugía",
     "nav.results": "Resultados", "nav.faq": "Preguntas", "nav.cta": "Reservar cita",
     "nav.menu": "Menú",
+    "nav.contact": "Contacto",
     "hero.eyebrow": "Estética y medicina",
     "hero.title": "AS Clinic",
     "hero.accent": "Trasplante Capilar y Medicina Estética",
@@ -340,6 +352,8 @@ export const ui = {
     "lang.label": "Idioma", "lang.switch": "Cambiar idioma",
     "skip.content": "Saltar al contenido",
     "breadcrumb.home": "Inicio",
+    "ft.privacy": "Política de privacidad",
+    "ft.imprint": "Aviso legal",
     "treat.ready": "¿Listo para hablar de {title}?",
     "treat.faqHeading": "{title} — preguntas frecuentes",
     "treat.faqLead": "Veinte respuestas escritas por nuestros médicos.",
@@ -408,6 +422,7 @@ export const ui = {
     "nav.inject": "Инъекции", "nav.hair": "Пересадка волос", "nav.surgery": "Хирургия",
     "nav.results": "Результаты", "nav.faq": "Вопросы", "nav.cta": "Записаться",
     "nav.menu": "Меню",
+    "nav.contact": "Контакты",
     "hero.eyebrow": "Эстетика и медицина",
     "hero.title": "AS Clinic",
     "hero.accent": "Пересадка волос и эстетическая медицина",
@@ -446,6 +461,8 @@ export const ui = {
     "lang.label": "Язык", "lang.switch": "Изменить язык",
     "skip.content": "Перейти к содержимому",
     "breadcrumb.home": "Главная",
+    "ft.privacy": "Политика конфиденциальности",
+    "ft.imprint": "Выходные данные",
     "treat.ready": "Готовы обсудить {title}?",
     "treat.faqHeading": "{title} — часто задаваемые вопросы",
     "treat.faqLead": "Двадцать ответов, написанных нашими врачами.",
@@ -514,6 +531,7 @@ export const ui = {
     "nav.inject": "تزریقات", "nav.hair": "کاشت مو", "nav.surgery": "جراحی",
     "nav.results": "نتایج", "nav.faq": "سؤالات", "nav.cta": "رزرو نوبت",
     "nav.menu": "منو",
+    "nav.contact": "تماس با ما",
     "hero.eyebrow": "زیبایی و پزشکی",
     "hero.title": "AS Clinic",
     "hero.accent": "کاشت مو و پزشکی زیبایی",
@@ -552,6 +570,8 @@ export const ui = {
     "lang.label": "زبان", "lang.switch": "تغییر زبان",
     "skip.content": "رفتن به محتوا",
     "breadcrumb.home": "خانه",
+    "ft.privacy": "سیاست حریم خصوصی",
+    "ft.imprint": "اطلاعات ناشر",
     "treat.ready": "آماده صحبت درباره {title} هستید؟",
     "treat.faqHeading": "{title} — سؤالات متداول",
     "treat.faqLead": "بیست پاسخ نوشته‌شده توسط پزشکان ما.",
@@ -620,6 +640,7 @@ export const ui = {
     "nav.inject": "الحقن", "nav.hair": "زراعة الشعر", "nav.surgery": "الجراحة",
     "nav.results": "النتائج", "nav.faq": "الأسئلة", "nav.cta": "احجز موعدًا",
     "nav.menu": "القائمة",
+    "nav.contact": "اتصل بنا",
     "hero.eyebrow": "جمال وطب",
     "hero.title": "AS Clinic",
     "hero.accent": "زراعة الشعر وطب التجميل",
@@ -658,6 +679,8 @@ export const ui = {
     "lang.label": "اللغة", "lang.switch": "تغيير اللغة",
     "skip.content": "الانتقال إلى المحتوى",
     "breadcrumb.home": "الرئيسية",
+    "ft.privacy": "سياسة الخصوصية",
+    "ft.imprint": "بيانات الناشر",
     "treat.ready": "هل أنت مستعد للحديث عن {title}؟",
     "treat.faqHeading": "{title} — الأسئلة الشائعة",
     "treat.faqLead": "عشرون إجابة كتبها أطباؤنا.",

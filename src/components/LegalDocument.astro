@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import { t, localePath, type Locale } from "../i18n/ui";
+import type { LegalSection } from "../data/legal";
+
+interface Props {
+  locale: Locale;
+  /** Page heading, and the last breadcrumb crumb. */
+  heading: string;
+  metaTitle: string;
+  metaDescription: string;
+  unprefixedPath: string;
+  sections: LegalSection[];
+  /** "Stand: …" line, shown above and below the text where the source carries one. */
+  updated?: string;
+  /** Table of contents — worth it for the long privacy notice, noise on a short imprint. */
+  toc?: boolean;
+}
+
+const { locale, heading, metaTitle, metaDescription, unprefixedPath, sections, updated, toc = false } = Astro.props;
+const homeHref = localePath(locale);
+
+// Splitting on a capturing group leaves the captured e-mail addresses at the odd
+// indices, so they can be turned into mailto: links without touching the wording.
+const EMAIL = /([\w.+-]+@[\w-]+\.[\w.]+)/g;
+const withEmails = (text: string) => text.split(EMAIL);
+const label = (s: LegalSection) => (s.number ? `${s.number}. ${s.heading}` : s.heading);
+---
+
+<BaseLayout
+  locale={locale}
+  title={metaTitle}
+  description={metaDescription}
+  includeFaqSchema={false}
+  unprefixedPath={unprefixedPath}
+  hreflangAlternates={false}
+>
+  <div style="overflow-x:hidden">
+    <Header locale={locale} />
+    <main id="main">
+      <nav aria-label={t(locale, "a11y.breadcrumb")} class="container" style="padding-top:var(--sp-6)">
+        <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
+          <li><a href={homeHref} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" style="color:var(--text)">{heading}</li>
+        </ol>
+      </nav>
+
+      <section class="section" style="padding-top:var(--sp-6); padding-bottom:var(--sp-6)">
+        <div class="container legal">
+          <h1 class="h1">{heading}</h1>
+          {updated && <p class="meta legal__stand">{updated}</p>}
+
+          {toc && (
+            <nav class="legal__toc" aria-label="Inhaltsverzeichnis">
+              <span class="eyebrow">Inhalt</span>
+              <ol>
+                {sections.map((s) => (
+                  <li><a href={`#${s.id}`}>{label(s)}</a></li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
+          {sections.map((s) => (
+            <section class="legal__section" id={s.id}>
+              <h2 class="h3">{label(s)}</h2>
+              {s.blocks.map((b) => (
+                b.type === "p" ? (
+                  <p class="body">{withEmails(b.text).map((part, i) => (
+                    i % 2 === 1 ? <a href={`mailto:${part}`}>{part}</a> : part
+                  ))}</p>
+                ) : b.type === "ul" ? (
+                  <ul class="legal__list">{b.items.map((item) => <li>{item}</li>)}</ul>
+                ) : (
+                  <address class="legal__address">{b.lines.map((line, i) => (
+                    <>{i > 0 && <br />}{line}</>
+                  ))}</address>
+                )
+              ))}
+            </section>
+          ))}
+
+          {updated && <p class="meta legal__stand legal__stand--end">{updated}</p>}
+        </div>
+      </section>
+    </main>
+    <Footer locale={locale} />
+  </div>
+
+  <style>
+    .legal { max-width: 78ch; }
+    .legal__stand { color: var(--text-faint); margin-top: var(--sp-3); }
+    .legal__stand--end { margin-top: var(--sp-7); }
+
+    .legal__toc {
+      margin-top: var(--sp-6); padding: var(--sp-5);
+      border: 1px solid var(--border); border-radius: var(--r-md); background: var(--bg-quiet);
+    }
+    .legal__toc ol {
+      margin: var(--sp-4) 0 0; padding: 0; list-style: none;
+      display: grid; gap: var(--sp-2); font-size: var(--fs-sm);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .legal__toc a { color: var(--text-muted); }
+    .legal__toc a:hover { color: var(--text); }
+    @media (max-width: 640px) {
+      .legal__toc ol { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* scroll-margin keeps a heading clear of the sticky header when the table of
+       contents jumps to it. */
+    .legal__section { margin-top: var(--sp-7); scroll-margin-top: 96px; }
+    .legal__section .h3 { text-transform: none; }
+    .legal__section .body { color: var(--text-muted); margin-top: var(--sp-4); }
+
+    .legal__list {
+      margin: var(--sp-4) 0 0; padding-inline-start: 1.15rem;
+      display: grid; gap: var(--sp-2); color: var(--text-muted);
+    }
+
+    .legal__address {
+      margin-top: var(--sp-4); padding: var(--sp-4) var(--sp-5);
+      border-inline-start: 2px solid var(--border);
+      font-style: normal; line-height: 1.9; color: var(--text);
+    }
+  </style>
+</BaseLayout>

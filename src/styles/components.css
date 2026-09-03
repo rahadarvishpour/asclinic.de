@@ -280,6 +280,11 @@ a.float-card:focus-visible { outline: none; box-shadow: var(--sh-focus); }
   font-size: var(--fs-sm); color: rgba(246,241,237,.55);
 }
 .footer__bottom .meta { color: rgba(246,241,237,.5); }
+/* Imprint and privacy notice are legal must-reach links, so they keep a visible
+   underline rather than the footer's quiet link treatment. */
+.footer__legal { display: flex; flex-wrap: wrap; gap: var(--sp-4); font-size: var(--fs-sm); }
+.footer__legal a { color: rgba(246,241,237,.7); text-decoration: underline; text-underline-offset: 3px; }
+.footer__legal a:hover { color: rgba(246,241,237,.95); }
 
 /* Tablet: the brand block spans the full width, link columns sit beneath it. */
 @media (max-width: 980px) {
