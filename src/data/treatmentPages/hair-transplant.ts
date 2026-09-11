@@ -185,6 +185,25 @@ export const HAIR_TRANSPLANT: TreatmentPage = {
             body: "The cost depends on the graft count, and therefore on the area to be covered and your donor density. Because the graft number comes from trichoscopy rather than from a phone call, the specific price is discussed after the personal examination and before the procedure."
           }
         ],
+        results: {
+          heading: "Real results from AS Clinic Berlin",
+          intro: "The illustrations elsewhere on this page are stock photography, used because they are clearer to look at than a surgical close-up. What follows is not: it is unedited documentation from AS Clinic's own procedures — one patient's hairline photographed at four stages of recovery, and a recipient area photographed during an actual graft-placement session.",
+          photos: [
+            {
+              localSlug: "hair-transplant-timeline",
+              caption: "Start → first month → four months → six months",
+              alt: "One AS Clinic patient's hairline photographed at the start, one month, four months and six months after a follicular unit extraction hair transplant",
+              fit: "contain"
+            },
+            {
+              localSlug: "hair-transplant-procedure-day",
+              caption: "Recipient-area graft placement, photographed during an actual procedure",
+              alt: "Close-up of the recipient area immediately after graft placement during a real hair transplant procedure at AS Clinic Berlin",
+              fit: "cover"
+            }
+          ],
+          note: "Six months is not the final result. As set out above, density keeps building through month 12–15."
+        },
         local: {
           heading: "Hair transplant on Kurfürstendamm in Berlin-Charlottenburg",
           body: "AS Clinic Berlin is located on Kurfürstendamm in Berlin-Charlottenburg. If you are looking for a hair transplant in Berlin, an FUE procedure or a correction of earlier work, the first step is trichoscopy and an honest assessment of what your donor zone allows. AS Clinic Berlin, Kurfürstendamm 102, 10711 Berlin-Charlottenburg. Phone: +49 179 390 2489. Opening hours: Monday–Friday 10:00–19:00, Saturday 10:00–16:00, Sunday closed.",
@@ -441,6 +460,25 @@ export const HAIR_TRANSPLANT: TreatmentPage = {
             body: "Die Kosten hängen von der Graftzahl ab und damit vom zu deckenden Areal und Ihrer Spenderdichte. Da die Graftzahl aus der Trichoskopie stammt und nicht aus einem Telefonat, wird der konkrete Preis nach der persönlichen Untersuchung und vor dem Eingriff besprochen."
           }
         ],
+        results: {
+          heading: "Echte Ergebnisse aus der AS Clinic Berlin",
+          intro: "Die Abbildungen im übrigen Teil dieser Seite sind Stockfotos — sie sind einfach angenehmer anzusehen als eine OP-Nahaufnahme. Was jetzt folgt, ist keins: Es ist unbearbeitete Dokumentation aus echten Behandlungen der AS Clinic — der Haaransatz eines Patienten, fotografiert in vier Phasen der Heilung, sowie ein Empfängerareal, fotografiert während einer tatsächlichen Graft-Platzierung.",
+          photos: [
+            {
+              localSlug: "hair-transplant-timeline",
+              caption: "Start → erster Monat → vier Monate → sechs Monate",
+              alt: "Der Haaransatz eines AS-Clinic-Patienten, fotografiert zu Beginn, nach einem Monat, nach vier Monaten und nach sechs Monaten nach einer FUE-Haartransplantation",
+              fit: "contain"
+            },
+            {
+              localSlug: "hair-transplant-procedure-day",
+              caption: "Graft-Platzierung im Empfängerareal, fotografiert während eines echten Eingriffs",
+              alt: "Nahaufnahme des Empfängerareals unmittelbar nach der Graft-Platzierung während einer echten Haartransplantation bei der AS Clinic Berlin",
+              fit: "cover"
+            }
+          ],
+          note: "Sechs Monate sind nicht das Endergebnis. Wie oben beschrieben, baut sich die Dichte bis Monat 12–15 weiter auf."
+        },
         local: {
           heading: "Haartransplantation am Kurfürstendamm in Berlin-Charlottenburg",
           body: "Die AS Clinic Berlin befindet sich am Kurfürstendamm in Berlin-Charlottenburg. Wenn Sie nach einer Haartransplantation in Berlin, einem FUE-Eingriff oder der Korrektur einer früheren Behandlung suchen, stehen zuerst die Trichoskopie und eine ehrliche Einschätzung dessen, was Ihre Spenderzone zulässt. AS Clinic Berlin, Kurfürstendamm 102, 10711 Berlin-Charlottenburg. Telefon: +49 179 390 2489. Öffnungszeiten: Montag–Freitag 10:00–19:00 Uhr, Samstag 10:00–16:00 Uhr, Sonntag geschlossen.",

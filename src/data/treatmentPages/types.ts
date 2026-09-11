@@ -55,6 +55,28 @@ export interface RelatedTreatment {
   blurb: string;
 }
 
+/** A real, unedited clinic photo — not stock photography. `localSlug` is the
+ *  filename (without extension) in src/assets/gallery/. */
+export interface ResultPhoto {
+  localSlug: string;
+  caption: string;
+  alt: string;
+  /** "contain" (default for a wide composite/timeline) renders at its natural
+   *  aspect ratio so nothing is cropped out. "cover" fills a 4:3 frame — only
+   *  use it for a photo actually shot at that ratio. */
+  fit?: "contain" | "cover";
+}
+
+/** Real patient documentation, distinct from the stock photography used
+ *  elsewhere on the page — genuine evidence for both readers and answer
+ *  engines. Optional: a treatment without real photos yet simply omits it. */
+export interface ResultsSection {
+  heading: string;
+  intro: string;
+  photos: ResultPhoto[];
+  note?: string;
+}
+
 /** Who medically reviewed the page, and when.
  *
  *  Left undefined until the clinic supplies real, attributable details — an
@@ -90,6 +112,8 @@ export interface TreatmentArticle {
   /** Sections that only make sense once the reader knows how the appointment
    *  runs — results, healing, risks, aftercare — rendered after the steps. */
   sectionsAfterProcess?: RichSection[];
+  /** Real clinic photography backing up the results/healing claims above. */
+  results?: ResultsSection;
   /** "[Treatment] in Berlin at AS Clinic" — carries the real NAP details. */
   local: RichSection;
   why: { heading: string; points: ProcessStep[] };

@@ -7,6 +7,7 @@ import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
 import { t, sectionHref, ti, localePath, bookingUrl, LOCALES, type Locale } from "../i18n/ui";
 import { TREATMENT_PAGES, treatmentContent, hasLocale } from "../data/treatmentPages";
+import { galleryImage } from "../data/treatmentImages";
 import type { TreatmentPage, SectionLink } from "../data/treatmentPages/types";
 
 interface Props {
@@ -176,6 +177,29 @@ const procedureJsonLd = {
               <p class="lead" style="color:var(--text-muted)">{article.directAnswer.body}</p>
             </div>
           </section>
+
+          {article.results && (
+            <section class="section" style="padding-block:var(--sp-7)">
+              <div class="container prose">
+                <h2 class="h2">{article.results.heading}</h2>
+                <p class="body" style="color:var(--text-muted)">{article.results.intro}</p>
+                <div class="results-grid">
+                  {article.results.photos.map((photo) => {
+                    const img = galleryImage(photo.localSlug);
+                    return img ? (
+                      <figure class={`results-photo${photo.fit === "cover" ? " results-photo--cover" : ""}`}>
+                        <Image src={img} alt={photo.alt} width={img.width} height={img.height} />
+                        <figcaption class="meta" style="color:var(--text-faint)">{photo.caption}</figcaption>
+                      </figure>
+                    ) : null;
+                  })}
+                </div>
+                {article.results.note && (
+                  <p class="meta" style="color:var(--text-faint); margin-top:var(--sp-5)">{article.results.note}</p>
+                )}
+              </div>
+            </section>
+          )}
 
           <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)">
             <div class="container prose">
@@ -432,6 +456,16 @@ const procedureJsonLd = {
 
     .steps { margin: var(--sp-5) 0 0; padding-inline-start: 1.3rem; display: grid; gap: var(--sp-5); }
     .steps h3 { margin: 0 0 var(--sp-2); }
+
+    /* Real clinic photography: the wide timeline composite is never cropped
+       (fit: contain, natural aspect ratio); a single procedure photo shot at
+       4:3 fills that frame (fit: cover). */
+    .results-grid { display: grid; gap: var(--sp-6); margin-top: var(--sp-6); }
+    .results-photo { margin: 0; }
+    .results-photo img { display: block; width: 100%; height: auto; border-radius: var(--r-image); }
+    .results-photo figcaption { margin-top: var(--sp-3); }
+    .results-photo--cover { max-width: 32rem; }
+    .results-photo--cover img { aspect-ratio: 4 / 3; object-fit: cover; }
 
     .nap {
       margin-top: var(--sp-5); padding: var(--sp-5); border: 1px solid var(--border);
