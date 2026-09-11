@@ -62,13 +62,14 @@ export function sectionHref(locale: Locale, pathname: string, id: string): strin
   return onHomepage ? `#${id}` : `${localePath(locale)}#${id}`;
 }
 
-/** External booking system. Every "Book a visit" / "Book a consultation" CTA on the
- *  site points here rather than at an on-page form, and carries the visitor's current
- *  language so the booking flow opens already translated. */
-const BOOKING_BASE = "http://167.235.57.177:3200/c/defaultcomp1/book/defaultcomp1";
+/** External booking system (Pabau). Every "Book a visit" / "Book a consultation" CTA
+ *  on the site points here rather than at an on-page form. Pabau's form URL has no
+ *  documented language parameter, so unlike the previous booking system this link is
+ *  the same for every locale. */
+const BOOKING_URL = "https://forms.pabau.com/index.php?r=app%2Fform&id=Mw1.sA";
 
-export function bookingUrl(locale: Locale): string {
-  return `${BOOKING_BASE}?lang=${locale}`;
+export function bookingUrl(_locale: Locale): string {
+  return BOOKING_URL;
 }
 
 /** Locales the standalone contact page is published in. Header and footer link to
