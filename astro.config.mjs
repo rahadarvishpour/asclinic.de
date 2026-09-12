@@ -6,7 +6,14 @@ const locales = ['de', 'en', 'es', 'ru', 'fa', 'ar'];
 
 export default defineConfig({
   site: 'https://asclinic-berlin.de',
-  trailingSlash: 'never',
+  // 'ignore' rather than 'never' so /danke/ resolves as well as /danke. The GTM
+  // container fires the `generate-lead` conversion on a Page Path of exactly
+  // "/danke/", and that trigger lives in GTM rather than in this repo, so the
+  // URL the visitor lands on has to carry the slash — a redirect to the
+  // slashless form would rewrite the address bar and lose the conversion.
+  // Every page still declares a slashless <link rel="canonical">, so the pair
+  // of spellings stays one URL as far as search engines are concerned.
+  trailingSlash: 'ignore',
   i18n: {
     defaultLocale: 'de',
     locales,

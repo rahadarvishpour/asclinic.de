@@ -314,7 +314,7 @@ const PHOTO_FIELDS = ["foto1", "foto2", "foto3", "foto4"] as const;
           let payload: { ok?: boolean; error?: string; redirect?: string } = {};
           try { payload = JSON.parse(request.responseText); } catch { /* fall through to the generic message */ }
           if (request.status === 200 && payload.ok) {
-            window.location.assign(payload.redirect ?? "/danke");
+            window.location.assign(payload.redirect ?? "/danke/");
             return;
           }
           finish();
