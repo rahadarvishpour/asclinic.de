@@ -1,10 +1,17 @@
 ---
 import { t, sectionHref, localePath, hasContactPage, type Locale } from "../i18n/ui";
 import { CLINIC } from "../data/clinic";
+import { TREATMENT_PAGES, hasLocale } from "../data/treatmentPages";
+import { languageLinks } from "../i18n/langLinks";
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.jpg";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
 const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
+const langLinks = languageLinks(Astro.url.pathname);
+// The hair transplant page is the clinic's main service page; link it site-wide wherever it is published in this language.
+const hairTransplantHref = hasLocale(TREATMENT_PAGES["hair-transplant"], locale) ? localePath(locale, "/treatments/hair-transplant") : null;
 
 // Layout lives entirely in components.css (.footer__*) — inline grid styles here
 // would outrank the responsive media queries and pin the footer to four columns
@@ -15,7 +22,7 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
   <div class="container">
     <div class="footer__cols">
       <div class="footer__brand">
-        <img class="footer__logo" src="/assets/logo.jpg" alt={t(locale, "ft.logoAlt")} width="132" height="132" loading="lazy" decoding="async" />
+        <Image class="footer__logo" src={logo} alt={t(locale, "ft.logoAlt")} width={132} height={132} densities={[2, 3]} format="webp" loading="lazy" decoding="async" />
         <p class="body footer__tagline">{t(locale, "ft.tagline")}</p>
         <div class="footer__social">
           <a class="social" href={CLINIC.social.instagram} target="_blank" rel="noopener noreferrer me" aria-label="Instagram">IG</a>
@@ -28,6 +35,7 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
         <span class="eyebrow">{t(locale, "ft.explore")}</span>
         <a href={anchor("injectables")}>{t(locale, "nav.inject")}</a>
         <a href={anchor("hair")}>{t(locale, "nav.hair")}</a>
+        {hairTransplantHref && <a href={hairTransplantHref}>{t(locale, "hair.s1.title")}</a>}
         <a href={anchor("surgery")}>{t(locale, "nav.surgery")}</a>
         <a href={anchor("faq")}>{t(locale, "nav.faq")}</a>
         <a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
@@ -52,7 +60,16 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
         <a href="/impressum">{t(locale, "ft.imprint")}</a>
         <a href="/datenschutz">{t(locale, "ft.privacy")}</a>
       </span>
-      <span class="meta footer__langs">English · Deutsch · Español · Русский · فارسی · العربية</span>
+      <nav class="meta footer__langs" aria-label="Languages">
+        {langLinks.map((l, i) => (
+          <>
+            {i > 0 && " · "}
+            {l.code === locale
+              ? <span aria-current="true" lang={l.hreflang}>{l.native}</span>
+              : <a href={l.href} hreflang={l.hreflang} lang={l.hreflang}>{l.native}</a>}
+          </>
+        ))}
+      </nav>
     </div>
   </div>
 </footer>

@@ -19,13 +19,15 @@ interface Props {
 }
 
 const { locale, page, image } = Astro.props;
+// Results photos are wider than the article column they sit in (up to 2460px); offer smaller sizes so phones do not download the full file.
+const RESULT_WIDTHS = [480, 720, 960, 1280];
 const copy = treatmentContent(page, locale);
 const article = copy.article;
 
 // Related treatments resolve their own translated title and URL, so the link
 // text always matches the page it points at (Rule 20: descriptive anchors).
 const related = (article?.related ?? [])
-  .filter((r) => TREATMENT_PAGES[r.slug])
+  .filter((r) => TREATMENT_PAGES[r.slug] && hasLocale(TREATMENT_PAGES[r.slug], locale))
   .map((r) => ({
     href: localePath(locale, `/treatments/${r.slug}`),
     title: treatmentContent(TREATMENT_PAGES[r.slug], locale).title,
@@ -53,8 +55,9 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}${homeHref}` },
-    { "@type": "ListItem", "position": 2, "name": categoryLabel, "item": `${site}${anchor(page.category.categoryAnchorId)}` },
-    { "@type": "ListItem", "position": 3, "name": copy.title, "item": pageUrl }
+    // The visible breadcrumb also shows the category, but that level is only a homepage anchor (#hair, …),
+    // not a URL of its own, so the structured data lists real pages only.
+    { "@type": "ListItem", "position": 2, "name": copy.title, "item": pageUrl }
   ]
 };
 
@@ -94,7 +97,7 @@ const procedureJsonLd = {
   "name": copy.title,
   "description": copy.metaDescription,
   "url": pageUrl,
-  "procedureType": "https://schema.org/NoninvasiveProcedure",
+  "procedureType": page.procedureType === "surgical" ? "https://schema.org/SurgicalProcedure" : "https://schema.org/NoninvasiveProcedure",
   "provider": {
     "@type": "MedicalClinic",
     "name": CLINIC.name,
@@ -160,7 +163,7 @@ const procedureJsonLd = {
               {typeof image === "string" ? (
                 <img src={image} alt={copy.imageAlt} loading="eager" width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
               ) : (
-                <Image src={image} alt={copy.imageAlt} width={900} height={1125} style="width:100%; height:100%; object-fit:cover" />
+                <Image src={image} alt={copy.imageAlt} width={900} height={1125} loading="eager" style="width:100%; height:100%; object-fit:cover" />
               )}
             </div>
           </div>
@@ -188,7 +191,14 @@ const procedureJsonLd = {
                     const img = galleryImage(photo.localSlug);
                     return img ? (
                       <figure class={`results-photo${photo.fit === "cover" ? " results-photo--cover" : ""}`}>
-                        <Image src={img} alt={photo.alt} width={img.width} height={img.height} />
+                        <Image
+                          src={img}
+                          alt={photo.alt}
+                          width={img.width}
+                          height={img.height}
+                          widths={RESULT_WIDTHS}
+                          sizes={photo.fit === "cover" ? "(max-width: 560px) calc(100vw - 2.5rem), 512px" : "(max-width: 760px) calc(100vw - 2.5rem), 700px"}
+                        />
                         <figcaption class="meta" style="color:var(--text-faint)">{photo.caption}</figcaption>
                       </figure>
                     ) : null;
@@ -489,6 +499,7 @@ const procedureJsonLd = {
       });
     });
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.documentElement.classList.add("js-ready");
     const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
     if (reduceMotion || !("IntersectionObserver" in window)) {
       revealEls.forEach((el) => el.classList.add("is-in"));

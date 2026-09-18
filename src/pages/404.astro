@@ -1,0 +1,52 @@
+---
+/** Branded "page not found" page. Prerendered to 404.html, which the Node
+ *  server returns together with a real HTTP 404 for any URL that does not
+ *  exist — so search engines still see a hard 404, not a soft one. It is kept
+ *  out of the index and carries no canonical URL. */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { localePath, bookingUrl } from "../i18n/ui";
+
+const bookHref = bookingUrl("de");
+---
+
+<BaseLayout
+  locale="de"
+  title="Seite nicht gefunden | AS Clinic Berlin"
+  description="Diese Seite existiert nicht (mehr). Zur Startseite der AS Clinic Berlin, zur Haartransplantation oder zur Kontaktseite."
+  includeFaqSchema={false}
+  unprefixedPath="/404"
+  hreflangAlternates={false}
+  noindex={true}
+  omitCanonical={true}
+>
+  <div style="overflow-x:hidden">
+    <Header locale="de" />
+    <main id="main">
+      <section class="section" style="padding-block:var(--sp-8)">
+        <div class="container" style="display:grid; gap:var(--sp-4); max-width:720px">
+          <p class="eyebrow">404</p>
+          <h1 class="h1">Diese Seite wurde nicht gefunden</h1>
+          <p class="lead" style="color:var(--text-muted)">
+            Die Adresse ist nicht (mehr) erreichbar. Über die Links unten kommen Sie direkt zu den wichtigsten Seiten der AS Clinic Berlin.
+          </p>
+          <p class="body" lang="en" style="color:var(--text-muted)">
+            Page not found. Use the links below to reach the main pages of AS Clinic Berlin.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-3)">
+            <a class="btn btn--lg" href={localePath("de")}>Zur Startseite</a>
+            <a class="btn btn--lg btn--outline" href={bookHref} rel="noopener">Termin buchen</a>
+          </div>
+          <ul style="list-style:none; margin:var(--sp-5) 0 0; padding:0; display:grid; gap:var(--sp-3)">
+            <li><a class="link-underline" href={localePath("de", "/treatments/hair-transplant")}>Haartransplantation in Berlin</a></li>
+            <li><a class="link-underline" href={localePath("de", "/location")}>Standort &amp; Anfahrt</a></li>
+            <li><a class="link-underline" href={localePath("de", "/contact")}>Kontakt</a></li>
+            <li><a class="link-underline" href={localePath("en")} hreflang="en" lang="en">English homepage</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <Footer locale="de" />
+  </div>
+</BaseLayout>

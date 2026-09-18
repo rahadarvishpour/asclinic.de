@@ -38,6 +38,11 @@ export default defineConfig({
     '/de': '/',
     '/de/location': '/location',
     '/de/treatments/[slug]': '/treatments/[slug]',
+    // The legal/contact pages were reachable under /de/ before German moved to
+    // the site root. Answered with a permanent (301) redirect by the server.
+    '/de/contact': { status: 301, destination: '/contact' },
+    '/de/impressum': { status: 301, destination: '/impressum' },
+    '/de/datenschutz': { status: 301, destination: '/datenschutz' },
   },
 
   // The node adapter only trusts the Host / X-Forwarded-Host of a request when
@@ -64,20 +69,26 @@ export default defineConfig({
       // `noindex` — keeping them out of the sitemap too avoids advertising
       // URLs we are asking search engines to ignore.
       filter: (page) => !/\/(landing-haartransplantation-offer|danke)\/?$/.test(page),
-      serialize: (item) => ({
-        ...item,
-        url: canonicalForm(item.url),
-        ...(item.links ? { links: item.links.map((l) => ({ ...l, url: canonicalForm(l.url) })) } : {}),
-      }),
+      // hreflang codes in the sitemap must match the <link rel="alternate"
+      // hreflang> tags in each page's HTML (bare language codes plus x-default,
+      // see BaseLayout.astro). Deliberately no <lastmod>: the pages have no
+      // per-URL modification date to report truthfully.
+      serialize: (item) => {
+        if (!item.links) return { ...item, url: canonicalForm(item.url) };
+        const links = item.links.map((l) => ({ ...l, url: canonicalForm(l.url) }));
+        // x-default = German page when it exists for this URL, else the first alternate (same rule as BaseLayout).
+        const fallback = links.find((l) => l.lang === 'de') ?? links[0];
+        return { ...item, url: canonicalForm(item.url), links: [...links, { ...fallback, lang: 'x-default' }] };
+      },
       i18n: {
         defaultLocale: 'de',
         locales: {
-          de: 'de-DE',
-          en: 'en-US',
-          es: 'es-ES',
-          ru: 'ru-RU',
-          fa: 'fa-IR',
-          ar: 'ar-SA'
+          de: 'de',
+          en: 'en',
+          es: 'es',
+          ru: 'ru',
+          fa: 'fa',
+          ar: 'ar'
         }
       }
     })

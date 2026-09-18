@@ -3,6 +3,12 @@ import { LOCALES, DEFAULT_LOCALE, localePath, getLocaleMeta, t, type Locale } fr
 import { CLINIC } from "../data/clinic";
 import { faqFor } from "../data/faqs";
 import "../styles/global.css";
+// Hashed URLs of the self-hosted fonts that paint the first screen (see fonts.css).
+import dmSansLatin from "../assets/fonts/dm-sans-latin.woff2?url";
+import playfairLatin from "../assets/fonts/playfair-display-latin.woff2?url";
+import playfairCyrillic from "../assets/fonts/playfair-display-cyrillic.woff2?url";
+import playfairItalicLatin from "../assets/fonts/playfair-display-italic-latin.woff2?url";
+import playfairItalicCyrillic from "../assets/fonts/playfair-display-italic-cyrillic.woff2?url";
 
 export interface Props {
   locale: Locale;
@@ -22,9 +28,13 @@ export interface Props {
    *  thank-you page they hand off to, which would otherwise compete with the
    *  editorial treatment pages for the same queries. */
   noindex?: boolean;
+  /** Leaves out <link rel="canonical"> — for the 404 page, which has no URL of its own to canonicalise. */
+  omitCanonical?: boolean;
+  /** The page's first screen sets italic Playfair (the homepage hero headline), so that file is preloaded too. */
+  preloadItalic?: boolean;
 }
 
-const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales, noindex = false } = Astro.props;
+const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales, noindex = false, omitCanonical = false, preloadItalic = false } = Astro.props;
 const alternateLocales = hreflangLocales
   ? LOCALES.filter((l) => hreflangLocales.includes(l.code))
   : LOCALES;
@@ -70,11 +80,11 @@ const clinicJsonLd = {
     "opens": h.opens,
     "closes": h.closes
   })),
-  "medicalSpecialty": ["Dermatology", "Plastic Surgery", "Hair Restoration"],
+  // Only values from schema.org's MedicalSpecialty list are valid here ("Plastic Surgery" and "Hair Restoration" are not).
+  "medicalSpecialty": ["https://schema.org/Dermatology", "https://schema.org/PlasticSurgery"],
   "availableService": SERVICE_KEYS.map((key) => t(locale, key)),
   "hasMap": CLINIC.googleMaps,
-  "sameAs": CLINIC.sameAs,
-  "inLanguage": LOCALES.map((l) => l.hreflang)
+  "sameAs": CLINIC.sameAs
 };
 
 // Structured data must match the language of the page it is embedded in, so
@@ -110,9 +120,12 @@ const faqJsonLd = includeFaqSchema
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Scroll-reveal styling only applies once JS is confirmed (html.js). Without JS, or if the page script never
+       starts (js-fail after 6s), .reveal content stays visible instead of being stuck at opacity 0. -->
+  <script is:inline>(function(d){d.classList.add('js');setTimeout(function(){if(!d.classList.contains('js-ready'))d.classList.add('js-fail')},6000)})(document.documentElement)</script>
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonicalUrl} />
+  {!omitCanonical && <link rel="canonical" href={canonicalUrl} />}
 
   {hreflangAlternates && alternateLocales.map((l) => (
     <link rel="alternate" hreflang={l.hreflang} href={`${site}${localePath(l.code, unprefixedPath)}`} />
@@ -141,8 +154,10 @@ const faqJsonLd = includeFaqSchema
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={shareImage} />
 
-  <link rel="icon" href="/assets/logo.jpg" type="image/jpeg" />
-  <link rel="apple-touch-icon" href="/assets/logo.jpg" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <meta name="geo.region" content="DE-BE" />
@@ -153,8 +168,10 @@ const faqJsonLd = includeFaqSchema
   <script type="application/ld+json" set:html={JSON.stringify(clinicJsonLd)} is:inline />
   {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} is:inline />}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href={dmSansLatin} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={playfairLatin} as="font" type="font/woff2" crossorigin />
+  {locale === "ru" && <link rel="preload" href={playfairCyrillic} as="font" type="font/woff2" crossorigin />}
+  {preloadItalic && <link rel="preload" href={locale === "ru" ? playfairItalicCyrillic : playfairItalicLatin} as="font" type="font/woff2" crossorigin />}
   <link rel="preconnect" href="https://images.unsplash.com" />
   <slot name="head" />
 </head>

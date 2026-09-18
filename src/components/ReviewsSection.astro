@@ -43,7 +43,10 @@ const slides = Array.from({ length: Math.ceil(GOOGLE_REVIEWS.length / SLIDE_SIZE
                   class="avatar__img"
                   src={r.avatarUrl}
                   alt=""
+                  width="48"
+                  height="48"
                   loading="lazy"
+                  decoding="async"
                   referrerpolicy="no-referrer"
                   onerror="this.remove()"
                 />

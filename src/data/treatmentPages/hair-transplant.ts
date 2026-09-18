@@ -11,6 +11,7 @@ import type { TreatmentPage } from "./types";
 export const HAIR_TRANSPLANT: TreatmentPage = {
   slug: "hair-transplant",
   category: { categoryLabelKey: "nav.hair", categoryAnchorId: "hair" },
+  procedureType: "surgical",
   content: {
     en: {
       article: {

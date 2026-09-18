@@ -5,6 +5,7 @@ import type { TreatmentPage } from "./types";
 export const BEARD_TRANSPLANT: TreatmentPage = {
   slug: "beard-transplant",
   category: { categoryLabelKey: "nav.hair", categoryAnchorId: "hair" },
+  procedureType: "surgical",
   content: {
     en: {
       article: {
@@ -254,12 +255,12 @@ export const BEARD_TRANSPLANT: TreatmentPage = {
         ],
         relatedHeading: "Related treatments at AS Clinic Berlin",
         related: [
+          { slug: "hair-transplant", blurb: "Hair transplant in Berlin: FUE, follicle by follicle, with the same trichoscopy-led planning for the scalp." },
           { slug: "eyebrow-transplant", blurb: "Eyebrow transplant in Berlin: the same single-hair principle, planned for the brow." },
           { slug: "prp-meso-hair", blurb: "PRP and hair mesotherapy in Berlin: supporting treatments around a transplant." },
           { slug: "hair-meso", blurb: "Hair mesotherapy in Berlin: micro-injections for the scalp and hair." },
           { slug: "jawline-filler", blurb: "Jawline filler in Berlin: defines the jaw structurally, where hair is not the issue." },
-          { slug: "botox", blurb: "Botox in Berlin: treats muscle activity in the face." },
-          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injectable hydration for skin quality." }
+          { slug: "botox", blurb: "Botox in Berlin: treats muscle activity in the face." }
         ],
         ctaHeading: "Arrange a beard transplant consultation in Berlin",
         ctaBody: "Do you have permanently patchy beard growth, would you like to densify individual areas or plan a new beard contour? Arrange a personal consultation at AS Clinic Berlin on Kurfürstendamm. We discuss your existing beard growth, your face and jawline, the beard shape you want, the donor hair, the possible graft requirement, the direction of growth, the risks and the realistic timeline.",
@@ -536,12 +537,12 @@ export const BEARD_TRANSPLANT: TreatmentPage = {
         ],
         relatedHeading: "Passende Behandlungen in der AS Clinic Berlin",
         related: [
+          { slug: "hair-transplant", blurb: "Haartransplantation in Berlin: FUE, Follikel für Follikel, mit derselben trichoskopiegestützten Planung für die Kopfhaut." },
           { slug: "eyebrow-transplant", blurb: "Augenbrauentransplantation in Berlin: dasselbe Einzelhaar-Prinzip, geplant für die Braue." },
           { slug: "prp-meso-hair", blurb: "PRP und Haar-Mesotherapie in Berlin: unterstützende Behandlungen rund um eine Transplantation." },
           { slug: "hair-meso", blurb: "Haar-Mesotherapie in Berlin: Mikroinjektionen für Kopfhaut und Haar." },
           { slug: "jawline-filler", blurb: "Jawline Filler in Berlin: definiert die Kieferkante strukturell, wenn nicht das Haar die Ursache ist." },
-          { slug: "botox", blurb: "Botox in Berlin: behandelt die mimische Muskelaktivität im Gesicht." },
-          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injizierbare Feuchtigkeit für die Hautqualität." }
+          { slug: "botox", blurb: "Botox in Berlin: behandelt die mimische Muskelaktivität im Gesicht." }
         ],
         ctaHeading: "Beratung für Barttransplantation in Berlin vereinbaren",
         ctaBody: "Sie haben dauerhaft lückenhaften Bartwuchs, möchten einzelne Bereiche verdichten oder eine neue Bartkontur planen? Vereinbaren Sie ein persönliches Beratungsgespräch bei der AS Clinic Berlin am Kurfürstendamm. Dabei werden vorhandener Bartwuchs, Gesicht und Kieferlinie, gewünschte Bartform, Spenderhaar, möglicher Graftbedarf, Wuchsrichtung, Risiken und der realistische zeitliche Verlauf besprochen.",

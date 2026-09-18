@@ -5,6 +5,7 @@ import type { TreatmentPage } from "./types";
 export const DIRECT_LIFT: TreatmentPage = {
   slug: "direct-lift",
   category: { categoryLabelKey: "nav.surgery", categoryAnchorId: "surgery" },
+  procedureType: "surgical",
   content: {
     en: {
       article: {

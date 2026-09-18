@@ -16,6 +16,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { LANDING } from "../i18n/landing";
 import { t } from "../i18n/ui";
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.jpg";
 
 const { form } = LANDING;
 const FORM_ACTION = "/api/haartransplantation-anfrage";
@@ -34,7 +36,7 @@ const PHOTO_FIELDS = ["foto1", "foto2", "foto3", "foto4"] as const;
   <main id="main" class="lp">
     <div class="lp-card">
       <div class="lp-brand">
-        <img src="/assets/logo.jpg" width="44" height="44" alt={t("de", "brand.logoAlt")} />
+        <Image src={logo} width={44} height={44} densities={[2, 3]} format="webp" loading="eager" decoding="async" alt={t("de", "brand.logoAlt")} />
         <span class="lp-brand__name">{t("de", "hero.title")}</span>
       </div>
 

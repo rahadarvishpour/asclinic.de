@@ -5,6 +5,7 @@ import type { TreatmentPage } from "./types";
 export const EYEBROW_TRANSPLANT: TreatmentPage = {
   slug: "eyebrow-transplant",
   category: { categoryLabelKey: "nav.hair", categoryAnchorId: "hair" },
+  procedureType: "surgical",
   content: {
     en: {
       article: {
@@ -240,12 +241,12 @@ export const EYEBROW_TRANSPLANT: TreatmentPage = {
         ],
         relatedHeading: "Related treatments at AS Clinic Berlin",
         related: [
+          { slug: "hair-transplant", blurb: "Hair transplant in Berlin: FUE, follicle by follicle, with the same trichoscopy-led planning for the scalp." },
           { slug: "beard-transplant", blurb: "Beard transplant in Berlin: the same single-hair principle, planned for the beard line." },
           { slug: "prp-meso-hair", blurb: "PRP and hair mesotherapy in Berlin: supporting treatments around a transplant." },
           { slug: "hair-meso", blurb: "Hair mesotherapy in Berlin: micro-injections for the scalp and hair." },
           { slug: "botox", blurb: "Botox in Berlin: treats the muscles around the brows, not the brow hair itself." },
-          { slug: "eyes-mesotherapy", blurb: "Eye mesotherapy in Berlin: skin quality around the eyes." },
-          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injectable hydration for skin quality." }
+          { slug: "eyes-mesotherapy", blurb: "Eye mesotherapy in Berlin: skin quality around the eyes." }
         ],
         ctaHeading: "Arrange an eyebrow transplant consultation in Berlin",
         ctaBody: "Do you have permanently patchy, very thin or partly missing eyebrows and want to know whether a transplant of your own hair is suitable for you? Arrange a personal consultation at AS Clinic Berlin on Kurfürstendamm. We discuss the brow hairs you have, the shape you want, the donor hair, the direction of growth, the possible number of grafts, the risks and the realistic timeline.",
@@ -508,12 +509,12 @@ export const EYEBROW_TRANSPLANT: TreatmentPage = {
         ],
         relatedHeading: "Passende Behandlungen in der AS Clinic Berlin",
         related: [
+          { slug: "hair-transplant", blurb: "Haartransplantation in Berlin: FUE, Follikel für Follikel, mit derselben trichoskopiegestützten Planung für die Kopfhaut." },
           { slug: "beard-transplant", blurb: "Barttransplantation in Berlin: dasselbe Einzelhaar-Prinzip, geplant für die Bartlinie." },
           { slug: "prp-meso-hair", blurb: "PRP und Haar-Mesotherapie in Berlin: unterstützende Behandlungen rund um eine Transplantation." },
           { slug: "hair-meso", blurb: "Haar-Mesotherapie in Berlin: Mikroinjektionen für Kopfhaut und Haar." },
           { slug: "botox", blurb: "Botox in Berlin: behandelt die Muskulatur rund um die Brauen, nicht das Brauenhaar." },
-          { slug: "eyes-mesotherapy", blurb: "Augen-Mesotherapie in Berlin: Hautqualität der Augenpartie." },
-          { slug: "skin-booster", blurb: "Skin Booster in Berlin: injizierbare Feuchtigkeit für die Hautqualität." }
+          { slug: "eyes-mesotherapy", blurb: "Augen-Mesotherapie in Berlin: Hautqualität der Augenpartie." }
         ],
         ctaHeading: "Beratung für Augenbrauentransplantation in Berlin vereinbaren",
         ctaBody: "Sie haben dauerhaft lückenhafte, sehr dünne oder teilweise fehlende Augenbrauen und möchten wissen, ob eine Eigenhaartransplantation für Sie geeignet ist? Vereinbaren Sie ein persönliches Beratungsgespräch bei der AS Clinic Berlin am Kurfürstendamm. Dabei werden vorhandene Brauenhaare, gewünschte Form, Spenderhaar, Wuchsrichtung, mögliche Graftzahl, Risiken und der realistische zeitliche Verlauf besprochen.",

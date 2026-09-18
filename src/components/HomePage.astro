@@ -17,7 +17,7 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 ---
 
-<BaseLayout locale={locale} title={t(locale, "meta.title")} description={t(locale, "meta.description")}>
+<BaseLayout locale={locale} title={t(locale, "meta.title")} description={t(locale, "meta.description")} preloadItalic>
   <div style="overflow-x:hidden">
     <Header locale={locale} />
     <main id="main">
@@ -43,6 +43,7 @@ const { locale } = Astro.props;
     });
   });
 
+  document.documentElement.classList.add("js-ready");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealEls = document.querySelectorAll<HTMLElement>(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) {

@@ -4,6 +4,7 @@ import type { TreatmentPage } from "./types";
 export const BLEPHAROPLASTY: TreatmentPage = {
   slug: "blepharoplasty",
   category: { categoryLabelKey: "nav.surgery", categoryAnchorId: "surgery" },
+  procedureType: "surgical",
   content: {
     en: {
       article: {

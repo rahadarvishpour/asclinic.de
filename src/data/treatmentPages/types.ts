@@ -156,4 +156,7 @@ export interface TreatmentPage {
   content: Partial<Record<Locale, TreatmentContent>> & { en: TreatmentContent };
   /** Undefined until the clinic supplies a named reviewer; see MedicalReview. */
   review?: MedicalReview;
+  /** Set to "surgical" for treatments the page copy itself describes as a surgical procedure, so the
+   *  MedicalProcedure schema says SurgicalProcedure. Unset means the site-wide default (NoninvasiveProcedure). */
+  procedureType?: "surgical";
 }

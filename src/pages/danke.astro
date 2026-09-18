@@ -14,6 +14,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { CLINIC } from "../data/clinic";
 import { LANDING } from "../i18n/landing";
 import { bookingUrl, localePath, t } from "../i18n/ui";
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.jpg";
 import { LANDING_PATH, LEAD_COOKIE } from "../lib/leadCookie";
 
 if (!Astro.cookies.has(LEAD_COOKIE)) {
@@ -40,7 +42,7 @@ const year = new Date().getFullYear();
     <header class="dk-head">
       <div class="container dk-head__inner">
         <span class="dk-brand">
-          <img src="/assets/logo.jpg" width="44" height="44" alt={t("de", "brand.logoAlt")} />
+          <Image src={logo} width={44} height={44} densities={[2, 3]} format="webp" loading="eager" decoding="async" alt={t("de", "brand.logoAlt")} />
           <span class="dk-brand__name">{t("de", "hero.title")}</span>
         </span>
       </div>
