@@ -63,7 +63,7 @@ const slides = Array.from({ length: Math.ceil(GOOGLE_REVIEWS.length / SLIDE_SIZE
   </div>
   <div class="container" style="margin-top:var(--sp-6)">
     <a class="link-underline" href={CLINIC.googleReviews} target="_blank" rel="noopener noreferrer">{t(locale, "rev.cta")}</a>
-  </div>
+    {locale === "de" && <a class="link-underline" href="/uber-uns" style="margin-inline-start:var(--sp-6)">Mehr über AS Clinic Berlin</a>}</div>
 </section>
 
 <style>

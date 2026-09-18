@@ -4,8 +4,11 @@ import { t, sectionHref } from "../i18n/ui";
 import { Image } from "astro:assets";
 import logo from "../assets/brand/logo.jpg";
 
-interface Props { locale: Locale }
-const { locale } = Astro.props;
+/** `topbarItems` replaces the three announcement-strip lines — used by /uber-uns, where the default
+ *  strip wording (consultation and language claims) is not approved for that page. */
+interface Props { locale: Locale; topbarItems?: [string, string, string] }
+const { locale, topbarItems } = Astro.props;
+const topbar = topbarItems ?? [t(locale, "top.1"), t(locale, "top.2"), t(locale, "top.3")];
 
 // Home is where the anchored sections (#injectables, #book, etc.) actually
 // live — from any other page (e.g. a treatment detail page) these need to
@@ -21,8 +24,10 @@ const NAV = [
   { href: anchor("surgery"), key: "nav.surgery" as const },
   { href: anchor("results"), key: "nav.results" as const },
   { href: anchor("faq"), key: "nav.faq" as const },
+  // German only: the "Über uns" page (/uber-uns) exists in German alone, so no other locale links to it.
+  ...(locale === "de" ? [{ href: "/uber-uns", label: "Über uns" }] : []),
   ...(hasContactPage(locale) ? [{ href: localePath(locale, "/contact"), key: "nav.contact" as const }] : [])
-];
+] as { href: string; key?: `nav.${string}`; label?: string }[];
 const bookHref = bookingUrl(locale);
 
 const currentPath = Astro.url.pathname;
@@ -36,9 +41,9 @@ const brandHref = onHomepage ? "#top" : homeHref;
 <div class="topbar marquee">
   <div class="marquee__track">
     {Array.from({ length: 2 }).flatMap(() => [
-      <span class="marquee__item">{t(locale, "top.1")}</span>,
-      <span class="marquee__item">{t(locale, "top.2")}</span>,
-      <span class="marquee__item">{t(locale, "top.3")}</span>
+      <span class="marquee__item">{topbar[0]}</span>,
+      <span class="marquee__item">{topbar[1]}</span>,
+      <span class="marquee__item">{topbar[2]}</span>
     ])}
   </div>
 </div>
@@ -52,7 +57,7 @@ const brandHref = onHomepage ? "#top" : homeHref;
     <nav data-desknav="1">
       <ul class="nav__links">
         {NAV.map((item) => (
-          <li><a href={item.href}>{t(locale, item.key)}</a></li>
+          <li><a href={item.href}>{item.label ?? t(locale, item.key as any)}</a></li>
         ))}
       </ul>
     </nav>
@@ -63,7 +68,7 @@ const brandHref = onHomepage ? "#top" : homeHref;
         <div class="drawer">
           <div class="container" style="display:grid; gap:var(--sp-2); padding-block:var(--sp-5)">
             {NAV.map((item) => (
-              <a href={item.href} style="font-family:var(--font-display); font-size:var(--fs-h3); color:var(--text)">{t(locale, item.key)}</a>
+              <a href={item.href} style="font-family:var(--font-display); font-size:var(--fs-h3); color:var(--text)">{item.label ?? t(locale, item.key as any)}</a>
             ))}
             <a class="btn" href={bookHref} style="margin-top:var(--sp-3); justify-self:start">{t(locale, "nav.cta")}</a>
           </div>

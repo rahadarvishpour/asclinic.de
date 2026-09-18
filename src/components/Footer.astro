@@ -40,7 +40,7 @@ const hairTransplantLabel = locale === "de" ? "Haartransplantation in Berlin" : 
         {hairTransplantHref && <a href={hairTransplantHref}>{hairTransplantLabel}</a>}
         <a href={anchor("surgery")}>{t(locale, "nav.surgery")}</a>
         <a href={anchor("faq")}>{t(locale, "nav.faq")}</a>
-        <a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
+        {locale === "de" && <a href="/uber-uns">Über uns</a>}<a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
         {hasContactPage(locale) && <a href={localePath(locale, "/contact")}>{t(locale, "nav.contact")}</a>}
       </div>
       <div class="footer__col">

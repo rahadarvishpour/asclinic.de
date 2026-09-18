@@ -32,9 +32,13 @@ export interface Props {
   omitCanonical?: boolean;
   /** The page's first screen sets italic Playfair (the homepage hero headline), so that file is preloaded too. */
   preloadItalic?: boolean;
+  /** Opt-in for the About page. Gives the site-wide MedicalClinic node a stable @id so the page's own
+   *  structured data can reference it, uses the exact brand name, points `image` at a real clinic photo,
+   *  and leaves out the legacy alternate name, `priceRange` and `medicalSpecialty` (not verified). */
+  clinicEntity?: { id: string; name: string; image: string };
 }
 
-const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales, noindex = false, omitCanonical = false, preloadItalic = false } = Astro.props;
+const { locale, title, description, ogImage, includeFaqSchema = true, unprefixedPath = "", hreflangAlternates = true, hreflangLocales, noindex = false, omitCanonical = false, preloadItalic = false, clinicEntity } = Astro.props;
 const alternateLocales = hreflangLocales
   ? LOCALES.filter((l) => hreflangLocales.includes(l.code))
   : LOCALES;
@@ -86,6 +90,12 @@ const clinicJsonLd = {
   "hasMap": CLINIC.googleMaps,
   "sameAs": CLINIC.sameAs
 };
+
+// Entity-aware variant of the clinic node (only when a page opts in via `clinicEntity`).
+const { alternateName: _legacyName, priceRange: _priceRange, medicalSpecialty: _specialty, image: _stockImage, ...verifiedClinicFields } = clinicJsonLd;
+const clinicNode = clinicEntity
+  ? { ...verifiedClinicFields, "@id": clinicEntity.id, name: clinicEntity.name, image: clinicEntity.image }
+  : clinicJsonLd;
 
 // Structured data must match the language of the page it is embedded in, so
 // the FAQ schema is built from this locale's answers, not the English ones.
@@ -165,7 +175,7 @@ const faqJsonLd = includeFaqSchema
   <meta name="geo.position" content={`${CLINIC.latitude};${CLINIC.longitude}`} />
   <meta name="ICBM" content={`${CLINIC.latitude}, ${CLINIC.longitude}`} />
 
-  <script type="application/ld+json" set:html={JSON.stringify(clinicJsonLd)} is:inline />
+  <script type="application/ld+json" set:html={JSON.stringify(clinicNode)} is:inline />
   {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} is:inline />}
 
   <link rel="preload" href={dmSansLatin} as="font" type="font/woff2" crossorigin />
