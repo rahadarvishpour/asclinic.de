@@ -1,8 +1,13 @@
 ---
-/** Branded "page not found" page. Prerendered to 404.html, which the Node
- *  server returns together with a real HTTP 404 for any URL that does not
- *  exist — so search engines still see a hard 404, not a soft one. It is kept
- *  out of the index and carries no canonical URL. */
+/** Branded "page not found" page. Rendered on demand (not prerendered): the
+ *  Node server renders it with a real HTTP 404 for any URL that does not exist,
+ *  and for a direct request to /404 — so search engines always see a hard 404,
+ *  never a soft one. Prerendering it made a direct /404 fall through to a route
+ *  with no server-side page module (HTTP 500) and left 404.html reachable as a
+ *  static file answering 200. It is kept out of the index and carries no
+ *  canonical URL. */
+export const prerender = false;
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
