@@ -4,8 +4,18 @@ import node from '@astrojs/node';
 
 const locales = ['de', 'en', 'es', 'ru', 'fa', 'ar'];
 
+// Every page declares a slashless <link rel="canonical"> (the site root, "/",
+// excepted). `trailingSlash: 'ignore'` makes the sitemap plugin emit a trailing
+// slash on every path, which would list 100+ URLs whose canonical is a
+// different URL — so the sitemap is rewritten to the canonical spelling.
+const canonicalForm = (url) => {
+  const u = new URL(url);
+  if (u.pathname.length > 1) u.pathname = u.pathname.replace(/\/+$/, '');
+  return u.toString();
+};
+
 export default defineConfig({
-  site: 'https://asclinic-berlin.de',
+  site: 'https://asclinic.de',
   // 'ignore' rather than 'never' so /danke/ resolves as well as /danke. The GTM
   // container fires the `generate-lead` conversion on a Page Path of exactly
   // "/danke/", and that trigger lives in GTM rather than in this repo, so the
@@ -54,6 +64,11 @@ export default defineConfig({
       // `noindex` — keeping them out of the sitemap too avoids advertising
       // URLs we are asking search engines to ignore.
       filter: (page) => !/\/(landing-haartransplantation-offer|danke)\/?$/.test(page),
+      serialize: (item) => ({
+        ...item,
+        url: canonicalForm(item.url),
+        ...(item.links ? { links: item.links.map((l) => ({ ...l, url: canonicalForm(l.url) })) } : {}),
+      }),
       i18n: {
         defaultLocale: 'de',
         locales: {

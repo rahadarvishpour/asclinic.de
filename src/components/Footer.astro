@@ -43,7 +43,7 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
         <span class="eyebrow">{t(locale, "ft.clinic")}</span>
         <span class="body">{CLINIC.streetAddress}<br />{CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}</span>
         <a href={`tel:${CLINIC.telephone}`}>{CLINIC.telephoneDisplay}</a>
-        <a href={CLINIC.url}>asclinic-berlin.de</a>
+        <a href={CLINIC.url}>asclinic.de</a>
       </div>
     </div>
     <div class="footer__bottom">

@@ -1,7 +1,7 @@
 export const CLINIC = {
   name: "AS Clinic",
   legalName: "AS Hair Clinic — Hair Transplant & Aesthetic Medicine",
-  url: "https://asclinic-berlin.de",
+  url: "https://asclinic.de",
   telephone: "+491793902489",
   telephoneDisplay: "+49 179 390 2489",
   /** The address published in the Impressum and Datenschutzerklärung — every

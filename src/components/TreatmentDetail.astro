@@ -31,7 +31,7 @@ const related = (article?.related ?? [])
     title: treatmentContent(TREATMENT_PAGES[r.slug], locale).title,
     blurb: r.blurb
   }));
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
 const unprefixedPath = `/treatments/${page.slug}`;
 const pageUrl = `${site}${localePath(locale, unprefixedPath)}`;
 const homeHref = localePath(locale);

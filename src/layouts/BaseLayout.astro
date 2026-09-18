@@ -31,7 +31,7 @@ const alternateLocales = hreflangLocales
 // x-default points at the default locale's URL only when that page exists there.
 const xDefaultLocale = alternateLocales.some((l) => l.code === DEFAULT_LOCALE) ? DEFAULT_LOCALE : alternateLocales[0]?.code;
 const meta = getLocaleMeta(locale);
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic-berlin.de";
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://asclinic.de";
 const canonicalPath = localePath(locale, unprefixedPath);
 const canonicalUrl = `${site}${canonicalPath}`;
 const defaultOgImage = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm=jpg&q=75&w=1200&h=630&fit=crop&auto=format";
