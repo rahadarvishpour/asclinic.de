@@ -12,6 +12,8 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 const langLinks = languageLinks(Astro.url.pathname);
 // The hair transplant page is the clinic's main service page; link it site-wide wherever it is published in this language.
 const hairTransplantHref = hasLocale(TREATMENT_PAGES["hair-transplant"], locale) ? localePath(locale, "/treatments/hair-transplant") : null;
+// In German the section link above is already labelled "Haartransplantation", so this one names the page itself.
+const hairTransplantLabel = locale === "de" ? "Haartransplantation in Berlin" : t(locale, "hair.s1.title");
 
 // Layout lives entirely in components.css (.footer__*) — inline grid styles here
 // would outrank the responsive media queries and pin the footer to four columns
@@ -35,7 +37,7 @@ const hairTransplantHref = hasLocale(TREATMENT_PAGES["hair-transplant"], locale)
         <span class="eyebrow">{t(locale, "ft.explore")}</span>
         <a href={anchor("injectables")}>{t(locale, "nav.inject")}</a>
         <a href={anchor("hair")}>{t(locale, "nav.hair")}</a>
-        {hairTransplantHref && <a href={hairTransplantHref}>{t(locale, "hair.s1.title")}</a>}
+        {hairTransplantHref && <a href={hairTransplantHref}>{hairTransplantLabel}</a>}
         <a href={anchor("surgery")}>{t(locale, "nav.surgery")}</a>
         <a href={anchor("faq")}>{t(locale, "nav.faq")}</a>
         <a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
