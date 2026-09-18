@@ -39,4 +39,7 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/cookie-richtlinie-eu": "/datenschutz",
   "/sitemap.xml": "/sitemap-index.xml",
   "/sitemap_index.xml": "/sitemap-index.xml",
+  // Legacy English-slug About URL -> the canonical German "Über uns" page (added only after /uber-uns was live).
+  // The middleware strips a trailing slash before lookup, so this covers /about and /about/.
+  "/about": "/uber-uns",
 };
