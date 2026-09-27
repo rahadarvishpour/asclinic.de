@@ -31,11 +31,14 @@ const detailHref = (slug: string) => {
       {HAIR_SERVICES.map((svc) => (
         <div class="reveal" data-reveal="up">
           <div class="media media--arch" style="height:420px; position:relative">
-            {treatmentImage(svc.slug) ? (
-              <Image src={treatmentImage(svc.slug)!} alt={t(locale, svc.altKey)} width={560} height={700} widths={CARD_WIDTHS} sizes={CARD_SIZES} style="width:100%; height:100%; object-fit:cover" />
-            ) : (
-              <img src={unsplash(svc.photoId, 600)} srcset={unsplashSrcSet(svc.photoId, CARD_WIDTHS)} sizes={CARD_SIZES} alt={t(locale, svc.altKey)} loading="lazy" decoding="async" width="800" height="420" style="width:100%; height:100%; object-fit:cover" />
-            )}
+            {/* The photo opens the same page as the card's "Mehr erfahren" link (kept out of the tab order — the text link is the accessible one). */}
+            <a href={detailHref(svc.slug) ?? bookHref} tabindex="-1" aria-hidden="true" style="display:block; width:100%; height:100%">
+              {treatmentImage(svc.slug) ? (
+                <Image src={treatmentImage(svc.slug)!} alt={t(locale, svc.altKey)} width={560} height={700} widths={CARD_WIDTHS} sizes={CARD_SIZES} style="width:100%; height:100%; object-fit:cover" />
+              ) : (
+                <img src={unsplash(svc.photoId, 600)} srcset={unsplashSrcSet(svc.photoId, CARD_WIDTHS)} sizes={CARD_SIZES} alt={t(locale, svc.altKey)} loading="lazy" decoding="async" width="800" height="420" style="width:100%; height:100%; object-fit:cover" />
+              )}
+            </a>
             {/* Attribution belongs only to the stock fallback — never to the clinic's own photography. */}
             {!treatmentImage(svc.slug) && (
               <span class="photo-credit">
