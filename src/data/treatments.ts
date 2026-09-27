@@ -149,37 +149,28 @@ export const GALLERY_SLIDES: GallerySlide[] = [
   },
   {
     slug: "lip-contour",
-    photoId: "photo-1570172619644-dfd03ed5d881",
-    photographer: "Rosa Rafael",
-    creditHref: "https://unsplash.com/@rosarafael?utm_source=asclinic&utm_medium=referral",
+    localSlug: "lip-filler",
     tagKey: "gal.s1.tag", titleKey: "gal.s1.title", subKey: "gal.s1.sub"
   },
   {
     slug: "transplant-suite",
-    photoId: "photo-1616391182219-e080b4d1043a",
-    photographer: "Sam Moghadam",
-    creditHref: "https://unsplash.com/@sammoghadam?utm_source=asclinic&utm_medium=referral",
+    localSlug: "hair-transplant-procedure-day",
     tagKey: "gal.s2.tag", titleKey: "gal.s2.title", subKey: "gal.s2.sub"
   },
   {
     slug: "upper-blepharoplasty",
-    photoId: "photo-1555820585-c5ae44394b79",
-    photographer: "Sunny Ng",
-    creditHref: "https://unsplash.com/@sunnysmng?utm_source=asclinic&utm_medium=referral",
+    localSlug: "blepharoplasty",
     tagKey: "gal.s3.tag", titleKey: "gal.s3.title", subKey: "gal.s3.sub"
   },
   {
     slug: "midface-lift",
-    photoId: "photo-1552693673-1bf958298935",
-    photographer: "karelys Ruiz",
-    creditHref: "https://unsplash.com/@karelysruiz?utm_source=asclinic&utm_medium=referral",
+    localSlug: "8-point-lift",
     tagKey: "gal.s4.tag", titleKey: "gal.s4.title", subKey: "gal.s4.sub"
   },
   {
     slug: "recovery-protocol",
-    photoId: "photo-1616394584738-fc6e612e71b9",
-    photographer: "engin akyurt",
-    creditHref: "https://unsplash.com/@enginakyurt?utm_source=asclinic&utm_medium=referral",
+    localSlug: "hair-transplant-timeline",
+    fit: "contain",
     tagKey: "gal.s5.tag", titleKey: "gal.s5.title", subKey: "gal.s5.sub"
   }
 ];
