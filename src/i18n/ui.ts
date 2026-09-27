@@ -66,7 +66,7 @@ export function sectionHref(locale: Locale, pathname: string, id: string): strin
  *  on the site points here rather than at an on-page form. Pabau's form URL has no
  *  documented language parameter, so unlike the previous booking system this link is
  *  the same for every locale. */
-const BOOKING_URL = "https://forms.pabau.com/index.php?r=app%2Fform&id=Mw1.sA";
+const BOOKING_URL = "https://partner-eu.pabau.com/online-bookings/as-clinic-u1rcva6e";
 
 export function bookingUrl(_locale: Locale): string {
   return BOOKING_URL;
