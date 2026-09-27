@@ -37,6 +37,8 @@ export const GALLERY_IMAGES: Record<string, ImageMetadata> = Object.fromEntries(
   ])
 );
 
+/** Gallery slides may also reuse the site's own treatment photos
+ *  (src/assets/treatments/<slug>.jpg) — never an external image. */
 export function galleryImage(slug: string): ImageMetadata | undefined {
-  return GALLERY_IMAGES[slug];
+  return GALLERY_IMAGES[slug] ?? TREATMENT_IMAGES[slug];
 }
