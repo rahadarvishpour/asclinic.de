@@ -1,0 +1,32 @@
+name: Deploy to server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Pull and deploy on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          command_timeout: 15m
+          script: |
+            set -e
+            cd "${{ secrets.DEPLOY_PATH }}"
+            git pull --ff-only origin main
+            npm ci --no-audit --no-fund
+            npm run deploy
+            sleep 3
+            systemctl is-active astro-asclinic
