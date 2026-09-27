@@ -68,6 +68,10 @@ export function sectionHref(locale: Locale, pathname: string, id: string): strin
  *  the same for every locale. */
 const BOOKING_URL = "https://partner-eu.pabau.com/online-bookings/as-clinic-u1rcva6e";
 
+/** Pabau booking portal opened directly on the "Beauty injection" category. */
+export const BEAUTY_INJECTION_BOOKING_URL =
+  "https://partner-eu.pabau.com/online-bookings/as-clinic-u1rcva6e?category=195955&serviceType=0";
+
 export function bookingUrl(_locale: Locale): string {
   return BOOKING_URL;
 }
@@ -101,7 +105,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "Hair Transplant & Aesthetic Medicine",
     "hero.lead": "Specialist-led injectables, hair restoration and aesthetic surgery planned millimetre by millimetre, delivered with medical precision.",
-    "hero.cta": "Book a consultation", "hero.cta2": "View treatments",
+    "hero.cta": "Book a consultation", "hero.cta2": "View treatments", "hero.cta3": "Book a beauty injection appointment",
     "hero.stat1": "Injectable treatments", "hero.stat2": "Free consultation",
     "hero.badge": "Kurfürstendamm 102 · Charlottenburg, Berlin",
     "hero.rating": "Free 30-minute first consultation",
@@ -215,7 +219,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "Haartransplantation & Ästhetische Medizin",
     "hero.lead": "Fachärztlich geführte Injektionen, Haartransplantation und ästhetische Chirurgie — geplant Millimeter für Millimeter, ausgeführt mit medizinischer Präzision.",
-    "hero.cta": "Beratung buchen", "hero.cta2": "Behandlungen ansehen",
+    "hero.cta": "Beratung buchen", "hero.cta2": "Behandlungen ansehen", "hero.cta3": "Beauty Injektion Termin buchen",
     "hero.stat1": "Injektionsbehandlungen", "hero.stat2": "Kostenlose Beratung",
     "hero.badge": "Kurfürstendamm 102 · Charlottenburg, Berlin",
     "hero.rating": "Kostenloses 30-minütiges Erstgespräch",
@@ -329,7 +333,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "Trasplante Capilar y Medicina Estética",
     "hero.lead": "Inyectables, injerto capilar y cirugía estética dirigidos por especialistas — planificados milímetro a milímetro y ejecutados con precisión médica.",
-    "hero.cta": "Reservar consulta", "hero.cta2": "Ver tratamientos",
+    "hero.cta": "Reservar consulta", "hero.cta2": "Ver tratamientos", "hero.cta3": "Reservar cita de inyección estética",
     "hero.stat1": "Tratamientos inyectables", "hero.stat2": "Consulta gratuita",
     "hero.badge": "Kurfürstendamm 102 · Charlottenburg, Berlín",
     "hero.rating": "Primera consulta gratuita de 30 minutos",
@@ -443,7 +447,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "Пересадка волос и эстетическая медицина",
     "hero.lead": "Инъекционные методики, пересадка волос и эстетическая хирургия под руководством специалистов — план до миллиметра, исполнение с медицинской точностью.",
-    "hero.cta": "Записаться на консультацию", "hero.cta2": "Смотреть процедуры",
+    "hero.cta": "Записаться на консультацию", "hero.cta2": "Смотреть процедуры", "hero.cta3": "Записаться на бьюти-инъекции",
     "hero.stat1": "Инъекционных процедур", "hero.stat2": "Бесплатная консультация",
     "hero.badge": "Kurfürstendamm 102 · Шарлоттенбург, Берлин",
     "hero.rating": "Бесплатная первичная консультация 30 минут",
@@ -557,7 +561,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "کاشت مو و پزشکی زیبایی",
     "hero.lead": "تزریقات تخصصی، کاشت مو و جراحی زیبایی زیر نظر متخصص — طراحی میلیمتری و اجرای با دقت پزشکی.",
-    "hero.cta": "رزرو مشاوره", "hero.cta2": "مشاهده خدمات",
+    "hero.cta": "رزرو مشاوره", "hero.cta2": "مشاهده خدمات", "hero.cta3": "رزرو نوبت تزریق زیبایی",
     "hero.stat1": "درمان تزریقی", "hero.stat2": "مشاوره رایگان",
     "hero.badge": "Kurfürstendamm 102 · شارلوتنبورگ، برلین",
     "hero.rating": "مشاوره اولیه رایگان ۳۰ دقیقه‌ای",
@@ -671,7 +675,7 @@ export const ui = {
     "hero.title": "AS Clinic",
     "hero.accent": "زراعة الشعر وطب التجميل",
     "hero.lead": "حقن تجميلية وزراعة شعر وجراحات تجميل بإشراف اختصاصيين — تخطيط بالمليمتر وتنفيذ بدقة طبية.",
-    "hero.cta": "احجز استشارة", "hero.cta2": "استعرض الخدمات",
+    "hero.cta": "احجز استشارة", "hero.cta2": "استعرض الخدمات", "hero.cta3": "احجز موعد حقن تجميلي",
     "hero.stat1": "علاجات بالحقن", "hero.stat2": "استشارة مجانية",
     "hero.badge": "Kurfürstendamm 102 · شارلوتنبورغ، برلين",
     "hero.rating": "استشارة أولى مجانية لمدة 30 دقيقة",
