@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
-import { t, sectionHref, ti, localePath, bookingUrl, BEAUTY_INJECTION_BOOKING_URL, LOCALES, type Locale } from "../i18n/ui";
+import { t, sectionHref, ti, localePath, bookingUrl, BEAUTY_INJECTION_BOOKING_URL, HAIR_ANALYSIS_BOOKING_URL, LOCALES, type Locale } from "../i18n/ui";
 import { TREATMENT_PAGES, treatmentContent, hasLocale } from "../data/treatmentPages";
 import { galleryImage } from "../data/treatmentImages";
 import type { TreatmentPage, SectionLink } from "../data/treatmentPages/types";
@@ -158,6 +158,9 @@ const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_IN
             <div class="stagger reveal" data-reveal="up" style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6)">
               <a class="btn btn--lg" href={bookingHref}>{t(locale, "hero.cta")}</a>
               <a class="btn btn--lg btn--outline" href={anchor(page.category.categoryAnchorId)}>{ti(locale, "treat.viewAll", { category: categoryLabel })}</a>
+              {page.category.categoryAnchorId === "hair" && (
+                <a class="btn btn--lg btn--outline" style="white-space:normal; text-align:center" href={HAIR_ANALYSIS_BOOKING_URL}>{t(locale, "treat.hairAnalysis")}</a>
+              )}
             </div>
           </div>
           <div class="reveal" data-reveal="scale">
