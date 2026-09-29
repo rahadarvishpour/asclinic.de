@@ -201,7 +201,7 @@ export const DIRECT_LIFT: TreatmentPage = {
             { heading: "The scar position discussed openly beforehand", body: "The most important trade-off of a direct lift is the scar. The incision position is therefore not treated as a side issue but included in the decision before surgery." },
             { heading: "Brow position and upper lid assessed together", body: "A descended brow can accentuate a hooded lid. In the brow region we therefore check whether a direct brow lift, eyelid surgery, a combination or another procedure fits the actual finding." },
             { heading: "No maximum tightening at any price", body: "The tissue excision is planned so that a natural expression and functionally safe healing come first. A stronger lift is not automatically a better result." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual surgical suitability is assessed at the personal consultation." }
+            { heading: "Medical qualification", body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual surgical suitability is assessed at the personal consultation." }
           ]
         },
         faqHeading: "Frequently asked questions about direct lift in Berlin",
@@ -464,7 +464,7 @@ export const DIRECT_LIFT: TreatmentPage = {
             { heading: "Narbenlage wird vor dem Eingriff offen besprochen", body: "Der wichtigste Trade-off des Direct Lift ist die Narbe. Deshalb wird die Schnittposition nicht als Nebensache behandelt, sondern bereits vor der Operation in die Entscheidung einbezogen." },
             { heading: "Brauenposition und Oberlid gemeinsam beurteilt", body: "Eine abgesunkene Braue kann ein Schlupflid verstärken. Deshalb wird bei der Brauenregion geprüft, ob ein Direct Brow Lift, eine Lidstraffung, eine Kombination oder ein anderes Verfahren zum tatsächlichen Befund passt." },
             { heading: "Keine maximale Straffung um jeden Preis", body: "Die Gewebeexzision wird so geplant, dass ein natürlicher Ausdruck und eine funktionell sichere Heilung im Vordergrund stehen. Ein stärkeres Lifting ist nicht automatisch ein besseres Ergebnis." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle operative Eignung wird im persönlichen Beratungsgespräch beurteilt." }
+            { heading: "Fachärztliche Qualifikation", body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle operative Eignung wird im persönlichen Beratungsgespräch beurteilt." }
           ]
         },
         faqHeading: "Häufige Fragen zum Direct Lift in Berlin",
