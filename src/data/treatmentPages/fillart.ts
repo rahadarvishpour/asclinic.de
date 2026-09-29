@@ -207,7 +207,7 @@ export const FILLART: TreatmentPage = {
             { heading: "Planning by light, shadow and proportion", body: "The face is not considered through individual lines alone. Contours, transitions, projection and the effect from different perspectives all feed into the planning." },
             { heading: "A conservative approach", body: "Areas that already have enough volume do not have to be treated automatically. The aim is a targeted change rather than unnecessary fullness." },
             { heading: "Medically carried out", body: "The treatment at AS Clinic is planned and carried out by medically qualified staff. Risks, limits and the individual choice of product are discussed before treatment." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy has held a German medical licence since 1 October 2004. Since 1 February 2011 he has been recognised by the Berlin Medical Association as a specialist in surgery. This documented medical qualification underpins AS Clinic's standard for consultation, treatment planning and transparent explanation of risks." }
+            { heading: "Medical qualification", body: "Our treating physician has held a German medical licence since 1 October 2004. Since 1 February 2011 he has been recognised by the Berlin Medical Association as a specialist in surgery. This documented medical qualification underpins AS Clinic's standard for consultation, treatment planning and transparent explanation of risks." }
           ]
         },
         faqHeading: "Frequently asked questions about Fillart in Berlin",
@@ -489,7 +489,7 @@ export const FILLART: TreatmentPage = {
             { heading: "Planung nach Licht, Schatten und Proportion", body: "Das Gesicht wird nicht nur anhand einzelner Falten betrachtet. Konturen, Übergänge, Projektion und die Wirkung aus verschiedenen Perspektiven fließen in die Planung ein." },
             { heading: "Zurückhaltender Ansatz", body: "Bereiche mit bereits ausreichendem Volumen müssen nicht automatisch behandelt werden. Ziel ist eine gezielte Veränderung statt unnötiger Fülle." },
             { heading: "Medizinische Durchführung", body: "Die Behandlung wird bei AS Clinic von medizinischem Fachpersonal geplant und durchgeführt. Risiken, Grenzen und die individuelle Produktauswahl werden vor der Behandlung besprochen." },
-            { heading: "Ärztliche Qualifikation", body: "Nader Farahwaschy verfügt über die deutsche Approbation als Arzt seit 1. Oktober 2004. Seit 1. Februar 2011 ist er von der Ärztekammer Berlin als Facharzt für Chirurgie anerkannt. Diese nachgewiesene ärztliche Qualifikation ergänzt den medizinischen Anspruch von AS Clinic an Beratung, Behandlungsplanung und transparente Risikoaufklärung." }
+            { heading: "Ärztliche Qualifikation", body: "Unser behandelnder Arzt verfügt über die deutsche Approbation als Arzt seit 1. Oktober 2004. Seit 1. Februar 2011 ist er von der Ärztekammer Berlin als Facharzt für Chirurgie anerkannt. Diese nachgewiesene ärztliche Qualifikation ergänzt den medizinischen Anspruch von AS Clinic an Beratung, Behandlungsplanung und transparente Risikoaufklärung." }
           ]
         },
         faqHeading: "Häufige Fragen zu Fillart in Berlin",
