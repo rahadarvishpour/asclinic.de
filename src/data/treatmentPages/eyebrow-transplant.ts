@@ -206,7 +206,7 @@ export const EYEBROW_TRANSPLANT: TreatmentPage = {
             { heading: "Direction of growth as a central goal", body: "The hairs are implanted as flat to the skin as possible and along the natural course of each section of the brow. It is the later appearance, not the number of hairs alone, that is the focus." },
             { heading: "An individual brow shape", body: "No universal template is transferred onto every face. The brows you have, your facial proportions and the shape you want are considered together." },
             { heading: "Realistic information about later growth", body: "Transplanted scalp hair keeps growing and needs long-term care. Possible shock loss, the time growth takes and the option of later densification are all covered in advance." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011." }
+            { heading: "Medical qualification", body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011." }
           ]
         },
         faqHeading: "Frequently asked questions about eyebrow transplants in Berlin",
@@ -474,7 +474,7 @@ export const EYEBROW_TRANSPLANT: TreatmentPage = {
             { heading: "Wuchsrichtung als zentrales Behandlungsziel", body: "Die Haare werden möglichst flach zur Haut und entlang des natürlichen Verlaufs des jeweiligen Brauenabschnitts implantiert. So steht nicht nur die Zahl der Haare, sondern die spätere Optik im Vordergrund." },
             { heading: "Individuelle Brauenform", body: "Es wird keine universelle Schablone auf jedes Gesicht übertragen. Vorhandene Brauen, Gesichtsproportionen und gewünschte Form werden gemeinsam berücksichtigt." },
             { heading: "Realistische Aufklärung zum späteren Wachstum", body: "Transplantiertes Kopfhaar wächst weiter und benötigt langfristig Pflege. Auch möglicher Shock Loss, Wachstumsdauer und die Option einer späteren Verdichtung werden vorab berücksichtigt." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011." }
+            { heading: "Fachärztliche Qualifikation", body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011." }
           ]
         },
         faqHeading: "Häufige Fragen zur Augenbrauentransplantation in Berlin",
