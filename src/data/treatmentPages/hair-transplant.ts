@@ -220,7 +220,7 @@ export const HAIR_TRANSPLANT: TreatmentPage = {
             { heading: "The hairline is drawn for the next fifteen years", body: "Height and shape are planned to your proportions and to how the loss is likely to progress, so the result still looks plausible as you age." },
             { heading: "Aftercare is part of the treatment", body: "PRP and Hair Meso support is included for 12 months, because protecting the native hair around the grafts is what keeps the overall result stable." },
             { heading: "Density is audited at month 12", body: "The result is reviewed against the plan agreed at the start. Any shortfall is corrected in a touch-up session at no cost." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual suitability is assessed at the personal consultation." }
+            { heading: "Medical qualification", body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual suitability is assessed at the personal consultation." }
           ]
         },
         faqHeading: "Frequently asked questions about hair transplants in Berlin",
@@ -495,7 +495,7 @@ export const HAIR_TRANSPLANT: TreatmentPage = {
             { heading: "Der Haaransatz wird für die nächsten fünfzehn Jahre gezeichnet", body: "Höhe und Form richten sich nach Ihren Proportionen und dem wahrscheinlichen Fortgang des Verlusts, damit das Ergebnis auch mit den Jahren plausibel bleibt." },
             { heading: "Nachsorge gehört zur Behandlung", body: "PRP- und Hair-Meso-Begleitung ist für 12 Monate inklusive, denn der Schutz des Eigenhaars rund um die Grafts hält das Gesamtergebnis stabil." },
             { heading: "Dichteprüfung in Monat 12", body: "Das Ergebnis wird gegen den anfangs vereinbarten Plan geprüft. Jede Abweichung wird in einer Nachbesserung kostenfrei korrigiert." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle Eignung wird im persönlichen Beratungsgespräch beurteilt." }
+            { heading: "Fachärztliche Qualifikation", body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle Eignung wird im persönlichen Beratungsgespräch beurteilt." }
           ]
         },
         faqHeading: "Häufige Fragen zur Haartransplantation in Berlin",
