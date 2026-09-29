@@ -208,7 +208,7 @@ export const MESOTHERAPY_MESOCAN: TreatmentPage = {
           },
           {
             heading: "Medically reviewed",
-            body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. The medical review of this content does not replace a personal assessment before treatment."
+            body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. The medical review of this content does not replace a personal assessment before treatment."
           }
         ],
         local: {
@@ -510,7 +510,7 @@ export const MESOTHERAPY_MESOCAN: TreatmentPage = {
           },
           {
             heading: "Medizinisch geprüft",
-            body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die medizinische Prüfung der Inhalte ersetzt nicht die persönliche Beurteilung vor einer Behandlung."
+            body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die medizinische Prüfung der Inhalte ersetzt nicht die persönliche Beurteilung vor einer Behandlung."
           }
         ],
         local: {
