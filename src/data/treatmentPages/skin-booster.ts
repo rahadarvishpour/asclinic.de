@@ -203,7 +203,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
           },
           {
             heading: "Medical qualification",
-            body: "Nader Farahwaschy – specialist in surgery. German medical licence since 2004; specialist recognition in surgery since 2011."
+            body: "Treating physician: specialist in surgery. German medical licence since 2004; specialist recognition in surgery since 2011."
           }
         ],
         local: {
@@ -501,7 +501,7 @@ export const SKIN_BOOSTER: TreatmentPage = {
           },
           {
             heading: "Fachärztliche Qualifikation",
-            body: "Nader Farahwaschy – Facharzt für Chirurgie. Deutsche Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie seit 2011."
+            body: "Behandelnder Arzt: Facharzt für Chirurgie. Deutsche Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie seit 2011."
           }
         ],
         local: {
