@@ -23,7 +23,6 @@ const site = (Astro.site?.toString() ?? "https://asclinic.de").replace(/\/$/, ""
 const PAGE_PATH = "/uber-uns";
 const pageUrl = `${site}${PAGE_PATH}`;
 const clinicId = `${site}/#clinic`;
-const physicianId = `${pageUrl}#nader-farahwaschy`;
 const bookHref = bookingUrl(locale);
 const link = (path: string) => localePath(locale, path);
 
@@ -50,7 +49,6 @@ const aboutJsonLd = {
   "isPartOf": { "@type": "WebSite", "name": "AS Clinic Berlin", "url": site },
   "about": { "@id": clinicId },
   "mainEntity": { "@id": clinicId },
-  "mentions": [{ "@id": physicianId }],
   "primaryImageOfPage": { "@type": "ImageObject", "contentUrl": `${site}${heroImage.src}`, "width": heroImage.attributes.width, "height": heroImage.attributes.height },
   "breadcrumb": { "@id": `${pageUrl}#breadcrumb` }
 };
@@ -63,15 +61,6 @@ const breadcrumbJsonLd = {
     { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}/` },
     { "@type": "ListItem", "position": 2, "name": "Über uns", "item": pageUrl }
   ]
-};
-
-// Only what is verified: name and the title "Facharzt für Chirurgie". No worksFor / role / credentials.
-const physicianJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": physicianId,
-  "name": "Nader Farahwaschy",
-  "jobTitle": "Facharzt für Chirurgie"
 };
 
 // Announcement strip for this page: only wording confirmed for it (the site-wide strip promises a free first consultation and six languages).
@@ -107,8 +96,7 @@ const FAQ = [
   },
   {
     q: "Wer ist der Facharzt der AS Clinic Berlin?",
-    a: "In den ärztlichen Angaben der AS Clinic Berlin ist Nader Farahwaschy, Facharzt für Chirurgie, genannt.",
-    link: { href: link("/impressum"), label: "Ärztliche Angaben im Impressum" }
+    a: "Die ärztliche Betreuung in der AS Clinic Berlin erfolgt durch einen Facharzt für Chirurgie."
   },
   {
     q: "Welche Sprachen werden in der Klinik gesprochen?",
@@ -152,7 +140,6 @@ const FAQ = [
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(aboutJsonLd)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} is:inline />
-    <script type="application/ld+json" set:html={JSON.stringify(physicianJsonLd)} is:inline />
   </Fragment>
   <div style="overflow-x:hidden">
     <Header locale={locale} topbarItems={TOPBAR} />
@@ -245,13 +232,13 @@ const FAQ = [
         <div class="container physician">
           <div class="physician__card" role="group" aria-label="Facharzt der AS Clinic Berlin">
             <p class="eyebrow physician__eyebrow">Ärztliche Angaben</p>
-            <p class="physician__name">Nader Farahwaschy</p>
+            <p class="physician__name">Unser Facharzt</p>
             <p class="physician__title">Facharzt für Chirurgie</p>
           </div>
           <div class="prose">
             <h2 class="h2 reveal" data-reveal="up" id="h-facharzt">Fachärztliche Kompetenz</h2>
-            <p class="lead reveal" data-reveal="up">Nader Farahwaschy ist Facharzt für Chirurgie.</p>
-            <p class="body reveal" data-reveal="up">Die Facharztbezeichnung wurde durch die Ärztekammer Berlin anerkannt; die Approbation als Arzt wurde durch das Landesamt für Gesundheit und Soziales Berlin erteilt. Die vollständigen ärztlichen Angaben sowie die zuständige Kammer und Aufsichtsbehörde finden Sie im <a class="textlink" href={link("/impressum")}>Impressum</a>.</p>
+            <p class="lead reveal" data-reveal="up">Die ärztliche Betreuung erfolgt durch einen Facharzt für Chirurgie.</p>
+            <p class="body reveal" data-reveal="up">Die Facharztbezeichnung wurde durch die Ärztekammer Berlin anerkannt; die Approbation als Arzt wurde durch das Landesamt für Gesundheit und Soziales Berlin erteilt.</p>
           </div>
         </div>
       </section>
