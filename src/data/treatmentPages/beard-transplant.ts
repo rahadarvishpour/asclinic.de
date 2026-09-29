@@ -220,7 +220,7 @@ export const BEARD_TRANSPLANT: TreatmentPage = {
             { heading: "Angle and direction for every beard zone", body: "The sideburns, cheek, jawline, moustache and chin all have different directions of growth. The implantation is oriented to the particular region." },
             { heading: "Donor hair chosen for more than quantity", body: "Hair thickness, structure and the availability of suitable single-hair follicles are also taken into account. A natural beard needs more than a high raw graft count." },
             { heading: "Realistic information about growth", body: "Shedding, the slow start of growth and the months-long development of density are all covered in advance. We do not promise a fully visible beard immediately after the procedure." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011." }
+            { heading: "Medical qualification", body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011." }
           ]
         },
         faqHeading: "Frequently asked questions about beard transplants in Berlin",
@@ -502,7 +502,7 @@ export const BEARD_TRANSPLANT: TreatmentPage = {
             { heading: "Winkel und Richtung für jede Bartzone", body: "Koteletten, Wange, Kieferlinie, Schnurrbart und Kinn haben unterschiedliche Wuchsrichtungen. Die Implantation wird entsprechend der jeweiligen Region ausgerichtet." },
             { heading: "Spenderhaar wird nicht nur nach Menge ausgewählt", body: "Auch Haardicke, Struktur und die Verfügbarkeit geeigneter Einzelhaar-Follikel werden berücksichtigt. Ein natürlicher Bart benötigt mehr als eine hohe reine Graftzahl." },
             { heading: "Realistische Aufklärung zum Wachstum", body: "Shedding, langsamer Wachstumsbeginn und die mehrmonatige Dichteentwicklung werden vorab berücksichtigt. Ein sofort voll sichtbarer Bart nach dem Eingriff wird nicht versprochen." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011." }
+            { heading: "Fachärztliche Qualifikation", body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011." }
           ]
         },
         faqHeading: "Häufige Fragen zur Barttransplantation in Berlin",
