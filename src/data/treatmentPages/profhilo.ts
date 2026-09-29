@@ -243,7 +243,7 @@ export const PROFHILO: TreatmentPage = {
             { heading: "A clear distinction from fillers, Botox and skin boosters", body: "Before treatment we establish whether skin quality, muscle activity or volume loss is the actual cause behind your goal. That avoids using the wrong procedure for the wrong problem." },
             { heading: "A course of treatment with reassessment", body: "AS Clinic plans Profhilo as a course of two sessions as standard. Afterwards we assess how the skin has developed and whether a later top-up makes sense at all." },
             { heading: "Transparent product information", body: "Profhilo is a specific branded product with a defined composition. Before treatment it should be clear which product is used and what goal is pursued with it." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy is a specialist in surgery. He has held a German medical licence since 2004; recognition as a specialist in surgery followed in 2011 from the Berlin Medical Association." },
+            { heading: "Medical qualification", body: "Our treating physician is a specialist in surgery. He has held a German medical licence since 2004; recognition as a specialist in surgery followed in 2011 from the Berlin Medical Association." },
             { heading: "A free first consultation with no obligation", body: "Before treatment you can discuss the condition of your skin, your goal, the alternatives, possible risks and the individual process in person." }
           ]
         },
@@ -569,7 +569,7 @@ export const PROFHILO: TreatmentPage = {
             { heading: "Klare Abgrenzung zu Fillern, Botox und Skin Boostern", body: "Vor der Behandlung wird geklärt, ob Hautqualität, Muskelaktivität oder Volumenverlust die eigentliche Ursache des gewünschten Behandlungsziels ist. So kann vermieden werden, dass das falsche Verfahren für das falsche Problem eingesetzt wird." },
             { heading: "Behandlungsserie mit erneuter Beurteilung", body: "Die AS Clinic plant Profhilo grundsätzlich als Serie aus zwei Sitzungen. Danach wird beurteilt, wie sich die Haut entwickelt hat und ob eine spätere Auffrischung überhaupt sinnvoll ist." },
             { heading: "Transparente Produktinformation", body: "Profhilo ist ein konkretes Markenprodukt mit definierter Zusammensetzung. Vor der Behandlung sollte klar sein, welches Produkt verwendet wird und welches Ziel damit verfolgt wird." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy ist Facharzt für Chirurgie. Seine deutsche Approbation als Arzt besteht seit 2004; die Anerkennung als Facharzt für Chirurgie erfolgte 2011 durch die Ärztekammer Berlin." },
+            { heading: "Fachärztliche Qualifikation", body: "Unser behandelnder Arzt ist Facharzt für Chirurgie. Seine deutsche Approbation als Arzt besteht seit 2004; die Anerkennung als Facharzt für Chirurgie erfolgte 2011 durch die Ärztekammer Berlin." },
             { heading: "Kostenloses Erstgespräch ohne Verpflichtung", body: "Vor einer Behandlung können Sie Hautzustand, Behandlungsziel, Alternativen, mögliche Risiken und den individuellen Ablauf persönlich besprechen." }
           ]
         },
