@@ -226,7 +226,7 @@ export const BIO_LIFTING: TreatmentPage = {
             { heading: "The product is named specifically before treatment", body: "Because \"bio-lifting\" is not a uniform product name, it should be clear before treatment which preparation is used, how it works and which risks and treatment intervals apply to it." },
             { heading: "A clear distinction from fillers, Profhilo, skin boosters and Botox", body: "Before treatment we establish whether skin firmness, muscle activity, volume loss or hydration is the actual cause behind your goal. That avoids choosing an unsuitable method." },
             { heading: "A course of treatments based on individual need", body: "The number of sessions is not set by a fixed marketing scheme alone, but by the product, the starting point and the actual response." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy is a specialist in surgery. He has held a German medical licence since 2004; recognition as a specialist in surgery followed in 2011 from the Berlin Medical Association." },
+            { heading: "Medical qualification", body: "Our treating physician is a specialist in surgery. He has held a German medical licence since 2004; recognition as a specialist in surgery followed in 2011 from the Berlin Medical Association." },
             { heading: "A free first consultation with no obligation", body: "Before treatment you can discuss the treatment goal, the choice of product, the alternatives, possible risks and the individual process in person." }
           ]
         },
@@ -530,7 +530,7 @@ export const BIO_LIFTING: TreatmentPage = {
             { heading: "Produkt wird vor der Behandlung konkret benannt", body: "Da „Bio-Lifting“ kein einheitlicher Produktname ist, soll vor der Behandlung klar sein, welches Präparat verwendet wird, wie es wirkt und welche Risiken beziehungsweise Behandlungsintervalle dafür gelten." },
             { heading: "Abgrenzung zu Filler, Profhilo, Skin Booster und Botox", body: "Vor der Behandlung wird geklärt, ob Hautfestigkeit, Muskelaktivität, Volumenverlust oder Hautfeuchtigkeit die eigentliche Ursache des gewünschten Behandlungsziels ist. So kann vermieden werden, dass eine unpassende Methode gewählt wird." },
             { heading: "Behandlungsserie nach individuellem Bedarf", body: "Die Anzahl der Sitzungen wird nicht allein anhand eines festen Marketingschemas festgelegt, sondern anhand von Produkt, Ausgangssituation und tatsächlicher Reaktion." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy ist Facharzt für Chirurgie. Seine deutsche Approbation als Arzt besteht seit 2004; die Anerkennung als Facharzt für Chirurgie erfolgte 2011 durch die Ärztekammer Berlin." },
+            { heading: "Fachärztliche Qualifikation", body: "Unser behandelnder Arzt ist Facharzt für Chirurgie. Seine deutsche Approbation als Arzt besteht seit 2004; die Anerkennung als Facharzt für Chirurgie erfolgte 2011 durch die Ärztekammer Berlin." },
             { heading: "Kostenloses Erstgespräch ohne Verpflichtung", body: "Vor einer Behandlung können Behandlungsziel, Produktauswahl, Alternativen, mögliche Risiken und der individuelle Ablauf persönlich besprochen werden." }
           ]
         },
