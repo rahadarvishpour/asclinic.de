@@ -256,7 +256,7 @@ export const BLEPHAROPLASTY: TreatmentPage = {
             { heading: "The natural lid crease as the guide", body: "The upper-lid incision follows the natural lid crease. The aim is a scar that is as inconspicuous as possible while the natural lid shape is preserved." },
             { heading: "No surgery to a standard template", body: "How much skin is removed and how deeper structures are treated is planned individually. The tightest possible result is not automatically the better one." },
             { heading: "Realistic recovery time", body: "The visible healing phase is planned for openly. About 10–14 days should often be allowed for social commitments, even though full tissue and scar maturation takes considerably longer." },
-            { heading: "Medical qualification", body: "Nader Farahwaschy – specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual surgical suitability is assessed at the personal consultation." }
+            { heading: "Medical qualification", body: "Treating physician: specialist in surgery. Medical licence since 2004; specialist recognition in surgery from the Berlin Medical Association since 2011. Individual surgical suitability is assessed at the personal consultation." }
           ]
         },
         faqHeading: "Frequently asked questions about eyelid surgery in Berlin",
@@ -580,7 +580,7 @@ export const BLEPHAROPLASTY: TreatmentPage = {
             { heading: "Natürliche Lidfalte als Orientierung", body: "Die Oberlidschnittführung wird an der natürlichen Lidfalte orientiert. Ziel ist eine möglichst unauffällige Narbe bei erhaltener natürlicher Lidform." },
             { heading: "Keine Operation nach Standardschablone", body: "Die Menge der Hautentfernung und die Behandlung tieferer Strukturen werden individuell geplant. Ein möglichst straffes Ergebnis ist nicht automatisch ein besseres Ergebnis." },
             { heading: "Realistische Erholungszeit", body: "Die sichtbare Heilungsphase wird offen eingeplant. Für gesellschaftliche Termine sollte häufig mit ungefähr 10–14 Tagen gerechnet werden, auch wenn die vollständige Gewebe- und Narbenreifung deutlich länger dauert." },
-            { heading: "Fachärztliche Qualifikation", body: "Nader Farahwaschy – Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle operative Eignung wird im persönlichen Beratungsgespräch beurteilt." }
+            { heading: "Fachärztliche Qualifikation", body: "Behandelnder Arzt: Facharzt für Chirurgie. Approbation als Arzt seit 2004; Facharztanerkennung für Chirurgie durch die Ärztekammer Berlin seit 2011. Die individuelle operative Eignung wird im persönlichen Beratungsgespräch beurteilt." }
           ]
         },
         faqHeading: "Häufige Fragen zur Lidstraffung in Berlin",
