@@ -31,45 +31,6 @@ export const IMPRINT_SECTIONS: LegalSection[] = [
     ]
   },
   {
-    id: "aerztliche-angaben",
-    heading: "Ärztliche Angaben",
-    blocks: [
-      { type: "p", text: "Nader Farahwaschy" },
-      { type: "p", text: "Facharzt für Chirurgie" },
-      { type: "p", text: "Gesetzliche Berufsbezeichnung: Arzt" },
-      { type: "p", text: "Staat, in dem die Berufsbezeichnung verliehen wurde: Bundesrepublik Deutschland" },
-      { type: "p", text: "Die Approbation als Arzt wurde durch das Landesamt für Gesundheit und Soziales Berlin erteilt." },
-      { type: "p", text: "Die Facharztbezeichnung „Facharzt für Chirurgie“ wurde durch die Ärztekammer Berlin anerkannt." }
-    ]
-  },
-  {
-    id: "kammer",
-    heading: "Zuständige Kammer",
-    blocks: [
-      { type: "address", lines: ["Ärztekammer Berlin", "Friedrichstraße 16", "10969 Berlin", "Deutschland"] },
-      { type: "p", text: "Telefon: +49 30 40806-0" }
-    ]
-  },
-  {
-    id: "aufsichtsbehoerde",
-    heading: "Zuständige Aufsichtsbehörde",
-    blocks: [
-      { type: "address", lines: ["Landesamt für Gesundheit und Soziales Berlin (LAGeSo)", "Landesprüfungsamt für Gesundheitsberufe", "Turmstraße 21 / Haus A", "10559 Berlin", "Deutschland"] },
-      { type: "p", text: "Postanschrift:" },
-      { type: "address", lines: ["Postfach 31 09 29", "10639 Berlin"] },
-      { type: "p", text: "Telefon: +49 30 90229-0" }
-    ]
-  },
-  {
-    id: "berufsrecht",
-    heading: "Berufsrechtliche Regelungen",
-    blocks: [
-      { type: "p", text: "Für die ärztliche Tätigkeit gelten insbesondere:" },
-      { type: "ul", items: ["Bundesärzteordnung (BÄO)", "Berliner Heilberufekammergesetz (BlnHKG)", "Berufsordnung der Ärztekammer Berlin"] },
-      { type: "p", text: "Die jeweils geltenden berufsrechtlichen Regelungen sind über die Website der Ärztekammer Berlin sowie über die offiziellen Gesetzesportale des Bundes und des Landes Berlin abrufbar." }
-    ]
-  },
-  {
     id: "redaktionell",
     heading: "Verantwortlich für journalistisch-redaktionelle Inhalte",
     blocks: [
