@@ -76,6 +76,9 @@ export const BEAUTY_INJECTION_BOOKING_URL =
 export const HAIR_ANALYSIS_BOOKING_URL =
   "https://partner-eu.pabau.com/online-bookings/as-clinic-u1rcva6e?category=195956&serviceType=0";
 
+/** Pabau consultation request form, used by the homepage hero's "Beratung buchen" button. */
+export const CONSULTATION_BOOKING_URL = "https://booking-eu.pabau.com/as-clinic-u1rcva6e/capture/151";
+
 export function bookingUrl(_locale: Locale): string {
   return BOOKING_URL;
 }
