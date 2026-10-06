@@ -113,13 +113,26 @@ const procedureJsonLd = {
     }
   }
 };
-// Hair, eyebrow and beard transplant pages carry an embedded Pabau request form
-// after the "at a glance" table: the German form on German pages, the English
-// form in every other language.
-const LEAD_FORM_SLUGS = ["hair-transplant", "eyebrow-transplant", "beard-transplant"];
-const LEAD_FORM_DE = { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" };
-const LEAD_FORM_EN = { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" };
-const leadForm = LEAD_FORM_SLUGS.includes(page.slug) ? (locale === "de" ? LEAD_FORM_DE : LEAD_FORM_EN) : undefined;
+// Embedded Pabau request form after the "at a glance" table (on legacy-layout
+// pages, after the key-information block): the German form on German pages, the
+// English form in every other language.
+//  - Hair, eyebrow and beard transplant pages: the transplant lead form.
+//  - Every injectables page ("Aesthetics & specialist injections"): the beauty form.
+const TRANSPLANT_SLUGS = ["hair-transplant", "eyebrow-transplant", "beard-transplant"];
+const TRANSPLANT_FORMS = {
+  de: { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" },
+  en: { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" }
+};
+const INJECTABLES_FORMS = {
+  de: { formId: 154, title: "Pabau form: form" },
+  en: { formId: 153, title: "Pabau form: form" }
+};
+const formLang = locale === "de" ? "de" : "en";
+const leadForm = TRANSPLANT_SLUGS.includes(page.slug)
+  ? { ...TRANSPLANT_FORMS[formLang], heading: t(locale, "treat.hairAnalysis") }
+  : page.category.categoryAnchorId === "injectables"
+    ? { ...INJECTABLES_FORMS[formLang], heading: t(locale, "hero.cta") }
+    : undefined;
 // Beauty treatments (injectables) book straight into the Pabau "Beauty injection" category.
 const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_INJECTION_BOOKING_URL : bookingUrl(locale);
 ---
@@ -238,7 +251,7 @@ const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_IN
             </div>
           </section>
 
-          {leadForm && <PabauFormEmbed locale={locale} formId={leadForm.formId} title={leadForm.title} />}
+          {leadForm && <PabauFormEmbed {...leadForm} />}
 
           <section class="section" style="padding-block:var(--sp-7)">
             <div class="container prose">
@@ -374,6 +387,7 @@ const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_IN
           </div>
         </section>
       )}
+      {!article && leadForm && <PabauFormEmbed {...leadForm} />}
 
       <section class="section" id="faq">
         <div class="container">

@@ -6,22 +6,21 @@
  *  scrollbar inside the frame; it is taller on narrow screens, where the form's
  *  fields stack and the form gets longer. Adjust --pabau-h below if the form's
  *  length changes in Pabau. */
-import { t, type Locale } from "../i18n/ui";
-
 interface Props {
-  locale: Locale;
   /** Pabau capture form number, e.g. 151 for …/capture/151. */
   formId: number;
   /** The iframe title Pabau's embed snippet gives this form. */
   title: string;
+  /** Section heading shown above the form. */
+  heading: string;
 }
-const { locale, formId, title } = Astro.props;
+const { formId, title, heading } = Astro.props;
 const src = `https://booking-eu.pabau.com/as-clinic-u1rcva6e/capture/${formId}?t=1`;
 ---
 
 <section class="section" style="padding-block:var(--sp-7)">
   <div class="container prose">
-    <h2 class="h2">{t(locale, "treat.hairAnalysis")}</h2>
+    <h2 class="h2">{heading}</h2>
     <!-- Pabau -->
     <iframe
       id={`cf-${formId}`}
