@@ -1,0 +1,650 @@
+---
+/** Paid-traffic landing page for hair transplantation (dark design).
+ *
+ *  Rendered at more than one URL (see src/pages/*haartransplantation-offer.astro),
+ *  so each ad campaign can have its own address; `path` is the URL of the page
+ *  rendering it and becomes its canonical.
+ *
+ *  Deliberately styled apart from the rest of the site: its own dark palette
+ *  and typefaces (Fraunces + Inter, self-hosted below), no site header or
+ *  footer navigation. Enquiries go through the embedded Pabau form; when Pabau
+ *  reports a submission the visitor is sent to /danke/ — with the trailing
+ *  slash, because the GTM conversion trigger matches that exact path.
+ *
+ *  The Pabau widget is only loaded after the visitor clicks to open it: the
+ *  privacy policy (src/data/privacy.ts, "pabau") promises that Pabau is not
+ *  loaded embedded on the site before an active click.
+ *
+ *  noindex: this page would only compete with /treatments/hair-transplant for
+ *  the same queries.
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import transformation from "../assets/landing/transformation.webp";
+import frauncesLatin from "../assets/fonts/fraunces-latin-opsz-normal.woff2?url";
+import frauncesLatinExt from "../assets/fonts/fraunces-latin-ext-opsz-normal.woff2?url";
+import interLatin from "../assets/fonts/inter-latin-wght-normal.woff2?url";
+import interLatinExt from "../assets/fonts/inter-latin-ext-wght-normal.woff2?url";
+
+interface Props {
+  path: string;
+}
+
+const { path } = Astro.props;
+
+interface Testimonial {
+  name: string;
+  location: string;
+  grafts: string;
+  rating: number;
+  quote: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface Benefit {
+  title: string;
+  description: string;
+}
+
+const PABAU_FORM_ID = "Mw1.sA";
+const PABAU_FORM_URL = "https://forms.pabau.com/index.php?r=app%2Fform&id=Mw1.sA";
+
+const stats: Stat[] = [
+  { value: "15+", label: "Jahre Erfahrung" },
+  { value: "10.000+", label: "Zufriedene Patienten" },
+  { value: "99%", label: "Erfolgsquote" },
+];
+
+const steps: Step[] = [
+  {
+    number: "01",
+    title: "Diagnose und Haaranalyse",
+    description:
+      "Ein Facharzt untersucht Ihre Kopfhaut und Haardichte und legt gemeinsam mit Ihnen die Zielsetzung der Behandlung fest.",
+  },
+  {
+    number: "02",
+    title: "Entnahme der Graftlinge",
+    description:
+      "Mit dem Choi-Implanter-Stift werden einzelne Haarfollikel schonend und ohne Skalpell aus der Spenderregion entnommen.",
+  },
+  {
+    number: "03",
+    title: "Direkte Implantation",
+    description:
+      "Die DHI-Technik erlaubt die direkte Platzierung jedes Grafts, ohne vorherige Kanaleröffnung – für minimale Ausfallzeit.",
+  },
+  {
+    number: "04",
+    title: "Wuchsrichtung und Dichte",
+    description:
+      "Jedes Haar wird einzeln im natürlichen Winkel gesetzt, sodass das Ergebnis dem ursprünglichen Haarbild entspricht.",
+  },
+];
+
+const benefits: Benefit[] = [
+  {
+    title: "Deutscher Behandlungsstandard",
+    description:
+      "Sterile Operationssäle, medizinisches Fachpersonal und Nachsorge nach deutschem Hygienerecht – mitten in Berlin.",
+  },
+  {
+    title: "Individuelle Haarlinie",
+    description:
+      "Kein Schema F: Ihre Geheimratsecken, Ihr Haaransatz, Ihr Gesicht – die Linie wird gemeinsam mit Ihnen entworfen.",
+  },
+  {
+    title: "Ein Team, ein Eingriff",
+    description:
+      "Von der Beratung bis zur letzten Nachkontrolle begleitet Sie dasselbe Ärzteteam – keine wechselnden Zuständigkeiten.",
+  },
+  {
+    title: "Transparente Nachsorge",
+    description:
+      "Kontrolltermine nach 10 Tagen, 3 und 12 Monaten sind im Behandlungspaket enthalten, nicht optional.",
+  },
+];
+
+const testimonials: Testimonial[] = [
+  {
+    name: "Markus T.",
+    location: "München",
+    grafts: "3.200 Grafts",
+    rating: 5,
+    quote:
+      "Nach zwei gescheiterten Anläufen bei anderen Kliniken war die Beratung hier die erste, die mir ehrlich gesagt hat, was realistisch ist.",
+  },
+  {
+    name: "Daniel K.",
+    location: "Berlin",
+    grafts: "2.800 Grafts",
+    rating: 5,
+    quote:
+      "Der Eingriff war nach sechs Stunden vorbei, die Schwellung nach vier Tagen weg. Nach sechs Monaten fragt mich niemand mehr, ob ich eine OP hatte.",
+  },
+  {
+    name: "Julian R.",
+    location: "Hamburg",
+    grafts: "3.600 Grafts",
+    rating: 5,
+    quote:
+      "Die Nachkontrollen haben mir gezeigt, dass es hier nicht mit der OP endet. Genau das hat mir vorher bei der Entscheidung gefehlt.",
+  },
+];
+---
+
+<BaseLayout
+  locale="de"
+  title="AS Clinic Berlin — Haartransplantation mit DHI-FUE Methode"
+  description="AS Clinic Berlin: über 15 Jahre Erfahrung und 10.000 zufriedene Patienten in der Haartransplantation nach der DHI-FUE Methode. Kostenlose Erstberatung."
+  includeFaqSchema={false}
+  unprefixedPath={path}
+  hreflangAlternates={false}
+  noindex={true}
+>
+  <Fragment slot="head">
+    <link rel="preload" href={frauncesLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    <style set:html={`
+      @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap;
+        src: url("${frauncesLatin}") format("woff2");
+        unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+      @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap;
+        src: url("${frauncesLatinExt}") format("woff2");
+        unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+      @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+        src: url("${interLatin}") format("woff2");
+        unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+      @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+        src: url("${interLatinExt}") format("woff2");
+        unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    `} />
+  </Fragment>
+
+  <div class="dl">
+    <header class="dl-nav">
+      <nav class="dl-nav__inner">
+        <a href="#main" class="dl-brand">
+          <span class="dl-brand__name">AS Clinic</span>
+          <span class="dl-brand__city">BERLIN</span>
+        </a>
+
+        <div class="dl-nav__links">
+          <a href="#ablauf">Ablauf</a>
+          <a href="#methode">Methode</a>
+          <a href="#erfahrungen">Erfahrungen</a>
+        </div>
+
+        <a href="#kontakt" class="dl-btn dl-btn--outline-gold">Termin sichern</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="dl-hero">
+        <div class="dl-glow dl-glow--hero" aria-hidden="true"></div>
+
+        <div class="dl-hero__inner">
+          <p class="dl-eyebrow">Seit 2010 in Berlin · DHI-FUE Spezialklinik</p>
+
+          <h1 class="dl-h1">
+            Volles Haar ist kein Zufall.
+            <br class="dl-br-md" />
+            Es ist Präzision.
+          </h1>
+
+          <p class="dl-hero__lead">
+            Über 10.000 Patienten haben sich für die DHI-FUE Haartransplantation der AS Clinic Berlin
+            entschieden — nach deutschem Behandlungsstandard, mit einem Ärzteteam, das Sie durch den
+            gesamten Prozess begleitet.
+          </p>
+
+          <div class="dl-hero__ctas">
+            <a href="#kontakt" class="dl-btn dl-btn--gold">Kostenlose Erstberatung anfragen</a>
+            <a href="#methode" class="dl-btn dl-btn--ghost">Die Methode verstehen</a>
+          </div>
+
+          <div class="dl-hero__facts">
+            <span>15+ Jahre Erfahrung</span>
+            <span class="dl-dot" aria-hidden="true"></span>
+            <span>10.000+ Patienten</span>
+            <span class="dl-dot" aria-hidden="true"></span>
+            <span>Klinik in Berlin-Mitte</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6-Month Timeline -->
+      <section id="ablauf" class="dl-section">
+        <div class="dl-wrap">
+          <div class="dl-head dl-head--center">
+            <h2 class="dl-h2">In nur 6 Monaten zu dichtem und natürlichem Haar</h2>
+            <p class="dl-lead">
+              Der reale Verlauf einer Behandlung bei der AS Clinic Berlin — vom Eingriff bis zum
+              sichtbaren, dichten Ergebnis.
+            </p>
+          </div>
+
+          <div class="dl-card dl-timeline">
+            <Image
+              src={transformation}
+              alt="Haarwachstum-Verlauf über 6 Monate: Start, erster Monat, vier Monate, sechs Monate nach DHI-FUE Haartransplantation bei der AS Clinic Berlin"
+              widths={[640, 1000, 1600, 2000]}
+              sizes="(min-width: 1024px) 984px, calc(100vw - 48px)"
+              class="dl-timeline__img"
+            />
+            <div class="dl-timeline__meta">
+              <div class="dl-timeline__labels">
+                <span>Start</span>
+                <span>1 Monat</span>
+                <span>4 Monate</span>
+                <span>6 Monate</span>
+              </div>
+              <span class="dl-timeline__brand">THE AS GROUP · EST. 2010</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="dl-section dl-section--alt dl-stats">
+        <div class="dl-wrap dl-stats__grid">
+          {stats.map((stat) => (
+            <div>
+              <p class="dl-stats__value">{stat.value}</p>
+              <p class="dl-stats__label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Expertise & Benefits -->
+      <section class="dl-section">
+        <div class="dl-wrap">
+          <div class="dl-head">
+            <h2 class="dl-h2">15 Jahre Erfahrung, ein Berliner Standard</h2>
+            <p class="dl-lead">
+              Was die AS Clinic Berlin von anderen Anbietern unterscheidet, zeigt sich nicht im
+              Verkaufsgespräch, sondern in der Behandlung selbst.
+            </p>
+          </div>
+
+          <div class="dl-benefits">
+            {benefits.map((benefit) => (
+              <div class="dl-benefit">
+                <h3 class="dl-h3">{benefit.title}</h3>
+                <p class="dl-small">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Deep-Dive: DHI-FUE -->
+      <section id="methode" class="dl-section dl-section--alt">
+        <div class="dl-wrap">
+          <div class="dl-head">
+            <h2 class="dl-h2">Die DHI-FUE Methode, Schritt für Schritt</h2>
+            <p class="dl-lead">
+              DHI-FUE kombiniert die schonende Entnahme der klassischen FUE-Technik mit der direkten,
+              skalpellfreien Implantation per Choi-Pen — für ein dichteres, natürlicheres Ergebnis.
+            </p>
+          </div>
+
+          <div class="dl-steps">
+            {steps.map((step) => (
+              <div class="dl-step">
+                <span class="dl-step__num">{step.number}</span>
+                <div>
+                  <h3 class="dl-h3">{step.title}</h3>
+                  <p class="dl-small">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Proof -->
+      <section id="erfahrungen" class="dl-section">
+        <div class="dl-wrap">
+          <div class="dl-head">
+            <h2 class="dl-h2">Erfahrungen unserer Patienten</h2>
+            <p class="dl-lead">Ein Auszug aus über 10.000 abgeschlossenen Behandlungen.</p>
+          </div>
+
+          <div class="dl-reviews">
+            {testimonials.map((t) => (
+              <div class="dl-card dl-review">
+                <div class="dl-review__stars" role="img" aria-label={`${t.rating} von 5 Sternen`}>
+                  {Array.from({ length: t.rating }).map(() => <span aria-hidden="true">★</span>)}
+                </div>
+                <p class="dl-review__quote">{t.quote}</p>
+                <div class="dl-review__meta">
+                  <span>{t.name}, {t.location}</span>
+                  <span>{t.grafts}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Pabau Form -->
+      <section id="kontakt" class="dl-section dl-section--alt dl-contact">
+        <div class="dl-glow dl-glow--contact" aria-hidden="true"></div>
+
+        <div class="dl-head dl-head--center dl-contact__head">
+          <h2 class="dl-h2">Vereinbaren Sie Ihre kostenlose Erstberatung</h2>
+          <p class="dl-lead">
+            Füllen Sie das Formular aus — unser Team meldet sich innerhalb eines Werktags bei Ihnen.
+          </p>
+        </div>
+
+        <div class="dl-contact__box">
+          <div class="dl-card dl-card--gold dl-form-card">
+            <div id="c1817" class="dl-form" data-pabau-container>
+              <div class="dl-form__gate" data-pabau-gate>
+                <button type="button" class="dl-btn dl-btn--gold" data-pabau-load>Formular öffnen</button>
+                <p class="dl-form__note">
+                  Das Anfrageformular wird von unserem Dienstleister Pabau bereitgestellt. Mit dem Klick
+                  wird es von dessen Servern geladen. Mehr dazu in der
+                  <a href="/datenschutz#pabau" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+                </p>
+                <p class="dl-form__note">
+                  Alternativ: <a href={PABAU_FORM_URL} target="_blank" rel="noopener">Formular in neuem Tab öffnen</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dl-footer">
+      <div class="dl-footer__inner">
+        <p>© {new Date().getFullYear()} AS Clinic Berlin. Alle Rechte vorbehalten.</p>
+        <div class="dl-footer__links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script is:inline define:vars={{ formId: PABAU_FORM_ID, containerId: "c1817" }}>
+    (function () {
+      var button = document.querySelector("[data-pabau-load]");
+      if (!button) return;
+
+      button.addEventListener("click", function () {
+        button.disabled = true;
+        var container = document.getElementById(containerId);
+        var s = document.createElement("script");
+        s.src = "https://forms.pabau.com/static_files/js/form.widget.js";
+        s.onload = function () {
+          var gate = container.querySelector("[data-pabau-gate]");
+          if (gate) gate.remove();
+          try {
+            new EasyForms()
+              .initialize({
+                id: formId,
+                container: containerId,
+                height: "896px",
+                form: "https://forms.pabau.com/index.php?r=app%2Fembed",
+              })
+              .display();
+            container.classList.add("is-loaded");
+          } catch (e) {}
+        };
+        s.onerror = function () {
+          button.disabled = false;
+        };
+        document.head.appendChild(s);
+      });
+    })();
+
+    // Pabau posts a message from its iframe once the form has been submitted.
+    window.addEventListener("message", function (event) {
+      if (!/(^|\.)pabau\.com$/.test(new URL(event.origin).hostname)) return;
+      var data = event.data;
+
+      var isSubmitted =
+        data === "submitted" ||
+        (data &&
+          typeof data === "object" &&
+          (data.action === "form_submitted" || data.type === "pabau_submit"));
+
+      if (!isSubmitted && typeof data === "string") {
+        try {
+          var parsed = JSON.parse(data);
+          isSubmitted =
+            parsed && (parsed.action === "form_submitted" || parsed.type === "pabau_submit");
+        } catch (e) {
+          // not JSON, ignore
+        }
+      }
+
+      // Trailing slash: the GTM `generate-lead` trigger matches "/danke/" exactly.
+      if (isSubmitted) window.location.href = "/danke/";
+    });
+  </script>
+
+  <style is:global>
+    body:has(.dl) { background: #0a0c10; }
+    .dl #c1817 iframe {
+      width: 100% !important;
+      border: none !important;
+      border-radius: 4px;
+    }
+  </style>
+
+  <style>
+    .dl {
+      --dl-bg: #0a0c10;
+      --dl-bg-alt: #0d1015;
+      --dl-card: #12151b;
+      --dl-text: #e7e4dc;
+      --dl-heading: #f5f2e9;
+      --dl-title: #f0ece2;
+      --dl-muted: #b9b4a8;
+      --dl-faint: #8b8578;
+      --dl-quote: #d8d4c9;
+      --dl-gold: #c9a24b;
+      --dl-gold-hover: #dab766;
+      --dl-line: rgba(255, 255, 255, 0.05);
+      --dl-line-strong: rgba(255, 255, 255, 0.1);
+      --dl-serif: "Fraunces", Georgia, serif;
+      --dl-sans: "Inter", system-ui, sans-serif;
+      --dl-pad-x: 1.5rem;
+
+      background: var(--dl-bg);
+      color: var(--dl-text);
+      font-family: var(--dl-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100dvh;
+    }
+    .dl :where(h1, h2, h3, p) { margin: 0; }
+    .dl a { text-decoration: none; }
+    .dl a:where(:not(.dl-btn)) { color: inherit; }
+    .dl section[id] { scroll-margin-top: 4rem; }
+
+    /* Navigation */
+    .dl-nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      border-bottom: 1px solid var(--dl-line);
+      background: rgba(10, 12, 16, 0.9);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .dl-nav__inner {
+      max-width: 72rem; margin: 0 auto; padding: 0 var(--dl-pad-x);
+      height: 4rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .dl-brand { display: flex; align-items: baseline; gap: .5rem; }
+    .dl-brand__name { font-family: var(--dl-serif); font-size: 1.125rem; color: var(--dl-title); }
+    .dl-brand__city { font-size: 10px; letter-spacing: .25em; color: var(--dl-gold); }
+    .dl-nav__links { display: none; gap: 2rem; font-size: .875rem; color: var(--dl-muted); }
+    .dl-nav__links a { transition: color .15s; }
+    .dl-nav__links a:hover { color: var(--dl-title); }
+
+    /* Buttons */
+    .dl-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 2px; font: inherit; font-size: .875rem; cursor: pointer;
+      transition: background-color .15s, color .15s, border-color .15s;
+    }
+    .dl-btn--outline-gold { border: 1px solid var(--dl-gold); padding: .5rem 1rem; color: var(--dl-gold); }
+    .dl-btn--outline-gold:hover { background: var(--dl-gold); color: var(--dl-bg); }
+    .dl-btn--gold {
+      border: 0; background: var(--dl-gold); color: var(--dl-bg);
+      padding: .875rem 2rem; font-weight: 500;
+    }
+    .dl-btn--gold:hover { background: var(--dl-gold-hover); }
+    .dl-btn--gold:disabled { opacity: .6; cursor: progress; }
+    .dl-btn--ghost { border: 1px solid rgba(255, 255, 255, 0.15); padding: .875rem 2rem; color: var(--dl-text); }
+    .dl-btn--ghost:hover { border-color: rgba(255, 255, 255, 0.3); }
+
+    /* Shared */
+    .dl-glow { pointer-events: none; position: absolute; background: var(--dl-gold); }
+    .dl-glow--hero {
+      top: -10rem; right: -10%; width: 420px; height: 420px; border-radius: 9999px;
+      opacity: .07; filter: blur(140px);
+    }
+    .dl-glow--contact { inset: 0 0 auto 0; height: 16rem; opacity: .05; filter: blur(160px); }
+    .dl-section { padding: 5rem var(--dl-pad-x); border-top: 1px solid var(--dl-line); }
+    .dl-section--alt { background: var(--dl-bg-alt); }
+    .dl-wrap { max-width: 64rem; margin: 0 auto; }
+    .dl-head { max-width: 42rem; margin-bottom: 3.5rem; }
+    .dl-head--center { margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 3rem; }
+    .dl-h1 {
+      font-family: var(--dl-serif); font-weight: 600; color: var(--dl-heading);
+      font-size: 2.25rem; line-height: 1.15;
+    }
+    .dl-h2 {
+      font-family: var(--dl-serif); font-weight: 600; color: var(--dl-heading);
+      font-size: 1.875rem; line-height: 1.2;
+    }
+    .dl-h3 { font-family: var(--dl-sans); font-size: 1rem; font-weight: 500; color: var(--dl-title); }
+    .dl-lead { margin-top: 1rem !important; color: var(--dl-muted); line-height: 1.625; }
+    .dl-small { margin-top: .5rem !important; font-size: .875rem; color: var(--dl-muted); line-height: 1.625; }
+    .dl-card { border: 1px solid var(--dl-line-strong); border-radius: 6px; background: var(--dl-card); }
+    .dl-card--gold { border-color: rgba(201, 162, 75, 0.25); }
+    .dl-br-md { display: none; }
+
+    /* Hero */
+    .dl-hero { position: relative; overflow: hidden; padding: 8rem var(--dl-pad-x) 5rem; }
+    .dl-hero__inner { position: relative; max-width: 56rem; margin: 0 auto; text-align: center; }
+    .dl-eyebrow { font-size: .875rem; color: var(--dl-gold); margin-bottom: 1.5rem !important; }
+    .dl-hero__lead {
+      margin: 1.5rem auto 0 !important; max-width: 42rem;
+      font-size: 1rem; line-height: 1.625; color: var(--dl-muted);
+    }
+    .dl-hero__ctas { margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+    .dl-hero__ctas .dl-btn { width: 100%; }
+    .dl-hero__facts {
+      margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: .5rem 1.5rem; font-size: .75rem; color: var(--dl-faint);
+    }
+    .dl-dot { width: 4px; height: 4px; border-radius: 9999px; background: var(--dl-faint); }
+
+    /* Timeline */
+    .dl-timeline { padding: .75rem; }
+    .dl-timeline__img { display: block; width: 100%; height: auto; border-radius: 2px; }
+    .dl-timeline__meta {
+      margin-top: 1rem; padding: 0 .25rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem;
+    }
+    .dl-timeline__labels { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .75rem; color: var(--dl-faint); }
+    .dl-timeline__brand { font-size: .75rem; letter-spacing: .2em; color: var(--dl-gold); }
+
+    /* Stats */
+    .dl-stats { padding-top: 4rem; padding-bottom: 4rem; }
+    .dl-stats__grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .dl-stats__value { font-family: var(--dl-serif); font-size: 2.25rem; line-height: 1.1; color: var(--dl-gold); }
+    .dl-stats__label { margin-top: .5rem !important; font-size: .875rem; color: var(--dl-muted); }
+
+    /* Benefits & steps */
+    .dl-benefits { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+    .dl-benefit { border-top: 1px solid var(--dl-line-strong); padding-top: 1.25rem; }
+    .dl-steps { display: grid; grid-template-columns: 1fr; gap: 3rem 2.5rem; }
+    .dl-step { display: flex; gap: 1.25rem; }
+    .dl-step__num { flex-shrink: 0; font-family: var(--dl-serif); font-size: 1.5rem; line-height: 1.2; color: var(--dl-gold); }
+
+    /* Reviews */
+    .dl-reviews { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .dl-review { padding: 1.5rem; display: flex; flex-direction: column; }
+    .dl-review__stars { display: flex; gap: .25rem; font-size: .875rem; color: var(--dl-gold); }
+    .dl-review__quote { margin-top: 1rem !important; flex-grow: 1; font-size: .875rem; line-height: 1.625; color: var(--dl-quote); }
+    .dl-review__meta {
+      margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--dl-line-strong);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      font-size: .75rem; color: var(--dl-faint);
+    }
+
+    /* Contact / Pabau */
+    .dl-contact { position: relative; }
+    .dl-contact__head { position: relative; margin-bottom: 2.5rem; }
+    .dl-contact__box { position: relative; max-width: 42rem; margin: 0 auto; }
+    .dl-form-card { padding: 1rem; }
+    .dl-form { width: 100%; border-radius: 2px; overflow: hidden; }
+    .dl-form.is-loaded { min-height: 896px; }
+    .dl-form__gate {
+      display: grid; justify-items: center; gap: 1rem; text-align: center;
+      padding: 3rem 1rem;
+    }
+    .dl-form__note { max-width: 30rem; font-size: .75rem; line-height: 1.6; color: var(--dl-faint); }
+    .dl-form__note a { color: var(--dl-gold); text-decoration: underline; }
+
+    /* Footer */
+    .dl-footer { padding: 2.5rem var(--dl-pad-x); border-top: 1px solid var(--dl-line); }
+    .dl-footer__inner {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1rem;
+      font-size: .75rem; color: var(--dl-faint);
+    }
+    .dl-footer__links { display: flex; gap: 1.5rem; }
+    .dl-footer__links a { transition: color .15s; }
+    .dl-footer__links a:hover { color: var(--dl-text); }
+
+    .dl a:focus-visible, .dl button:focus-visible { outline: 2px solid var(--dl-gold); outline-offset: 2px; }
+
+    @media (min-width: 640px) {
+      .dl-hero__ctas { flex-direction: row; }
+      .dl-hero__ctas .dl-btn { width: auto; }
+      .dl-stats__grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      .dl-benefits { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+      .dl-footer__inner { flex-direction: row; }
+    }
+
+    @media (min-width: 768px) {
+      .dl { --dl-pad-x: 2.5rem; }
+      .dl section[id] { scroll-margin-top: 5rem; }
+      .dl-nav__inner { height: 5rem; }
+      .dl-brand__name { font-size: 1.25rem; }
+      .dl-nav__links { display: flex; }
+      .dl-section { padding-top: 7rem; padding-bottom: 7rem; }
+      .dl-stats { padding-top: 5rem; padding-bottom: 5rem; }
+      .dl-hero { padding-top: 11rem; padding-bottom: 7rem; }
+      .dl-h1 { font-size: 3.75rem; line-height: 1.1; }
+      .dl-h2 { font-size: 2.25rem; }
+      .dl-br-md { display: block; }
+      .dl-hero__lead { font-size: 1.125rem; }
+      .dl-timeline { padding: 1.25rem; }
+      .dl-stats__value { font-size: 3rem; }
+      .dl-steps { grid-template-columns: repeat(2, 1fr); }
+      .dl-reviews { grid-template-columns: repeat(3, 1fr); }
+      .dl-form-card { padding: 2rem; }
+    }
+  </style>
+</BaseLayout>
