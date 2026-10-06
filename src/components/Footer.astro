@@ -1,5 +1,5 @@
 ---
-import { t, sectionHref, localePath, hasContactPage, type Locale } from "../i18n/ui";
+import { t, sectionHref, localePath, hasContactPage, hasAboutPage, ABOUT_PATH, ABOUT_LABEL, type Locale } from "../i18n/ui";
 import { CLINIC } from "../data/clinic";
 import { TREATMENT_PAGES, hasLocale } from "../data/treatmentPages";
 import { languageLinks } from "../i18n/langLinks";
@@ -40,7 +40,7 @@ const hairTransplantLabel = locale === "de" ? "Haartransplantation in Berlin" : 
         {hairTransplantHref && <a href={hairTransplantHref}>{hairTransplantLabel}</a>}
         <a href={anchor("surgery")}>{t(locale, "nav.surgery")}</a>
         <a href={anchor("faq")}>{t(locale, "nav.faq")}</a>
-        {locale === "de" && <a href="/uber-uns">Über uns</a>}<a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
+        {hasAboutPage(locale) && <a href={localePath(locale, ABOUT_PATH)}>{ABOUT_LABEL[locale]}</a>}<a href={localePath(locale, "/location")}>{t(locale, "nav.location")}</a>
         {hasContactPage(locale) && <a href={localePath(locale, "/contact")}>{t(locale, "nav.contact")}</a>}
       </div>
       <div class="footer__col">

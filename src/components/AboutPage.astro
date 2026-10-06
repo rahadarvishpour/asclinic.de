@@ -1,12 +1,18 @@
 ---
-/** Über AS Clinic Berlin — the canonical German "Über uns" page (/uber-uns).
+/** Über AS Clinic Berlin — the "Über uns" page (/uber-uns, /en/uber-uns).
  *
- *  German only. Every statement here comes from information the clinic has
- *  confirmed for this page or that is already published on the site (Impressum,
- *  contact and location pages). Deliberately absent, until verified separately:
- *  any physician biography or role beyond "Facharzt für Chirurgie", any other
- *  team member, certifications or accreditations, diagnostic equipment,
- *  consultation prices or "free" consultation wording, and any portrait.
+ *  Published in German and English (see ABOUT_LOCALES in ../i18n/ui). The page
+ *  keeps the same slug in both locales, like every other page on the site, so
+ *  canonical, hreflang and the language switcher pair the two versions up
+ *  without special cases. The English copy is a faithful translation of the
+ *  German — it makes no claim the German page does not make.
+ *
+ *  Every statement here comes from information the clinic has confirmed for
+ *  this page or that is already published on the site (Impressum, contact and
+ *  location pages). Deliberately absent, until verified separately: any
+ *  physician biography or role beyond "Facharzt für Chirurgie", any other team
+ *  member, certifications or accreditations, diagnostic equipment, consultation
+ *  prices or "free" consultation wording, and any portrait.
  *  Treatment detail lives on the dedicated treatment pages; this page links to
  *  them instead of competing with them. */
 import { Picture, getImage } from "astro:assets";
@@ -15,28 +21,221 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
 import { GOOGLE_RATING } from "../data/reviews";
-import { bookingUrl, localePath, t } from "../i18n/ui";
+import { ABOUT_LOCALES, ABOUT_PATH, bookingUrl, localePath, t } from "../i18n/ui";
+import type { AboutLocale } from "../i18n/ui";
 import office from "../assets/clinic/office.jpg";
 
-const locale = "de" as const;
+interface Props { locale: AboutLocale }
+const { locale } = Astro.props;
 const site = (Astro.site?.toString() ?? "https://asclinic.de").replace(/\/$/, "");
-const PAGE_PATH = "/uber-uns";
-const pageUrl = `${site}${PAGE_PATH}`;
+const PAGE_PATH = ABOUT_PATH;
+const pageUrl = `${site}${localePath(locale, PAGE_PATH)}`;
 const clinicId = `${site}/#clinic`;
 const bookHref = bookingUrl(locale);
 const link = (path: string) => localePath(locale, path);
 
-const TITLE = "Über AS Clinic Berlin | Haartransplantationsklinik Kurfürstendamm";
-const DESCRIPTION =
-  "AS Clinic Berlin: auf Haartransplantation spezialisierte Klinik am Kurfürstendamm in Charlottenburg. Über 12 Jahre Erfahrung, DHI und Micro-FUE.";
-const HERO_ALT = "Behandlungsraum der AS Clinic Berlin mit Behandlungsliege, Glaswänden und gerahmten Urkunden";
+const ratingValue = GOOGLE_RATING.average.toFixed(1);
+
+const COPY = {
+  de: {
+    title: "Über AS Clinic Berlin | Haartransplantationsklinik Kurfürstendamm",
+    description:
+      "AS Clinic Berlin: auf Haartransplantation spezialisierte Klinik am Kurfürstendamm in Charlottenburg. Über 12 Jahre Erfahrung, DHI und Micro-FUE.",
+    heroAlt: "Behandlungsraum der AS Clinic Berlin mit Behandlungsliege, Glaswänden und gerahmten Urkunden",
+    rating: `${ratingValue.replace(".", ",")} von 5 Sternen bei ${GOOGLE_RATING.count} Google-Bewertungen (Stand: September 2026)`,
+    crumb: "Über uns",
+    topbar: ["Über 12 Jahre Erfahrung in der Haartransplantation", "Beratung nach Terminvereinbarung"],
+    book: "BERATUNG BUCHEN",
+    hero: {
+      eyebrow: "Über uns",
+      h1: "Über AS Clinic Berlin",
+      lead: "AS Clinic Berlin ist eine auf Haartransplantation und die Behandlung von Haarausfall spezialisierte Klinik am Kurfürstendamm in Berlin-Charlottenburg. Wir arbeiten mit modernen DHI- und Micro-FUE-Techniken und begleiten Sie persönlich von der Beratung bis zur Nachsorge.",
+      figures: [["Erfahrung", "über 12 Jahre"], ["Durchgeführte Haartransplantationen", "über 4.000"]],
+      focusCta: "Unsere Schwerpunkte"
+    },
+    specialised: {
+      h2: "Spezialisiert auf Haartransplantation in Berlin",
+      lead: "Haartransplantation ist der Schwerpunkt der AS Clinic Berlin. Mit über 12 Jahren Erfahrung und über 4.000 durchgeführten Haartransplantationen konzentriert sich unsere Arbeit auf die Haartransplantation und die Behandlung von Haarausfall.",
+      body: "Wir setzen auf moderne DHI- und Micro-FUE-Techniken. Ihre Behandlung wird nach einer individuellen Beurteilung geplant — nicht nach einem Standardplan.",
+      // [before, hair, between1, beard, between2, eyebrow, between3, prp, between4, aesthetic, after]
+      links: ["Zu unseren Schwerpunkten gehören die ", "Haartransplantation", ", die ", "Barttransplantation", ", die ", "Augenbrauentransplantation", " sowie die ", "PRP-Behandlung gegen Haarausfall", ". Ergänzend bieten wir ausgewählte ", "ästhetische Behandlungen", " an."]
+    },
+    approach: {
+      h2: "Unser Behandlungsansatz",
+      lead: "Jede Behandlung beginnt mit einer individuellen Beurteilung und persönlichen Beratung. Standardisierte Behandlungspläne gibt es bei uns nicht.",
+      items: [
+        ["Individuelle Beurteilung und persönliche Beratung", "Am Anfang steht das persönliche Gespräch. Jede Empfehlung entsteht nach einer individuellen Beurteilung — nicht nach einem festen Schema."],
+        ["Spender- und Empfängerbereich", "Vor jeder Haartransplantation werden Spender- und Empfängerbereich individuell beurteilt und die Behandlung entsprechend geplant."],
+        ["Individuell gestalteter Haaransatz", "Die Gestaltung des Haaransatzes richtet sich nach Ihnen. Ziel jeder Behandlung ist ein natürlich wirkendes Ergebnis, das zur Gesichtsform und den individuellen Voraussetzungen der Patientin oder des Patienten passt."],
+        ["Behandlungsabhängige Nachsorge", "Die Nachsorge richtet sich nach der jeweiligen Behandlung. Wir begleiten Sie auch danach persönlich."]
+      ],
+      note: "Ergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden."
+    },
+    physician: {
+      cardLabel: "Facharzt der AS Clinic Berlin",
+      eyebrow: "Ärztliche Angaben",
+      name: "Unser Facharzt",
+      title: "Facharzt für Chirurgie",
+      h2: "Fachärztliche Kompetenz",
+      lead: "Die ärztliche Betreuung erfolgt durch einen Facharzt für Chirurgie.",
+      body: "Die Facharztbezeichnung wurde durch die Ärztekammer Berlin anerkannt; die Approbation als Arzt wurde durch das Landesamt für Gesundheit und Soziales Berlin erteilt."
+    },
+    focus: {
+      h2: "Unsere Schwerpunkte",
+      body: "Haartransplantation und Haarausfall-Behandlungen stehen im Mittelpunkt unserer Arbeit. Jede Behandlung hat eine eigene Seite mit ausführlichen Informationen.",
+      more: "Zur Behandlung →",
+      cta: "Sie haben Fragen zu Ihrer Behandlung? Wir beraten Sie persönlich.",
+      items: [
+        { slug: "hair-transplant", title: "Haartransplantation", text: "Beurteilung von Spender- und Empfängerbereich, individuelle Planung und moderne DHI- und Micro-FUE-Techniken.", primary: true },
+        { slug: "eyebrow-transplant", title: "Augenbrauentransplantation", text: "Natürliche Brauen mit Eigenhaar." },
+        { slug: "beard-transplant", title: "Barttransplantation", text: "Bartlücken mit Eigenhaar auffüllen." },
+        { slug: "prp-meso-hair", title: "PRP-Behandlung gegen Haarausfall", text: "Eigenblut-Plasma für die Kopfhaut." },
+        { slug: "hair-meso", title: "Haar-Mesotherapie", text: "Kopfhaut-Behandlung bei Haarausfall." }
+      ]
+    },
+    aesthetic: {
+      h2: "Ästhetische Behandlungen",
+      body: "Ergänzend zu unserem Schwerpunkt bieten wir ausgewählte ästhetische Behandlungen an. Ablauf, Risiken und Nachsorge finden Sie jeweils auf der Seite der Behandlung.",
+      chips: [["botox", "Botox"], ["lip-filler", "Lippenfiller"], ["cheek-filler", "Wangenfiller"], ["jawline-filler", "Jawline Filler"], ["mesotherapy-mesocan", "Mesotherapie"], ["blepharoplasty", "Lidstraffung"], ["direct-lift", "Direct Lift"]]
+    },
+    consult: {
+      h2: "Persönliche Beratung und Behandlungsplanung",
+      lead: "In der AS Clinic Berlin steht ein separater Beratungsraum zur Verfügung. Dort besprechen wir Ihre Situation in Ruhe und planen die Behandlung individuell mit Ihnen.",
+      points: ["Individuelle Beurteilung Ihrer Ausgangssituation", "Persönliche Behandlungsplanung", "Keine standardisierte Behandlungsempfehlung"]
+    },
+    clinic: {
+      h2: "Unsere Klinik am Kurfürstendamm",
+      lead: "AS Clinic Berlin am Kurfürstendamm in Charlottenburg. Beratungen finden nach Terminvereinbarung statt.",
+      address: "Adresse",
+      hours: "Öffnungszeiten",
+      languages: "Sprachen",
+      languagesValue: "Deutsch, Englisch, Persisch",
+      rooms: "Räumlichkeiten",
+      roomsValue: ["Beratungsraum", "Haartransplantationsraum"],
+      directions: "Anfahrt und Öffnungszeiten",
+      contact: "Kontakt"
+    },
+    quality: {
+      h2: "Qualität, Hygiene und Sorgfalt",
+      items: [
+        ["Hohe Hygienestandards", "Hygiene ist Teil jedes Behandlungsablaufs in unserer Klinik."],
+        ["Moderne medizinische Standards", "Wir arbeiten mit modernen Techniken und nach aktuellen medizinischen Standards."],
+        ["Sorgfältige Behandlungsplanung", "Jede Behandlung wird vor dem Eingriff individuell geplant."]
+      ]
+    },
+    reviews: { h2: "Patientenbewertungen", link: "Bewertungen bei Google lesen" },
+    faqHeading: "Fragen zur AS Clinic Berlin",
+    closing: {
+      eyebrow: "Termin",
+      h2: "Sprechen Sie mit uns über Ihre Behandlung",
+      body: "Vereinbaren Sie einen Termin für ein persönliches Beratungsgespräch in der AS Clinic Berlin am Kurfürstendamm."
+    },
+    disclaimer: "Die Informationen auf dieser Seite ersetzen keine ärztliche Beratung."
+  },
+  en: {
+    title: "About AS Clinic Berlin | Hair Transplant Clinic on Kurfürstendamm",
+    description:
+      "AS Clinic Berlin: a clinic specialising in hair transplantation on Kurfürstendamm in Charlottenburg. Over 12 years of experience, DHI and Micro-FUE.",
+    heroAlt: "Treatment room at AS Clinic Berlin with treatment couch, glass walls and framed certificates",
+    rating: `${ratingValue} out of 5 stars from ${GOOGLE_RATING.count} Google reviews (as of September 2026)`,
+    crumb: "About us",
+    topbar: ["Over 12 years of experience in hair transplantation", "Consultations by appointment"],
+    book: "BOOK A CONSULTATION",
+    hero: {
+      eyebrow: "About us",
+      h1: "About AS Clinic Berlin",
+      lead: "AS Clinic Berlin is a clinic on Kurfürstendamm in Berlin-Charlottenburg that specialises in hair transplantation and the treatment of hair loss. We work with modern DHI and Micro-FUE techniques and look after you personally, from the first consultation through to aftercare.",
+      figures: [["Experience", "over 12 years"], ["Hair transplants performed", "over 4,000"]],
+      focusCta: "Our specialities"
+    },
+    specialised: {
+      h2: "Specialised in hair transplantation in Berlin",
+      lead: "Hair transplantation is the focus of AS Clinic Berlin. With over 12 years of experience and more than 4,000 hair transplants performed, our work centres on hair transplantation and the treatment of hair loss.",
+      body: "We rely on modern DHI and Micro-FUE techniques. Your treatment is planned after an individual assessment — not according to a standard plan.",
+      links: ["Our specialities include ", "hair transplantation", ", ", "beard transplantation", ", ", "eyebrow transplantation", " and ", "PRP treatment for hair loss", ". We also offer selected ", "aesthetic treatments", "."]
+    },
+    approach: {
+      h2: "Our approach to treatment",
+      lead: "Every treatment begins with an individual assessment and a personal consultation. We do not use standardised treatment plans.",
+      items: [
+        ["Individual assessment and personal consultation", "Everything starts with a personal conversation. Every recommendation follows an individual assessment — not a fixed formula."],
+        ["Donor and recipient areas", "Before every hair transplant, the donor and recipient areas are assessed individually and the treatment is planned accordingly."],
+        ["An individually designed hairline", "The hairline is designed around you. The aim of every treatment is a natural-looking result that suits the patient's face shape and individual circumstances."],
+        ["Aftercare matched to the treatment", "Aftercare depends on the treatment you have had. We continue to look after you personally afterwards."]
+      ],
+      note: "Results vary from person to person; no particular result can be guaranteed."
+    },
+    physician: {
+      cardLabel: "Specialist physician at AS Clinic Berlin",
+      eyebrow: "Medical details",
+      name: "Our specialist",
+      title: "Specialist in surgery (Facharzt für Chirurgie)",
+      h2: "Specialist medical expertise",
+      lead: "Medical care is provided by a specialist in surgery.",
+      body: "The specialist title was recognised by the Berlin Medical Association (Ärztekammer Berlin); the licence to practise medicine (Approbation) was granted by the Berlin State Office for Health and Social Affairs (Landesamt für Gesundheit und Soziales Berlin)."
+    },
+    focus: {
+      h2: "Our specialities",
+      body: "Hair transplantation and hair loss treatments are at the heart of our work. Each treatment has its own page with detailed information.",
+      more: "View treatment →",
+      cta: "Have questions about your treatment? We will advise you personally.",
+      items: [
+        { slug: "hair-transplant", title: "Hair transplantation", text: "Assessment of the donor and recipient areas, individual planning and modern DHI and Micro-FUE techniques.", primary: true },
+        { slug: "eyebrow-transplant", title: "Eyebrow transplantation", text: "Natural brows using your own hair." },
+        { slug: "beard-transplant", title: "Beard transplantation", text: "Filling gaps in the beard with your own hair." },
+        { slug: "prp-meso-hair", title: "PRP treatment for hair loss", text: "Plasma from your own blood for the scalp." },
+        { slug: "hair-meso", title: "Hair mesotherapy", text: "Scalp treatment for hair loss." }
+      ]
+    },
+    aesthetic: {
+      h2: "Aesthetic treatments",
+      body: "Alongside our main focus, we offer selected aesthetic treatments. You will find the procedure, risks and aftercare on each treatment's own page.",
+      chips: [["botox", "Botox"], ["lip-filler", "Lip filler"], ["cheek-filler", "Cheek filler"], ["jawline-filler", "Jawline filler"], ["mesotherapy-mesocan", "Mesotherapy"], ["blepharoplasty", "Eyelid surgery"], ["direct-lift", "Direct Lift"]]
+    },
+    consult: {
+      h2: "Personal consultation and treatment planning",
+      lead: "AS Clinic Berlin has a separate consultation room. There we discuss your situation without rush and plan your treatment together with you.",
+      points: ["Individual assessment of your starting point", "Personal treatment planning", "No standardised treatment recommendations"]
+    },
+    clinic: {
+      h2: "Our clinic on Kurfürstendamm",
+      lead: "AS Clinic Berlin on Kurfürstendamm in Charlottenburg. Consultations are by appointment.",
+      address: "Address",
+      hours: "Opening hours",
+      languages: "Languages",
+      languagesValue: "German, English, Persian",
+      rooms: "Facilities",
+      roomsValue: ["Consultation room", "Hair transplant room"],
+      directions: "Directions and opening hours",
+      contact: "Contact"
+    },
+    quality: {
+      h2: "Quality, hygiene and care",
+      items: [
+        ["High hygiene standards", "Hygiene is part of every treatment procedure at our clinic."],
+        ["Modern medical standards", "We work with modern techniques and according to current medical standards."],
+        ["Careful treatment planning", "Every treatment is planned individually before the procedure."]
+      ]
+    },
+    reviews: { h2: "Patient reviews", link: "Read our reviews on Google" },
+    faqHeading: "Questions about AS Clinic Berlin",
+    closing: {
+      eyebrow: "Appointment",
+      h2: "Talk to us about your treatment",
+      body: "Book an appointment for a personal consultation at AS Clinic Berlin on Kurfürstendamm."
+    },
+    disclaimer: "The information on this page does not replace medical advice."
+  }
+} as const;
+const c = COPY[locale];
+
+const TITLE = c.title;
+const DESCRIPTION = c.description;
 
 // Social-preview image: the same real clinic photo, cropped to the 1200×630 the layout declares.
 const ogImage = await getImage({ src: office, width: 1200, height: 630, fit: "cover", format: "jpg" });
 const ogImageUrl = `${site}${ogImage.src}`;
 const heroImage = await getImage({ src: office, width: 1200, format: "jpg" });
-
-const rating = `${GOOGLE_RATING.average.toFixed(1).replace(".", ",")} von 5 Sternen bei ${GOOGLE_RATING.count} Google-Bewertungen (Stand: September 2026)`;
 
 const aboutJsonLd = {
   "@context": "https://schema.org",
@@ -45,7 +244,7 @@ const aboutJsonLd = {
   "url": pageUrl,
   "name": TITLE,
   "description": DESCRIPTION,
-  "inLanguage": "de",
+  "inLanguage": locale,
   "isPartOf": { "@type": "WebSite", "name": "AS Clinic Berlin", "url": site },
   "about": { "@id": clinicId },
   "mainEntity": { "@id": clinicId },
@@ -58,73 +257,114 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   "@id": `${pageUrl}#breadcrumb`,
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}/` },
-    { "@type": "ListItem", "position": 2, "name": "Über uns", "item": pageUrl }
+    { "@type": "ListItem", "position": 1, "name": t(locale, "breadcrumb.home"), "item": `${site}${localePath(locale)}` },
+    { "@type": "ListItem", "position": 2, "name": c.crumb, "item": pageUrl }
   ]
 };
 
 // Announcement strip for this page: only wording confirmed for it (the site-wide strip promises a free first consultation and six languages).
-const TOPBAR: [string, string, string] = [
-  t(locale, "top.1"),
-  "Über 12 Jahre Erfahrung in der Haartransplantation",
-  "Beratung nach Terminvereinbarung"
-];
+const TOPBAR: [string, string, string] = [t(locale, "top.1"), c.topbar[0], c.topbar[1]];
 
-const FOCUS = [
-  { href: link("/treatments/hair-transplant"), title: "Haartransplantation", text: "Beurteilung von Spender- und Empfängerbereich, individuelle Planung und moderne DHI- und Micro-FUE-Techniken.", primary: true },
-  { href: link("/treatments/eyebrow-transplant"), title: "Augenbrauentransplantation", text: "Natürliche Brauen mit Eigenhaar." },
-  { href: link("/treatments/beard-transplant"), title: "Barttransplantation", text: "Bartlücken mit Eigenhaar auffüllen." },
-  { href: link("/treatments/prp-meso-hair"), title: "PRP-Behandlung gegen Haarausfall", text: "Eigenblut-Plasma für die Kopfhaut." },
-  { href: link("/treatments/hair-meso"), title: "Haar-Mesotherapie", text: "Kopfhaut-Behandlung bei Haarausfall." }
-];
+const FOCUS = c.focus.items.map((f) => ({ ...f, href: link(`/treatments/${f.slug}`) }));
 
-const FAQ = [
-  {
-    q: "Wo befindet sich die AS Clinic Berlin?",
-    a: `Die AS Clinic Berlin befindet sich am ${CLINIC.streetAddress} in ${CLINIC.postalCode} Berlin-${CLINIC.district}.`,
-    link: { href: link("/location"), label: "Anfahrt und Öffnungszeiten" }
-  },
-  {
-    q: "Worauf ist die AS Clinic Berlin spezialisiert?",
-    a: "Die AS Clinic Berlin ist auf Haartransplantation und die Behandlung von Haarausfall spezialisiert. Ergänzend werden ausgewählte ästhetische Behandlungen angeboten.",
-    link: { href: link("/treatments/hair-transplant"), label: "Haartransplantation in Berlin" }
-  },
-  {
-    q: "Welche Haartransplantationsmethoden werden angeboten?",
-    a: "Die AS Clinic Berlin arbeitet mit modernen DHI- und Micro-FUE-Techniken. Die Behandlung wird nach einer individuellen Beurteilung geplant.",
-    link: { href: link("/treatments/hair-transplant"), label: "Details zur Haartransplantation" }
-  },
-  {
-    q: "Wer ist der Facharzt der AS Clinic Berlin?",
-    a: "Die ärztliche Betreuung in der AS Clinic Berlin erfolgt durch einen Facharzt für Chirurgie."
-  },
-  {
-    q: "Welche Sprachen werden in der Klinik gesprochen?",
-    a: "In der AS Clinic Berlin werden Deutsch, Englisch und Persisch gesprochen."
-  },
-  {
-    q: "Wie wird eine Haartransplantation individuell geplant?",
-    a: "Vor jeder Haartransplantation werden Spender- und Empfängerbereich individuell beurteilt und die Behandlung entsprechend geplant. Auch der Haaransatz wird individuell gestaltet.",
-    link: { href: link("/treatments/hair-transplant"), label: "Ablauf der Haartransplantation" }
-  },
-  {
-    q: "Welche weiteren ästhetischen Behandlungen bietet die Klinik an?",
-    a: "Ergänzend bietet die AS Clinic Berlin Botox, Filler, Mesotherapie, Lidstraffung und Direct Lift an. Die Details stehen auf den jeweiligen Behandlungsseiten.",
-    link: { href: link("/treatments/botox"), label: "Botox" },
-    more: [
-      { href: link("/treatments/lip-filler"), label: "Lippenfiller" },
-      { href: link("/treatments/mesotherapy-mesocan"), label: "Mesotherapie" },
-      { href: link("/treatments/blepharoplasty"), label: "Lidstraffung" },
-      { href: link("/treatments/direct-lift"), label: "Direct Lift" }
-    ]
-  },
-  {
-    q: "Wie kann ich eine Beratung buchen?",
-    a: "Beratungen finden nach Terminvereinbarung statt. Sie können online buchen oder uns über die Kontaktseite erreichen.",
-    link: { href: bookHref, label: "BERATUNG BUCHEN", cta: true },
-    more: [{ href: link("/contact"), label: "Kontakt" }]
-  }
-];
+const FAQ_BY_LOCALE = {
+  de: [
+    {
+      q: "Wo befindet sich die AS Clinic Berlin?",
+      a: `Die AS Clinic Berlin befindet sich am ${CLINIC.streetAddress} in ${CLINIC.postalCode} Berlin-${CLINIC.district}.`,
+      link: { href: link("/location"), label: "Anfahrt und Öffnungszeiten" }
+    },
+    {
+      q: "Worauf ist die AS Clinic Berlin spezialisiert?",
+      a: "Die AS Clinic Berlin ist auf Haartransplantation und die Behandlung von Haarausfall spezialisiert. Ergänzend werden ausgewählte ästhetische Behandlungen angeboten.",
+      link: { href: link("/treatments/hair-transplant"), label: "Haartransplantation in Berlin" }
+    },
+    {
+      q: "Welche Haartransplantationsmethoden werden angeboten?",
+      a: "Die AS Clinic Berlin arbeitet mit modernen DHI- und Micro-FUE-Techniken. Die Behandlung wird nach einer individuellen Beurteilung geplant.",
+      link: { href: link("/treatments/hair-transplant"), label: "Details zur Haartransplantation" }
+    },
+    {
+      q: "Wer ist der Facharzt der AS Clinic Berlin?",
+      a: "Die ärztliche Betreuung in der AS Clinic Berlin erfolgt durch einen Facharzt für Chirurgie."
+    },
+    {
+      q: "Welche Sprachen werden in der Klinik gesprochen?",
+      a: "In der AS Clinic Berlin werden Deutsch, Englisch und Persisch gesprochen."
+    },
+    {
+      q: "Wie wird eine Haartransplantation individuell geplant?",
+      a: "Vor jeder Haartransplantation werden Spender- und Empfängerbereich individuell beurteilt und die Behandlung entsprechend geplant. Auch der Haaransatz wird individuell gestaltet.",
+      link: { href: link("/treatments/hair-transplant"), label: "Ablauf der Haartransplantation" }
+    },
+    {
+      q: "Welche weiteren ästhetischen Behandlungen bietet die Klinik an?",
+      a: "Ergänzend bietet die AS Clinic Berlin Botox, Filler, Mesotherapie, Lidstraffung und Direct Lift an. Die Details stehen auf den jeweiligen Behandlungsseiten.",
+      link: { href: link("/treatments/botox"), label: "Botox" },
+      more: [
+        { href: link("/treatments/lip-filler"), label: "Lippenfiller" },
+        { href: link("/treatments/mesotherapy-mesocan"), label: "Mesotherapie" },
+        { href: link("/treatments/blepharoplasty"), label: "Lidstraffung" },
+        { href: link("/treatments/direct-lift"), label: "Direct Lift" }
+      ]
+    },
+    {
+      q: "Wie kann ich eine Beratung buchen?",
+      a: "Beratungen finden nach Terminvereinbarung statt. Sie können online buchen oder uns über die Kontaktseite erreichen.",
+      link: { href: bookHref, label: "BERATUNG BUCHEN", cta: true },
+      more: [{ href: link("/contact"), label: "Kontakt" }]
+    }
+  ],
+  en: [
+    {
+      q: "Where is AS Clinic Berlin located?",
+      a: `AS Clinic Berlin is located at ${CLINIC.streetAddress}, ${CLINIC.postalCode} Berlin-${CLINIC.district}.`,
+      link: { href: link("/location"), label: "Directions and opening hours" }
+    },
+    {
+      q: "What does AS Clinic Berlin specialise in?",
+      a: "AS Clinic Berlin specialises in hair transplantation and the treatment of hair loss. Selected aesthetic treatments are also offered.",
+      link: { href: link("/treatments/hair-transplant"), label: "Hair transplantation in Berlin" }
+    },
+    {
+      q: "Which hair transplant methods are offered?",
+      a: "AS Clinic Berlin works with modern DHI and Micro-FUE techniques. Treatment is planned after an individual assessment.",
+      link: { href: link("/treatments/hair-transplant"), label: "Hair transplant details" }
+    },
+    {
+      q: "Who is the specialist physician at AS Clinic Berlin?",
+      a: "Medical care at AS Clinic Berlin is provided by a specialist in surgery (Facharzt für Chirurgie)."
+    },
+    {
+      q: "Which languages are spoken at the clinic?",
+      a: "German, English and Persian are spoken at AS Clinic Berlin."
+    },
+    {
+      q: "How is a hair transplant planned individually?",
+      a: "Before every hair transplant, the donor and recipient areas are assessed individually and the treatment is planned accordingly. The hairline is also designed individually.",
+      link: { href: link("/treatments/hair-transplant"), label: "How a hair transplant works" }
+    },
+    {
+      q: "Which other aesthetic treatments does the clinic offer?",
+      a: "AS Clinic Berlin also offers Botox, fillers, mesotherapy, eyelid surgery and Direct Lift. Details are on the individual treatment pages.",
+      link: { href: link("/treatments/botox"), label: "Botox" },
+      more: [
+        { href: link("/treatments/lip-filler"), label: "Lip filler" },
+        { href: link("/treatments/mesotherapy-mesocan"), label: "Mesotherapy" },
+        { href: link("/treatments/blepharoplasty"), label: "Eyelid surgery" },
+        { href: link("/treatments/direct-lift"), label: "Direct Lift" }
+      ]
+    },
+    {
+      q: "How can I book a consultation?",
+      a: "Consultations are by appointment. You can book online or reach us through the contact page.",
+      link: { href: bookHref, label: "BOOK A CONSULTATION", cta: true },
+      more: [{ href: link("/contact"), label: "Contact" }]
+    }
+  ]
+};
+const FAQ: { q: string; a: string; link?: { href: string; label: string; cta?: boolean }; more?: { href: string; label: string }[] }[] = FAQ_BY_LOCALE[locale];
+const s = c.specialised.links;
 ---
 
 <BaseLayout
@@ -134,7 +374,7 @@ const FAQ = [
   ogImage={ogImageUrl}
   includeFaqSchema={false}
   unprefixedPath={PAGE_PATH}
-  hreflangAlternates={false}
+  hreflangLocales={ABOUT_LOCALES}
   clinicEntity={{ id: clinicId, name: "AS Clinic Berlin", image: `${site}${heroImage.src}` }}
 >
   <Fragment slot="head">
@@ -148,7 +388,7 @@ const FAQ = [
         <ol style="display:flex; flex-wrap:wrap; gap:var(--sp-2); list-style:none; margin:0; padding:0; font-size:var(--fs-sm); color:var(--text-faint)">
           <li><a href={localePath(locale)} style="color:var(--text-faint)">{t(locale, "breadcrumb.home")}</a></li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" style="color:var(--text)">Über uns</li>
+          <li aria-current="page" style="color:var(--text)">{c.crumb}</li>
         </ol>
       </nav>
 
@@ -156,22 +396,21 @@ const FAQ = [
       <section class="section" style="padding-top:var(--sp-6)">
         <div class="container about-hero" data-split="1">
           <div>
-            <p class="eyebrow">Über uns</p>
-            <h1 class="h1" style="margin:var(--sp-3) 0 var(--sp-5)">Über AS Clinic Berlin</h1>
-            <p class="lead">AS Clinic Berlin ist eine auf Haartransplantation und die Behandlung von Haarausfall spezialisierte Klinik am Kurfürstendamm in Berlin-Charlottenburg. Wir arbeiten mit modernen DHI- und Micro-FUE-Techniken und begleiten Sie persönlich von der Beratung bis zur Nachsorge.</p>
+            <p class="eyebrow">{c.hero.eyebrow}</p>
+            <h1 class="h1" style="margin:var(--sp-3) 0 var(--sp-5)">{c.hero.h1}</h1>
+            <p class="lead">{c.hero.lead}</p>
             <dl class="figures">
-              <div><dt>Erfahrung</dt><dd>über 12 Jahre</dd></div>
-              <div><dt>Durchgeführte Haartransplantationen</dt><dd>über 4.000</dd></div>
+              {c.hero.figures.map(([dt, dd]) => <div><dt>{dt}</dt><dd>{dd}</dd></div>)}
             </dl>
             <div class="cta-row">
-              <a class="btn btn--lg" href={bookHref}>BERATUNG BUCHEN</a>
-              <a class="btn btn--lg btn--outline" href="#schwerpunkte">Unsere Schwerpunkte</a>
+              <a class="btn btn--lg" href={bookHref}>{c.book}</a>
+              <a class="btn btn--lg btn--outline" href="#schwerpunkte">{c.hero.focusCta}</a>
             </div>
           </div>
           <div class="media about-hero__media">
             <Picture
               src={office}
-              alt={HERO_ALT}
+              alt={c.heroAlt}
               formats={["avif", "webp"]}
               fallbackFormat="jpg"
               widths={[480, 720, 960, 1200]}
@@ -191,10 +430,10 @@ const FAQ = [
       <!-- 2 · Schwerpunkt Haartransplantation -->
       <section class="section" style="padding-block:var(--sp-7)" aria-labelledby="h-spezialisiert">
         <div class="container prose">
-          <h2 class="h2" id="h-spezialisiert">Spezialisiert auf Haartransplantation in Berlin</h2>
-          <p class="lead">Haartransplantation ist der Schwerpunkt der AS Clinic Berlin. Mit über 12 Jahren Erfahrung und über 4.000 durchgeführten Haartransplantationen konzentriert sich unsere Arbeit auf die Haartransplantation und die Behandlung von Haarausfall.</p>
-          <p class="body">Wir setzen auf moderne DHI- und Micro-FUE-Techniken. Ihre Behandlung wird nach einer individuellen Beurteilung geplant — nicht nach einem Standardplan.</p>
-          <p class="body">Zu unseren Schwerpunkten gehören die <a class="textlink" href={link("/treatments/hair-transplant")}>Haartransplantation</a>, die <a class="textlink" href={link("/treatments/beard-transplant")}>Barttransplantation</a>, die <a class="textlink" href={link("/treatments/eyebrow-transplant")}>Augenbrauentransplantation</a> sowie die <a class="textlink" href={link("/treatments/prp-meso-hair")}>PRP-Behandlung gegen Haarausfall</a>. Ergänzend bieten wir ausgewählte <a class="textlink" href="#aesthetik">ästhetische Behandlungen</a> an.</p>
+          <h2 class="h2" id="h-spezialisiert">{c.specialised.h2}</h2>
+          <p class="lead">{c.specialised.lead}</p>
+          <p class="body">{c.specialised.body}</p>
+          <p class="body">{s[0]}<a class="textlink" href={link("/treatments/hair-transplant")}>{s[1]}</a>{s[2]}<a class="textlink" href={link("/treatments/beard-transplant")}>{s[3]}</a>{s[4]}<a class="textlink" href={link("/treatments/eyebrow-transplant")}>{s[5]}</a>{s[6]}<a class="textlink" href={link("/treatments/prp-meso-hair")}>{s[7]}</a>{s[8]}<a class="textlink" href="#aesthetik">{s[9]}</a>{s[10]}</p>
         </div>
       </section>
 
@@ -202,43 +441,33 @@ const FAQ = [
       <section class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)" aria-labelledby="h-ansatz">
         <div class="container">
           <div class="prose">
-            <h2 class="h2 reveal" data-reveal="up" id="h-ansatz">Unser Behandlungsansatz</h2>
-            <p class="lead reveal" data-reveal="up">Jede Behandlung beginnt mit einer individuellen Beurteilung und persönlichen Beratung. Standardisierte Behandlungspläne gibt es bei uns nicht.</p>
+            <h2 class="h2 reveal" data-reveal="up" id="h-ansatz">{c.approach.h2}</h2>
+            <p class="lead reveal" data-reveal="up">{c.approach.lead}</p>
           </div>
           <ol class="approach stagger">
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Individuelle Beurteilung und persönliche Beratung</h3>
-              <p class="body">Am Anfang steht das persönliche Gespräch. Jede Empfehlung entsteht nach einer individuellen Beurteilung — nicht nach einem festen Schema.</p>
-            </li>
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Spender- und Empfängerbereich</h3>
-              <p class="body">Vor jeder Haartransplantation werden Spender- und Empfängerbereich individuell beurteilt und die Behandlung entsprechend geplant.</p>
-            </li>
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Individuell gestalteter Haaransatz</h3>
-              <p class="body">Die Gestaltung des Haaransatzes richtet sich nach Ihnen. Ziel jeder Behandlung ist ein natürlich wirkendes Ergebnis, das zur Gesichtsform und den individuellen Voraussetzungen der Patientin oder des Patienten passt.</p>
-            </li>
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Behandlungsabhängige Nachsorge</h3>
-              <p class="body">Die Nachsorge richtet sich nach der jeweiligen Behandlung. Wir begleiten Sie auch danach persönlich.</p>
-            </li>
+            {c.approach.items.map(([h, p]) => (
+              <li class="reveal" data-reveal="up">
+                <h3 class="h3">{h}</h3>
+                <p class="body">{p}</p>
+              </li>
+            ))}
           </ol>
-          <p class="meta note">Ergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden.</p>
+          <p class="meta note">{c.approach.note}</p>
         </div>
       </section>
 
       <!-- 4 · Fachärztliche Kompetenz (no portrait: none is approved) -->
       <section class="section" style="padding-block:var(--sp-7)" aria-labelledby="h-facharzt">
         <div class="container physician">
-          <div class="physician__card" role="group" aria-label="Facharzt der AS Clinic Berlin">
-            <p class="eyebrow physician__eyebrow">Ärztliche Angaben</p>
-            <p class="physician__name">Unser Facharzt</p>
-            <p class="physician__title">Facharzt für Chirurgie</p>
+          <div class="physician__card" role="group" aria-label={c.physician.cardLabel}>
+            <p class="eyebrow physician__eyebrow">{c.physician.eyebrow}</p>
+            <p class="physician__name">{c.physician.name}</p>
+            <p class="physician__title">{c.physician.title}</p>
           </div>
           <div class="prose">
-            <h2 class="h2 reveal" data-reveal="up" id="h-facharzt">Fachärztliche Kompetenz</h2>
-            <p class="lead reveal" data-reveal="up">Die ärztliche Betreuung erfolgt durch einen Facharzt für Chirurgie.</p>
-            <p class="body reveal" data-reveal="up">Die Facharztbezeichnung wurde durch die Ärztekammer Berlin anerkannt; die Approbation als Arzt wurde durch das Landesamt für Gesundheit und Soziales Berlin erteilt.</p>
+            <h2 class="h2 reveal" data-reveal="up" id="h-facharzt">{c.physician.h2}</h2>
+            <p class="lead reveal" data-reveal="up">{c.physician.lead}</p>
+            <p class="body reveal" data-reveal="up">{c.physician.body}</p>
           </div>
         </div>
       </section>
@@ -247,23 +476,23 @@ const FAQ = [
       <section id="schwerpunkte" class="section" style="background:var(--bg-soft); padding-block:var(--sp-7)" aria-labelledby="h-schwerpunkte">
         <div class="container">
           <div class="prose">
-            <h2 class="h2 reveal" data-reveal="up" id="h-schwerpunkte">Unsere Schwerpunkte</h2>
-            <p class="body reveal" data-reveal="up">Haartransplantation und Haarausfall-Behandlungen stehen im Mittelpunkt unserer Arbeit. Jede Behandlung hat eine eigene Seite mit ausführlichen Informationen.</p>
+            <h2 class="h2 reveal" data-reveal="up" id="h-schwerpunkte">{c.focus.h2}</h2>
+            <p class="body reveal" data-reveal="up">{c.focus.body}</p>
           </div>
           <ul class="focus">
             {FOCUS.map((f) => (
-              <li class={f.primary ? "focus__item focus__item--primary" : "focus__item"}>
+              <li class={"primary" in f && f.primary ? "focus__item focus__item--primary" : "focus__item"}>
                 <a class="focus__card" href={f.href}>
                   <span class="focus__title">{f.title}</span>
                   <span class="focus__text">{f.text}</span>
-                  <span class="focus__more" aria-hidden="true">Zur Behandlung →</span>
+                  <span class="focus__more" aria-hidden="true">{c.focus.more}</span>
                 </a>
               </li>
             ))}
           </ul>
           <div class="cta-inline">
-            <p class="body">Sie haben Fragen zu Ihrer Behandlung? Wir beraten Sie persönlich.</p>
-            <a class="btn btn--lg" href={bookHref}>BERATUNG BUCHEN</a>
+            <p class="body">{c.focus.cta}</p>
+            <a class="btn btn--lg" href={bookHref}>{c.book}</a>
           </div>
         </div>
       </section>
@@ -271,16 +500,10 @@ const FAQ = [
       <!-- 6 · Ästhetische Behandlungen (secondary) -->
       <section id="aesthetik" class="section" style="padding-block:var(--sp-7)" aria-labelledby="h-aesthetik">
         <div class="container prose">
-          <h2 class="h2" id="h-aesthetik">Ästhetische Behandlungen</h2>
-          <p class="body">Ergänzend zu unserem Schwerpunkt bieten wir ausgewählte ästhetische Behandlungen an. Ablauf, Risiken und Nachsorge finden Sie jeweils auf der Seite der Behandlung.</p>
-          <ul class="chips" aria-label="Ästhetische Behandlungen">
-            <li><a href={link("/treatments/botox")}>Botox</a></li>
-            <li><a href={link("/treatments/lip-filler")}>Lippenfiller</a></li>
-            <li><a href={link("/treatments/cheek-filler")}>Wangenfiller</a></li>
-            <li><a href={link("/treatments/jawline-filler")}>Jawline Filler</a></li>
-            <li><a href={link("/treatments/mesotherapy-mesocan")}>Mesotherapie</a></li>
-            <li><a href={link("/treatments/blepharoplasty")}>Lidstraffung</a></li>
-            <li><a href={link("/treatments/direct-lift")}>Direct Lift</a></li>
+          <h2 class="h2" id="h-aesthetik">{c.aesthetic.h2}</h2>
+          <p class="body">{c.aesthetic.body}</p>
+          <ul class="chips" aria-label={c.aesthetic.h2}>
+            {c.aesthetic.chips.map(([slug, label]) => <li><a href={link(`/treatments/${slug}`)}>{label}</a></li>)}
           </ul>
         </div>
       </section>
@@ -288,14 +511,12 @@ const FAQ = [
       <!-- 7 · Beratung -->
       <section id="beratung" class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)" aria-labelledby="h-beratung">
         <div class="container prose">
-          <h2 class="h2 reveal" data-reveal="up" id="h-beratung">Persönliche Beratung und Behandlungsplanung</h2>
-          <p class="lead reveal" data-reveal="up">In der AS Clinic Berlin steht ein separater Beratungsraum zur Verfügung. Dort besprechen wir Ihre Situation in Ruhe und planen die Behandlung individuell mit Ihnen.</p>
+          <h2 class="h2 reveal" data-reveal="up" id="h-beratung">{c.consult.h2}</h2>
+          <p class="lead reveal" data-reveal="up">{c.consult.lead}</p>
           <ul class="ticklist reveal" data-reveal="up">
-            <li>Individuelle Beurteilung Ihrer Ausgangssituation</li>
-            <li>Persönliche Behandlungsplanung</li>
-            <li>Keine standardisierte Behandlungsempfehlung</li>
+            {c.consult.points.map((p) => <li>{p}</li>)}
           </ul>
-          <p class="cta-row"><a class="btn btn--lg" href={bookHref}>BERATUNG BUCHEN</a></p>
+          <p class="cta-row"><a class="btn btn--lg" href={bookHref}>{c.book}</a></p>
         </div>
       </section>
 
@@ -303,18 +524,18 @@ const FAQ = [
       <section id="klinik" class="section" style="padding-block:var(--sp-7)" aria-labelledby="h-klinik">
         <div class="container">
           <div class="prose">
-            <h2 class="h2" id="h-klinik">Unsere Klinik am Kurfürstendamm</h2>
-            <p class="lead">AS Clinic Berlin am Kurfürstendamm in Charlottenburg. Beratungen finden nach Terminvereinbarung statt.</p>
+            <h2 class="h2" id="h-klinik">{c.clinic.h2}</h2>
+            <p class="lead">{c.clinic.lead}</p>
           </div>
           <div class="facts">
             <address class="facts__block">
-              <span class="eyebrow">Adresse</span>
+              <span class="eyebrow">{c.clinic.address}</span>
               <strong>AS Clinic Berlin</strong>
               {CLINIC.streetAddress}<br />
               {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}
             </address>
             <div class="facts__block">
-              <span class="eyebrow">Öffnungszeiten</span>
+              <span class="eyebrow">{c.clinic.hours}</span>
               <ul class="plain">
                 <li>{t(locale, "ft.hours1")}</li>
                 <li>{t(locale, "ft.hours2")}</li>
@@ -322,20 +543,19 @@ const FAQ = [
               </ul>
             </div>
             <div class="facts__block">
-              <span class="eyebrow">Sprachen</span>
-              <p class="body">Deutsch, Englisch, Persisch</p>
+              <span class="eyebrow">{c.clinic.languages}</span>
+              <p class="body">{c.clinic.languagesValue}</p>
             </div>
             <div class="facts__block">
-              <span class="eyebrow">Räumlichkeiten</span>
+              <span class="eyebrow">{c.clinic.rooms}</span>
               <ul class="plain">
-                <li>Beratungsraum</li>
-                <li>Haartransplantationsraum</li>
+                {c.clinic.roomsValue.map((r) => <li>{r}</li>)}
               </ul>
             </div>
           </div>
           <p class="cta-row">
-            <a class="btn" href={link("/location")}>Anfahrt und Öffnungszeiten</a>
-            <a class="btn btn--outline" href={link("/contact")}>Kontakt</a>
+            <a class="btn" href={link("/location")}>{c.clinic.directions}</a>
+            <a class="btn btn--outline" href={link("/contact")}>{c.clinic.contact}</a>
           </p>
         </div>
       </section>
@@ -344,21 +564,15 @@ const FAQ = [
       <section class="section" style="background:var(--bg-soft); padding-block:var(--sp-7)" aria-labelledby="h-qualitaet">
         <div class="container">
           <div class="prose">
-            <h2 class="h2 reveal" data-reveal="up" id="h-qualitaet">Qualität, Hygiene und Sorgfalt</h2>
+            <h2 class="h2 reveal" data-reveal="up" id="h-qualitaet">{c.quality.h2}</h2>
           </div>
           <ul class="pillars stagger">
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Hohe Hygienestandards</h3>
-              <p class="body">Hygiene ist Teil jedes Behandlungsablaufs in unserer Klinik.</p>
-            </li>
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Moderne medizinische Standards</h3>
-              <p class="body">Wir arbeiten mit modernen Techniken und nach aktuellen medizinischen Standards.</p>
-            </li>
-            <li class="reveal" data-reveal="up">
-              <h3 class="h3">Sorgfältige Behandlungsplanung</h3>
-              <p class="body">Jede Behandlung wird vor dem Eingriff individuell geplant.</p>
-            </li>
+            {c.quality.items.map(([h, p]) => (
+              <li class="reveal" data-reveal="up">
+                <h3 class="h3">{h}</h3>
+                <p class="body">{p}</p>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -366,16 +580,16 @@ const FAQ = [
       <!-- 10 · Bewertungen -->
       <section class="section" style="padding-block:var(--sp-7)" aria-labelledby="h-bewertungen">
         <div class="container prose">
-          <h2 class="h2" id="h-bewertungen">Patientenbewertungen</h2>
-          <p class="lead">{rating}</p>
-          <p class="body"><a class="textlink" href={CLINIC.googleReviews} target="_blank" rel="noopener noreferrer">Bewertungen bei Google lesen</a></p>
+          <h2 class="h2" id="h-bewertungen">{c.reviews.h2}</h2>
+          <p class="lead">{c.rating}</p>
+          <p class="body"><a class="textlink" href={CLINIC.googleReviews} target="_blank" rel="noopener noreferrer">{c.reviews.link}</a></p>
         </div>
       </section>
 
       <!-- 11 · Fragen -->
       <section id="fragen" class="section" style="background:var(--bg-quiet); padding-block:var(--sp-7)" aria-labelledby="h-fragen">
         <div class="container prose">
-          <h2 class="h2" id="h-fragen">Fragen zur AS Clinic Berlin</h2>
+          <h2 class="h2" id="h-fragen">{c.faqHeading}</h2>
           <div class="qa">
             {FAQ.map((item) => (
               <div class="qa__item">
@@ -402,17 +616,17 @@ const FAQ = [
       <section class="section" style="background:var(--bg-invert); color:var(--text-invert)">
         <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--sp-6)">
           <div style="display:grid; gap:var(--sp-2); max-width:46ch">
-            <p class="eyebrow" style="color:var(--accent)">Termin</p>
-            <h2 class="h2">Sprechen Sie mit uns über Ihre Behandlung</h2>
-            <p class="body" style="color:rgba(246,241,237,.72)">Vereinbaren Sie einen Termin für ein persönliches Beratungsgespräch in der AS Clinic Berlin am Kurfürstendamm.</p>
+            <p class="eyebrow" style="color:var(--accent)">{c.closing.eyebrow}</p>
+            <h2 class="h2">{c.closing.h2}</h2>
+            <p class="body" style="color:rgba(246,241,237,.72)">{c.closing.body}</p>
           </div>
-          <a class="btn btn--light btn--lg" href={bookHref}>BERATUNG BUCHEN</a>
+          <a class="btn btn--light btn--lg" href={bookHref}>{c.book}</a>
         </div>
       </section>
 
       <section class="section" style="padding-block:var(--sp-6)">
         <div class="container prose">
-          <p class="meta" style="color:var(--text-faint)">Die Informationen auf dieser Seite ersetzen keine ärztliche Beratung.</p>
+          <p class="meta" style="color:var(--text-faint)">{c.disclaimer}</p>
         </div>
       </section>
     </main>

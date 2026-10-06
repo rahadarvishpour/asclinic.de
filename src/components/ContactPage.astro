@@ -4,7 +4,7 @@ import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import BookingCta from "./BookingCta.astro";
 import { CLINIC } from "../data/clinic";
-import { t, localePath, bookingUrl, CONTACT_LOCALES } from "../i18n/ui";
+import { t, localePath, bookingUrl, CONTACT_LOCALES, hasAboutPage, ABOUT_PATH, ABOUT_MORE_LABEL } from "../i18n/ui";
 import { tc, type ContactLocale } from "../i18n/contact";
 
 interface Props { locale: ContactLocale }
@@ -131,7 +131,7 @@ const contactJsonLd = {
             {CLINIC.streetAddress}<br />
             {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}
           </address>
-          {locale === "de" && <p class="body" style="margin-top:var(--sp-4)"><a class="link-underline" href="/uber-uns">Mehr über AS Clinic Berlin</a></p>}<div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-5)">
+          {hasAboutPage(locale) && <p class="body" style="margin-top:var(--sp-4)"><a class="link-underline" href={localePath(locale, ABOUT_PATH)}>{ABOUT_MORE_LABEL[locale]}</a></p>}<div style="display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-5)">
             <a class="btn" href={localePath(locale, "/location")}>{tc(locale, "ct.directionsCta")}</a>
             <a class="btn btn--outline" href={bookingUrl(locale)}>{t(locale, "hero.cta")}</a>
           </div>

@@ -1,5 +1,5 @@
 ---
-import { t, ti, type Locale } from "../i18n/ui";
+import { t, ti, localePath, hasAboutPage, ABOUT_PATH, ABOUT_MORE_LABEL, type Locale } from "../i18n/ui";
 import { GOOGLE_REVIEWS, GOOGLE_RATING } from "../data/reviews";
 import { CLINIC } from "../data/clinic";
 interface Props { locale: Locale }
@@ -63,7 +63,7 @@ const slides = Array.from({ length: Math.ceil(GOOGLE_REVIEWS.length / SLIDE_SIZE
   </div>
   <div class="container" style="margin-top:var(--sp-6)">
     <a class="link-underline" href={CLINIC.googleReviews} target="_blank" rel="noopener noreferrer">{t(locale, "rev.cta")}</a>
-    {locale === "de" && <a class="link-underline" href="/uber-uns" style="margin-inline-start:var(--sp-6)">Mehr über AS Clinic Berlin</a>}</div>
+    {hasAboutPage(locale) && <a class="link-underline" href={localePath(locale, ABOUT_PATH)} style="margin-inline-start:var(--sp-6)">{ABOUT_MORE_LABEL[locale]}</a>}</div>
 </section>
 
 <style>

@@ -88,6 +88,19 @@ export function bookingUrl(_locale: Locale): string {
 export const CONTACT_LOCALES: Locale[] = ["de", "en"];
 export const hasContactPage = (locale: Locale) => CONTACT_LOCALES.includes(locale);
 
+/** The "Über uns" page is published in German and English, under the same slug in
+ *  both (/uber-uns, /en/uber-uns) like every other page, so hreflang and the
+ *  language switcher pair them without special cases. Its link label lives here
+ *  rather than in the six-locale `ui` dictionary for the same reason as the
+ *  contact copy (see ./contact). */
+export type AboutLocale = Extract<Locale, "de" | "en">;
+export const ABOUT_LOCALES: AboutLocale[] = ["de", "en"];
+export const ABOUT_PATH = "/uber-uns";
+export const hasAboutPage = (locale: Locale): locale is AboutLocale => (ABOUT_LOCALES as Locale[]).includes(locale);
+export const ABOUT_LABEL: Record<AboutLocale, string> = { de: "Über uns", en: "About us" };
+/** Inline "learn more" link shown on the location, contact and reviews sections. */
+export const ABOUT_MORE_LABEL: Record<AboutLocale, string> = { de: "Mehr über AS Clinic Berlin", en: "More about AS Clinic Berlin" };
+
 export function getLocaleMeta(locale: Locale): LocaleMeta {
   return LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
 }

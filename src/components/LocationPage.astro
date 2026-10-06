@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
-import { t, localePath, bookingUrl, type Locale } from "../i18n/ui";
+import { t, localePath, bookingUrl, hasAboutPage, ABOUT_PATH, ABOUT_MORE_LABEL, type Locale } from "../i18n/ui";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -89,7 +89,7 @@ const placeJsonLd = {
             {CLINIC.streetAddress}<br />
             {CLINIC.postalCode} {CLINIC.addressLocality} · {CLINIC.district}
           </address>
-          {locale === "de" && <p class="body" style="margin-top:var(--sp-4)"><a class="link-underline" href="/uber-uns">Mehr über AS Clinic Berlin</a></p>}<h2 class="h2" style="margin-top:var(--sp-7)">{t(locale, "loc.hoursHeading")}</h2>
+          {hasAboutPage(locale) && <p class="body" style="margin-top:var(--sp-4)"><a class="link-underline" href={localePath(locale, ABOUT_PATH)}>{ABOUT_MORE_LABEL[locale]}</a></p>}<h2 class="h2" style="margin-top:var(--sp-7)">{t(locale, "loc.hoursHeading")}</h2>
           <ul class="ticklist">
             <li>{t(locale, "ft.hours1")}</li>
             <li>{t(locale, "ft.hours2")}</li>
