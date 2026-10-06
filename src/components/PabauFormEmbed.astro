@@ -1,11 +1,12 @@
 ---
-/** Pabau lead-capture form embedded on a page, loaded only on click.
+/** Pabau lead-capture form embedded on a page (Pabau's own iframe snippet).
  *
- *  The privacy policy (src/data/privacy.ts, "pabau") promises that Pabau is not
- *  loaded as an embedded form on the site before an active click, so the iframe
- *  is not in the HTML: the button inserts it. A direct link opens the same form
- *  in a new tab for anyone who prefers not to load it here. */
-import { t, localePath, type Locale } from "../i18n/ui";
+ *  The iframe is a fixed height (Pabau does not report the form's height to the
+ *  parent page), chosen tall enough that the whole form shows without a
+ *  scrollbar inside the frame; it is taller on narrow screens, where the form's
+ *  fields stack and the form gets longer. Adjust --pabau-h below if the form's
+ *  length changes in Pabau. */
+import { t, type Locale } from "../i18n/ui";
 
 interface Props {
   locale: Locale;
@@ -16,54 +17,30 @@ interface Props {
 }
 const { locale, formId, title } = Astro.props;
 const src = `https://booking-eu.pabau.com/as-clinic-u1rcva6e/capture/${formId}?t=1`;
-
-const COPY = {
-  de: {
-    load: "Formular öffnen",
-    note: "Das Anfrageformular wird von unserem Dienstleister Pabau bereitgestellt. Mit dem Klick wird es von dessen Servern geladen. Mehr dazu in der",
-    privacy: "Datenschutzerklärung",
-    newTab: "Formular in neuem Tab öffnen"
-  },
-  en: {
-    load: "Open the form",
-    note: "The request form is provided by our service provider Pabau. Clicking loads it from their servers. More in our",
-    privacy: "privacy policy",
-    newTab: "Open the form in a new tab"
-  }
-};
-const c = locale === "de" ? COPY.de : COPY.en;
 ---
 
 <section class="section" style="padding-block:var(--sp-7)">
   <div class="container prose">
     <h2 class="h2">{t(locale, "treat.hairAnalysis")}</h2>
-    <div class="pabau-embed" data-pabau-embed data-src={src} data-id={`cf-${formId}`} data-title={title}>
-      <div class="pabau-embed__gate" data-pabau-gate>
-        <button type="button" class="btn btn--lg" data-pabau-load>{c.load}</button>
-        <p class="meta">{c.note} <a href={`${localePath("de", "/datenschutz")}#pabau`} target="_blank" rel="noopener">{c.privacy}</a>.</p>
-        <p class="meta"><a href={src} target="_blank" rel="noopener">{c.newTab}</a></p>
-      </div>
-    </div>
+    <!-- Pabau -->
+    <iframe
+      id={`cf-${formId}`}
+      class="pabau-embed"
+      src={src}
+      title={title}
+      loading="lazy"
+    ></iframe>
+    <!-- End Pabau -->
   </div>
 </section>
 
 <style>
-  .pabau-embed { margin-top: var(--sp-5); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface); overflow: hidden; }
-  .pabau-embed__gate { display: grid; justify-items: center; gap: var(--sp-3); padding: var(--sp-7) var(--sp-5); text-align: center; }
-  .pabau-embed__gate .meta { max-width: 52ch; margin: 0; color: var(--text-faint); }
-  .pabau-embed__gate a { color: var(--accent-action); text-decoration: underline; text-underline-offset: 3px; }
+  .pabau-embed {
+    --pabau-h: 1100px;
+    display: block; width: 100%; height: var(--pabau-h); border: 0;
+    margin-top: var(--sp-5);
+  }
+  @media (max-width: 640px) {
+    .pabau-embed { --pabau-h: 1400px; }
+  }
 </style>
-
-<script>
-  document.querySelectorAll<HTMLElement>("[data-pabau-embed]").forEach((box) => {
-    box.querySelector("[data-pabau-load]")?.addEventListener("click", () => {
-      const iframe = document.createElement("iframe");
-      iframe.id = box.dataset.id ?? "";
-      iframe.src = box.dataset.src ?? "";
-      iframe.title = box.dataset.title ?? "";
-      iframe.style.cssText = "width:100%;height:500px;border:0;";
-      box.querySelector("[data-pabau-gate]")?.remove();
-      box.appendChild(iframe);
-    });
-  });
-</script>

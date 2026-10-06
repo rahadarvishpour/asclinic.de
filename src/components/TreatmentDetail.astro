@@ -114,13 +114,12 @@ const procedureJsonLd = {
   }
 };
 // Hair, eyebrow and beard transplant pages carry an embedded Pabau request form
-// after the "at a glance" table — a different Pabau form per language.
+// after the "at a glance" table: the German form on German pages, the English
+// form in every other language.
 const LEAD_FORM_SLUGS = ["hair-transplant", "eyebrow-transplant", "beard-transplant"];
-const LEAD_FORMS: Partial<Record<Locale, { formId: number; title: string }>> = {
-  en: { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" },
-  de: { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" }
-};
-const leadForm = LEAD_FORM_SLUGS.includes(page.slug) ? LEAD_FORMS[locale] : undefined;
+const LEAD_FORM_DE = { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" };
+const LEAD_FORM_EN = { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" };
+const leadForm = LEAD_FORM_SLUGS.includes(page.slug) ? (locale === "de" ? LEAD_FORM_DE : LEAD_FORM_EN) : undefined;
 // Beauty treatments (injectables) book straight into the Pabau "Beauty injection" category.
 const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_INJECTION_BOOKING_URL : bookingUrl(locale);
 ---
