@@ -117,8 +117,8 @@ const procedureJsonLd = {
 // after the "at a glance" table: the German form on German pages, the English
 // form in every other language.
 const LEAD_FORM_SLUGS = ["hair-transplant", "eyebrow-transplant", "beard-transplant"];
-const LEAD_FORM_DE = { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" };
-const LEAD_FORM_EN = { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" };
+const LEAD_FORM_DE = { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" };
+const LEAD_FORM_EN = { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" };
 const leadForm = LEAD_FORM_SLUGS.includes(page.slug) ? (locale === "de" ? LEAD_FORM_DE : LEAD_FORM_EN) : undefined;
 // Beauty treatments (injectables) book straight into the Pabau "Beauty injection" category.
 const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_INJECTION_BOOKING_URL : bookingUrl(locale);
