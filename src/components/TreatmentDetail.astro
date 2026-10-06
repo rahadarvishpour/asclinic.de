@@ -5,6 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { CLINIC } from "../data/clinic";
+import PabauFormEmbed from "./PabauFormEmbed.astro";
 import { t, sectionHref, ti, localePath, bookingUrl, BEAUTY_INJECTION_BOOKING_URL, HAIR_ANALYSIS_BOOKING_URL, LOCALES, type Locale } from "../i18n/ui";
 import { TREATMENT_PAGES, treatmentContent, hasLocale } from "../data/treatmentPages";
 import { galleryImage } from "../data/treatmentImages";
@@ -112,6 +113,14 @@ const procedureJsonLd = {
     }
   }
 };
+// Hair, eyebrow and beard transplant pages carry an embedded Pabau request form
+// after the "at a glance" table — a different Pabau form per language.
+const LEAD_FORM_SLUGS = ["hair-transplant", "eyebrow-transplant", "beard-transplant"];
+const LEAD_FORMS: Partial<Record<Locale, { formId: number; title: string }>> = {
+  en: { formId: 151, title: "Pabau form: lead-capture-Mw1.sA" },
+  de: { formId: 152, title: "Pabau form: mona-transplant-form-en-X8OaMQ" }
+};
+const leadForm = LEAD_FORM_SLUGS.includes(page.slug) ? LEAD_FORMS[locale] : undefined;
 // Beauty treatments (injectables) book straight into the Pabau "Beauty injection" category.
 const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_INJECTION_BOOKING_URL : bookingUrl(locale);
 ---
@@ -229,6 +238,8 @@ const bookingHref = page.category.categoryAnchorId === "injectables" ? BEAUTY_IN
               </dl>
             </div>
           </section>
+
+          {leadForm && <PabauFormEmbed locale={locale} formId={leadForm.formId} title={leadForm.title} />}
 
           <section class="section" style="padding-block:var(--sp-7)">
             <div class="container prose">
