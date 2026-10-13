@@ -1,4 +1,4 @@
-/** Data for the private monthly Search Console report (src/pages/bericht/…).
+/** Data for the private monthly Search Console report (src/pages/seo-bericht-….astro).
  *
  *  Update once a month:
  *   1. Append last month's totals to `months` (Search Console → Leistung,
