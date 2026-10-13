@@ -16,6 +16,9 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/landing/haartransplantation": "/treatments/hair-transplant",
   "/haartransplantation": "/treatments/hair-transplant",
   "/haartransplantation-in-berlin": "/treatments/hair-transplant",
+  "/die-haartransplantation-clinic-as-in-berlin": "/treatments/hair-transplant",
+  "/hair-transplant": "/treatments/hair-transplant",
+  "/en/hair-transplant-en": "/en/treatments/hair-transplant",
   // Eyebrow transplant
   "/leistungen/augenbrauentransplantation": "/treatments/eyebrow-transplant",
   "/landing/augenbrauentransplantation": "/treatments/eyebrow-transplant",
@@ -26,6 +29,7 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/landing/barttransplantation": "/treatments/beard-transplant",
   "/barttransplantation-in-berlin": "/treatments/beard-transplant",
   "/barttransplantation-in-berlin-deutschland": "/treatments/beard-transplant",
+  "/barttransplantation": "/treatments/beard-transplant",
   // Hair mesotherapy
   "/leistungen/mesotherapie": "/treatments/hair-meso",
   "/mesotherapie-haare": "/treatments/hair-meso",
@@ -33,6 +37,19 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/leistungen/prp-behandlung": "/treatments/prp-meso-hair",
   "/landing/prp-behandlung": "/treatments/prp-meso-hair",
   "/prp-haarbehandlung-in-berlin-natuerlicher-haarwuchs-eigenbluttherapie": "/treatments/prp-meso-hair",
+  "/prp-behandlung": "/treatments/prp-meso-hair",
+  // Old gallery page -> the results/before-after section on the homepage
+  "/galerie": "/#results",
+  // Old language start pages and Persian hair-transplant articles (no Persian
+  // hair-transplant page yet, so they land on the Persian homepage). Danish was
+  // dropped; Danish visitors get the English homepage.
+  "/en/start-engl": "/en",
+  "/da/start-dansk": "/en",
+  "/da": "/en",
+  "/fa/hair-transplant-germany": "/fa",
+  "/fa/hairtransplant-italy": "/fa",
+  "/fa/کلینیک-کاشت-مو-as-در-برلین-متخصصان-بازس": "/fa",
+  "/کاشت-مو": "/fa",
   // Other
   "/kontakt": "/contact",
   "/buchung": "/contact",
