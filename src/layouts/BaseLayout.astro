@@ -120,6 +120,11 @@ const faqJsonLd = includeFaqSchema
 <!DOCTYPE html>
 <html lang={meta.hreflang} dir={meta.dir}>
 <head>
+  <!-- One domain only: the server still answers on asclinic-berlin.de / www.,
+       and Google picked those duplicates as canonical for some pages. Until the
+       Caddy config 301s them, send every visitor (and Googlebot, which runs JS)
+       to the same path on asclinic.de before anything else loads. -->
+  <script is:inline>(function(h){if(h!=="asclinic.de"&&/(^|\.)asclinic(-berlin)?\.de$/.test(h)){location.replace("https://asclinic.de"+location.pathname+location.search+location.hash)}})(location.hostname)</script>
   <!-- Google Tag Manager -->
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
