@@ -68,7 +68,10 @@ export default defineConfig({
       // The paid-traffic landing page and its thank-you page carry
       // `noindex` — keeping them out of the sitemap too avoids advertising
       // URLs we are asking search engines to ignore.
-      filter: (page) => !/\/((landing-)?haartransplantation-offer|danke)\/?$/.test(page),
+      filter: (page) => !/\/((landing-)?haartransplantation-offer|danke)\/?$/.test(page)
+        // The private monthly client report (src/pages/seo-bericht-*.astro) is noindex and
+        // only reachable via its secret link — never list it.
+        && !/\/seo-bericht-/.test(page),
       // hreflang codes in the sitemap must match the <link rel="alternate"
       // hreflang> tags in each page's HTML (bare language codes plus x-default,
       // see BaseLayout.astro). Deliberately no <lastmod>: the pages have no
