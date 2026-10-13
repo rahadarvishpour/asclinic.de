@@ -1,0 +1,384 @@
+---
+/** Private monthly Search Console report for the clinic.
+ *
+ *  Reachable only through this unguessable URL: not linked anywhere, excluded
+ *  from the sitemap (astro.config.mjs) and marked noindex/nofollow. No GTM or
+ *  analytics on purpose. All numbers live in src/data/seoReport.ts — update
+ *  that file monthly; this page does not need to change.
+ */
+import "../styles/fonts.css";
+import "../styles/tokens.css";
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.jpg";
+import { SEO_REPORT } from "../data/seoReport";
+
+const { months, reports, relaunch, updated, site } = SEO_REPORT;
+const MONTHS_DE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+const monthName = (m: string) => { const [y, mo] = m.split("-").map(Number); return `${MONTHS_DE[mo - 1]} ${y}`; };
+const monthShort = (m: string) => { const [y, mo] = m.split("-").map(Number); return `${MONTHS_DE[mo - 1].slice(0, 3)} ${String(y).slice(2)}`; };
+const nf = (n: number, d = 0) => n.toLocaleString("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmtDate = (iso: string) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
+
+const byMonth = new Map(months.map((m) => [m.month, m]));
+const prevMonthKey = (m: string) => { const [y, mo] = m.split("-").map(Number); const d = new Date(y, mo - 2, 1); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`; };
+
+/** Change vs previous month. For position, lower is better. */
+function delta(cur: number, prev: number | undefined, kind: "count" | "pct" | "pos") {
+  if (prev === undefined) return null;
+  if (kind === "pos") {
+    const diff = prev - cur; // positive = improvement
+    return { text: `${diff >= 0 ? "▲" : "▼"} ${nf(Math.abs(diff), 1)} Plätze`, good: diff >= 0, flat: Math.abs(diff) < 0.05 };
+  }
+  if (kind === "pct") {
+    const diff = cur - prev;
+    return { text: `${diff >= 0 ? "▲" : "▼"} ${nf(Math.abs(diff), 1)} Pp.`, good: diff >= 0, flat: Math.abs(diff) < 0.05 };
+  }
+  const rel = prev === 0 ? 0 : ((cur - prev) / prev) * 100;
+  return { text: `${rel >= 0 ? "▲" : "▼"} ${nf(Math.abs(rel), 0)} %`, good: rel >= 0, flat: Math.abs(rel) < 0.5 };
+}
+
+// ---- Chart geometry (server-rendered SVG, one series per chart) ----------
+const W = 720, H = 240, PAD = { l: 44, r: 12, t: 16, b: 34 };
+const iw = W - PAD.l - PAD.r, ih = H - PAD.t - PAD.b;
+const step = iw / months.length;
+const niceMax = (v: number) => { const p = Math.pow(10, Math.floor(Math.log10(v))); return Math.ceil(v / p) * p; };
+
+const clickMax = niceMax(Math.max(...months.map((m) => m.clicks)) * 1.05);
+const clickTicks = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(clickMax * f));
+const bars = months.map((m, i) => {
+  const h = (m.clicks / clickMax) * ih;
+  const bw = Math.min(34, step - 10);
+  return { ...m, x: PAD.l + i * step + (step - bw) / 2, y: PAD.t + ih - h, w: bw, h, cx: PAD.l + i * step + step / 2 };
+});
+
+// Position: inverted axis (1 at top). Range 1 … nice upper bound.
+const posMax = Math.ceil(Math.max(...months.map((m) => m.position)) / 5) * 5;
+const posTicks = [1, ...Array.from({ length: posMax / 5 }, (_, k) => (k + 1) * 5)];
+const py = (p: number) => PAD.t + ((p - 1) / (posMax - 1)) * ih;
+const pts = months.map((m, i) => ({ ...m, x: PAD.l + i * step + step / 2, y: py(m.position) }));
+const linePath = pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+const relaunchIdx = months.findIndex((m) => m.month === relaunch);
+const relaunchX = relaunchIdx >= 0 ? PAD.l + relaunchIdx * step : null;
+
+const latest = reports[0];
+const archive = reports.slice(1);
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="referrer" content="no-referrer" />
+  <title>SEO-Bericht · AS Clinic Berlin</title>
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top__inner">
+      <Image src={logo} width={44} height={44} densities={[2, 3]} format="webp" alt="AS Clinic Berlin" class="logo" />
+      <div>
+        <p class="eyebrow">Monatlicher Google-Bericht</p>
+        <p class="top__site">{site}</p>
+      </div>
+      <p class="top__date">Stand: {fmtDate(updated)}</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {latest && (() => {
+      const cur = byMonth.get(latest.month)!;
+      const prev = byMonth.get(prevMonthKey(latest.month));
+      const tiles = [
+        { label: "Klicks", hint: "Besuche über die Google-Suche", value: nf(cur.clicks), d: delta(cur.clicks, prev?.clicks, "count") },
+        { label: "Impressionen", hint: "Wie oft die Website in Google angezeigt wurde", value: nf(cur.impressions), d: delta(cur.impressions, prev?.impressions, "count") },
+        { label: "Klickrate (CTR)", hint: "Anteil der Anzeigen, die angeklickt wurden", value: `${nf(cur.ctr, 1)} %`, d: delta(cur.ctr, prev?.ctr, "pct") },
+        { label: "Ø Position", hint: "Durchschnittlicher Platz in Google – kleiner ist besser", value: nf(cur.position, 1), d: delta(cur.position, prev?.position, "pos") },
+      ];
+      return (
+        <section class="hero">
+          <h1>Bericht {monthName(latest.month)}</h1>
+          <p class="lead">Wie die Website in der Google-Suche abgeschnitten hat{prev ? ` – im Vergleich zu ${monthName(prev.month)}` : ""}.</p>
+          <div class="tiles">
+            {tiles.map((t) => (
+              <div class="tile">
+                <p class="tile__label">{t.label}</p>
+                <p class="tile__value">{t.value}</p>
+                {t.d && <p class:list={["tile__delta", t.d.flat ? "is-flat" : t.d.good ? "is-good" : "is-bad"]}>{t.d.text} <span>ggü. Vormonat</span></p>}
+                <p class="tile__hint">{t.hint}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    })()}
+
+    {latest && (
+      <section class="cols">
+        <div class="card">
+          <h2>Das Wichtigste</h2>
+          <ul class="list list--good">{latest.highlights.map((h) => <li>{h}</li>)}</ul>
+        </div>
+        <div class="card">
+          <h2>Im Blick behalten</h2>
+          <ul class="list list--watch">{latest.watch.map((h) => <li>{h}</li>)}</ul>
+          <h2 class="mt">Umgesetzt</h2>
+          <ul class="list list--done">{latest.actions.map((h) => <li>{h}</li>)}</ul>
+        </div>
+      </section>
+    )}
+
+    <section class="card">
+      <h2>Klicks pro Monat</h2>
+      <p class="sub">Besuche über die Google-Suche, letzte {months.length} Monate</p>
+      <div class="chart">
+        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Säulendiagramm: Klicks pro Monat">
+          {clickTicks.map((t) => {
+            const y = PAD.t + ih - (t / clickMax) * ih;
+            return (<g><line x1={PAD.l} x2={W - PAD.r} y1={y} y2={y} class={t === 0 ? "axis" : "grid"} /><text x={PAD.l - 8} y={y + 4} class="tick" text-anchor="end">{nf(t)}</text></g>);
+          })}
+          {relaunchX !== null && (<g><line x1={relaunchX} x2={relaunchX} y1={PAD.t} y2={PAD.t + ih} class="marker" /><text x={relaunchX - 6} y={PAD.t + 10} class="marker-label" text-anchor="end">Neue Website</text></g>)}
+          {bars.map((b, i) => (
+            <g class="hit" data-tip={`${monthName(b.month)}: ${nf(b.clicks)} Klicks`}>
+              <rect x={PAD.l + i * step} y={PAD.t} width={step} height={ih} class="hitbox" />
+              <path class:list={["bar", b.month === latest?.month && "bar--now"]} d={`M${b.x},${b.y + b.h} V${b.y + 4} q0,-4 4,-4 H${b.x + b.w - 4} q4,0 4,4 V${b.y + b.h} Z`} />
+              <text x={b.cx} y={H - 12} class="tick" text-anchor="middle">{monthShort(b.month)}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Durchschnittliche Position</h2>
+      <p class="sub">Platz in den Google-Ergebnissen – je weiter oben die Linie, desto besser</p>
+      <div class="chart">
+        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Liniendiagramm: durchschnittliche Position pro Monat">
+          {posTicks.map((t) => (<g><line x1={PAD.l} x2={W - PAD.r} y1={py(t)} y2={py(t)} class="grid" /><text x={PAD.l - 8} y={py(t) + 4} class="tick" text-anchor="end">{t}</text></g>))}
+          {relaunchX !== null && (<g><line x1={relaunchX} x2={relaunchX} y1={PAD.t} y2={PAD.t + ih} class="marker" /><text x={relaunchX - 6} y={PAD.t + ih - 4} class="marker-label" text-anchor="end">Neue Website</text></g>)}
+          <path d={linePath} class="line" />
+          {pts.map((p, i) => (
+            <g class="hit" data-tip={`${monthName(p.month)}: Ø Position ${nf(p.position, 1)}`}>
+              <rect x={PAD.l + i * step} y={PAD.t} width={step} height={ih} class="hitbox" />
+              <circle cx={p.x} cy={p.y} r={p.month === latest?.month ? 6 : 4} class:list={["dot", p.month === latest?.month && "dot--now"]} />
+              {p.month === latest?.month && <text x={p.x} y={p.y - 12} class="val" text-anchor="middle">{nf(p.position, 1)}</text>}
+              <text x={p.x} y={H - 12} class="tick" text-anchor="middle">{monthShort(p.month)}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </section>
+
+    {latest && (
+      <section class="cols">
+        <div class="card">
+          <h2>Top-Suchbegriffe</h2>
+          <p class="sub">{monthName(latest.month)} · Position im Vormonat zum Vergleich</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Suchbegriff</th><th class="num">Klicks</th><th class="num">Impr.</th><th class="num">Position</th></tr></thead>
+              <tbody>
+                {latest.queries.map((q) => {
+                  const d = q.prevPosition !== undefined ? q.prevPosition - q.position : null;
+                  return (
+                    <tr>
+                      <td>{q.query}</td>
+                      <td class="num">{nf(q.clicks)}</td>
+                      <td class="num">{nf(q.impressions)}</td>
+                      <td class="num">{nf(q.position, 1)}{d !== null && Math.abs(d) >= 0.1 && <span class:list={["chg", d > 0 ? "is-good" : "is-bad"]}>{d > 0 ? "▲" : "▼"}{nf(Math.abs(d), 1)}</span>}{q.prevPosition === undefined && <span class="chg is-new">neu</span>}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Meistbesuchte Seiten</h2>
+          <p class="sub">{monthName(latest.month)} · Klicks aus der Google-Suche</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Seite</th><th class="num">Klicks</th><th class="num">Impr.</th><th class="num">Position</th></tr></thead>
+              <tbody>
+                {latest.pages.map((p) => (<tr><td class="path">{p.path === "/" ? "Startseite" : p.path}</td><td class="num">{nf(p.clicks)}</td><td class="num">{nf(p.impressions)}</td><td class="num">{nf(p.position, 1)}</td></tr>))}
+              </tbody>
+            </table>
+          </div>
+          <h2 class="mt">Geräte</h2>
+          {(() => {
+            const total = latest.devices.reduce((s, d) => s + d.clicks, 0) || 1;
+            return (
+              <div class="devices">
+                {latest.devices.map((d) => (
+                  <div class="dev">
+                    <span class="dev__name">{d.device}</span>
+                    <span class="dev__bar"><span style={`width:${(d.clicks / total) * 100}%`}></span></span>
+                    <span class="dev__val">{nf((d.clicks / total) * 100)} % <small>({nf(d.clicks)})</small></span>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+        </div>
+      </section>
+    )}
+
+    <section class="card">
+      <h2>Alle Monate im Überblick</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Monat</th><th class="num">Klicks</th><th class="num">Impressionen</th><th class="num">CTR</th><th class="num">Ø Position</th></tr></thead>
+          <tbody>
+            {[...months].reverse().map((m) => (
+              <tr class:list={[m.month === relaunch && "is-relaunch"]}>
+                <td>{monthName(m.month)}{m.month === relaunch && <span class="tag">Neue Website</span>}</td>
+                <td class="num">{nf(m.clicks)}</td><td class="num">{nf(m.impressions)}</td><td class="num">{nf(m.ctr, 1)} %</td><td class="num">{nf(m.position, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {archive.length > 0 && (
+      <section class="card">
+        <h2>Frühere Berichte</h2>
+        {archive.map((r) => (
+          <details class="arch">
+            <summary>{monthName(r.month)}</summary>
+            <h3>Das Wichtigste</h3><ul class="list list--good">{r.highlights.map((h) => <li>{h}</li>)}</ul>
+            <h3>Im Blick behalten</h3><ul class="list list--watch">{r.watch.map((h) => <li>{h}</li>)}</ul>
+            <h3>Umgesetzt</h3><ul class="list list--done">{r.actions.map((h) => <li>{h}</li>)}</ul>
+          </details>
+        ))}
+      </section>
+    )}
+
+    <p class="foot">Quelle: Google Search Console, nur Google-Websuche. Werte gerundet; Google weist Daten mit ca. 2–3 Tagen Verzögerung aus. Dieser Bericht ist nur über diesen Link erreichbar und wird nicht von Suchmaschinen erfasst.</p>
+  </main>
+
+  <div class="tip" id="tip" role="status" aria-live="polite" hidden></div>
+
+  <script is:inline>
+    (function () {
+      // On narrow screens the charts scroll sideways: start at the latest month.
+      document.querySelectorAll(".chart").forEach(function (c) { c.scrollLeft = c.scrollWidth; });
+      var tip = document.getElementById("tip");
+      document.querySelectorAll(".hit").forEach(function (g) {
+        function show(e) {
+          tip.textContent = g.getAttribute("data-tip");
+          tip.hidden = false;
+          var x = (e.touches ? e.touches[0].clientX : e.clientX), y = (e.touches ? e.touches[0].clientY : e.clientY);
+          var w = tip.offsetWidth;
+          tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x - w / 2)) + "px";
+          tip.style.top = (y - 44) + "px";
+          g.classList.add("is-hover");
+        }
+        function hide() { tip.hidden = true; g.classList.remove("is-hover"); }
+        g.addEventListener("mousemove", show);
+        g.addEventListener("mouseleave", hide);
+        g.addEventListener("touchstart", show, { passive: true });
+        g.addEventListener("touchend", function () { setTimeout(hide, 1500); });
+      });
+    })();
+  </script>
+</body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--g-cream); color: var(--g-ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; margin: 0; color: var(--g-ink); }
+  h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.8rem); line-height: 1.15; }
+  h2 { font-size: 1.3rem; line-height: 1.3; }
+  h3 { font-size: 1.05rem; margin-top: 16px; }
+  .mt { margin-top: 28px; }
+  .eyebrow { margin: 0; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--g-coral-700); font-weight: 600; }
+  .lead { color: var(--g-ink-2); margin: 8px 0 24px; max-width: 60ch; }
+  .sub { color: var(--g-ink-3); font-size: 13px; margin: 4px 0 16px; }
+
+  .top { background: var(--g-white); border-bottom: 1px solid var(--g-line); }
+  .top__inner { display: flex; align-items: center; gap: 14px; padding-top: 14px; padding-bottom: 14px; }
+  .logo { width: 44px; height: 44px; border-radius: 999px; object-fit: cover; background: #000; flex: none; }
+  .top__site { margin: 0; font-weight: 600; }
+  .top__date { margin: 0 0 0 auto; color: var(--g-ink-3); font-size: 13px; text-align: right; }
+
+  .hero { padding: 36px 0 8px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .tile { background: var(--g-white); border: 1px solid var(--g-line); border-radius: 14px; padding: 16px; }
+  .tile__label { margin: 0; font-size: 13px; color: var(--g-ink-2); font-weight: 600; }
+  .tile__value { margin: 4px 0 2px; font-family: var(--font-display); font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .tile__delta { margin: 0; font-size: 13px; font-weight: 600; }
+  .tile__delta span { font-weight: 400; color: var(--g-ink-3); }
+  .tile__hint { margin: 8px 0 0; font-size: 12px; color: var(--g-ink-3); line-height: 1.4; }
+  .is-good { color: #3F6B3A; }
+  .is-bad { color: #A3402A; }
+  .is-flat { color: var(--g-ink-2); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .cols > .card { margin-top: 0; }
+  .card { background: var(--g-white); border: 1px solid var(--g-line); border-radius: 14px; padding: 20px; margin-top: 16px; min-width: 0; }
+
+  .list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
+  .list li { position: relative; padding-left: 26px; color: var(--g-ink-2); }
+  .list li::before { position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border-radius: 999px; font-size: 11px; display: grid; place-items: center; font-weight: 700; }
+  .list--good li::before { content: "✓"; background: #E3EDE0; color: #3F6B3A; }
+  .list--watch li::before { content: "!"; background: #F8E9D2; color: #8A5A12; }
+  .list--done li::before { content: "•"; background: var(--g-coral-100); color: var(--g-coral-700); }
+
+  .chart { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .chart svg { width: 100%; min-width: 620px; height: auto; display: block; }
+  .grid { stroke: var(--g-line); stroke-width: 1; }
+  .axis { stroke: #CFC6BF; stroke-width: 1; }
+  .tick { fill: var(--g-ink-3); font-size: 11px; font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+  .bar { fill: #E7B4A5; transition: fill .15s; }
+  .bar--now { fill: var(--g-coral-700); }
+  .hit.is-hover .bar { fill: var(--g-coral-600); }
+  .hitbox { fill: transparent; }
+  .line { fill: none; stroke: var(--g-coral-700); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .dot { fill: var(--g-coral-700); stroke: var(--g-white); stroke-width: 2; }
+  .hit.is-hover .dot { r: 7; }
+  .val { fill: var(--g-ink); font-size: 12px; font-weight: 700; font-family: var(--font-body); }
+  .marker { stroke: var(--g-ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+  .marker-label { fill: var(--g-ink-2); font-size: 11px; font-family: var(--font-body); }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-size: 12px; font-weight: 600; color: var(--g-ink-3); padding: 8px 8px 8px 0; border-bottom: 1px solid var(--g-line); white-space: nowrap; }
+  td { padding: 9px 8px 9px 0; border-bottom: 1px solid #F2EDE8; vertical-align: top; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .path { word-break: break-all; color: var(--g-ink-2); font-size: 13px; }
+  .chg { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 700; }
+  .chg.is-new { color: var(--g-ink-3); font-weight: 600; }
+  .is-relaunch td { background: var(--g-blush-50); }
+  .tag { margin-left: 8px; font-size: 11px; background: var(--g-coral-100); color: var(--g-coral-700); padding: 2px 8px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+
+  .devices { display: grid; gap: 10px; margin-top: 12px; }
+  .dev { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+  .dev__bar { height: 8px; background: var(--g-stone); border-radius: 999px; overflow: hidden; }
+  .dev__bar span { display: block; height: 100%; background: var(--g-coral-700); border-radius: 999px; }
+  .dev__val { font-variant-numeric: tabular-nums; }
+  .dev__val small { color: var(--g-ink-3); }
+
+  .arch { border-top: 1px solid var(--g-line); padding: 12px 0; }
+  .arch summary { cursor: pointer; font-weight: 600; }
+
+  .foot { color: var(--g-ink-3); font-size: 12px; margin: 24px 0 40px; max-width: 80ch; }
+  .tip { position: fixed; z-index: 10; background: var(--g-charcoal); color: #fff; font-size: 13px; padding: 6px 10px; border-radius: 8px; pointer-events: none; white-space: nowrap; }
+
+  @media (max-width: 860px) {
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .tile__value { font-size: 1.7rem; }
+    .top__date { font-size: 12px; }
+    .card { padding: 16px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .card, .tile { break-inside: avoid; }
+  }
+</style>
