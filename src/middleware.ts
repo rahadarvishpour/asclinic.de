@@ -8,7 +8,10 @@ export const onRequest = defineMiddleware((context, next) => {
   const { method } = context.request;
   if (method === "GET" || method === "HEAD") {
     const { pathname, search } = context.url;
-    const key = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+    let path = pathname;
+    // Persian legacy slugs arrive percent-encoded; the table holds them decoded.
+    try { path = decodeURIComponent(pathname); } catch { /* malformed: keep raw */ }
+    const key = path.length > 1 ? path.replace(/\/+$/, "") : path;
     const destination = Object.hasOwn(LEGACY_REDIRECTS, key) ? LEGACY_REDIRECTS[key] : undefined;
     if (destination) return context.redirect(destination + search, 301);
   }
