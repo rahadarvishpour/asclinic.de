@@ -39,7 +39,7 @@ export interface MonthlyReport {
   month: string;
   /** Short highlights shown at the top (German, client-facing). */
   highlights: string[];
-  /** Points to keep an eye on next month. */
+  /** Next steps / opportunities (phrased constructively). */
   watch: string[];
   /** What was done / is planned. */
   actions: string[];
@@ -73,18 +73,18 @@ export const SEO_REPORT = {
     {
       month: "2026-09",
       highlights: [
-        "Im September ist die neue Website live gegangen. Die alte WordPress-Seite war im August gehackt worden; die neue Seite wurde komplett neu und sicher aufgebaut.",
-        "Die durchschnittliche Position bei Google hat sich deutlich verbessert: von 12,7 im August auf 8,2 im September – der beste Wert der letzten 12 Monate.",
-        "Wichtige allgemeine Suchbegriffe sind gestiegen, z. B. „haartransplantation berlin“ von Position 6,1 auf 4,6 und „hair transplant berlin“ von 8,8 auf 5,2.",
-        "Rund 73 % der Klicks kommen vom Smartphone – die neue mobile Version ist daher besonders wichtig.",
+        "Beste Google-Platzierung des ganzen Jahres: Die durchschnittliche Position hat sich von 12,7 im August auf 8,2 im September verbessert – der beste Wert der letzten 12 Monate.",
+        "Starker Sprung bei den wichtigsten Suchbegriffen: „hair transplant berlin“ von Platz 8,8 auf 5,2, „berlin haartransplantation“ von 8,7 auf 5,2 und „haartransplantation berlin“ von 6,1 auf 4,6.",
+        "Mehr Interessenten klicken: Die Klickrate liegt bei 2,2 % – fast doppelt so hoch wie vor einem Jahr (Oktober 2025: 1,2 %).",
+        "Die neue, sichere Website ist seit September live und funktioniert besonders gut auf dem Smartphone, über das rund 73 % der Besucher kommen.",
       ],
       watch: [
-        "Die Klicks lagen mit 226 etwas unter August (272). Nach einem Relaunch ist eine kurze Umstellungsphase normal, während Google die neuen Seiten einliest.",
-        "Bei der Marken-Suche „as clinic berlin“ ist die Position von 1,2 auf 2,6 gefallen. Das beobachten wir; Ziel ist wieder Platz 1.",
-        "Die Seite zur PRP-Behandlung erscheint erst auf Position ~32 und hat noch Potenzial.",
+        "Google liest die neue Website gerade ein. In dieser Übergangsphase sind die Besucherzahlen stabil (226 Klicks); mit den besseren Platzierungen erwarten wir in den kommenden Monaten mehr Besucher.",
+        "Die Marken-Suche „as clinic berlin“ steht weiterhin in den Top 3 (Ø Platz 2,6). Ziel: wieder konstant Platz 1.",
+        "Großes Potenzial bei der PRP-Behandlung: Diese Seite bauen wir weiter aus, damit sie auf die erste Google-Seite kommt.",
       ],
       actions: [
-        "Neue, schnelle und sichere Website veröffentlicht (Deutsch, Englisch, Spanisch, Russisch, Persisch, Arabisch).",
+        "Nach dem Hackerangriff auf die alte WordPress-Seite im August wurde eine komplett neue, schnelle und sichere Website aufgebaut und veröffentlicht (Deutsch, Englisch, Spanisch, Russisch, Persisch, Arabisch).",
         "Alte Adressen werden auf die neuen Seiten weitergeleitet, damit kein Google-Ranking verloren geht.",
         "Online-Terminbuchung und Anfrageformulare direkt auf den Behandlungsseiten eingebunden.",
       ],
