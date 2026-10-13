@@ -112,8 +112,8 @@ export function getLocaleMeta(locale: Locale): LocaleMeta {
 // ever falls back to English body text.
 export const ui = {
   en: {
-    "meta.title": "AS Clinic Berlin — Hair Transplant & Aesthetic Medicine",
-    "meta.description": "AS Clinic on Kurfürstendamm, Berlin: physician-led hair transplantation, injectables and aesthetic surgery. Free 30-minute first consultation, in six languages.",
+    "meta.title": "Hair Transplant Berlin | AS Clinic on Kurfürstendamm",
+    "meta.description": "Physician-led FUE hair transplant & aesthetic medicine on Kurfürstendamm, Berlin. Free hair analysis and 30-minute consultation in six languages. Request your appointment.",
     "top.1": "Hair transplantation & aesthetic medicine on Kurfürstendamm, Berlin",
     "top.2": "Every treatment planned and carried out by licensed medical staff",
     "top.3": "Free, no-obligation first consultation — in six languages",
@@ -226,8 +226,8 @@ export const ui = {
     "loc.reviewsCta": "Read reviews on Google"
   },
   de: {
-    "meta.title": "AS Clinic Berlin — Haartransplantation & Ästhetische Medizin",
-    "meta.description": "AS Clinic am Kurfürstendamm, Berlin: ärztlich geführte Haartransplantation, Injektionen und ästhetische Chirurgie. Kostenloses 30-minütiges Erstgespräch, in sechs Sprachen.",
+    "meta.title": "Haartransplantation Berlin | AS Clinic am Kurfürstendamm",
+    "meta.description": "Ärztlich geführte FUE-Haartransplantation & ästhetische Medizin am Kurfürstendamm. Kostenlose Haaranalyse, Erstgespräch in 6 Sprachen. Jetzt Termin anfragen.",
     "top.1": "Haartransplantation & ästhetische Medizin am Kurfürstendamm, Berlin",
     "top.2": "Jede Behandlung geplant und durchgeführt von medizinischem Fachpersonal",
     "top.3": "Kostenloses Erstgespräch ohne Verpflichtung — in sechs Sprachen",
@@ -568,8 +568,8 @@ export const ui = {
     "loc.reviewsCta": "Читать отзывы в Google"
   },
   fa: {
-    "meta.title": "AS Clinic برلین — کاشت مو و پزشکی زیبایی",
-    "meta.description": "AS Clinic در کورفورستن‌دام برلین: کاشت مو، تزریقات و جراحی زیبایی زیر نظر پزشک. مشاوره اولیه رایگان ۳۰ دقیقه‌ای، به شش زبان.",
+    "meta.title": "کاشت مو در برلین | AS Clinic در کورفورستن‌دام",
+    "meta.description": "کاشت مو به روش FUE و پزشکی زیبایی زیر نظر پزشک در کورفورستن‌دام برلین. آنالیز رایگان مو و مشاوره ۳۰ دقیقه‌ای به زبان فارسی. همین حالا وقت بگیرید.",
     "top.1": "کاشت مو و پزشکی زیبایی در کورفورستن‌دام برلین",
     "top.2": "هر درمان توسط کادر پزشکی دارای مجوز برنامه‌ریزی و انجام می‌شود",
     "top.3": "مشاوره اولیه رایگان و بدون تعهد — به شش زبان",
