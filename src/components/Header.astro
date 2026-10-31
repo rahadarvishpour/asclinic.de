@@ -137,7 +137,12 @@ const brandHref = onHomepage ? "#top" : homeHref;
   }
   .drawer .container { display: flex; flex-direction: column; }
 
-  @media (max-width: 980px) {
+  /* The German nav (seven links plus language and booking controls) needs about
+     1,210px on one line. Below that the links wrapped ("Über / uns") and the
+     squeezed brand name ran into them, so the burger takes over earlier than
+     the 980px layout breakpoint used elsewhere. */
+  .nav__links a { white-space: nowrap; }
+  @media (max-width: 1220px) {
     [data-desknav] { display: none !important; }
     [data-burger] { display: block; }
     .burger-summary { display: flex; }
