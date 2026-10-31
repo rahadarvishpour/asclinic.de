@@ -25,6 +25,7 @@ import frauncesLatin from "../assets/fonts/fraunces-latin-opsz-normal.woff2?url"
 import frauncesLatinExt from "../assets/fonts/fraunces-latin-ext-opsz-normal.woff2?url";
 import interLatin from "../assets/fonts/inter-latin-wght-normal.woff2?url";
 import interLatinExt from "../assets/fonts/inter-latin-ext-wght-normal.woff2?url";
+import { LEAD_COOKIE, LEAD_COOKIE_MAX_AGE, THANKS_PATH } from "../lib/leadCookie";
 
 interface Props {
   path: string;
@@ -382,7 +383,7 @@ const testimonials: Testimonial[] = [
     </footer>
   </div>
 
-  <script is:inline define:vars={{ formId: PABAU_FORM_ID, containerId: "c1817" }}>
+  <script is:inline define:vars={{ formId: PABAU_FORM_ID, containerId: "c1817", leadCookie: LEAD_COOKIE, leadCookieMaxAge: LEAD_COOKIE_MAX_AGE, thanksPath: THANKS_PATH }}>
     (function () {
       var button = document.querySelector("[data-pabau-load]");
       if (!button) return;
@@ -416,7 +417,10 @@ const testimonials: Testimonial[] = [
 
     // Pabau posts a message from its iframe once the form has been submitted.
     window.addEventListener("message", function (event) {
-      if (!/(^|\.)pabau\.com$/.test(new URL(event.origin).hostname)) return;
+      // An opaque origin ("null") makes new URL() throw; it is never Pabau anyway.
+      var host;
+      try { host = new URL(event.origin).hostname; } catch (e) { return; }
+      if (!/(^|\.)pabau\.com$/.test(host)) return;
       var data = event.data;
 
       var isSubmitted =
@@ -435,8 +439,17 @@ const testimonials: Testimonial[] = [
         }
       }
 
+      if (!isSubmitted) return;
+      // /danke only renders for visitors carrying the lead cookie (see
+      // src/pages/danke.astro) and redirects everyone else back here. The form
+      // endpoint that used to set it is no longer in the path — Pabau takes the
+      // submission — so set it here, or /danke bounces the visitor and the GTM
+      // conversion on that page never fires.
+      document.cookie =
+        leadCookie + "=1; path=/; max-age=" + leadCookieMaxAge + "; samesite=lax" +
+        (location.protocol === "https:" ? "; secure" : "");
       // Trailing slash: the GTM `generate-lead` trigger matches "/danke/" exactly.
-      if (isSubmitted) window.location.href = "/danke/";
+      window.location.href = thanksPath;
     });
   </script>
 

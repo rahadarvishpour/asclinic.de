@@ -1,5 +1,6 @@
-/** Shared between the form endpoint that sets it and the thank-you page that
- *  checks it, so the two can never drift apart on the name. */
+/** Shared between the code that sets it (the form endpoint, and the landing
+ *  page's Pabau submit handler) and the thank-you page that checks it, so they
+ *  can never drift apart on the name. */
 export const LEAD_COOKIE = "as_anfrage";
 
 /** Long enough to survive the redirect and a refresh or two, short enough that

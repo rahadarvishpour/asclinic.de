@@ -2,7 +2,8 @@
 /** Thank-you page — the one and only destination after the landing-page form.
  *
  *  It is rendered on demand rather than prerendered, because it is gated: the
- *  form endpoint sets a short-lived cookie on a successful submission and this
+ *  landing page sets a short-lived cookie when Pabau reports a submission (the
+ *  form endpoint does the same on its own success path), and this
  *  page only exists for visitors who carry it. Anyone arriving without one
  *  (a typed URL, a shared link, a crawler) is sent back to the form, so the
  *  "we will call you within 24 hours" promise is never shown to someone whose
