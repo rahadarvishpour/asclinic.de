@@ -13,7 +13,15 @@ export const onRequest = defineMiddleware((context, next) => {
     try { path = decodeURIComponent(pathname); } catch { /* malformed: keep raw */ }
     const key = path.length > 1 ? path.replace(/\/+$/, "") : path;
     const destination = Object.hasOwn(LEGACY_REDIRECTS, key) ? LEGACY_REDIRECTS[key] : undefined;
-    if (destination) return context.redirect(destination + search, 301);
+    if (destination) {
+      // The query belongs before any #fragment (e.g. /galerie -> /#results),
+      // otherwise it is swallowed into the fragment and never reaches analytics.
+      const hashAt = destination.indexOf("#");
+      const target = hashAt === -1
+        ? destination + search
+        : destination.slice(0, hashAt) + search + destination.slice(hashAt);
+      return context.redirect(target, 301);
+    }
   }
   return next();
 });
