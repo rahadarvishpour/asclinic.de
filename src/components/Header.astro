@@ -19,10 +19,11 @@ const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
 
 // The contact page exists in German and English only, so it joins the nav in
 // those locales and is left out of the others rather than 404-ing.
+// Hair restoration leads (it is the clinic's main service); the surgery section
+// stays on the homepage but is not linked from the header.
 const NAV = [
-  { href: anchor("injectables"), key: "nav.inject" as const },
   { href: anchor("hair"), key: "nav.hair" as const },
-  { href: anchor("surgery"), key: "nav.surgery" as const },
+  { href: anchor("injectables"), key: "nav.inject" as const },
   { href: anchor("results"), key: "nav.results" as const },
   { href: anchor("faq"), key: "nav.faq" as const },
   // The "Über uns" page exists in German and English only (see ABOUT_LOCALES).
