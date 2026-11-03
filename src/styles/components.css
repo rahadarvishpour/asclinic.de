@@ -33,6 +33,11 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-display); font-weight: var(--fw-display);
   line-height: var(--lh-heading); letter-spacing: var(--ls-display); margin: 0; color: inherit;
 }
+/* German compounds ("Augenbrauentransplantation") are wider than a phone screen
+   or a half-width column at heading sizes. Unbroken, they ran out of their box
+   and were cut off by the page's overflow-x: hidden. Hyphenate in the page's
+   language (<html lang>), and break the word only as a last resort. */
+h1, h2, h3, .display, .h1, .h2, .h3 { overflow-wrap: break-word; hyphens: auto; }
 .display { font-size: var(--fs-display); line-height: var(--lh-tight); }
 .h1 { font-size: var(--fs-h1); }
 .h2 { font-size: var(--fs-h2); }
