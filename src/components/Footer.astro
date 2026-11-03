@@ -2,14 +2,12 @@
 import { t, sectionHref, localePath, hasContactPage, hasAboutPage, ABOUT_PATH, ABOUT_LABEL, type Locale } from "../i18n/ui";
 import { CLINIC } from "../data/clinic";
 import { TREATMENT_PAGES, hasLocale } from "../data/treatmentPages";
-import { languageLinks } from "../i18n/langLinks";
 import { Image } from "astro:assets";
 import logo from "../assets/brand/logo.jpg";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
 const anchor = (id: string) => sectionHref(locale, Astro.url.pathname, id);
-const langLinks = languageLinks(Astro.url.pathname);
 // The hair transplant page is the clinic's main service page; link it site-wide wherever it is published in this language.
 const hairTransplantHref = hasLocale(TREATMENT_PAGES["hair-transplant"], locale) ? localePath(locale, "/treatments/hair-transplant") : null;
 // In German the section link above is already labelled "Haartransplantation", so this one names the page itself.
@@ -62,16 +60,6 @@ const hairTransplantLabel = locale === "de" ? "Haartransplantation in Berlin" : 
         <a href="/impressum">{t(locale, "ft.imprint")}</a>
         <a href="/datenschutz">{t(locale, "ft.privacy")}</a>
       </span>
-      <nav class="meta footer__langs" aria-label="Languages">
-        {langLinks.map((l, i) => (
-          <>
-            {i > 0 && " · "}
-            {l.code === locale
-              ? <span aria-current="true" lang={l.hreflang}>{l.native}</span>
-              : <a href={l.href} hreflang={l.hreflang} lang={l.hreflang}>{l.native}</a>}
-          </>
-        ))}
-      </nav>
     </div>
   </div>
 </footer>

@@ -33,7 +33,7 @@ const bookHref = bookingUrl(locale);
 
 const currentPath = Astro.url.pathname;
 
-// Language switcher: the same page in each navbar locale (German and English),
+// Language switcher: the same page in each locale,
 // or that locale's homepage where the page is not published in it — so a
 // switch never lands on a URL that was not built.
 const currentMeta = getLocaleMeta(locale);

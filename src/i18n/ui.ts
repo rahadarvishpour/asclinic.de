@@ -19,10 +19,10 @@ export const LOCALES: LocaleMeta[] = [
 
 export const DEFAULT_LOCALE: Locale = "de";
 
-/** Locales offered in the header language switcher. The remaining locales stay
- *  fully live (pages, sitemap, hreflang) — they are simply not advertised in the
- *  navbar, where German and English are the two the clinic wants front of house. */
-const NAV_LOCALE_CODES: Locale[] = ["de", "en"];
+/** Locales offered in the header language switcher — every live locale. The
+ *  header is the one place the language choice is offered (the footer no longer
+ *  repeats it), so a locale missing here would not be reachable by navigation. */
+const NAV_LOCALE_CODES: Locale[] = LOCALES.map((l) => l.code);
 export const NAV_LOCALES: LocaleMeta[] = NAV_LOCALE_CODES.map((code) => getLocaleMeta(code));
 
 export function localePath(locale: Locale, path = "") {
