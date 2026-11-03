@@ -44,7 +44,7 @@ const { locale } = Astro.props;
     background: none; color: var(--text-invert); font-size: 1.1rem; cursor: pointer;
     transition: background var(--dur-base) var(--ease-soft), border-color var(--dur-base) var(--ease-soft);
   }
-  .gallery-nav:hover { background: var(--accent); border-color: var(--accent); }
+  .gallery-nav:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
   .gallery-track {
     display: flex; gap: var(--sp-5); overflow-x: auto; scroll-snap-type: x mandatory;
