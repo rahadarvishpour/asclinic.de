@@ -4,25 +4,39 @@
    Every visual value resolves here. Swap these, re-skin the kit.
    ============================================================ */
 :root {
-  /* ---- Brand palette -------------------------------------- */
-  --g-coral:        #E8836A;  /* brand coral — fills, icons, blobs   */
-  --g-coral-600:    #D96A4C;  /* hover fills, large solids           */
-  --g-coral-700:    #B85433;  /* buttons + links (AA on white)       */
-  --g-coral-100:    #FBE4DC;  /* soft tint cards                     */
-  --g-blush:        #F9D8CE;  /* gallery band, hero shapes           */
-  --g-blush-50:     #FDF1EC;  /* hero background                     */
-  --g-cream:        #FDF8F5;  /* page canvas                         */
-  --g-stone:        #EFEDEA;  /* feature strip, quiet bands          */
-  --g-lemon:        #F3F1D9;  /* pastel testimonial card             */
-  --g-line:         #E8E1DB;  /* hairlines                           */
-  --g-charcoal:     #1F1D1C;  /* dark sections                       */
-  --g-charcoal-900: #151413;  /* footer                              */
-  --g-ink:          #16110F;  /* headings                            */
-  --g-ink-2:        #6E6763;  /* body copy                           */
-  --g-ink-3:        #9A928C;  /* meta, captions                      */
+  /* ---- AS Clinic brand palette ----------------------------
+     Gold on black, taken from the logo (and the gold already used on the
+     hair transplant landing page). */
+  --as-gold:        #C9A24B;  /* logo gold — accents, gold on black  */
+  --as-gold-600:    #A88432;  /* large text on light (3.3:1), ratings */
+  --as-gold-700:    #8C6D22;  /* buttons + links (AA on white, 4.85) */
+  --as-gold-100:    #F4ECDA;  /* soft tint cards                     */
+  --as-champagne:   #EADFC6;  /* image placeholders, hero shapes     */
+  --as-ivory:       #FAF6EC;  /* hero background                     */
+  --as-black:       #141414;  /* dark sections                       */
+  --as-black-900:   #0B0B0B;  /* footer                              */
+
+  /* ---- Kit palette names ----------------------------------
+     The components still use the Glowvie kit's names; they now resolve to the
+     brand palette above (the "coral"/"blush" roles carry gold/champagne). */
+  --g-coral:        var(--as-gold);
+  --g-coral-600:    var(--as-gold-600);
+  --g-coral-700:    var(--as-gold-700);
+  --g-coral-100:    var(--as-gold-100);
+  --g-blush:        var(--as-champagne);
+  --g-blush-50:     var(--as-ivory);
+  --g-cream:        #FBF9F5;  /* page canvas                         */
+  --g-stone:        #F1EEE7;  /* feature strip, quiet bands          */
+  --g-lemon:        #F3EEDC;  /* pastel testimonial card             */
+  --g-line:         #E5DFD2;  /* hairlines                           */
+  --g-charcoal:     var(--as-black);
+  --g-charcoal-900: var(--as-black-900);
+  --g-ink:          #111111;  /* headings                            */
+  --g-ink-2:        #5E5A54;  /* body copy                           */
+  --g-ink-3:        #8E897F;  /* meta, captions                      */
   --g-white:        #FFFFFF;
   --g-sage:         #5F7059;  /* confirmations                       */
-  --g-gold:         #B98A2E;  /* ratings                             */
+  --g-gold:         var(--as-gold-600); /* ratings                   */
 
   /* ---- Semantic roles ------------------------------------- */
   --bg:            var(--g-cream);
@@ -37,9 +51,12 @@
   --text-invert:   #F6F1ED;
   --accent:        var(--g-coral);        /* decorative / large only */
   --accent-action: var(--g-coral-700);    /* anything with a label   */
-  --accent-hover:  var(--g-charcoal);     /* coral → charcoal on hover */
+  --accent-hover:  var(--g-charcoal);     /* gold → black on hover   */
+  /* Text and icons set on an --accent fill: brand gold is too light for white
+     (2.4:1), so it carries black, as in the logo. */
+  --on-accent:     var(--g-charcoal);
   --border:        var(--g-line);
-  --focus:         #7A3B21;
+  --focus:         #6B5214;
 
   /* ---- Typography ----------------------------------------- */
   --font-display: "Playfair Display", "Prata", Georgia, "Times New Roman", serif;
