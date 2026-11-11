@@ -361,3 +361,8 @@ a.float-card:focus-visible { outline: none; box-shadow: var(--sh-focus); }
 
 /* Parallax — decorative leaves drift against the scroll (JS-driven) */
 .parallax { will-change: transform; }
+
+/* Below-the-fold homepage sections skip layout and paint until they near the viewport, which cuts the
+   first layout of the long homepage (FAQ, gallery, reviews…) roughly in half on mobile. `auto` makes
+   the browser remember each section's real height once it has been rendered. */
+.cv-auto { content-visibility: auto; contain-intrinsic-size: auto 900px; }
