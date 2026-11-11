@@ -125,11 +125,19 @@ const faqJsonLd = includeFaqSchema
        Caddy config 301s them, send every visitor (and Googlebot, which runs JS)
        to the same path on asclinic.de before anything else loads. -->
   <script is:inline>(function(h){if(h!=="asclinic.de"&&/(^|\.)asclinic(-berlin)?\.de$/.test(h)){location.replace("https://asclinic.de"+location.pathname+location.search+location.hash)}})(location.hostname)</script>
-  <!-- Google Tag Manager -->
-  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  <!-- Google Tag Manager — deferred. The dataLayer and gtm.start timestamp are set immediately (so pushes
+       made before GTM arrives are queued, not lost), but gtm.js itself is only fetched on the visitor's first
+       interaction (scroll, tap, key, mouse move), or 10 s after the page has loaded, so its ~150 KB of tag JavaScript never competes with
+       the first paint. The /danke/ conversion page loads it straight away so the generate-lead trigger
+       always fires. -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var done=false,ev=['pointerdown','keydown','touchstart','scroll','mousemove'];
+  function load(){if(done)return;done=true;ev.forEach(function(e){w.removeEventListener(e,load,{passive:true})});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)}
+  if(/^\/danke\/?$/.test(location.pathname)){load();return}
+  ev.forEach(function(e){w.addEventListener(e,load,{passive:true})});
+  function arm(){setTimeout(load,10000)}d.readyState==='complete'?arm():w.addEventListener('load',arm,{once:true});
   })(window,document,'script','dataLayer','GTM-5W3W32TS');</script>
   <!-- End Google Tag Manager -->
 

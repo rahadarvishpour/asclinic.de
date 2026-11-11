@@ -7,7 +7,7 @@
   /* ---- Brand palette -------------------------------------- */
   --g-coral:        #E8836A;  /* brand coral — fills, icons, blobs   */
   --g-coral-600:    #D96A4C;  /* hover fills, large solids           */
-  --g-coral-700:    #B85433;  /* buttons + links (AA on white)       */
+  --g-coral-700:    #A3482B;  /* buttons + links (AA on white + blush tints) */
   --g-coral-100:    #FBE4DC;  /* soft tint cards                     */
   --g-blush:        #F9D8CE;  /* gallery band, hero shapes           */
   --g-blush-50:     #FDF1EC;  /* hero background                     */
@@ -19,7 +19,7 @@
   --g-charcoal-900: #151413;  /* footer                              */
   --g-ink:          #16110F;  /* headings                            */
   --g-ink-2:        #6E6763;  /* body copy                           */
-  --g-ink-3:        #9A928C;  /* meta, captions                      */
+  --g-ink-3:        #6E6763;  /* meta, captions (AA on cream + blush) */
   --g-white:        #FFFFFF;
   --g-sage:         #5F7059;  /* confirmations                       */
   --g-gold:         #B98A2E;  /* ratings                             */
@@ -36,6 +36,7 @@
   --text-faint:    var(--g-ink-3);
   --text-invert:   #F6F1ED;
   --accent:        var(--g-coral);        /* decorative / large only */
+  --accent-large:  #C25F43;               /* coral for large text: 3:1 on blush/cream */
   --accent-action: var(--g-coral-700);    /* anything with a label   */
   --accent-hover:  var(--g-charcoal);     /* coral → charcoal on hover */
   --border:        var(--g-line);

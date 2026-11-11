@@ -24,6 +24,9 @@ export default defineConfig({
   // Every page still declares a slashless <link rel="canonical">, so the pair
   // of spellings stays one URL as far as search engines are concerned.
   trailingSlash: 'ignore',
+  // Inline every stylesheet into the HTML: the site's CSS is small (~30 KB), and a separate render-blocking
+  // request for it cost ~250 ms of first paint on mobile in Lighthouse.
+  build: { inlineStylesheets: 'always' },
   i18n: {
     defaultLocale: 'de',
     locales,

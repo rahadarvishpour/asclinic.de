@@ -49,7 +49,8 @@ img { max-width: 100%; display: block; }
 .eyebrow::before { content: "✻"; font-size: .9em; }
 .section--invert .eyebrow, .section--invert .lead, .section--invert .body { color: var(--g-coral); }
 .section--invert .lead, .section--invert .body { color: rgba(246,241,237,.72); }
-.italic-accent { font-style: italic; color: var(--accent); }
+.italic-accent { font-style: italic; color: var(--accent-large); }
+.section--invert .italic-accent { color: var(--accent); }
 .vertical-text {
   writing-mode: vertical-rl; text-orientation: mixed; text-transform: uppercase;
   font-size: var(--fs-2xs); letter-spacing: var(--ls-eyebrow); color: var(--text-faint);
@@ -108,7 +109,7 @@ img { max-width: 100%; display: block; }
   font-size: var(--fs-2xs); letter-spacing: .06em; text-transform: uppercase;
   background: var(--g-coral-100); color: var(--accent-action);
 }
-.chip--coral   { background: var(--accent); color: var(--g-white); }
+.chip--coral   { background: var(--accent-action); color: var(--g-white); }
 .chip--dark    { background: var(--g-charcoal); color: var(--text-invert); }
 .chip--outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
 .chip--light   { background: var(--g-white); color: var(--text); box-shadow: var(--sh-1); }

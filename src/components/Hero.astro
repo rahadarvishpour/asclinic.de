@@ -38,9 +38,10 @@ const heroImg = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm
     <div class="reveal" data-reveal="scale" style="position:relative">
       <div class="media media--blob" style="height:min(66vh,560px)">
         <video
-          src="/videos/hero.mp4"
+          id="hero-video"
+          data-src="/videos/hero.mp4"
           poster={heroImg}
-          autoplay
+          preload="none"
           muted
           loop
           playsinline
@@ -49,6 +50,9 @@ const heroImg = "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?fm
           height="1100"
           style="width:100%; height:100%; object-fit:cover"
         ></video>
+        <!-- The 2.6 MB loop is decorative: fetch it only after the page has finished loading so it never
+             competes with the first paint, then start it (muted + playsinline keep autoplay policies happy). -->
+        <script is:inline>(function(){var v=document.getElementById('hero-video');if(!v)return;function go(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;v.src=v.dataset.src;v.autoplay=true;var p=v.play();if(p&&p.catch)p.catch(function(){})}function later(){('requestIdleCallback' in window)?requestIdleCallback(go,{timeout:2500}):setTimeout(go,1200)}document.readyState==='complete'?later():addEventListener('load',later,{once:true})})()</script>
       </div>
       <a
         class="float-card float"

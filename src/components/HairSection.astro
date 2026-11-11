@@ -48,7 +48,7 @@ const detailHref = (slug: string) => {
           </div>
           <h3 class="h3" style="margin:var(--sp-5) 0 var(--sp-2)">{t(locale, svc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, svc.descKey)}</p>
-          <a class="link-underline" href={detailHref(svc.slug) ?? bookHref}>{detailHref(svc.slug) ? t(locale, "card.details") : t(locale, svc.linkKey)}</a>
+          <a class="link-underline" href={detailHref(svc.slug) ?? bookHref}>{detailHref(svc.slug) ? <>{t(locale, "card.details")}<span class="visually-hidden">: {t(locale, svc.titleKey)}</span></> : t(locale, svc.linkKey)}</a>
         </div>
       ))}
     </div>

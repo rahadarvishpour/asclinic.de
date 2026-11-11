@@ -44,7 +44,7 @@ const detailHref = (slug: string) => {
           <span class="chip chip--outline">{t(locale, proc.chipKey)}</span>
           <h3 class="h2">{t(locale, proc.titleKey)}</h3>
           <p class="body" style="color:var(--text-muted)">{t(locale, proc.descKey)}</p>
-          <a class="btn btn--dark" href={detailHref(proc.slug) ?? bookHref}>{detailHref(proc.slug) ? t(locale, "card.details") : t(locale, "s3.cta")}</a>
+          <a class="btn btn--dark" href={detailHref(proc.slug) ?? bookHref}>{detailHref(proc.slug) ? <>{t(locale, "card.details")}<span class="visually-hidden">: {t(locale, proc.titleKey)}</span></> : t(locale, "s3.cta")}</a>
         </div>
       ))}
     </div>

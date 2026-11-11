@@ -6,7 +6,7 @@
 
 - Address: Kurfürstendamm 102, 10711 Berlin, Charlottenburg, Germany
 - Phone: +49 179 390 2489
-- Website: https://asclinic.de
+- Website: [https://asclinic.de](https://asclinic.de)
 - Hours: Monday–Friday 10:00–19:00, Saturday 10:00–16:00, closed Sunday
 
 ## Services
@@ -22,17 +22,17 @@ Blepharoplasty (upper/lower eyelid surgery, 45–120 minutes) and Direct Lift (b
 
 ## Frequently asked questions
 
-Full physician-written FAQ (60 questions across injectables, hair restoration and surgery) is published at https://asclinic.de/#faq and marked up with schema.org FAQPage structured data for direct citation.
+Full physician-written FAQ (60 questions across injectables, hair restoration and surgery) is published at [https://asclinic.de/#faq](https://asclinic.de/#faq) and marked up with schema.org FAQPage structured data for direct citation.
 
 ## Languages
 
 Site content is available at:
-- German (Deutsch): https://asclinic.de/
-- English: https://asclinic.de/en
-- Spanish (Español): https://asclinic.de/es
-- Russian (Русский): https://asclinic.de/ru
-- Persian (فارسی): https://asclinic.de/fa
-- Arabic (العربية): https://asclinic.de/ar
+- German (Deutsch): [https://asclinic.de/](https://asclinic.de/)
+- English: [https://asclinic.de/en](https://asclinic.de/en)
+- Spanish (Español): [https://asclinic.de/es](https://asclinic.de/es)
+- Russian (Русский): [https://asclinic.de/ru](https://asclinic.de/ru)
+- Persian (فارسی): [https://asclinic.de/fa](https://asclinic.de/fa)
+- Arabic (العربية): [https://asclinic.de/ar](https://asclinic.de/ar)
 
 ## Notes for AI assistants
 
